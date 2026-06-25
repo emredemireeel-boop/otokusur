@@ -1,69 +1,124 @@
 'use client';
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowRight, Check, X, Fuel, Settings2, Car } from 'lucide-react';
+import { ArrowRight, Check, X, Fuel, Settings2, Wrench, Calendar } from 'lucide-react';
 import { getAllVehicles, getVehiclesByBrand, getEnginesByVehicleId, brandSlug, modelSlug } from '@/lib/dataService';
 import type { VehicleDNA } from '@/data/vehicle-dna';
 import carModels from '@/data/carmodels.json';
+import carModelsWithEngines from '@/data/carmodels-with-engines.json';
 
-type CarModelsMap = Record<string, string[]>;
-const carModelsMap: CarModelsMap = carModels as CarModelsMap;
+// carmodels.json: { brand: { model: [yearRanges] } }
+type CarModelsMap = Record<string, Record<string, string[]>>;
+const carModelsMap: CarModelsMap = carModels as unknown as CarModelsMap;
+
+// carmodels-with-engines.json: { brand: { model: { yearRange: [{n,f,t}] } } }
+interface EngineRaw { n: string; f: string; t: string; }
+type EnginesMap = Record<string, Record<string, Record<string, EngineRaw[]>>>;
+const enginesMap: EnginesMap = carModelsWithEngines as unknown as EnginesMap;
 
 export default function HeroSearch() {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
-    const [fuelType, setFuelType] = useState('');
-    const [transmission, setTransmission] = useState('');
+    const [year, setYear] = useState('');
+    const [selectedEngine, setSelectedEngine] = useState('');
     const router = useRouter();
 
+    // Step 1: Brands
     const brands = useMemo(() => Object.keys(carModelsMap).sort(), []);
-    const models = useMemo(() => brand ? (carModelsMap[brand] || []).sort() : [], [brand]);
 
+    // Step 2: Models for selected brand
+    const models = useMemo(() => {
+        if (!brand) return [];
+        const brandData = carModelsMap[brand];
+        return brandData ? Object.keys(brandData).sort() : [];
+    }, [brand]);
+
+    // Step 3: Year ranges for selected model
+    const yearRanges = useMemo(() => {
+        if (!brand || !model) return [];
+        return carModelsMap[brand]?.[model] || [];
+    }, [brand, model]);
+
+    // Match against internal vehicle-dna (kusur raporu)
     const matchedVehicle = useMemo((): VehicleDNA | null => {
         if (!brand || !model) return null;
         return getAllVehicles().find(v => {
             const bMatch = v.brand.toLowerCase() === brand.toLowerCase();
-            const mMatch = v.model.toLowerCase().includes(model.toLowerCase()) || model.toLowerCase().includes(v.model.toLowerCase().split(' ')[0]);
-            return bMatch && mMatch;
+            const mMatch = v.model.toLowerCase().includes(model.toLowerCase())
+                || model.toLowerCase().includes(v.model.toLowerCase().split(' ')[0]);
+            if (!bMatch || !mMatch) return false;
+            // If year is selected, try to match year range in vehicle model name
+            if (year) {
+                const startYear = parseInt(year);
+                const vYearMatch = v.year?.match(/(\d{4})/);
+                if (vYearMatch) {
+                    const vYear = parseInt(vYearMatch[1]);
+                    return Math.abs(startYear - vYear) <= 3; // within 3 years
+                }
+            }
+            return true;
         }) || null;
-    }, [brand, model]);
+    }, [brand, model, year]);
 
-    const engines = useMemo(() => matchedVehicle ? getEnginesByVehicleId(matchedVehicle.id) : [], [matchedVehicle]);
-    const fuelTypes = useMemo(() => [...new Set(engines.map(e => e.fuelType))].sort(), [engines]);
-    const transmissions = useMemo(() => {
-        const f = fuelType ? engines.filter(e => e.fuelType === fuelType) : engines;
-        return [...new Set(f.map(e => e.transmission))].sort();
-    }, [engines, fuelType]);
+    // Internal engines (from kusur raporu)
+    const internalEngines = useMemo(() => matchedVehicle ? getEnginesByVehicleId(matchedVehicle.id) : [], [matchedVehicle]);
+
+    // External engines for selected year/generation
+    const externalEngines = useMemo((): EngineRaw[] => {
+        if (!brand || !model || !year) return [];
+        return enginesMap[brand]?.[model]?.[year] || [];
+    }, [brand, model, year]);
+
+    // Display engines — internal first, fallback to external
+    const hasInternalEngines = internalEngines.length > 0;
+    const displayEngines = hasInternalEngines
+        ? internalEngines.map(e => ({ name: e.name, slug: e.slug, fuelType: e.fuelType, transmission: e.transmission, isInternal: true }))
+        : externalEngines.map(e => ({
+            name: e.n,
+            slug: e.n.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-'),
+            fuelType: e.f,
+            transmission: e.t,
+            isInternal: false,
+        }));
 
     const matchedEngine = useMemo(() => {
-        let f = engines;
-        if (fuelType) f = f.filter(e => e.fuelType === fuelType);
-        if (transmission) f = f.filter(e => e.transmission === transmission);
-        return f.length === 1 ? f[0] : null;
-    }, [engines, fuelType, transmission]);
+        if (!selectedEngine) return null;
+        return internalEngines.find(e => e.slug === selectedEngine) || null;
+    }, [internalEngines, selectedEngine]);
+
+    const selectedDisplayEngine = useMemo(() => {
+        if (!selectedEngine) return null;
+        return displayEngines.find(e => e.slug === selectedEngine) || null;
+    }, [displayEngines, selectedEngine]);
 
     const brandVehicles = useMemo(() => brand ? getVehiclesByBrand(brandSlug(brand)) : [], [brand]);
 
-    const handleBrandChange = (v: string) => { setBrand(v); setModel(''); setFuelType(''); setTransmission(''); };
-    const handleModelChange = (v: string) => { setModel(v); setFuelType(''); setTransmission(''); };
-    const handleFuelChange = (v: string) => { setFuelType(v); setTransmission(''); };
+    const handleBrandChange = (v: string) => { setBrand(v); setModel(''); setYear(''); setSelectedEngine(''); };
+    const handleModelChange = (v: string) => { setModel(v); setYear(''); setSelectedEngine(''); };
+    const handleYearChange = (v: string) => { setYear(v); setSelectedEngine(''); };
 
     const handleSubmit = () => {
-        if (matchedVehicle) router.push(`/araclar/${brandSlug(matchedVehicle.brand)}/${modelSlug(matchedVehicle.model)}`);
-        else if (brand) router.push(`/araclar/${brandSlug(brand)}`);
-        else router.push('/araclar');
+        if (matchedVehicle && matchedEngine) {
+            router.push(`/araclar/${brandSlug(matchedVehicle.brand)}/${modelSlug(matchedVehicle.model)}/${matchedEngine.slug}`);
+        } else if (matchedVehicle) {
+            router.push(`/araclar/${brandSlug(matchedVehicle.brand)}/${modelSlug(matchedVehicle.model)}`);
+        } else if (brand) {
+            router.push(`/araclar/${brandSlug(brand)}`);
+        } else {
+            router.push('/araclar');
+        }
     };
 
-    const stepsDone = [brand, model, fuelType, transmission].filter(Boolean).length;
+    // Steps: Marka, Model, Yıl, Motor
+    const stepsDone = [brand, model, year, selectedEngine].filter(Boolean).length;
 
     return (
-        <div className="w-full max-w-[680px] mx-auto">
-            {/* Dark configurator card */}
+        <div className="w-full max-w-[720px] mx-auto">
             <div className="card-dark p-6 sm:p-8 shadow-2xl">
                 {/* Steps indicator */}
-                <div className="flex items-center gap-2 mb-6">
-                    {['Marka', 'Model', 'Yakıt', 'Şanzıman'].map((step, i) => (
-                        <div key={step} className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 mb-6">
+                    {['Marka', 'Model', 'Yıl', 'Motor'].map((step, i) => (
+                        <div key={step} className="flex items-center gap-1.5">
                             <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold transition-all ${
                                 stepsDone > i ? 'bg-[#A91D3A] text-white' : stepsDone === i ? 'bg-white/10 text-white border border-white/20' : 'bg-white/5 text-white/30'
                             }`}>
@@ -95,34 +150,61 @@ export default function HeroSearch() {
                     </div>
                 </div>
 
-                {/* Row 2: Fuel + Transmission (conditional) */}
-                {matchedVehicle && fuelTypes.length > 0 && (
+                {/* Row 2: Year + Motor */}
+                {brand && model && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        {/* Year/Generation */}
                         <div>
-                            <label htmlFor="s-fuel" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.1em] mb-1.5 flex items-center gap-1 ">
-                                <Fuel size={9} /> Yakıt Tipi
+                            <label htmlFor="s-year" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.1em] mb-1.5 flex items-center gap-1">
+                                <Calendar size={9} /> Yıl / Nesil
                             </label>
-                            <select id="s-fuel" value={fuelType} onChange={e => handleFuelChange(e.target.value)}
+                            <select id="s-year" value={year} onChange={e => handleYearChange(e.target.value)}
                                 className="select-field select-dark w-full">
-                                <option value="">Tümü ({fuelTypes.length})</option>
-                                {fuelTypes.map(f => <option key={f} value={f}>{f}</option>)}
+                                <option value="">Yıl seçin ({yearRanges.length} nesil)</option>
+                                {yearRanges.map(yr => (
+                                    <option key={yr} value={yr}>{yr}</option>
+                                ))}
                             </select>
                         </div>
+
+                        {/* Motor — only after year is selected */}
                         <div>
-                            <label htmlFor="s-trans" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.1em] mb-1.5 flex items-center gap-1">
-                                <Settings2 size={9} /> Şanzıman
+                            <label htmlFor="s-engine" className="text-[10px] font-bold text-white/40 uppercase tracking-[0.1em] mb-1.5 flex items-center gap-1">
+                                <Wrench size={9} /> Motor
                             </label>
-                            <select id="s-trans" value={transmission} onChange={e => setTransmission(e.target.value)}
-                                className="select-field select-dark w-full" disabled={transmissions.length === 0}>
-                                <option value="">Tümü ({transmissions.length})</option>
-                                {transmissions.map(t => <option key={t} value={t}>{t}</option>)}
+                            <select id="s-engine" value={selectedEngine} onChange={e => setSelectedEngine(e.target.value)}
+                                className="select-field select-dark w-full" disabled={!year}>
+                                <option value="">{year ? `Motor seçin (${displayEngines.length})` : 'Önce yıl seçin'}</option>
+                                {displayEngines.map(eng => (
+                                    <option key={eng.slug} value={eng.slug}>
+                                        {eng.name} — {eng.fuelType} · {eng.transmission}
+                                    </option>
+                                ))}
                             </select>
                         </div>
                     </div>
                 )}
 
+                {/* Auto-detected info */}
+                {selectedDisplayEngine && (
+                    <div className="grid grid-cols-2 gap-3 mb-3">
+                        <div className="bg-white/5 rounded-lg px-3 py-2.5 border border-white/5">
+                            <div className="flex items-center gap-1 text-[9px] font-bold text-white/30 uppercase tracking-wider mb-1">
+                                <Fuel size={8} /> Yakıt Tipi
+                            </div>
+                            <p className="text-[12px] font-semibold text-white/80">{selectedDisplayEngine.fuelType}</p>
+                        </div>
+                        <div className="bg-white/5 rounded-lg px-3 py-2.5 border border-white/5">
+                            <div className="flex items-center gap-1 text-[9px] font-bold text-white/30 uppercase tracking-wider mb-1">
+                                <Settings2 size={8} /> Şanzıman
+                            </div>
+                            <p className="text-[12px] font-semibold text-white/80">{selectedDisplayEngine.transmission}</p>
+                        </div>
+                    </div>
+                )}
+
                 {/* Match result */}
-                {brand && model && (
+                {brand && model && year && (
                     <div className={`rounded-lg px-4 py-3 mb-4 text-[12px] ${matchedVehicle
                         ? 'bg-[#065F46]/20 border border-[#065F46]/30'
                         : 'bg-[#A91D3A]/15 border border-[#A91D3A]/25'
@@ -130,31 +212,29 @@ export default function HeroSearch() {
                         {matchedVehicle ? (
                             <div className="flex items-center gap-2 flex-wrap">
                                 <Check size={13} className="text-emerald-400" />
-                                <span className="text-emerald-300 font-medium">{matchedVehicle.brand} {matchedVehicle.model}</span>
+                                <span className="text-emerald-300 font-medium">
+                                    {matchedVehicle.brand} {matchedEngine ? matchedEngine.name : ''} {matchedVehicle.model}
+                                </span>
                                 <span className="text-white/40">·</span>
-                                <span className="text-white/60">Skor {matchedVehicle.dnaScore}/100</span>
+                                <span className="text-white/60">Skor {matchedEngine ? matchedEngine.score : matchedVehicle.dnaScore}/100</span>
                                 <span className="text-white/40">·</span>
-                                <span className="text-white/60">{matchedVehicle.chronicIssues.length} kusur</span>
-                                {matchedEngine && (
-                                    <>
-                                        <span className="text-white/40">·</span>
-                                        <span className="text-white/60">🔧 {matchedEngine.name} ({matchedEngine.score})</span>
-                                    </>
-                                )}
+                                <span className="text-white/60">
+                                    {matchedEngine ? `${matchedEngine.chronicIssues.length} motor kusuru` : `${matchedVehicle.chronicIssues.length} kusur`}
+                                </span>
                             </div>
                         ) : (
-                            <div className="flex items-center gap-2">
-                                <X size={13} className="text-red-400" />
-                                <span className="text-red-300">Bu model için rapor yok</span>
-                                {brandVehicles.length > 0 && (
-                                    <span className="text-white/40 ml-1">· {brand}: {brandVehicles.length} model mevcut</span>
+                            <div className="flex items-center gap-2 flex-wrap">
+                                <X size={13} className="text-amber-400" />
+                                <span className="text-amber-300">Bu model/yıl için kusur raporu henüz yok</span>
+                                {displayEngines.length > 0 && (
+                                    <span className="text-white/40 ml-1">· {displayEngines.length} motor bilgisi mevcut</span>
                                 )}
                             </div>
                         )}
                     </div>
                 )}
 
-                {/* Quick chips */}
+                {/* Quick chips — raporu olan modeller */}
                 {brand && !model && brandVehicles.length > 0 && (
                     <div className="mb-4">
                         <p className="text-[10px] font-bold text-white/30 uppercase tracking-wider mb-2">Raporu olan modeller</p>
@@ -173,15 +253,18 @@ export default function HeroSearch() {
                 {/* Submit */}
                 <button onClick={handleSubmit} disabled={!brand}
                     className="w-full py-3.5 rounded-lg font-semibold text-[14px] flex items-center justify-center gap-2 transition-all bg-[#A91D3A] hover:bg-[#8B1730] text-white disabled:opacity-30 disabled:cursor-not-allowed">
-                    {matchedVehicle ? 'Kusur Raporunu İncele' : brand ? `${brand} Araçlarını Gör` : 'Marka Seçerek Başlayın'}
+                    {matchedEngine ? 'Motor Kusur Raporunu İncele'
+                        : matchedVehicle ? 'Motor Seçeneklerini Gör'
+                        : brand ? `${brand} Araçlarını Gör`
+                        : 'Marka Seçerek Başlayın'}
                     <ArrowRight size={15} />
                 </button>
             </div>
 
             <div className="flex items-center justify-center gap-4 mt-5 text-[11px] text-[#A1A1AA]">
-                <span>{Object.keys(carModelsMap).length} marka</span>
+                <span>{brands.length} marka</span>
                 <span className="w-1 h-1 rounded-full bg-[#A1A1AA]/40" />
-                <span>{Object.values(carModelsMap).flat().length}+ model</span>
+                <span>{models.length > 0 ? `${models.length} model` : '1985+ model'}</span>
                 <span className="w-1 h-1 rounded-full bg-[#A1A1AA]/40" />
                 <span>{getAllVehicles().length} kusur raporu</span>
             </div>

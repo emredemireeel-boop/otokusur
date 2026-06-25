@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeaderClient } from "@/components/Header";
+import Logo from "@/components/Logo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,13 +33,8 @@ function Header() {
         <header className="sticky top-0 z-50 bg-white border-b border-[#EBEBED]">
             <div className="container-main flex items-center justify-between h-14">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-md bg-[#A91D3A] flex items-center justify-center">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <span className="text-[15px] font-bold text-[#0F0F10] tracking-tight">
-                        OtoKusur<span className="text-[#A91D3A]">.</span>
-                    </span>
+                <Link href="/" className="flex items-center">
+                    <Logo size="sm" variant="light" />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -65,11 +61,8 @@ function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     {/* Brand */}
                     <div className="md:col-span-5">
-                        <div className="flex items-center gap-2.5 mb-4">
-                            <div className="w-7 h-7 rounded-md bg-[#A91D3A] flex items-center justify-center">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            </div>
-                            <span className="text-[15px] font-bold tracking-tight">OtoKusur<span className="text-[#A91D3A]">.</span></span>
+                        <div className="mb-4">
+                            <Logo size="sm" variant="dark" />
                         </div>
                         <p className="text-[13px] text-[#71717A] leading-relaxed max-w-xs">
                             Araçların kronik arızalarını, model bazlı risklerini ve motor sorunlarını gösterir. Almadan önce araştır.

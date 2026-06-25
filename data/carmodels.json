@@ -1,2022 +1,7616 @@
 {
-  "AMC": [
-    "Ambassador",
-    "Concord",
-    "Eagle",
-    "Gremlin",
-    "Hornet",
-    "Javelin",
-    "Matador",
-    "Pacer",
-    "Rambler",
-    "Spirit"
-  ],
-  "Abarth": [
-    "500",
-    "595",
-    "695",
-    "124 Spider",
-    "Punto Evo"
-  ],
-  "Acura": [
-    "CL",
-    "CSX",
-    "EL",
-    "ILX",
-    "Integra",
-    "Legend",
-    "MDX",
-    "NSX",
-    "RDX",
-    "RL",
-    "RSX",
-    "SLX",
-    "TL",
-    "TLX",
-    "TSX",
-    "Vigor",
-    "ZDX"
-  ],
-  "Alfa Romeo": [
-    "105/115 Series Coupés",
-    "12 HP",
-    "12C",
-    "145",
-    "146",
-    "147",
-    "15 HP",
-    "15/20 HP",
-    "155",
-    "156",
-    "159",
-    "164",
-    "166",
-    "1750 Berlina",
-    "1900",
-    "20/30 HP",
-    "2000",
-    "2000 Berlina",
-    "2000 GTV",
-    "2000 Spider Veloce",
-    "2000 Sportiva",
-    "2300",
-    "24 HP",
-    "2600",
-    "33",
-    "33 Stradale",
-    "40/60 HP",
-    "4C",
-    "6C",
-    "75",
-    "8C",
-    "8C Competizione",
-    "90",
-    "AR6",
-    "AR8",
-    "Alfa 6",
-    "Alfasud",
-    "Alfasud Sprint",
-    "Alfetta",
-    "Alphasud",
-    "Arna",
-    "Brera",
-    "Brera and Spider",
-    "Dauphine",
-    "G1",
-    "GT",
-    "GT 1300 Junior",
-    "GTA",
-    "GTV",
-    "GTV 2.0",
-    "Giulia",
-    "Giulia TZ",
-    "Giulietta",
-    "Giulietta Sprint Speciale",
-    "Gran Sport Quattroruote",
-    "Junior",
-    "MiTo",
-    "Matta",
-    "Montreal",
-    "RL",
-    "RM",
-    "RZ",
-    "Romeo",
-    "SZ",
-    "Spider",
-    "Sports Sedan",
-    "Sprint",
-    "Sprint Veloce",
-    "Stelvio",
-    "Tonale"
-  ],
-  "Alpine": [
-    "A110",
-    "A310",
-    "A610",
-    "GTA"
-  ],
-  "Aston Martin": [
-    "Bulldog",
-    "Cygnet",
-    "DB7",
-    "DB9",
-    "DB11",
-    "DB12",
-    "DBS",
-    "DBX",
-    "Lagonda",
-    "One-77",
-    "Rapide",
-    "V8 Vantage",
-    "V12 Vanquish",
-    "Valkyrie",
-    "Vantage",
-    "Virage",
-    "Vulcan"
-  ],
-  "Audi": [
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A4 Allroad",
-    "A5",
-    "A6",
-    "A6 Allroad",
-    "A7",
-    "A8",
-    "50",
-    "80",
-    "90",
-    "100",
-    "200",
-    "Cabriolet",
-    "Coupe",
-    "e-tron",
-    "e-tron GT",
-    "Q2",
-    "Q3",
-    "Q4 e-tron",
-    "Q5",
-    "Q6 e-tron",
-    "Q7",
-    "Q8",
-    "Q8 e-tron",
-    "Quattro",
-    "R8",
-    "RS2 Avant",
-    "RS3",
-    "RS4",
-    "RS5",
-    "RS6",
-    "RS7",
-    "S1",
-    "S2",
-    "S3",
-    "S4",
-    "S5",
-    "S6",
-    "S7",
-    "S8",
-    "SQ5",
-    "SQ7",
-    "SQ8",
-    "TT",
-    "TTS",
-    "TTRS",
-    "V8"
-  ],
-  "Austin": [
-    "Allegro",
-    "Ambassador",
-    "Maestro",
-    "Maxi",
-    "Metro",
-    "Mini",
-    "Montego",
-    "Princess"
-  ],
-  "BMW": [
-    "1 Serisi (1M)",
-    "2 Serisi",
-    "3 Serisi (M3)",
-    "4 Serisi (M4)",
-    "5 Serisi (M5)",
-    "6 Serisi (M6)",
-    "7 Serisi",
-    "8 Serisi (M8)",
-    "i3",
-    "i4",
-    "i5",
-    "i7",
-    "i8",
-    "iX",
-    "iX1",
-    "iX2",
-    "iX3",
-    "M1",
-    "X1",
-    "X2",
-    "X3 (X3M)",
-    "X4 (X4M)",
-    "X5 (X5M)",
-    "X6 (X6M)",
-    "X7",
-    "Z1",
-    "Z3",
-    "Z4",
-    "Z8",
-    "2002"
-  ],
-  "BYD": [
-    "Atto 3",
-    "Dolphin",
-    "Han",
-    "Seal",
-    "Song",
-    "Tang"
-  ],
-  "Bentley": [
-    "Arnage",
-    "Azure",
-    "Bentayga",
-    "Brooklands",
-    "Continental",
-    "Continental Flying Spur",
-    "Continental GT",
-    "Corniche",
-    "Eight",
-    "Flying Spur",
-    "Mulsanne",
-    "Turbo R"
-  ],
-  "Buick": [
-    "Century",
-    "Electra",
-    "Enclave",
-    "Encore",
-    "Envision",
-    "LaCrosse",
-    "LeSabre",
-    "Lucerne",
-    "Park Avenue",
-    "Rainier",
-    "Reatta",
-    "Regal",
-    "Rendezvous",
-    "Riviera",
-    "Roadmaster",
-    "Skyhawk",
-    "Skylark",
-    "Terraza"
-  ],
-  "Cadillac": [
-    "Allante",
-    "ATS",
-    "BLS",
-    "Brougham",
-    "Catera",
-    "Celestiq",
-    "Cimarron",
-    "CT4",
-    "CT5",
-    "CT6",
-    "CTS",
-    "DeVille",
-    "DTS",
-    "Eldorado",
-    "Escalade",
-    "Fleetwood",
-    "Lyriq",
-    "Seville",
-    "SRX",
-    "STS",
-    "XLR",
-    "XT4",
-    "XT5",
-    "XT6",
-    "XTS"
-  ],
-  "Chery": [
-    "Aria",
-    "J1",
-    "J3",
-    "J11",
-    "Omoda 5",
-    "Tiggo",
-    "Tiggo 4 Pro",
-    "Tiggo 7 Pro",
-    "Tiggo 8 Pro"
-  ],
-  "Chevrolet": [
-    "Astro",
-    "Avalanche",
-    "Aveo",
-    "Beretta",
-    "Blazer",
-    "Bolt",
-    "Camaro",
-    "Caprice",
-    "Captiva",
-    "Cavalier",
-    "Celebrity",
-    "Chevelle",
-    "Chevette",
-    "Citation",
-    "Cobalt",
-    "Colorado",
-    "Corsica",
-    "Corvette",
-    "Cruze",
-    "El Camino",
-    "Epica",
-    "Equinox",
-    "Express",
-    "HHR",
-    "Impala",
-    "Kalos",
-    "Lacetti",
-    "Lumina",
-    "Malibu",
-    "Monte Carlo",
-    "Monza",
-    "Nova",
-    "Rezzo",
-    "S-10",
-    "Silverado",
-    "Sonic",
-    "Spark",
-    "SSR",
-    "Suburban",
-    "Tahoe",
-    "Tracker",
-    "TrailBlazer",
-    "Traverse",
-    "Trax",
-    "Uplander",
-    "Vega",
-    "Volt"
-  ],
-  "Chrysler": [
-    "200",
-    "300",
-    "300M",
-    "Aspen",
-    "Cirrus",
-    "Concorde",
-    "Crossfire",
-    "Fifth Avenue",
-    "Grand Voyager",
-    "Imperial",
-    "Laser",
-    "LeBaron",
-    "LHS",
-    "Neon",
-    "New Yorker",
-    "Pacifica",
-    "Prowler",
-    "PT Cruiser",
-    "Sebring",
-    "Town & Country",
-    "Voyager"
-  ],
-  "Citro\u00ebn": [
-    "2CV",
-    "Ami",
-    "AX",
-    "Axel",
-    "Berlingo",
-    "BX",
-    "C-Crosser",
-    "C-Elysee",
-    "C1",
-    "C2",
-    "C3",
-    "C3 Aircross",
-    "C4",
-    "C4 Aircross",
-    "C4 Cactus",
-    "C4 Picasso",
-    "C4 X",
-    "C5",
-    "C5 Aircross",
-    "C5 X",
-    "C6",
-    "C8",
-    "CX",
-    "DS",
-    "DS3",
-    "DS4",
-    "DS5",
-    "Dyane",
-    "Evasion",
-    "GS",
-    "GSA",
-    "Jumper",
-    "Jumpy",
-    "Nemo",
-    "Saxo",
-    "SM",
-    "Visa",
-    "Xantia",
-    "XM",
-    "Xsara",
-    "Xsara Picasso",
-    "ZX"
-  ],
-  "Cupra": [
-    "Ateca",
-    "Born",
-    "Formentor",
-    "Leon",
-    "Tavascan"
-  ],
-  "DS Automobiles": [
-    "DS 3",
-    "DS 4",
-    "DS 7",
-    "DS 9"
-  ],
-  "Dacia": [
-    "1300",
-    "1310",
-    "Duster",
-    "Jogger",
-    "Lodgy",
-    "Logan",
-    "Nova",
-    "Sandero",
-    "Solenza",
-    "Spring"
-  ],
-  "Daewoo": [
-    "Espero",
-    "Evanda",
-    "Kalos",
-    "Korando",
-    "Lacetti",
-    "Lanos",
-    "Leganza",
-    "LeMans",
-    "Magnus",
-    "Matiz",
-    "Musso",
-    "Nexia",
-    "Nubira",
-    "Rezzo",
-    "Tacuma",
-    "Tico"
-  ],
-  "Daihatsu": [
-    "Applause",
-    "Charade",
-    "Charmant",
-    "Copen",
-    "Cuore",
-    "Feroza",
-    "Gran Move",
-    "Materia",
-    "Mira",
-    "Move",
-    "Rocky",
-    "Sirion",
-    "Taft",
-    "Terios",
-    "Trevis",
-    "YRV"
-  ],
-  "Datsun": [
-    "100A",
-    "120Y",
-    "180B",
-    "240Z",
-    "260Z",
-    "280Z",
-    "510",
-    "Bluebird",
-    "Cherry",
-    "Laurel",
-    "Sunny",
-    "Violet"
-  ],
-  "DeLorean": [
-    "DMC-12"
-  ],
-  "Dodge": [
-    "Aries",
-    "Avenger",
-    "Caliber",
-    "Caravan",
-    "Challenger",
-    "Charger",
-    "Colt",
-    "Dakota",
-    "Dart",
-    "Daytona",
-    "Diplomat",
-    "Durango",
-    "Dynasty",
-    "Grand Caravan",
-    "Intrepid",
-    "Journey",
-    "Magnum",
-    "Monaco",
-    "Neon",
-    "Nitro",
-    "Omni",
-    "Ram",
-    "Shadow",
-    "Spirit",
-    "Stealth",
-    "Stratus",
-    "Viper"
-  ],
-  "Ferrari": [
-    "208",
-    "288 GTO",
-    "296 GTB",
-    "308",
-    "328",
-    "348",
-    "360 Modena",
-    "400",
-    "412",
-    "456",
-    "458 Italia",
-    "488",
-    "512 BB",
-    "512 TR",
-    "550 Maranello",
-    "575M Maranello",
-    "599 GTB Fiorano",
-    "612 Scaglietti",
-    "812 Superfast",
-    "California",
-    "Daytona SP3",
-    "Dino",
-    "Enzo",
-    "F8 Tributo",
-    "F12berlinetta",
-    "F355",
-    "F40",
-    "F430",
-    "F50",
-    "FF",
-    "GTC4Lusso",
-    "LaFerrari",
-    "Mondial",
-    "Portofino",
-    "Purosangue",
-    "Roma",
-    "SF90 Stradale",
-    "Testarossa"
-  ],
-  "Fiat": [
-    "124 Spider",
-    "126",
-    "127",
-    "128",
-    "130",
-    "131",
-    "132",
-    "500",
-    "500e",
-    "500L",
-    "500X",
-    "Albea",
-    "Argenta",
-    "Barchetta",
-    "Brava",
-    "Bravo",
-    "Cinquecento",
-    "Coupe",
-    "Croma",
-    "Doblo",
-    "Ducato",
-    "Egea",
-    "Fiorino",
-    "Freemont",
-    "Grande Punto",
-    "Idea",
-    "Linea",
-    "Marea",
-    "Multipla",
-    "Palio",
-    "Panda",
-    "Punto",
-    "Qubo",
-    "Regata",
-    "Ritmo",
-    "Scudo",
-    "Sedici",
-    "Seicento",
-    "Siena",
-    "Stilo",
-    "Strada",
-    "Tempra",
-    "Tipo",
-    "Topolino",
-    "Ulysse",
-    "Uno",
-    "X1/9"
-  ],
-  "Fisker": [
-    "Karma",
-    "Ocean"
-  ],
-  "Ford": [
-    "Aerostar",
-    "Aspire",
-    "B-Max",
-    "Bronco",
-    "Bronco II",
-    "C-Max",
-    "Capri",
-    "Contour",
-    "Cortina",
-    "Cougar",
-    "Courier",
-    "Crown Victoria",
-    "Ecosport",
-    "Edge",
-    "Escape",
-    "Escort",
-    "Everest",
-    "Excursion",
-    "Expedition",
-    "Explorer",
-    "F-150",
-    "Fairlane",
-    "Fairmont",
-    "Falcon",
-    "Festiva",
-    "Fiesta",
-    "Five Hundred",
-    "Flex",
-    "Focus",
-    "Freestar",
-    "Freestyle",
-    "Fusion",
-    "Galaxy",
-    "Granada",
-    "GT",
-    "Ka",
-    "Kuga",
-    "LTD",
-    "Maverick",
-    "Mondeo",
-    "Mustang",
-    "Mustang Mach-E",
-    "Orion",
-    "Pinto",
-    "Probe",
-    "Puma",
-    "Ranger",
-    "S-Max",
-    "Scorpio",
-    "Sierra",
-    "Taunus",
-    "Taurus",
-    "Tempo",
-    "Thunderbird",
-    "Tourneo Connect",
-    "Tourneo Courier",
-    "Transit",
-    "Windstar"
-  ],
-  "GMC": [
-    "Acadia",
-    "Caballero",
-    "Canyon",
-    "Envoy",
-    "Hummer EV",
-    "Jimmy",
-    "Safari",
-    "Savana",
-    "Sierra",
-    "Sonoma",
-    "Syclone",
-    "Terrain",
-    "Typhoon",
-    "Vandura",
-    "Yukon"
-  ],
-  "Geely": [
-    "Coolray",
-    "Emgrand",
-    "MK"
-  ],
-  "Genesis": [
-    "G70",
-    "G80",
-    "G90",
-    "GV60",
-    "GV70",
-    "GV80"
-  ],
-  "Holden": [
-    "Adventra",
-    "Apollo",
-    "Astra",
-    "Barina",
-    "Calais",
-    "Caprice",
-    "Commodore",
-    "Cruze",
-    "Gemini",
-    "Monaro",
-    "Statesman",
-    "Torana",
-    "Ute"
-  ],
-  "Honda": [
-    "Accord",
-    "Acty",
-    "City",
-    "Civic",
-    "Clarity",
-    "Concerto",
-    "CR-V",
-    "CR-Z",
-    "CRX",
-    "e",
-    "e:Ny1",
-    "Element",
-    "Fit",
-    "FR-V",
-    "HR-V",
-    "Insight",
-    "Integra",
-    "Jazz",
-    "Legend",
-    "Logo",
-    "NSX",
-    "Odyssey",
-    "Passport",
-    "Pilot",
-    "Prelude",
-    "Quintet",
-    "Ridgeline",
-    "S2000",
-    "Shuttle",
-    "Stream",
-    "Today",
-    "Vigor",
-    "ZR-V"
-  ],
-  "Hummer": [
-    "H1",
-    "H2",
-    "H3"
-  ],
-  "Hyundai": [
-    "Accent",
-    "Atos",
-    "Azera",
-    "Bayon",
-    "Coupe",
-    "Elantra",
-    "Equus",
-    "Excel",
-    "Galloper",
-    "Genesis",
-    "Genesis Coupe",
-    "Getz",
-    "Grandeur",
-    "i10",
-    "i20",
-    "i30",
-    "i40",
-    "Ioniq",
-    "Ioniq 5",
-    "Ioniq 6",
-    "Kona",
-    "Lantra",
-    "Matrix",
-    "Nexo",
-    "Palisade",
-    "Pony",
-    "Santa Fe",
-    "Santa Cruz",
-    "Santamo",
-    "Scoupe",
-    "Sonata",
-    "Starex",
-    "Stellar",
-    "Terracan",
-    "Tiburon",
-    "Trajet",
-    "Tucson",
-    "Veloster",
-    "Venue",
-    "Veracruz",
-    "XG"
-  ],
-  "Infiniti": [
-    "EX",
-    "FX",
-    "G",
-    "I30",
-    "J30",
-    "M",
-    "Q30",
-    "Q40",
-    "Q45",
-    "Q50",
-    "Q60",
-    "Q70",
-    "QX30",
-    "QX4",
-    "QX50",
-    "QX56",
-    "QX60",
-    "QX70",
-    "QX80"
-  ],
-  "Isuzu": [
-    "Amigo",
-    "Ascender",
-    "Aska",
-    "Axiom",
-    "D-Max",
-    "Gemini",
-    "Hombre",
-    "Impulse",
-    "Oasis",
-    "Piazza",
-    "Rodeo",
-    "Stylus",
-    "Trooper",
-    "VehiCROSS"
-  ],
-  "Jaguar": [
-    "E-Pace",
-    "E-Type",
-    "F-Pace",
-    "F-Type",
-    "I-Pace",
-    "S-Type",
-    "X-Type",
-    "XE",
-    "XF",
-    "XJ",
-    "XJ220",
-    "XJS",
-    "XK",
-    "XKR"
-  ],
-  "Jeep": [
-    "Avenger",
-    "Cherokee",
-    "CJ",
-    "Comanche",
-    "Commander",
-    "Compass",
-    "Gladiator",
-    "Grand Cherokee",
-    "Grand Wagoneer",
-    "Liberty",
-    "Patriot",
-    "Renegade",
-    "Wagoneer",
-    "Wrangler"
-  ],
-  "Kia": [
-    "Avella",
-    "Bongo",
-    "Cadenza",
-    "Capital",
-    "Carens",
-    "Carnival",
-    "Ceed",
-    "Cerato",
-    "Clarus",
-    "Concord",
-    "Credos",
-    "Elan",
-    "EV6",
-    "EV9",
-    "Forte",
-    "Joice",
-    "K5",
-    "K900",
-    "Magentis",
-    "Mentor",
-    "Mohave",
-    "Niro",
-    "Opirus",
-    "Optima",
-    "Picanto",
-    "Potentia",
-    "Pregio",
-    "Pride",
-    "ProCeed",
-    "Retona",
-    "Rio",
-    "Sedona",
-    "Sephia",
-    "Shuma",
-    "Sorento",
-    "Soul",
-    "Spectra",
-    "Sportage",
-    "Stinger",
-    "Stonic",
-    "Telluride",
-    "Venga",
-    "XCeed"
-  ],
-  "Koenigsegg": [
-    "Agera",
-    "CC8S",
-    "CCX",
-    "Gemera",
-    "Jesko",
-    "One:1",
-    "Regera"
-  ],
-  "Lada": [
-    "110",
-    "111",
-    "112",
-    "Granta",
-    "Kalina",
-    "Niva",
-    "Riva",
-    "Samara",
-    "Vesta"
-  ],
-  "Lamborghini": [
-    "Aventador",
-    "Centenario",
-    "Countach",
-    "Diablo",
-    "Espada",
-    "Gallardo",
-    "Huracan",
-    "Jalpa",
-    "Jarama",
-    "LM002",
-    "Miura",
-    "Murcielago",
-    "Reventon",
-    "Revuelto",
-    "Sesto Elemento",
-    "Silhouette",
-    "Si\u00e1n",
-    "Urus",
-    "Veneno"
-  ],
-  "Lancia": [
-    "Beta",
-    "Dedra",
-    "Delta",
-    "Flavia",
-    "Fulvia",
-    "Gamma",
-    "Kappa",
-    "Lybra",
-    "Montecarlo",
-    "Prisma",
-    "Stratos",
-    "Thema",
-    "Thesis",
-    "Trevi",
-    "Y10",
-    "Ypsilon",
-    "Zeta"
-  ],
-  "Land Rover": [
-    "Defender",
-    "Discovery",
-    "Discovery Sport",
-    "Freelander",
-    "Range Rover",
-    "Range Rover Evoque",
-    "Range Rover Sport",
-    "Range Rover Velar",
-    "Series I",
-    "Series II",
-    "Series III"
-  ],
-  "Lexus": [
-    "CT",
-    "ES",
-    "GS",
-    "GX",
-    "HS",
-    "IS",
-    "LC",
-    "LFA",
-    "LM",
-    "LS",
-    "LX",
-    "NX",
-    "RC",
-    "RX",
-    "RZ",
-    "SC",
-    "UX"
-  ],
-  "Lincoln": [
-    "Aviator",
-    "Blackwood",
-    "Continental",
-    "Corsair",
-    "LS",
-    "Mark LT",
-    "Mark VII",
-    "Mark VIII",
-    "MKC",
-    "MKS",
-    "MKT",
-    "MKX",
-    "MKZ",
-    "Nautilus",
-    "Navigator",
-    "Town Car",
-    "Versailles",
-    "Zephyr"
-  ],
-  "Lotus": [
-    "Elan",
-    "Eletre",
-    "Elise",
-    "Emira",
-    "Esprit",
-    "Europa",
-    "Evora",
-    "Excel",
-    "Exige"
-  ],
-  "Lucid": [
-    "Air"
-  ],
-  "MG": [
-    "Cyberster",
-    "F",
-    "HS",
-    "Maestro",
-    "Metro",
-    "Montego",
-    "RV8",
-    "TF",
-    "XPower SV",
-    "ZR",
-    "ZS",
-    "ZT",
-    "MG3",
-    "MG4",
-    "MG5",
-    "Marvel R"
-  ],
-  "Maserati": [
-    "228",
-    "3200 GT",
-    "4200 GT",
-    "Barchetta",
-    "Biturbo",
-    "Bora",
-    "Coupe",
-    "Ghibli",
-    "GranCabrio",
-    "GranTurismo",
-    "Grecale",
-    "Indy",
-    "Karif",
-    "Khamsin",
-    "Kyalami",
-    "Levante",
-    "MC12",
-    "MC20",
-    "Merak",
-    "Quattroporte",
-    "Shamal",
-    "Spyder"
-  ],
-  "Mazda": [
-    "2",
-    "3",
-    "323",
-    "5",
-    "6",
-    "626",
-    "929",
-    "B-Series",
-    "Bongo",
-    "Cosmo",
-    "CX-3",
-    "CX-30",
-    "CX-5",
-    "CX-50",
-    "CX-60",
-    "CX-7",
-    "CX-80",
-    "CX-9",
-    "Lantis",
-    "Millenia",
-    "MPV",
-    "MX-3",
-    "MX-5 Miata",
-    "MX-6",
-    "Navajo",
-    "Premacy",
-    "Protege",
-    "RX-7",
-    "RX-8",
-    "Tribute",
-    "Xedos 6",
-    "Xedos 9"
-  ],
-  "McLaren": [
-    "540C",
-    "570S",
-    "600LT",
-    "650S",
-    "675LT",
-    "720S",
-    "765LT",
-    "Artura",
-    "Elva",
-    "F1",
-    "GT",
-    "MP4-12C",
-    "P1",
-    "Senna",
-    "Speedtail"
-  ],
-  "Mercedes-Benz": [
-    "190 (W201)",
-    "A-Serisi",
-    "AMG GT",
-    "B-Serisi",
-    "C-Serisi",
-    "Citan",
-    "CL-Serisi",
-    "CLA-Serisi",
-    "CLC-Serisi",
-    "CLK-Serisi",
-    "CLS-Serisi",
-    "E-Serisi (W123, W124)",
-    "EQA",
-    "EQB",
-    "EQC",
-    "EQE",
-    "EQS",
-    "G-Serisi",
-    "GL-Serisi",
-    "GLA-Serisi",
-    "GLB-Serisi",
-    "GLC-Serisi",
-    "GLE-Serisi",
-    "GLK-Serisi",
-    "GLS-Serisi",
-    "M-Serisi",
-    "R-Serisi",
-    "S-Serisi (W126, W140)",
-    "SL-Serisi",
-    "SLC-Serisi",
-    "SLK-Serisi",
-    "SLR McLaren",
-    "SLS AMG",
-    "Sprinter",
-    "V-Serisi",
-    "Vaneo",
-    "Viano",
-    "Vito",
-    "X-Serisi"
-  ],
-  "Mercury": [
-    "Capri",
-    "Cougar",
-    "Grand Marquis",
-    "Lynx",
-    "Marauder",
-    "Mariner",
-    "Milan",
-    "Montego",
-    "Monterey",
-    "Mountaineer",
-    "Mystique",
-    "Sable",
-    "Topaz",
-    "Tracer",
-    "Villager"
-  ],
-  "Mini": [
-    "Aceman",
-    "Cabrio",
-    "Clubman",
-    "Cooper",
-    "Countryman",
-    "Coupe",
-    "Paceman",
-    "Roadster"
-  ],
-  "Mitsubishi": [
-    "3000GT",
-    "ASX",
-    "Carisma",
-    "Celeste",
-    "Challenger",
-    "Colt",
-    "Cordia",
-    "Diamante",
-    "Eclipse",
-    "Eclipse Cross",
-    "Endeavor",
-    "FTO",
-    "Galant",
-    "Grandis",
-    "GTO",
-    "i-MiEV",
-    "L200",
-    "Lancer",
-    "Lancer Evolution",
-    "Magna",
-    "Mirage",
-    "Montero",
-    "Outlander",
-    "Pajero",
-    "Raider",
-    "Sapporo",
-    "Sigma",
-    "Space Runner",
-    "Space Star",
-    "Space Wagon",
-    "Starion",
-    "Tredia"
-  ],
-  "Nio": [
-    "EC6",
-    "EC7",
-    "ES6",
-    "ES7",
-    "ES8",
-    "ET5",
-    "ET7",
-    "EP9"
-  ],
-  "Nissan": [
-    "100NX",
-    "200SX",
-    "240SX",
-    "280ZX",
-    "300ZX",
-    "350Z",
-    "370Z",
-    "Almera",
-    "Altima",
-    "Ariya",
-    "Armada",
-    "Bluebird",
-    "Cedric",
-    "Cherry",
-    "Cube",
-    "Frontier",
-    "Gloria",
-    "GT-R",
-    "Juke",
-    "Kicks",
-    "Laurel",
-    "Leaf",
-    "Leopard",
-    "Maxima",
-    "Micra",
-    "Murano",
-    "Navara",
-    "Note",
-    "NP300",
-    "NV200",
-    "Pathfinder",
-    "Patrol",
-    "Pintara",
-    "Prairie",
-    "Presage",
-    "President",
-    "Primera",
-    "Pulsar",
-    "Qashqai",
-    "Quest",
-    "Rogue",
-    "Sentra",
-    "Serena",
-    "Silvia",
-    "Skyline",
-    "Stanza",
-    "Sunny",
-    "Terrano",
-    "Tiida",
-    "Titan",
-    "Vanette",
-    "Versa",
-    "X-Trail",
-    "Xterra"
-  ],
-  "Oldsmobile": [
-    "88",
-    "98",
-    "Achieva",
-    "Alero",
-    "Aurora",
-    "Bravada",
-    "Calais",
-    "Ciera",
-    "Custom Cruiser",
-    "Cutlass",
-    "Firenza",
-    "Intrigue",
-    "Omega",
-    "Silhouette",
-    "Starfire",
-    "Toronado"
-  ],
-  "Opel": [
-    "Adam",
-    "Agila",
-    "Ampera",
-    "Antara",
-    "Ascona",
-    "Astra",
-    "Calibra",
-    "Campo",
-    "Cascada",
-    "Combo",
-    "Commodore",
-    "Corsa",
-    "Crossland",
-    "Diplomat",
-    "Frontera",
-    "Grandland",
-    "GT",
-    "Insignia",
-    "Kadett",
-    "Manta",
-    "Meriva",
-    "Mokka",
-    "Monza",
-    "Movano",
-    "Omega",
-    "Rekord",
-    "Senator",
-    "Signum",
-    "Sintra",
-    "Speedster",
-    "Tigra",
-    "Vectra",
-    "Vivaro",
-    "Zafira"
-  ],
-  "Pagani": [
-    "Huayra",
-    "Utopia",
-    "Zonda"
-  ],
-  "Peugeot": [
-    "104",
-    "106",
-    "107",
-    "108",
-    "205",
-    "206",
-    "207",
-    "208",
-    "304",
-    "305",
-    "306",
-    "307",
-    "308",
-    "309",
-    "3008",
-    "404",
-    "405",
-    "406",
-    "407",
-    "408",
-    "4007",
-    "4008",
-    "504",
-    "505",
-    "508",
-    "5008",
-    "604",
-    "605",
-    "607",
-    "806",
-    "807",
-    "Bipper",
-    "Boxer",
-    "Expert",
-    "Hoggar",
-    "iOn",
-    "Partner",
-    "RCZ",
-    "Rifter"
-  ],
-  "Plymouth": [
-    "Acclaim",
-    "Arrow",
-    "Barracuda",
-    "Breeze",
-    "Caravelle",
-    "Colt",
-    "Conquest",
-    "Duster",
-    "Gran Fury",
-    "Horizon",
-    "Laser",
-    "Neon",
-    "Prowler",
-    "Reliant",
-    "Sapporo",
-    "Sundance",
-    "TC3",
-    "Turismo",
-    "Valiant",
-    "Voyager"
-  ],
-  "Polestar": [
-    "1",
-    "2",
-    "3",
-    "4"
-  ],
-  "Pontiac": [
-    "6000",
-    "Acadian",
-    "Astre",
-    "Aztek",
-    "Bonneville",
-    "Catalina",
-    "Fiero",
-    "Firebird",
-    "G3",
-    "G4",
-    "G5",
-    "G6",
-    "G8",
-    "Grand Am",
-    "Grand Prix",
-    "GTO",
-    "J2000",
-    "LeMans",
-    "Montana",
-    "Parisienne",
-    "Phoenix",
-    "Solstice",
-    "Sunbird",
-    "Sunfire",
-    "T1000",
-    "Torrent",
-    "Trans Sport",
-    "Vibe"
-  ],
-  "Porsche": [
-    "356",
-    "718 Boxster",
-    "718 Cayman",
-    "911",
-    "912",
-    "914",
-    "924",
-    "928",
-    "944",
-    "959",
-    "968",
-    "Boxster",
-    "Carrera GT",
-    "Cayenne",
-    "Cayman",
-    "Macan",
-    "Panamera",
-    "Taycan"
-  ],
-  "Proton": [
-    "Arena",
-    "Exora",
-    "Gen-2",
-    "Inspira",
-    "Juara",
-    "Perdana",
-    "Persona",
-    "Preve",
-    "Putra",
-    "Saga",
-    "Satria",
-    "Savvy",
-    "Suprima S",
-    "Waja",
-    "Wira"
-  ],
-  "Ram": [
-    "1500",
-    "2500",
-    "3500",
-    "Dakota",
-    "ProMaster"
-  ],
-  "Renault": [
-    "4",
-    "4 E-Tech",
-    "5",
-    "5 E-Tech",
-    "6",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "19",
-    "20",
-    "21",
-    "25",
-    "30",
-    "Alaskan",
-    "Alpine",
-    "Arkana",
-    "Austral",
-    "Avantime",
-    "Captur",
-    "Clio",
-    "Duster Oroch",
-    "Espace",
-    "Express",
-    "Fluence",
-    "Fuego",
-    "Kadjar",
-    "Kangoo",
-    "Kardian",
-    "Kiger",
-    "Koleos",
-    "Kwid",
-    "Laguna",
-    "Latitude",
-    "Megane",
-    "Mégane E-Tech Electric",
-    "Modus",
-    "Rafale",
-    "Rodeo",
-    "Safrane",
-    "Scenic",
-    "Scenic E-Tech",
-    "Spider",
-    "Symbol",
-    "Symbioz",
-    "Taliant",
-    "Talisman",
-    "Thalia",
-    "Trafic",
-    "Treiber",
-    "Twingo",
-    "Vel Satis",
-    "Wind",
-    "Zoe"
-  ],
-  "Rivian": [
-    "R1S",
-    "R1T"
-  ],
-  "Rolls-Royce": [
-    "Camargue",
-    "Corniche",
-    "Cullinan",
-    "Dawn",
-    "Ghost",
-    "Park Ward",
-    "Phantom",
-    "Silver Dawn",
-    "Silver Seraph",
-    "Silver Shadow",
-    "Silver Spirit",
-    "Silver Spur",
-    "Spectre",
-    "Wraith"
-  ],
-  "Rover": [
-    "25",
-    "45",
-    "75",
-    "100",
-    "200",
-    "400",
-    "600",
-    "800",
-    "CityRover",
-    "Maestro",
-    "Metro",
-    "Montego",
-    "P6",
-    "SD1",
-    "Streetwise"
-  ],
-  "Saab": [
-    "600",
-    "9-2X",
-    "9-3",
-    "9-4X",
-    "9-5",
-    "9-7X",
-    "90",
-    "99",
-    "900",
-    "9000",
-    "Sonett"
-  ],
-  "Saturn": [
-    "Astra",
-    "Aura",
-    "Ion",
-    "L-Series",
-    "Outlook",
-    "Relay",
-    "S-Series",
-    "Sky",
-    "Vue"
-  ],
-  "Scion": [
-    "FR-S",
-    "iA",
-    "iM",
-    "iQ",
-    "tC",
-    "xA",
-    "xB",
-    "xD"
-  ],
-  "Seat": [
-    "Alhambra",
-    "Altea",
-    "Arona",
-    "Arosa",
-    "Ateca",
-    "Cordoba",
-    "Exeo",
-    "Fura",
-    "Ibiza",
-    "Inca",
-    "Leon",
-    "Malaga",
-    "Marbella",
-    "Mii",
-    "Panda",
-    "Ronda",
-    "Tarraco",
-    "Terra",
-    "Toledo"
-  ],
-  "Skoda": [
-    "105",
-    "120",
-    "130",
-    "Citigo",
-    "Enyaq",
-    "Estelle",
-    "Fabia",
-    "Favorit",
-    "Felicia",
-    "Forman",
-    "Kamiq",
-    "Karoq",
-    "Kodiaq",
-    "Octavia",
-    "Rapid",
-    "Roomster",
-    "Scala",
-    "Slavia",
-    "Superb",
-    "Yeti"
-  ],
-  "Smart": [
-    "Forfour",
-    "Fortwo",
-    "Roadster",
-    "#1"
-  ],
-  "SsangYong": [
-    "Actyon",
-    "Chairman",
-    "Family",
-    "Kallista",
-    "Korando",
-    "Kyron",
-    "Musso",
-    "Rexton",
-    "Rodius",
-    "Stavic",
-    "Tivoli",
-    "Torres",
-    "XLV"
-  ],
-  "Subaru": [
-    "1800",
-    "360",
-    "Alcyone",
-    "Ascent",
-    "Baja",
-    "Brat",
-    "BRZ",
-    "Crosstrek",
-    "Forester",
-    "Impreza",
-    "Justy",
-    "Legacy",
-    "Leone",
-    "Levorg",
-    "Libero",
-    "Outback",
-    "Rex",
-    "Solterra",
-    "SVX",
-    "Tribeca",
-    "Vivio",
-    "WRX",
-    "XT",
-    "XV"
-  ],
-  "Suzuki": [
-    "Across",
-    "Alto",
-    "Baleno",
-    "Cappuccino",
-    "Cara",
-    "Carry",
-    "Celerio",
-    "Cervo",
-    "Equator",
-    "Esteem",
-    "Forenza",
-    "Fronte",
-    "Grand Vitara",
-    "Ignis",
-    "Jimny",
-    "Kizashi",
-    "Liana",
-    "Reno",
-    "S-Cross",
-    "Samurai",
-    "Splash",
-    "Swift",
-    "Swace",
-    "SX4",
-    "Verona",
-    "Vitara",
-    "Wagon R+",
-    "X-90"
-  ],
-  "TOGG": [
-    "T10F",
-    "T10X"
-  ],
-  "TVR": [
-    "350i",
-    "Cerbera",
-    "Chimaera",
-    "Griffith",
-    "Sagaris",
-    "Tasmin",
-    "Tuscan"
-  ],
-  "Tata": [
-    "Aria",
-    "Bolt",
-    "Harrier",
-    "Hexa",
-    "Indica",
-    "Indigo",
-    "Nano",
-    "Nexon",
-    "Safari",
-    "Sierra",
-    "Sumo",
-    "Tiago",
-    "Zest"
-  ],
-  "Tesla": [
-    "Cybertruck",
-    "Model 3",
-    "Model S",
-    "Model X",
-    "Model Y",
-    "Roadster"
-  ],
-  "Tofa\u015f": [
-    "Do\u011fan",
-    "Kartal",
-    "Murat 124",
-    "Murat 131",
-    "Ser\u00e7e",
-    "\u015eahin"
-  ],
-  "Toyota": [
-    "4Runner",
-    "86",
-    "Allion",
-    "Alphard",
-    "Aqua",
-    "Aristo",
-    "Auris",
-    "Avalon",
-    "Avensis",
-    "Aygo",
-    "bZ4X",
-    "C-HR",
-    "Caldina",
-    "Camry",
-    "Carina",
-    "Celica",
-    "Celsior",
-    "Century",
-    "Chaser",
-    "Corolla",
-    "Corolla Cross",
-    "Corona",
-    "Cressida",
-    "Cresta",
-    "Crown",
-    "Curren",
-    "Echo",
-    "FJ Cruiser",
-    "Fortuner",
-    "GR86",
-    "Grand Highlander",
-    "Harrier",
-    "Hiace",
-    "Highlander",
-    "Hilux",
-    "Ipsum",
-    "iQ",
-    "Ist",
-    "Kluger",
-    "Land Cruiser",
-    "Mark II",
-    "Mark X",
-    "Matrix",
-    "Mirai",
-    "MR2",
-    "Noah",
-    "Paseo",
-    "Passo",
-    "Picnic",
-    "Platz",
-    "Premio",
-    "Previa",
-    "Prius",
-    "Proace",
-    "Probox",
-    "Progress",
-    "Raum",
-    "RAV4",
-    "Rush",
-    "Sequoia",
-    "Sera",
-    "Sienna",
-    "Soarer",
-    "Solara",
-    "Starlet",
-    "Succeed",
-    "Supra",
-    "Tacoma",
-    "Tercel",
-    "Tundra",
-    "Urban Cruiser",
-    "Venza",
-    "Verossa",
-    "Vios",
-    "Vitz",
-    "Voltz",
-    "Voxy",
-    "Yaris",
-    "Yaris Cross"
-  ],
-  "Triumph": [
-    "Acclaim",
-    "Dolomite",
-    "GT6",
-    "Spitfire",
-    "Stag",
-    "TR6",
-    "TR7",
-    "TR8"
-  ],
-  "Vauxhall": [
-    "Adam",
-    "Astra",
-    "Calibra",
-    "Carlton",
-    "Cavalier",
-    "Chevette",
-    "Corsa",
-    "Crossland",
-    "Firenza",
-    "Frontera",
-    "Grandland",
-    "Insignia",
-    "Magnum",
-    "Meriva",
-    "Mokka",
-    "Monza",
-    "Nova",
-    "Omega",
-    "Royale",
-    "Signum",
-    "Tigra",
-    "Vectra",
-    "Viceroy",
-    "Viva",
-    "VX220",
-    "Zafira"
-  ],
-  "Volkswagen": [
-    "Amarok",
-    "Arteon",
-    "Atlas",
-    "Beetle",
-    "Bora",
-    "Caddy",
-    "CC",
-    "Corrado",
-    "Crafter",
-    "Derby",
-    "Eos",
-    "Fox",
-    "Golf",
-    "ID.3",
-    "ID.4",
-    "ID.5",
-    "ID.6",
-    "ID.7",
-    "ID. Buzz",
-    "Jetta",
-    "K70",
-    "Lupo",
-    "Multivan",
-    "New Beetle",
-    "Passat",
-    "Phaeton",
-    "Polo",
-    "Routan",
-    "Santana",
-    "Scirocco",
-    "Sharan",
-    "Taigo",
-    "Taos",
-    "Taro",
-    "T-Cross",
-    "Tiguan",
-    "Touareg",
-    "Touran",
-    "Transporter",
-    "T-Roc",
-    "Up!",
-    "Vento"
-  ],
-  "Volvo": [
-    "240",
-    "260",
-    "340",
-    "360",
-    "440",
-    "460",
-    "480",
-    "740",
-    "760",
-    "780",
-    "850",
-    "940",
-    "960",
-    "C30",
-    "C40",
-    "C70",
-    "EX30",
-    "EX90",
-    "P1800",
-    "S40",
-    "S60",
-    "S70",
-    "S80",
-    "S90",
-    "V40",
-    "V50",
-    "V60",
-    "V70",
-    "V90",
-    "XC40",
-    "XC60",
-    "XC70",
-    "XC90"
-  ],
-  "XPeng": [
-    "G3",
-    "G9",
-    "P5",
-    "P7"
-  ]
+  "Alfa Romeo": {
+    "6": [
+      "1983-1986"
+    ],
+    "33": [
+      "1990-1994",
+      "1983-1989"
+    ],
+    "155": [
+      "1992-1998"
+    ],
+    "156": [
+      "2003-2005",
+      "1997-2003"
+    ],
+    "166": [
+      "1996-2003"
+    ],
+    "147 (3 Doors)": [
+      "2005-2009",
+      "2000-2005"
+    ],
+    "147 (5 Doors)": [
+      "2005-2009",
+      "2000-2005"
+    ],
+    "147 GTA": [
+      "2003-2005"
+    ],
+    "156 GTA": [
+      "2001-2005"
+    ],
+    "156 Sportwagon": [
+      "2003-2005",
+      "2000-2003"
+    ],
+    "156 Sportwagon GTA": [
+      "2002-2005"
+    ],
+    "159 Sportwagon": [
+      "2006-2011"
+    ],
+    "1900 Berlina": [
+      "1950-1959"
+    ],
+    "1900 Super Sprint": [
+      "1956-1959"
+    ],
+    "2000 Berlina": [
+      "1971-1977"
+    ],
+    "24 HP": [
+      "1910-1913"
+    ],
+    "2600 Spider": [
+      "1962-1965"
+    ],
+    "33 Giardinetta": [
+      "1984-1990"
+    ],
+    "33 Stradale": [
+      "1967-1969"
+    ],
+    "4C Spider": [
+      "2015-Günümüz"
+    ],
+    "6C 1500": [
+      "1927-1929"
+    ],
+    "6C 1750 Grand Sport": [
+      "1929-1932"
+    ],
+    "6C 2500 Super Sport": [
+      "1939-1952"
+    ],
+    "8C 2300": [
+      "1931-1935"
+    ],
+    "8C 2900 B": [
+      "1936-1939"
+    ],
+    "8C Competizione": [
+      "2007-2009"
+    ],
+    "Alfasud": [
+      "1980-1983",
+      "1977-1980",
+      "1972-1977"
+    ],
+    "Alfasud Giardinetta": [
+      "1978-1981",
+      "1975-1978"
+    ],
+    "Alfasud Sprint": [
+      "1976-1983"
+    ],
+    "Alfasud TI": [
+      "1973-1977"
+    ],
+    "Alfasud Ti": [
+      "1980-1983",
+      "1978-1980"
+    ],
+    "Alfetta": [
+      "1979-1984",
+      "1972-1979"
+    ],
+    "Alfetta GT": [
+      "1974-1980"
+    ],
+    "Alfetta GTV": [
+      "1976-1982"
+    ],
+    "Brera": [
+      "2005-2010"
+    ],
+    "Crosswagon Q4": [
+      "2004-2007"
+    ],
+    "GT": [
+      "2003-2010"
+    ],
+    "GTV": [
+      "2003-2005",
+      "1995-2003"
+    ],
+    "Giulia": [
+      "2022-Günümüz",
+      "2016-2022"
+    ],
+    "Giulia Coupe 1300 GTA Junior": [
+      "1965-1972"
+    ],
+    "Giulia GTA": [
+      "2020-Günümüz"
+    ],
+    "Giulia Veloce": [
+      "2016-Günümüz"
+    ],
+    "Giulietta": [
+      "2016-Günümüz",
+      "2010-2016"
+    ],
+    "Giulietta Berlina": [
+      "1955-1964"
+    ],
+    "Giulietta Quadrifoglio Verde": [
+      "2011-2016"
+    ],
+    "Giulietta Spider": [
+      "1955-1965"
+    ],
+    "Giulietta Sprint": [
+      "1954-1965"
+    ],
+    "Montreal": [
+      "1970-1977"
+    ],
+    "RM Sport": [
+      "1923-1925"
+    ],
+    "Spider": [
+      "2006-2010",
+      "2003-2006",
+      "1995-2003",
+      "1990-1993",
+      "1983-1990"
+    ],
+    "Sprint": [
+      "1983-1989"
+    ],
+    "Stelvio": [
+      "2017-2022"
+    ],
+    "Stelvio Quadrifoglio": [
+      "2017-Günümüz"
+    ],
+    "Tonale": [
+      "2022-Günümüz"
+    ],
+    "Torpedo 20-30 HP": [
+      "1921-1922"
+    ]
+  },
+  "Aston Martin": {
+    "Cygnet": [
+      "2011-2013"
+    ],
+    "DB AR1": [
+      "2003-2004"
+    ],
+    "DB11": [
+      "2016-Günümüz"
+    ],
+    "DB11 AMR": [
+      "2018-Günümüz"
+    ],
+    "DB11 Volante": [
+      "2018-Günümüz"
+    ],
+    "DB2": [
+      "1950-1953"
+    ],
+    "DB5": [
+      "1963-1965"
+    ],
+    "DB6": [
+      "1965-1970"
+    ],
+    "DB6 Volante": [
+      "1965-1970"
+    ],
+    "DB7 GT": [
+      "2003-2004"
+    ],
+    "DB7 Vantage": [
+      "1999-2003"
+    ],
+    "DB7 Vantage Volante": [
+      "1999-2003"
+    ],
+    "DB7 Volante": [
+      "1996-1999"
+    ],
+    "DB9": [
+      "2013-2016",
+      "2010-2012",
+      "2004-2010"
+    ],
+    "DB9 Volante": [
+      "2013-2015",
+      "2010-2012",
+      "2004-2010"
+    ],
+    "DBS": [
+      "2008-2012",
+      "1967-1972"
+    ],
+    "DBS Superleggera": [
+      "2018-Günümüz"
+    ],
+    "DBS Superleggera Volante": [
+      "2019-Günümüz"
+    ],
+    "DBX": [
+      "2020-Günümüz"
+    ],
+    "Lagonda": [
+      "1986-1989",
+      "1976-1986"
+    ],
+    "One-77": [
+      "2009-2012"
+    ],
+    "Rapide": [
+      "2010-2013"
+    ],
+    "Rapide AMR": [
+      "2017-Günümüz"
+    ],
+    "Rapide S": [
+      "2013-2018"
+    ],
+    "V12 Vantage": [
+      "2022-Günümüz",
+      "2009-2013"
+    ],
+    "V12 Vantage S": [
+      "2014-Günümüz",
+      "2013-2018"
+    ],
+    "V12 Zagato": [
+      "2012-Günümüz"
+    ],
+    "V8": [
+      "1996-2000"
+    ],
+    "V8 Vantage": [
+      "2008-Günümüz",
+      "2008-2012",
+      "2006-2008",
+      "2005-2008",
+      "1977-1989"
+    ],
+    "V8 Vantage N420": [
+      "2010-2014"
+    ],
+    "V8 Vantage S": [
+      "2011-Günümüz"
+    ],
+    "V8 Vantage Volante": [
+      "1998-2000"
+    ],
+    "V8 Volante": [
+      "1978-1989"
+    ],
+    "Valhalla": [
+      "2022-Günümüz"
+    ],
+    "Vanquish": [
+      "2012-2018",
+      "2001-2006"
+    ],
+    "Vanquish S": [
+      "2016-2018",
+      "2004-2007"
+    ],
+    "Vanquish Volante": [
+      "2013-2018"
+    ],
+    "Vantage": [
+      "2020-Günümüz"
+    ],
+    "Vantage AMR": [
+      "2019-Günümüz"
+    ],
+    "Vantage GT12": [
+      "2015-2016"
+    ],
+    "Vantage GT8": [
+      "2016-Günümüz"
+    ],
+    "Virage": [
+      "2011-2012",
+      "1988-1995"
+    ],
+    "Virage Volante": [
+      "2011-2012",
+      "1992-1996"
+    ],
+    "Vulcan": [
+      "2015-2016"
+    ]
+  },
+  "Audi": {
+    "90": [
+      "1987-1991",
+      "1984-1987"
+    ],
+    "100": [
+      "1991-1994",
+      "1982-1991",
+      "1976-1982",
+      "1969-1976",
+      "1968-1976"
+    ],
+    "200": [
+      "1984-1991"
+    ],
+    "100 Avant": [
+      "1991-1994",
+      "1983-1991"
+    ],
+    "100 Coupe S": [
+      "1970-1976"
+    ],
+    "200 Avant": [
+      "1985-1991"
+    ],
+    "80 Avant": [
+      "1991-1995"
+    ],
+    "80 Avant RS2": [
+      "1994-1996"
+    ],
+    "80 Avant S2": [
+      "1993-1995"
+    ],
+    "80 S2": [
+      "1993-1995"
+    ],
+    "A1": [
+      "2018-Günümüz",
+      "2010-2018"
+    ],
+    "A1 Quattro": [
+      "2012-2013"
+    ],
+    "A1 Sportback (5 doors)": [
+      "2012-2015"
+    ],
+    "A2": [
+      "1999-2005"
+    ],
+    "A3": [
+      "2016-2017",
+      "2016-2020",
+      "2016-Günümüz",
+      "2013-2016",
+      "2008-2013",
+      "2008-2012",
+      "2005-2008",
+      "2004-2008",
+      "2003-2005",
+      "1999-2003",
+      "1996-2003"
+    ],
+    "A3 Hatchback (3 doors)": [
+      "2012-2016"
+    ],
+    "A3 Sportback (5 doors)": [
+      "2012-2016"
+    ],
+    "A3 Sportback e-tron": [
+      "2016-Günümüz",
+      "2013-2016"
+    ],
+    "A3 Sportback g-tron": [
+      "2013-2016"
+    ],
+    "A4": [
+      "2018-2019",
+      "2016-2018",
+      "2012-2016",
+      "2009-2011",
+      "2007-2012",
+      "2005-2008",
+      "2004-2007",
+      "2002-2005",
+      "2001-2004",
+      "1994-2001"
+    ],
+    "A4 Avant": [
+      "2018-2019",
+      "2016-2018",
+      "2012-2016",
+      "2008-2012",
+      "2004-2007",
+      "2001-2004",
+      "1996-2001"
+    ],
+    "A4 DTM Edition": [
+      "2005-2007"
+    ],
+    "A4L": [
+      "2012-2016"
+    ],
+    "A6": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2012-2019",
+      "2011-2014",
+      "2008-2011",
+      "2006-2011",
+      "2005-2008",
+      "2001-2004",
+      "1997-2001",
+      "1994-1997"
+    ],
+    "A6 Avant": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2011-2014",
+      "2008-2011",
+      "2005-2008",
+      "2001-2004",
+      "1998-2001",
+      "1994-1997"
+    ],
+    "A7": [
+      "2017-Günümüz",
+      "2014-2017",
+      "2010-2014"
+    ],
+    "A8": [
+      "2021-Günümüz",
+      "2017-Günümüz",
+      "2013-2017",
+      "2010-2013",
+      "2005-2009",
+      "2003-2005",
+      "1999-2002",
+      "1994-1999"
+    ],
+    "A8 L": [
+      "2013-2017",
+      "2010-2013"
+    ],
+    "Allroad": [
+      "2000-2006"
+    ],
+    "Cabriolet": [
+      "1991-2000"
+    ],
+    "Coupe": [
+      "1991-1996",
+      "1981-1988"
+    ],
+    "Coupe S2 quattro": [
+      "1990-1996"
+    ],
+    "Q2": [
+      "2020-Günümüz",
+      "2016-2020"
+    ],
+    "Q3": [
+      "2019-Günümüz",
+      "2018-Günümüz",
+      "2011-2015"
+    ],
+    "Q3 Facelift": [
+      "2016-2018",
+      "2015-2017"
+    ],
+    "Q5": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2012-2016",
+      "2008-2012"
+    ],
+    "Q5L": [
+      "2018-2020"
+    ],
+    "Q7": [
+      "2015-2019",
+      "2009-2015",
+      "2006-2009"
+    ],
+    "Q8 Sportback e-tron": [
+      "2023-Günümüz"
+    ],
+    "Q8 e-tron": [
+      "2022-Günümüz"
+    ],
+    "RS 3": [
+      "2016-2020",
+      "2015-2017",
+      "2010-2012"
+    ],
+    "RS e-tron GT": [
+      "2021-Günümüz"
+    ],
+    "RS4": [
+      "2006-2009",
+      "2005-2008"
+    ],
+    "RS4 Avant": [
+      "2019-Günümüz",
+      "2017-2019",
+      "2012-2015",
+      "2006-2008"
+    ],
+    "RS5": [
+      "2019-Günümüz",
+      "2018-2019",
+      "2017-2019",
+      "2013-2015",
+      "2010-2017"
+    ],
+    "RS6": [
+      "2008-2010"
+    ],
+    "RS6 Avant": [
+      "2019-Günümüz",
+      "2013-2019",
+      "2002-2004"
+    ],
+    "RS7": [
+      "2019-Günümüz",
+      "2013-2019"
+    ],
+    "S1": [
+      "2014-2018"
+    ],
+    "S3": [
+      "2016-Günümüz",
+      "2016-2020",
+      "2014-2016",
+      "2013-2016",
+      "2008-2012",
+      "2006-2008",
+      "2001-2003"
+    ],
+    "S4": [
+      "2016-2019",
+      "2008-2012",
+      "2006-2008",
+      "2005-2007",
+      "2003-2004",
+      "2003-2005",
+      "1997-2001"
+    ],
+    "S4 Avant": [
+      "2016-2019",
+      "2008-2012",
+      "2006-2007",
+      "2003-2004",
+      "1997-2001"
+    ],
+    "S4 TDI": [
+      "2019-Günümüz"
+    ],
+    "S5": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2012-2016",
+      "2011-2016",
+      "2010-2011",
+      "2009-2012",
+      "2007-2012"
+    ],
+    "S6": [
+      "2019-Günümüz",
+      "2014-2019",
+      "2012-2014",
+      "2008-2011",
+      "2006-2008",
+      "1999-2004",
+      "1994-1997"
+    ],
+    "S6 Avant": [
+      "2014-2019",
+      "2012-2014",
+      "2008-2011",
+      "2006-2008",
+      "1999-2004",
+      "1994-1997"
+    ],
+    "S7": [
+      "2014-2017"
+    ],
+    "S8": [
+      "2021-Günümüz",
+      "2012-2013",
+      "1999-2003",
+      "1996-1999"
+    ],
+    "S8 Plus": [
+      "2015-2019"
+    ],
+    "SQ2": [
+      "2020-Günümüz",
+      "2018-2020"
+    ],
+    "SQ5": [
+      "2020-Günümüz",
+      "2017-2020"
+    ],
+    "SQ7": [
+      "2016-2019"
+    ],
+    "SQ8 e-tron": [
+      "2023-Günümüz"
+    ],
+    "TT": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2007-2014",
+      "1999-2006",
+      "1998-2006"
+    ],
+    "TT RS": [
+      "2019-Günümüz",
+      "2016-2019",
+      "2009-2014"
+    ],
+    "TT RS Plus": [
+      "2013-2014",
+      "2012-2016"
+    ],
+    "TT quattro Sport": [
+      "2005-2006"
+    ],
+    "TTS": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2008-2014"
+    ],
+    "TTS Coupe Competition Plus": [
+      "2020-Günümüz"
+    ],
+    "TTS Roadster Competition Plus": [
+      "2020-Günümüz"
+    ],
+    "Typ R \"Imperator\"": [
+      "1927-1929"
+    ],
+    "Typ R \"Imperator\" Phaeton": [
+      "1928-1932"
+    ],
+    "V8": [
+      "1988-1994"
+    ],
+    "e-tron": [
+      "2019-Günümüz"
+    ],
+    "e-tron GT quattro": [
+      "2021-Günümüz"
+    ]
+  },
+  "Bentley": {
+    "Arnage Blue Train Series": [
+      "2005-2009"
+    ],
+    "Arnage Limousine": [
+      "2005-2009"
+    ],
+    "Arnage R": [
+      "2005-2009"
+    ],
+    "Arnage Red Label": [
+      "1999-2002"
+    ],
+    "Azure": [
+      "2006-2009",
+      "1995-2002"
+    ],
+    "Azure T": [
+      "2008-2011"
+    ],
+    "BENTAYGA HYBRID": [
+      "2018-Günümüz"
+    ],
+    "Batur": [
+      "2022-Günümüz"
+    ],
+    "Bentayga": [
+      "2020-Günümüz"
+    ],
+    "Bentayga S": [
+      "2021-Günümüz"
+    ],
+    "Bentayga Speed": [
+      "2020-Günümüz"
+    ],
+    "Brooklands": [
+      "2007-2011",
+      "1992-1997"
+    ],
+    "Continental GT": [
+      "2017-Günümüz",
+      "2015-2017",
+      "2003-2010"
+    ],
+    "Continental GT Speed": [
+      "2021-Günümüz",
+      "2007-2013"
+    ],
+    "Continental GT V8": [
+      "2019-Günümüz"
+    ],
+    "Continental GTC": [
+      "2015-2018",
+      "2011-2013",
+      "2006-2009"
+    ],
+    "Continental GTC Speed": [
+      "2009-2013"
+    ],
+    "Continental GTC Supersports": [
+      "2017-Günümüz"
+    ],
+    "Continental R": [
+      "1991-2003"
+    ],
+    "Continental T": [
+      "1996-2002"
+    ],
+    "Flying Spur": [
+      "2014-2019"
+    ],
+    "Mulliner Bacalar": [
+      "2020-Günümüz"
+    ],
+    "Mulsanne": [
+      "2016-Günümüz",
+      "2009-2016"
+    ],
+    "R-Type Continental": [
+      "1952-1955"
+    ],
+    "S1": [
+      "1955-1959"
+    ],
+    "S1 Continental": [
+      "1955-1959"
+    ],
+    "T1 Saloon": [
+      "1965-1976"
+    ],
+    "T2 Saloon": [
+      "1977-1980"
+    ]
+  },
+  "Bmw": {
+    "303": [
+      "1933-1934"
+    ],
+    "326": [
+      "1936-1941"
+    ],
+    "327": [
+      "1938-1941"
+    ],
+    "328": [
+      "1936-1939"
+    ],
+    "335": [
+      "1939-1941"
+    ],
+    "502": [
+      "1954-1955"
+    ],
+    "503": [
+      "1956-1959"
+    ],
+    "1500": [
+      "1962-1966"
+    ],
+    "1600": [
+      "1966-1975"
+    ],
+    "2002": [
+      "1968-1975"
+    ],
+    "2 Series": [
+      "2014-2017",
+      "2013-2017"
+    ],
+    "2 Series Active Tourer": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2014-2018"
+    ],
+    "2 Series Convertible (F23) LCI": [
+      "2017-Günümüz"
+    ],
+    "2 Series Coupe": [
+      "2021-Günümüz"
+    ],
+    "2 Series Gran Tourer": [
+      "2018-Günümüz",
+      "2015-2018"
+    ],
+    "2000 CS": [
+      "1965-1969"
+    ],
+    "3.0 CSL": [
+      "1971-1975"
+    ],
+    "3.0 CSi": [
+      "1971-1975"
+    ],
+    "3/15 PS": [
+      "1929-1932"
+    ],
+    "3/20 PS": [
+      "1932-1934"
+    ],
+    "4 Series Cabrio": [
+      "2018-2020"
+    ],
+    "4 Series Coupe": [
+      "2018-2020",
+      "2013-2018"
+    ],
+    "4 Series Gran Coupe": [
+      "2018-2021",
+      "2014-2018"
+    ],
+    "501/502": [
+      "1952-1964"
+    ],
+    "507 TS": [
+      "1955-1959"
+    ],
+    "6 Series Convertible": [
+      "2007-2010",
+      "2004-2007"
+    ],
+    "6 Series Convertible LCI": [
+      "2015-2018"
+    ],
+    "6 Series Coupe": [
+      "2011-2015",
+      "2007-2011",
+      "2003-2007"
+    ],
+    "6 Series Coupe LCI": [
+      "2015-2018"
+    ],
+    "6 Series Gran Coupe": [
+      "2012-2015"
+    ],
+    "6 Series Gran Coupe LCI": [
+      "2015-2018"
+    ],
+    "6 Series Gran Turismo (G32 LCI)": [
+      "2020-Günümüz"
+    ],
+    "630 CS": [
+      "1976-1979"
+    ],
+    "635 CSi": [
+      "1978-1989"
+    ],
+    "7 Series": [
+      "2022-Günümüz",
+      "1998-2001",
+      "1994-1998",
+      "1986-1994",
+      "1977-1986"
+    ],
+    "7 Series (E65/E66)": [
+      "2005-2007",
+      "2001-2005"
+    ],
+    "7 Series (F01/02)": [
+      "2008-2012"
+    ],
+    "7 Series (F01/02) Facelift": [
+      "2012-2016"
+    ],
+    "7 Series (G11) LCI": [
+      "2019-2022"
+    ],
+    "8 Series": [
+      "2022-Günümüz"
+    ],
+    "8 Series Convertible": [
+      "2018-2022"
+    ],
+    "8 Series Coupe": [
+      "2018-2022"
+    ],
+    "L7": [
+      "1997-2001"
+    ],
+    "M Coupe": [
+      "1998-2002"
+    ],
+    "M Roadster": [
+      "1997-2002"
+    ],
+    "M1": [
+      "1978-1981"
+    ],
+    "M2": [
+      "2015-2018"
+    ],
+    "M2 Competition": [
+      "2018-Günümüz"
+    ],
+    "M3": [
+      "2014-2018"
+    ],
+    "M3 CS": [
+      "2017-2018"
+    ],
+    "M3 CSL": [
+      "2003"
+    ],
+    "M3 Cabriolet": [
+      "2008-2013",
+      "2001-2007",
+      "1994-1999"
+    ],
+    "M3 Coupe": [
+      "2007-2011",
+      "1992-1998",
+      "1986-1992"
+    ],
+    "M3 Coupe (E92) LCI": [
+      "2010-2013"
+    ],
+    "M3 GTS": [
+      "2010-2011"
+    ],
+    "M3 Sedan": [
+      "2008-2011",
+      "1994-1998"
+    ],
+    "M4 Coupe": [
+      "2014-2020"
+    ],
+    "M6 Cabrio": [
+      "2012-2014",
+      "2006-2010"
+    ],
+    "M6 Cabrio LCI": [
+      "2014-2018"
+    ],
+    "M6 Coupe": [
+      "2012-2014",
+      "2005-2010"
+    ],
+    "M6 Coupe LCI": [
+      "2014-2018"
+    ],
+    "M6 Gran Coupe": [
+      "2013-2018"
+    ],
+    "M8": [
+      "2022-Günümüz"
+    ],
+    "M8 Gran": [
+      "2022-Günümüz"
+    ],
+    "X1": [
+      "2022-Günümüz",
+      "2019-2022"
+    ],
+    "X3": [
+      "2017-2021",
+      "2014-2017",
+      "2010-2013",
+      "2007-2010",
+      "2004-2007"
+    ],
+    "X3 M": [
+      "2021-Günümüz"
+    ],
+    "X4": [
+      "2021-Günümüz",
+      "2018-2021"
+    ],
+    "X4 M": [
+      "2021-Günümüz",
+      "2019-Günümüz"
+    ],
+    "X5": [
+      "2014-2018",
+      "2007-2009",
+      "2003-2007"
+    ],
+    "X5 M": [
+      "2014-2018",
+      "2009-2014"
+    ],
+    "X6M": [
+      "2009-2014"
+    ],
+    "X7": [
+      "2022-Günümüz",
+      "2018-2022"
+    ],
+    "Z1": [
+      "1988-1991"
+    ],
+    "Z3 Coupe": [
+      "1998-2002"
+    ],
+    "Z3 Roadster": [
+      "1996-2003"
+    ],
+    "Z4": [
+      "2002-2006"
+    ],
+    "Z4 Coupe": [
+      "2006-2009"
+    ],
+    "Z4 M Coupe": [
+      "2006-2009"
+    ],
+    "Z4 Roadster": [
+      "2009-2013",
+      "2006-2009"
+    ],
+    "Z4 Roadster LCI": [
+      "2013-2016"
+    ],
+    "Z8 Roadster": [
+      "2000-2003"
+    ],
+    "i3": [
+      "2017-Günümüz",
+      "2013-2017"
+    ],
+    "i3s": [
+      "2017-Günümüz"
+    ],
+    "i8": [
+      "2018-2020",
+      "2014-2018"
+    ],
+    "i8 Roadster": [
+      "2018-2020"
+    ],
+    "iX": [
+      "2021-Günümüz"
+    ],
+    "iX M60": [
+      "2022-Günümüz"
+    ],
+    "iX1": [
+      "2022-Günümüz"
+    ],
+    "iX3": [
+      "2020-Günümüz"
+    ]
+  },
+  "Chevrolet": {
+    "2014 Chevrolet Silverado": [
+      "1500"
+    ],
+    "2019 Cvevrolet Silverado": [
+      "2500"
+    ],
+    "2022 Chevrolet Silverado": [
+      "1500"
+    ],
+    "Agile": [
+      "2013-2016"
+    ],
+    "Astro": [
+      "1994-2005"
+    ],
+    "Avalanche": [
+      "2001-2006"
+    ],
+    "Avalanche SUT": [
+      "2006-2013"
+    ],
+    "Aveo": [
+      "2011-2016"
+    ],
+    "Aveo/Kalos": [
+      "2008-2011",
+      "2005-2007",
+      "2004-2006",
+      "2004-2007",
+      "2002-2007"
+    ],
+    "Blazer": [
+      "2022-Günümüz",
+      "2019-2022",
+      "1995-2005"
+    ],
+    "Bolt": [
+      "2016-2021"
+    ],
+    "Bolt EUV": [
+      "2021-Günümüz"
+    ],
+    "Bolt EV": [
+      "2021-Günümüz"
+    ],
+    "Captiva": [
+      "2011-Günümüz",
+      "2006-2011"
+    ],
+    "Cavalier": [
+      "2003-2005",
+      "1995-2000",
+      "1994-2003"
+    ],
+    "Celta -": [
+      "2000-2015"
+    ],
+    "Chevelle Super Sport": [
+      "1969-1977"
+    ],
+    "Classic": [
+      "2002-2016"
+    ],
+    "Cobalt": [
+      "2008-2010",
+      "2004-2007"
+    ],
+    "Cobalt Coupe SS": [
+      "2008-2011",
+      "2005-2007"
+    ],
+    "Cobalt Sedan SS": [
+      "2008-2010"
+    ],
+    "Colorado Crew Cab": [
+      "2015-Günümüz"
+    ],
+    "Colorado Double Cab": [
+      "2009-2012",
+      "2003-2008"
+    ],
+    "Colorado Extended Cab": [
+      "2015-Günümüz",
+      "2009-2012",
+      "2003-2008"
+    ],
+    "Colorado Regular Cab": [
+      "2009-2012",
+      "2003-2008"
+    ],
+    "Corvette": [
+      "2008-2013"
+    ],
+    "Corvette 427 Convertible Collector Edition": [
+      "2012-2013"
+    ],
+    "Corvette C4": [
+      "1984-1996"
+    ],
+    "Corvette C5": [
+      "1998-2004",
+      "1997-2004"
+    ],
+    "Corvette C6": [
+      "2004-2008",
+      "2004-2013"
+    ],
+    "Corvette Convertible Grand Sport": [
+      "2009-2013"
+    ],
+    "Corvette Stingray C7": [
+      "2013-2019"
+    ],
+    "Corvette Stingray Convertible C7": [
+      "2013-Günümüz"
+    ],
+    "Corvette Z06": [
+      "2021-Günümüz",
+      "2008-2013"
+    ],
+    "Corvette ZR1": [
+      "2008-2013"
+    ],
+    "Cruze": [
+      "2018-Günümüz",
+      "2016-2018",
+      "2012-Günümüz",
+      "2009-2016"
+    ],
+    "Cruze HB5": [
+      "2011-Günümüz"
+    ],
+    "Epica": [
+      "2006-2011"
+    ],
+    "Equinox": [
+      "2017-2020",
+      "2009-2017",
+      "2004-2009"
+    ],
+    "Evanda": [
+      "2004-2006"
+    ],
+    "Express": [
+      "2008-Günümüz",
+      "2002-2007",
+      "1995-2002"
+    ],
+    "HHR": [
+      "2005-2011"
+    ],
+    "HHR SS": [
+      "2007-2011"
+    ],
+    "Impala": [
+      "2013-Günümüz",
+      "1999-2005"
+    ],
+    "Impala SS": [
+      "2003-2005"
+    ],
+    "Impala Super Sport": [
+      "1966-1970"
+    ],
+    "Malibu": [
+      "2018-Günümüz",
+      "2016-2018",
+      "2012-2016",
+      "2008-2012",
+      "2003-2007",
+      "1996-2003"
+    ],
+    "Malibu ECO": [
+      "2013-2016"
+    ],
+    "Malibu Maxx": [
+      "2003-2008"
+    ],
+    "Malibu Maxx SS": [
+      "2005-2008"
+    ],
+    "Malibu SS": [
+      "2005-2008"
+    ],
+    "Matiz / Spark": [
+      "2009-2016",
+      "2000-2005"
+    ],
+    "Monte Carlo SS": [
+      "2005-2007"
+    ],
+    "Nomad": [
+      "1957-1961",
+      "1955-1957"
+    ],
+    "Nubira/Lacetti": [
+      "2004-2009",
+      "2002-2004"
+    ],
+    "Nubira/Lacetti 4 door": [
+      "2004-2009"
+    ],
+    "Onix": [
+      "2012-Günümüz"
+    ],
+    "Prisma": [
+      "2013-Günümüz"
+    ],
+    "RST Performance Package": [
+      "2018-Günümüz"
+    ],
+    "S-10 Crew Cab": [
+      "2000-2004"
+    ],
+    "S-10 Extended Cab": [
+      "1997-2003"
+    ],
+    "S-10 Regular Cab": [
+      "1997-2003"
+    ],
+    "SS": [
+      "2016-2017"
+    ],
+    "SSR": [
+      "2003-2006"
+    ],
+    "Silverado 1500 Crew Cab": [
+      "2008-2012"
+    ],
+    "Silverado 1500 Double Cab": [
+      "2013-2018"
+    ],
+    "Silverado 1500 Extended Cab": [
+      "2008-2012"
+    ],
+    "Silverado 1500 Regular Cab": [
+      "2013-2018",
+      "2008-2012"
+    ],
+    "Silverado 2500 HD Crew Cab": [
+      "2013-2018"
+    ],
+    "Silverado 2500 HD Double Cab": [
+      "2013-2018"
+    ],
+    "Silverado 2500 HD Regular Cab": [
+      "2013-2018"
+    ],
+    "Silverado 2500HD Crew Cab": [
+      "2008-2013"
+    ],
+    "Silverado 2500HD Extended Cab": [
+      "2008-2013"
+    ],
+    "Silverado 2500HD Regular Cab": [
+      "2007-2013"
+    ],
+    "Silverado 3500 HD Regular Cab": [
+      "2013-2018"
+    ],
+    "Silverado 3500HD Crew Cab": [
+      "2008-2013"
+    ],
+    "Silverado 3500HD Extended Cab": [
+      "2008-2013"
+    ],
+    "Silverado 3500HD Regular Cab": [
+      "2008-2013"
+    ],
+    "Silverado Hybrid": [
+      "2008-2013"
+    ],
+    "Sonic": [
+      "2016-Günümüz"
+    ],
+    "Sonic Hatchback": [
+      "2011-2016"
+    ],
+    "Sonic RS": [
+      "2012-Günümüz"
+    ],
+    "Spark": [
+      "2018-Günümüz"
+    ],
+    "Spark EV": [
+      "2013-2016"
+    ],
+    "Spin": [
+      "2012-Günümüz"
+    ],
+    "Suburban": [
+      "2014-2020",
+      "2006-2013",
+      "1999-2006"
+    ],
+    "Tahoe": [
+      "2014-2020",
+      "2008-2014",
+      "2006-2013",
+      "1991-1999"
+    ],
+    "Tracker": [
+      "2013-Günümüz",
+      "1999-2004"
+    ],
+    "TrailBlazer": [
+      "2008-2012",
+      "2000-2008"
+    ],
+    "TrailBlazer SS": [
+      "2005-2008"
+    ],
+    "Traverse": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2012-2017",
+      "2008-2012"
+    ],
+    "Trax": [
+      "2022-Günümüz",
+      "2017-2019",
+      "2013-2017"
+    ],
+    "Uplander": [
+      "2004-2009"
+    ],
+    "Venture": [
+      "1996-2005"
+    ],
+    "Volt": [
+      "2016-2019",
+      "2011-2016"
+    ]
+  },
+  "Chrysler": {
+    "200": [
+      "2014-2016",
+      "2011-2014"
+    ],
+    "300": [
+      "2015-2022",
+      "2011-2015"
+    ],
+    "300 SRT8": [
+      "2011-Günümüz"
+    ],
+    "300C": [
+      "2004-2010",
+      "1957"
+    ],
+    "300C SRT8": [
+      "2005-2010"
+    ],
+    "300C Touring SRT8": [
+      "2006-2010"
+    ],
+    "300M": [
+      "1998-2004"
+    ],
+    "Airflow": [
+      "1934-1937"
+    ],
+    "Aspen": [
+      "2006-2009"
+    ],
+    "Chrysler 300C": [
+      "2022-Günümüz"
+    ],
+    "Concorde": [
+      "1998-2004"
+    ],
+    "Crossfire": [
+      "2007-2008",
+      "2004-2007",
+      "2003-2006"
+    ],
+    "Crossfire Roadster SRT6": [
+      "2004-2006"
+    ],
+    "Crossfire SRT6": [
+      "2004-2006"
+    ],
+    "Daytona": [
+      "1992-1993"
+    ],
+    "Grand Voyager": [
+      "2008-2015"
+    ],
+    "Imperial 8": [
+      "1931-1933"
+    ],
+    "LeBaron": [
+      "1982-1988"
+    ],
+    "New Yorker": [
+      "1995-1997",
+      "1955-1961"
+    ],
+    "PT Cruiser": [
+      "2006-2008",
+      "2006-2010",
+      "2004-2006",
+      "2000-2006"
+    ],
+    "Pacifica": [
+      "2016-2020",
+      "2003-2006"
+    ],
+    "Saratoga": [
+      "1989-1995"
+    ],
+    "Sebring": [
+      "2007-2010",
+      "2006-2010",
+      "2003-2006",
+      "2003-2007",
+      "2001-2003"
+    ],
+    "Six": [
+      "1924-1931"
+    ],
+    "Town &amp; Country": [
+      "2007-2016",
+      "2004-2007",
+      "2000-2003"
+    ],
+    "Voyager": [
+      "2000-2003"
+    ]
+  },
+  "Citroen": {
+    "2CV": [
+      "1949-1990"
+    ],
+    "AMI": [
+      "2020-Günümüz"
+    ],
+    "AX": [
+      "1991-1998",
+      "1988-1991",
+      "1986-1991"
+    ],
+    "Axel": [
+      "1985-1989"
+    ],
+    "BX": [
+      "1989-1993",
+      "1983-1986"
+    ],
+    "BX Break": [
+      "1989-1994",
+      "1985-1989"
+    ],
+    "Berlingo": [
+      "2018-Günümüz",
+      "2015-2018",
+      "2012-2015",
+      "2008-2012",
+      "2002-2008",
+      "1996-2002"
+    ],
+    "Berlingo X-TR": [
+      "2006-2008"
+    ],
+    "C-Crosser": [
+      "2007-2012"
+    ],
+    "C1": [
+      "2014-Günümüz",
+      "2012-2014",
+      "2009-2012",
+      "2005-2009"
+    ],
+    "C2": [
+      "2008-2010"
+    ],
+    "C2 VTS": [
+      "2003-2009"
+    ],
+    "C3": [
+      "2019-Günümüz",
+      "2016-2019",
+      "2013-2016",
+      "2009-2013",
+      "2005-2009",
+      "2002-2005"
+    ],
+    "C3 Aircross": [
+      "2017-2021"
+    ],
+    "C3 Picasso": [
+      "2008-2013"
+    ],
+    "C3 Pluriel": [
+      "2003-2010"
+    ],
+    "C3 X-TR": [
+      "2005-2009"
+    ],
+    "C4": [
+      "2010-2013",
+      "2008-2010",
+      "2007-2012",
+      "2004-2008"
+    ],
+    "C4 Aircross": [
+      "2012-2017"
+    ],
+    "C4 Cactus": [
+      "2018-2020",
+      "2014-2018"
+    ],
+    "C4 Picasso": [
+      "2010-2013",
+      "2007-2010"
+    ],
+    "C5": [
+      "2010-2017",
+      "2008-2011",
+      "2004-2008",
+      "2001-2004"
+    ],
+    "C5 Crosstourer": [
+      "2014-Günümüz"
+    ],
+    "C5 Tourer": [
+      "2010-Günümüz",
+      "2008-2010"
+    ],
+    "C5 X": [
+      "2021-Günümüz"
+    ],
+    "C8": [
+      "2002-2008"
+    ],
+    "CX": [
+      "1985-1989",
+      "1982-1985",
+      "1974-1982"
+    ],
+    "CX Break": [
+      "1982-1985",
+      "1976-1982"
+    ],
+    "DS 3": [
+      "2009-2014"
+    ],
+    "DS19": [
+      "1955-1975"
+    ],
+    "DS19 Cabrio": [
+      "1958-1973"
+    ],
+    "DS21": [
+      "1968-1975"
+    ],
+    "DS21 Cabrio": [
+      "1968-1971"
+    ],
+    "DS23": [
+      "1973-1975"
+    ],
+    "DS23 Break": [
+      "1974-1976"
+    ],
+    "DS4": [
+      "2010-Günümüz"
+    ],
+    "DS5": [
+      "2011-Günümüz"
+    ],
+    "Dyane": [
+      "1969-1983"
+    ],
+    "E-Mehari": [
+      "2018-Günümüz",
+      "2016-2018"
+    ],
+    "Evasion": [
+      "1998-2002",
+      "1994-1998"
+    ],
+    "Grand C4 Picasso": [
+      "2016-Günümüz",
+      "2013-2016",
+      "2006-2013"
+    ],
+    "LNA": [
+      "1978-1984"
+    ],
+    "Nemo Combi": [
+      "2008-2015"
+    ],
+    "SM": [
+      "1970-1975"
+    ],
+    "SM Presidential": [
+      "1970-1975"
+    ],
+    "Saxo": [
+      "1998-2002",
+      "1998-2003",
+      "1996-1998",
+      "1996-1999"
+    ],
+    "Saxo 3 doors VTS": [
+      "1998-2003"
+    ],
+    "Traction 15": [
+      "1939-1944"
+    ],
+    "Traction 15 G Saloon": [
+      "1938-1957"
+    ],
+    "Traction 7 S": [
+      "1934-1939"
+    ],
+    "Traction Avant 11B Cabrio": [
+      "1938-1939"
+    ],
+    "Traction Avant 11B Family": [
+      "1935-1957"
+    ],
+    "Visa": [
+      "1981-1988",
+      "1978-1981"
+    ],
+    "XM": [
+      "1997-2000",
+      "1994-1997",
+      "1989-1994"
+    ],
+    "XM Break": [
+      "1997-2000",
+      "1994-1997",
+      "1992-1994"
+    ],
+    "Xantia": [
+      "1998-2001",
+      "1993-1998"
+    ],
+    "Xantia Break": [
+      "1998-2001",
+      "1995-1998"
+    ],
+    "Xsara": [
+      "2000-2004",
+      "1998-2000",
+      "1997-2000"
+    ],
+    "Xsara Coupe VTS": [
+      "2000-2003"
+    ],
+    "Xsara Picasso": [
+      "2004-2012",
+      "1999-2004"
+    ],
+    "ZX": [
+      "1996-1997",
+      "1994-1996",
+      "1992-1994",
+      "1991-1994"
+    ],
+    "ZX Break": [
+      "1994-1996"
+    ]
+  },
+  "Cupra": {
+    "Born": [
+      "2021-Günümüz"
+    ]
+  },
+  "Dacia": {
+    "1310": [
+      "1999-2005",
+      "1994-1999",
+      "1984-1990",
+      "1979-1984"
+    ],
+    "1320": [
+      "1988-1991"
+    ],
+    "1300 Break": [
+      "1972-1980"
+    ],
+    "1310 Break": [
+      "1999-2004",
+      "1994-1999",
+      "1984-1990",
+      "1980-1984"
+    ],
+    "1310/1410 Sport": [
+      "1981-1992"
+    ],
+    "1325 Liberta": [
+      "1990-1996"
+    ],
+    "1968 Dacia": [
+      "1100"
+    ],
+    "1969 Dacia": [
+      "1300"
+    ],
+    "Duster": [
+      "2013-2017",
+      "2010-2013"
+    ],
+    "Duster Pick-Up": [
+      "2020-Günümüz"
+    ],
+    "Lodgy": [
+      "2012-Günümüz"
+    ],
+    "Logan": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2008-2012",
+      "2007-2012",
+      "2004-2008"
+    ],
+    "Logan 2": [
+      "2012-2016"
+    ],
+    "Logan MCV": [
+      "2016-Günümüz",
+      "2013-2016",
+      "2008-2012",
+      "2006-2008"
+    ],
+    "Logan MCV Stepway": [
+      "2017-Günümüz"
+    ],
+    "Pick-up": [
+      "2007-2012"
+    ],
+    "Sandero": [
+      "2020-Günümüz",
+      "2016-2020"
+    ],
+    "Sandero 2": [
+      "2012-2016"
+    ],
+    "Sandero Stepway": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2009-2012"
+    ],
+    "Solenza": [
+      "2003-2005"
+    ],
+    "Spring Electric Cargo": [
+      "2021-Günümüz"
+    ],
+    "SuperNova": [
+      "1999-2003"
+    ]
+  },
+  "Dodge": {
+    "Aries": [
+      "1981-1989"
+    ],
+    "Avenger": [
+      "2007-2010"
+    ],
+    "Caravan": [
+      "2001-2007",
+      "1995-2001",
+      "1983-1990"
+    ],
+    "Charger": [
+      "2015-Günümüz",
+      "2005-2010",
+      "1981-1987",
+      "1974-1978",
+      "1971-1972",
+      "1968-1970"
+    ],
+    "Charger 500": [
+      "1969-1970"
+    ],
+    "Charger Daytona": [
+      "1969"
+    ],
+    "Charger SRT": [
+      "2015-2019"
+    ],
+    "Charger SRT Hellcat Widebody": [
+      "2019-Günümüz"
+    ],
+    "Charger SRT8": [
+      "2012-Günümüz",
+      "2006-2010"
+    ],
+    "Dart": [
+      "2012-2014"
+    ],
+    "Durango": [
+      "2020-Günümüz",
+      "2004-2009",
+      "1997-2003"
+    ],
+    "Durango SRT": [
+      "2020-Günümüz",
+      "2017-2020"
+    ],
+    "Grand Caravan": [
+      "2007-2014",
+      "1987-1990"
+    ],
+    "Journey": [
+      "2014-Günümüz",
+      "2011-2014",
+      "2008-2011"
+    ],
+    "Magnum": [
+      "2007-2008",
+      "2004-2007"
+    ],
+    "Magnum SRT8": [
+      "2007-2008",
+      "2005-2007"
+    ],
+    "Neon": [
+      "2003-2005",
+      "1999-2002",
+      "1994-1998"
+    ],
+    "Neon SRT-4": [
+      "2003-2005"
+    ],
+    "Nitro": [
+      "2006-2012"
+    ],
+    "Polara": [
+      "1962-1965"
+    ],
+    "Ram": [
+      "1993-2002"
+    ],
+    "Ram 1500": [
+      "2009-Günümüz"
+    ],
+    "SRT Viper": [
+      "2012-2017"
+    ],
+    "Stratus": [
+      "2001-2005",
+      "1994-2000"
+    ],
+    "Viper ACR": [
+      "1999"
+    ],
+    "Viper GT2": [
+      "1999"
+    ],
+    "Viper GTS": [
+      "1996-2002"
+    ],
+    "Viper SRT10": [
+      "2007-2010",
+      "2003-2007"
+    ]
+  },
+  "Ferrari": {
+    "400": [
+      "1976-1979"
+    ],
+    "412": [
+      "1985-1989"
+    ],
+    "125 S": [
+      "1947"
+    ],
+    "159 S": [
+      "1947-1948"
+    ],
+    "166 MM Barchetta": [
+      "1948-1950"
+    ],
+    "166 Spyder Corsa": [
+      "1947-1950"
+    ],
+    "195 Inter": [
+      "1950-1951"
+    ],
+    "195 S": [
+      "1950"
+    ],
+    "212 Export": [
+      "1951-1952"
+    ],
+    "212 Inter": [
+      "1951-1953"
+    ],
+    "250 Europa": [
+      "1953-1955"
+    ],
+    "250 GT": [
+      "1954-1963"
+    ],
+    "250 GTO": [
+      "1962-1964"
+    ],
+    "275 GTB": [
+      "1964-1968"
+    ],
+    "275 GTS": [
+      "1965-1968"
+    ],
+    "288 GTO": [
+      "1984-1986"
+    ],
+    "308 GTS": [
+      "1977-1980"
+    ],
+    "348 GTB": [
+      "1993-1994"
+    ],
+    "348 GTS": [
+      "1993-1994"
+    ],
+    "348 Spider": [
+      "1993-1995"
+    ],
+    "348 tb": [
+      "1989-1993"
+    ],
+    "348 ts": [
+      "1989-1993"
+    ],
+    "360 Challenge Stradale (F 131)": [
+      "2003-2005"
+    ],
+    "360 Modena": [
+      "1999-2004"
+    ],
+    "360 Spider": [
+      "2000-2005"
+    ],
+    "365 GTS/4": [
+      "1969-1974"
+    ],
+    "365GT4 BB/ 512BB/ 512 BBi": [
+      "1973-1984"
+    ],
+    "400i": [
+      "1979-1985"
+    ],
+    "430 Scuderia": [
+      "2007-2009"
+    ],
+    "456 GT": [
+      "1992-1997"
+    ],
+    "456 M GT": [
+      "1998-2003"
+    ],
+    "458 Italia": [
+      "2009-2015"
+    ],
+    "458 Speciale": [
+      "2013-2015"
+    ],
+    "458 Spider": [
+      "2011-2015"
+    ],
+    "488 GTB": [
+      "2015-2019"
+    ],
+    "488 Pista": [
+      "2018-Günümüz"
+    ],
+    "488 Spider": [
+      "2016-2019"
+    ],
+    "512 M": [
+      "1994-1996"
+    ],
+    "512 TR": [
+      "1992-1994"
+    ],
+    "550 Barchetta Pininfarina": [
+      "2000-2002"
+    ],
+    "550 Maranello": [
+      "1996-2002"
+    ],
+    "575 M Superamerica": [
+      "2005-2006"
+    ],
+    "575M Maranello": [
+      "2002-2006"
+    ],
+    "599 GTB Fiorano": [
+      "2006-2012"
+    ],
+    "599 GTO": [
+      "2010-2012"
+    ],
+    "612 Scaglietti": [
+      "2004-2011"
+    ],
+    "812 Superfast": [
+      "2017-Günümüz"
+    ],
+    "Daytona SP3": [
+      "2021-Günümüz"
+    ],
+    "Dino 206 GT": [
+      "1968-1969"
+    ],
+    "Dino 208 GT4": [
+      "1975-1980"
+    ],
+    "Dino 308 GT4": [
+      "1973-1980"
+    ],
+    "Enzo": [
+      "2002-2004"
+    ],
+    "F12 Berlinetta": [
+      "2012-2015"
+    ],
+    "F12tdf": [
+      "2015-2017"
+    ],
+    "F149 California": [
+      "2012-2017",
+      "2008-2011"
+    ],
+    "F355": [
+      "1994-1999"
+    ],
+    "F355 GTS": [
+      "1995-1999"
+    ],
+    "F355 Spider": [
+      "1995-1999"
+    ],
+    "F40": [
+      "1987-1992"
+    ],
+    "F430": [
+      "2004-2009"
+    ],
+    "F430 Spider": [
+      "2005-2009"
+    ],
+    "F50": [
+      "1995-1997"
+    ],
+    "F60 America": [
+      "2014-Günümüz"
+    ],
+    "F8 Tributo": [
+      "2019-Günümüz"
+    ],
+    "FF": [
+      "2011-2016"
+    ],
+    "GTC4Lusso": [
+      "2016-Günümüz"
+    ],
+    "GTC4Lusso T": [
+      "2016-Günümüz"
+    ],
+    "LaFerrari": [
+      "2013-2015"
+    ],
+    "Mondial 3.2": [
+      "1985-1988",
+      "1985-1989"
+    ],
+    "Mondial Quattrovalvole": [
+      "1983-1985",
+      "1982-1985"
+    ],
+    "Portofino": [
+      "2017-2020"
+    ],
+    "Portofino M": [
+      "2020-Günümüz"
+    ],
+    "Purosangue": [
+      "2022-Günümüz"
+    ],
+    "SF90 Spider": [
+      "2020-Günümüz"
+    ],
+    "SF90 Stradale": [
+      "2019-Günümüz"
+    ],
+    "SP1": [
+      "2018-Günümüz"
+    ],
+    "SP2": [
+      "2018-Günümüz"
+    ],
+    "Scuderia Spider 16M": [
+      "2008-2009"
+    ],
+    "Testarossa": [
+      "1984-1991"
+    ]
+  },
+  "Fiat": {
+    "125": [
+      "1967-1972"
+    ],
+    "126": [
+      "1972-2000"
+    ],
+    "127": [
+      "1971-1977"
+    ],
+    "132": [
+      "1972-1981"
+    ],
+    "500": [
+      "2015-Günümüz",
+      "2007-2015"
+    ],
+    "501": [
+      "1919-1926"
+    ],
+    "502": [
+      "1923-1926"
+    ],
+    "505": [
+      "1919-1925"
+    ],
+    "507": [
+      "1926-1927"
+    ],
+    "514": [
+      "1929-1932"
+    ],
+    "519": [
+      "1922-1924"
+    ],
+    "521": [
+      "1928-1931"
+    ],
+    "525": [
+      "1928-1929"
+    ],
+    "527": [
+      "1934-1936"
+    ],
+    "600": [
+      "2005-2007",
+      "1955-1969"
+    ],
+    "850": [
+      "1965-1968",
+      "1964"
+    ],
+    "1200": [
+      "1957-1961"
+    ],
+    "1400": [
+      "1950-1954"
+    ],
+    "1500": [
+      "1961-1967"
+    ],
+    "1100 D": [
+      "1962-1966"
+    ],
+    "1100 D Station": [
+      "1962-1968"
+    ],
+    "1100 S": [
+      "1947-1950"
+    ],
+    "1100 TV Spider": [
+      "1955-1960"
+    ],
+    "12 HP": [
+      "1901-1902"
+    ],
+    "12-15 HP/Zero": [
+      "1912-1915"
+    ],
+    "1200 Spider": [
+      "1957-1960"
+    ],
+    "124 Familiare": [
+      "1966-1970"
+    ],
+    "124 GT Abarth": [
+      "2018-Günümüz"
+    ],
+    "124 Saloon": [
+      "1966-1974"
+    ],
+    "124 Special T": [
+      "1968-1974"
+    ],
+    "124 Spider": [
+      "2016-Günümüz"
+    ],
+    "124 Sport Coupe BC": [
+      "1969-1972"
+    ],
+    "124 Sport Coupe CC": [
+      "1972-1976"
+    ],
+    "124 Sport Spider": [
+      "1972-1983",
+      "1969-1972",
+      "1966-1969"
+    ],
+    "125 Special": [
+      "1970-1972"
+    ],
+    "127 Panorama": [
+      "1980-1983"
+    ],
+    "128 Rally": [
+      "1972-1974"
+    ],
+    "128 Saloon": [
+      "1969-1976"
+    ],
+    "130 2800/3200 Limousine": [
+      "1969-1976"
+    ],
+    "130 3200": [
+      "1971-1972"
+    ],
+    "131 Mirafiori": [
+      "1974-1978"
+    ],
+    "131 Supermirafiori": [
+      "1978-1981"
+    ],
+    "15-25 HP Brevetti Tipo 2": [
+      "1908-1912"
+    ],
+    "1500 A / 1500 B": [
+      "1935-1939"
+    ],
+    "1500 C": [
+      "1940-1943"
+    ],
+    "1500 L": [
+      "1962-1968"
+    ],
+    "16-20 HP": [
+      "1903-1906"
+    ],
+    "1800 / 2100": [
+      "1959-1961"
+    ],
+    "1800 / 2100 Familiare": [
+      "1959-1961"
+    ],
+    "2300 S": [
+      "1961-1962"
+    ],
+    "2300 Saloon": [
+      "1961-1968"
+    ],
+    "2300 Station": [
+      "1961-1968"
+    ],
+    "2800 Berlina": [
+      "1938-1944"
+    ],
+    "3 1/2 HP": [
+      "1899-1900"
+    ],
+    "500 3+1": [
+      "2020-Günümüz"
+    ],
+    "500 Abarth": [
+      "2008-Günümüz"
+    ],
+    "500 Abarth 695 Tributo Ferrari": [
+      "2009-Günümüz"
+    ],
+    "500 C": [
+      "2015-Günümüz",
+      "2009-2015"
+    ],
+    "500 D": [
+      "1960-1969"
+    ],
+    "500 F/Berlina": [
+      "1965-1972"
+    ],
+    "500 K/Giardiniera": [
+      "1960-1977"
+    ],
+    "500 L/Lusso": [
+      "1968-1972"
+    ],
+    "500 Nouva": [
+      "1957-1960"
+    ],
+    "500 R/Rinnovata": [
+      "1972-1975"
+    ],
+    "500C Abarth esseesse": [
+      "2010-Günümüz"
+    ],
+    "500L": [
+      "2017-Günümüz",
+      "2012-2017"
+    ],
+    "500e": [
+      "2020-Günümüz"
+    ],
+    "501 S Torpedo Sport": [
+      "1919-1926"
+    ],
+    "503 Torpedo": [
+      "1926-1927"
+    ],
+    "519 Berlina": [
+      "1922-1924"
+    ],
+    "519 S": [
+      "1922-1924"
+    ],
+    "520 Superfiat": [
+      "1921-1922"
+    ],
+    "522 C": [
+      "1931-1933"
+    ],
+    "524 C": [
+      "1931-1934"
+    ],
+    "595 Abarth": [
+      "2016-2021",
+      "2012-2015"
+    ],
+    "595C Abarth": [
+      "2016-2021",
+      "2012-2015"
+    ],
+    "600 D": [
+      "1964-1969"
+    ],
+    "600 Multipla": [
+      "1955-1960"
+    ],
+    "850 Sport": [
+      "1968-1971"
+    ],
+    "850 Sport Spider": [
+      "1968"
+    ],
+    "Albea/Siena": [
+      "2002-2005"
+    ],
+    "Argenta": [
+      "1983-1985",
+      "1981-1983"
+    ],
+    "Argo": [
+      "2017"
+    ],
+    "Barchetta": [
+      "2003-2005",
+      "1995-2003"
+    ],
+    "Brava": [
+      "1995-2001"
+    ],
+    "Bravo": [
+      "2007-2010",
+      "1995-2001"
+    ],
+    "Brevetti": [
+      "1905-1908"
+    ],
+    "Campagnola": [
+      "1974-1979"
+    ],
+    "Campagnola A": [
+      "1955-1968"
+    ],
+    "Croma": [
+      "2005-2011",
+      "1991-1996",
+      "1986-1991"
+    ],
+    "Dino": [
+      "1967-1972"
+    ],
+    "Dino Spider": [
+      "1969-1972",
+      "1967-1969"
+    ],
+    "Doblo": [
+      "2015-Günümüz",
+      "2010-2015",
+      "2005-2010"
+    ],
+    "F595 Abarth": [
+      "2021-Günümüz"
+    ],
+    "Freemont": [
+      "2011-2015"
+    ],
+    "Freemont Cross": [
+      "2015-2018"
+    ],
+    "Fullback Cross": [
+      "2016-Günümüz"
+    ],
+    "Fullback Double Cab": [
+      "2016-Günümüz"
+    ],
+    "Fullback Extended Cab": [
+      "2016-Günümüz"
+    ],
+    "Grande Punto": [
+      "2005-2009"
+    ],
+    "Grande Punto Abarth": [
+      "2007-2010"
+    ],
+    "Idea": [
+      "2010-2016",
+      "2003-2010"
+    ],
+    "Linea": [
+      "2006-2015"
+    ],
+    "Marea": [
+      "1996-2002"
+    ],
+    "Marea Weekend": [
+      "1996-2002"
+    ],
+    "Mille": [
+      "1983-2013"
+    ],
+    "Multipla": [
+      "2004-2010",
+      "1998-2004"
+    ],
+    "Palio": [
+      "2011-2016"
+    ],
+    "Palio Weekend": [
+      "2012-2019"
+    ],
+    "Panda": [
+      "2003-2011",
+      "1986-2002",
+      "1981-1986"
+    ],
+    "Panda 100HP": [
+      "2006-2011"
+    ],
+    "Panda 4X4": [
+      "2003-2012",
+      "1986-1992"
+    ],
+    "Panda 4x4": [
+      "2012-Günümüz"
+    ],
+    "Panda City Cross": [
+      "2017-Günümüz"
+    ],
+    "Punto": [
+      "2012-2018",
+      "2003-2005",
+      "1999-2003",
+      "1994-1999"
+    ],
+    "Punto Cabrio": [
+      "1994-1999"
+    ],
+    "Punto Evo": [
+      "2009-2012"
+    ],
+    "Qubo": [
+      "2008-2019"
+    ],
+    "Regata": [
+      "1984-1989"
+    ],
+    "Regata Weekend": [
+      "1986-1989"
+    ],
+    "Ritmo": [
+      "1978-1982"
+    ],
+    "Sedici": [
+      "2006-2009"
+    ],
+    "Seicento": [
+      "2004-2006",
+      "1998-2001"
+    ],
+    "Tempra": [
+      "1990-1998"
+    ],
+    "Tempra SW": [
+      "1990-1998"
+    ],
+    "Tipo": [
+      "2016-Günümüz",
+      "1993-1995",
+      "1988-1993"
+    ],
+    "Tipo / Egea": [
+      "2015-Günümüz"
+    ],
+    "Tipo Cross": [
+      "2020-Günümüz"
+    ],
+    "Tipo Station": [
+      "2016-Günümüz"
+    ],
+    "Ulysse": [
+      "2002-2007",
+      "1999-2002",
+      "1994-1999"
+    ],
+    "Uno": [
+      "2010-Günümüz",
+      "1989-1994",
+      "1983-1989"
+    ],
+    "Viaggio": [
+      "2013-2017"
+    ],
+    "X1/9": [
+      "1972-1989"
+    ]
+  },
+  "Ford": {
+    "Anglia 100E": [
+      "1953-1959"
+    ],
+    "Anglia 105E": [
+      "1959-1967"
+    ],
+    "Bronco": [
+      "1992-1996",
+      "1987-1991",
+      "1980-1986",
+      "1978-1979",
+      "1966-1977"
+    ],
+    "Bronco 2-door": [
+      "2020-Günümüz"
+    ],
+    "Bronco 4-door": [
+      "2020-Günümüz"
+    ],
+    "Bronco Raptor": [
+      "2022-Günümüz"
+    ],
+    "Bronco Sport": [
+      "2020-Günümüz"
+    ],
+    "Bullitt": [
+      "2019-2020"
+    ],
+    "C-Max": [
+      "2014-2019",
+      "2010-2014"
+    ],
+    "Capri": [
+      "1978-1986"
+    ],
+    "Consul": [
+      "1950-1956"
+    ],
+    "Corsair 2000E": [
+      "1964-1970"
+    ],
+    "Cortina": [
+      "1976-1979",
+      "1970-1976",
+      "1966-1970",
+      "1962-1966"
+    ],
+    "Cougar": [
+      "1998-2001"
+    ],
+    "Crestline Skyliner": [
+      "1952-1954"
+    ],
+    "Crestliner": [
+      "1949-1951"
+    ],
+    "Crown Victoria": [
+      "1998-2007"
+    ],
+    "Deluxe": [
+      "1932-1938"
+    ],
+    "EDGE": [
+      "2018-Günümüz"
+    ],
+    "EcoSport": [
+      "2017-Günümüz",
+      "2004-2012"
+    ],
+    "Econovan": [
+      "1999-2005"
+    ],
+    "Ecosport": [
+      "2013-2017"
+    ],
+    "Edge": [
+      "2015-2018",
+      "2010-2014",
+      "2006-2009"
+    ],
+    "Edge ST": [
+      "2018-Günümüz"
+    ],
+    "Escape": [
+      "2022-Günümüz",
+      "2019-2022",
+      "2016-2019",
+      "2012-2016",
+      "2008-2011",
+      "2000-2006"
+    ],
+    "Escort": [
+      "1995-2000",
+      "1993-1995",
+      "1992-1995",
+      "1990-1992",
+      "1980-1986"
+    ],
+    "Escort Cabrio": [
+      "1995-1998",
+      "1993-1995"
+    ],
+    "Escort Clipper": [
+      "1991-1992"
+    ],
+    "Everest": [
+      "2022-Günümüz",
+      "2018-2022",
+      "2015-2018",
+      "2007-2015",
+      "2003-2007"
+    ],
+    "Excursion": [
+      "2000-2005"
+    ],
+    "Expedition": [
+      "2017-2021",
+      "2014-2017",
+      "2007-2013",
+      "2002-2006",
+      "1996-2002"
+    ],
+    "Explorer": [
+      "2015-2019",
+      "2010-2015",
+      "2005-2009",
+      "2003-2005"
+    ],
+    "Explorer Sport": [
+      "2001-2005"
+    ],
+    "Explorer Sport Trac": [
+      "2006-2010",
+      "2002-2005"
+    ],
+    "F-150": [
+      "2020-Günümüz"
+    ],
+    "F-150 Lightning": [
+      "2022-Günümüz"
+    ],
+    "F-150 Raptor": [
+      "2021-Günümüz"
+    ],
+    "F-150 Raptor SVT": [
+      "2009-2013"
+    ],
+    "F-150 Regular Cab": [
+      "2012-Günümüz",
+      "2009-2012",
+      "2004-2008",
+      "1996-2004"
+    ],
+    "F-150 Super Cab": [
+      "2009-2012",
+      "2004-2008",
+      "2001-2004"
+    ],
+    "F-150 Super Crew": [
+      "2018-2020",
+      "2014-2018",
+      "2009-2013",
+      "2004-2008",
+      "2001-2004"
+    ],
+    "F-150 Tremor": [
+      "2020-Günümüz"
+    ],
+    "Fiesta": [
+      "2017-Günümüz",
+      "2017-2021",
+      "2013-2017",
+      "2011-2017",
+      "2008-2012",
+      "2005-2008",
+      "2003-2005",
+      "2002-2005",
+      "1999-2002",
+      "1995-1999",
+      "1993-1995",
+      "1989-1994",
+      "1989-1995",
+      "1986-1989",
+      "1983-1986",
+      "1976-1983"
+    ],
+    "Fiesta Active": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "Fiesta ST": [
+      "2018-Günümüz",
+      "2018-2021",
+      "2012-2016"
+    ],
+    "Fiesta ST200": [
+      "2016-2018"
+    ],
+    "Figo": [
+      "2018-Günümüz",
+      "2015-2018",
+      "2012-2015",
+      "2010-2012"
+    ],
+    "Five Hundred": [
+      "2004-2007"
+    ],
+    "Flex": [
+      "2012-2019",
+      "2009-2012"
+    ],
+    "Focus": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2014-2018",
+      "2011-2014",
+      "2008-2011",
+      "2008-2010",
+      "2007-2010",
+      "2005-2007",
+      "2005-2008",
+      "2004-2007",
+      "2004-2008",
+      "2001-2005",
+      "1999-2001",
+      "1998-2001"
+    ],
+    "Focus Active": [
+      "2021-Günümüz"
+    ],
+    "Focus C-Max": [
+      "2003-2007"
+    ],
+    "Focus CC": [
+      "2008-2011",
+      "2006-2008"
+    ],
+    "Focus RS": [
+      "2016-Günümüz",
+      "2008-2011",
+      "2002-2003"
+    ],
+    "Focus ST": [
+      "2021-Günümüz",
+      "2019-2021",
+      "2012-2014",
+      "2012-Günümüz",
+      "2008-2011",
+      "2005-2007",
+      "2004-2008"
+    ],
+    "Freestar": [
+      "2003-2007"
+    ],
+    "Freestyle": [
+      "2004-2007"
+    ],
+    "Fusion": [
+      "2018-Günümüz"
+    ],
+    "Fusion Energi": [
+      "2016-Günümüz",
+      "2012-2016"
+    ],
+    "Fusion European": [
+      "2005-2012",
+      "2002-2005"
+    ],
+    "Fusion Hybrid": [
+      "2016-Günümüz",
+      "2012-2016"
+    ],
+    "Fusion North American": [
+      "2016-2018",
+      "2012-2016",
+      "2008-2012",
+      "2005-2008"
+    ],
+    "GT": [
+      "2019-Günümüz",
+      "2017-2019"
+    ],
+    "Galaxy": [
+      "2016-2019",
+      "2006-2016",
+      "1995-2000"
+    ],
+    "Grand C-Max": [
+      "2011-2015"
+    ],
+    "Ka": [
+      "2008-2015",
+      "1997-2008"
+    ],
+    "Ka+": [
+      "2018-Günümüz",
+      "2016-2018"
+    ],
+    "Ka+ Active": [
+      "2018-Günümüz"
+    ],
+    "Kuga": [
+      "2016-2019",
+      "2012-2016"
+    ],
+    "Model A": [
+      "1903-1905"
+    ],
+    "Model T": [
+      "1908-1927"
+    ],
+    "Mondeo": [
+      "2019-Günümüz",
+      "2015-2018",
+      "2014-2018",
+      "2010-2014",
+      "2007-2015",
+      "2007-2010",
+      "2007-2014",
+      "2005-2007",
+      "2003-2005",
+      "2000-2003",
+      "1997-2000",
+      "1996-2000",
+      "1993-1996"
+    ],
+    "Mustang": [
+      "2017-Günümüz",
+      "2014-2017",
+      "2009-2013",
+      "2004-2008",
+      "1998-2004",
+      "1981",
+      "1979",
+      "1978-1993",
+      "1972-1973",
+      "1971",
+      "1970",
+      "1969-1973",
+      "1968",
+      "1966",
+      "1965-1968",
+      "1964-1973",
+      "1964-1966"
+    ],
+    "Mustang GT": [
+      "1996"
+    ],
+    "Mustang GT 350 Shelby": [
+      "1965-1966"
+    ],
+    "Mustang Mach-E GT": [
+      "2021-Günümüz"
+    ],
+    "Mustang Shelby GT350": [
+      "2015-Günümüz"
+    ],
+    "Mustang Shelby GT350R": [
+      "2015-Günümüz"
+    ],
+    "Mustang Shelby GT500": [
+      "2019-Günümüz",
+      "2012-2015",
+      "2012-2014",
+      "2009-2012"
+    ],
+    "Orion": [
+      "1990-1993"
+    ],
+    "Probe": [
+      "1994-1998"
+    ],
+    "Puma": [
+      "2019-Günümüz"
+    ],
+    "Ranger Double Cab": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2015-2018",
+      "2011-2015"
+    ],
+    "Ranger Regular Cab": [
+      "2015-Günümüz",
+      "2011-2015",
+      "2008-2011",
+      "2000-2005"
+    ],
+    "Ranger Super Cab": [
+      "2015-Günümüz",
+      "2011-2015",
+      "2008-2011",
+      "2000-2005"
+    ],
+    "Ranger Wildtrak": [
+      "2021-Günümüz"
+    ],
+    "Raptor Ranger": [
+      "2018-Günümüz"
+    ],
+    "S-Max": [
+      "2006-2014"
+    ],
+    "Scorpio": [
+      "1994-1997",
+      "1992-1994",
+      "1990-1992"
+    ],
+    "Sierra": [
+      "1990-1993"
+    ],
+    "SportKa": [
+      "2003-2008"
+    ],
+    "StreetKa": [
+      "2003-2006"
+    ],
+    "Super Duty Lariat Tremor": [
+      "2021-Günümüz"
+    ],
+    "TRANSIT/TOURNEO CONNECT (7-SEATS)": [
+      "2018-Günümüz"
+    ],
+    "Taunus 12M": [
+      "1952-1959"
+    ],
+    "Taunus 12M Cabrio": [
+      "1952-1968"
+    ],
+    "Taurus": [
+      "2012-2019",
+      "2007-2009",
+      "1999-2007",
+      "1995-1999"
+    ],
+    "Taurus X": [
+      "2007-2009"
+    ],
+    "Territory": [
+      "2018-Günümüz"
+    ],
+    "Thunderbird": [
+      "2001-2005",
+      "1989-1997",
+      "1983-1988",
+      "1977-1979",
+      "1972-1976",
+      "1966",
+      "1965",
+      "1964",
+      "1961",
+      "1960",
+      "1959",
+      "1958",
+      "1957",
+      "1956",
+      "1955-1977"
+    ],
+    "Tourneo Connect": [
+      "2013-2018",
+      "2009-2013",
+      "2007-2009",
+      "2003-2007"
+    ],
+    "Transit Custom": [
+      "2019-Günümüz"
+    ],
+    "Windstar": [
+      "1998-2004"
+    ],
+    "Zodiac": [
+      "1966-1972",
+      "1962-1966"
+    ]
+  },
+  "Genesis": {
+    "G70": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "G70 Shooting Brake": [
+      "2021-Günümüz"
+    ],
+    "G80": [
+      "2020-Günümüz",
+      "2016-2019"
+    ],
+    "G90": [
+      "2022-Günümüz",
+      "2016-2019"
+    ],
+    "GV70": [
+      "2020-Günümüz"
+    ]
+  },
+  "Honda": {
+    "1300": [
+      "1970-1973",
+      "1969-1973"
+    ],
+    "Accord": [
+      "1996-1998"
+    ],
+    "Airwave": [
+      "2005-2010"
+    ],
+    "Avancier": [
+      "1999-2003"
+    ],
+    "Beat": [
+      "1991-1996"
+    ],
+    "CR-V": [
+      "2016-2019",
+      "2010-2011",
+      "2007-2009",
+      "2004-2007",
+      "2002-2004",
+      "1996-2001"
+    ],
+    "CR-Z": [
+      "2010-2016"
+    ],
+    "Civic": [
+      "2021-Günümüz",
+      "2019-2021",
+      "2018-2021",
+      "2018-Günümüz",
+      "2016-2018",
+      "2016-2019",
+      "2015-2016",
+      "2012-2015",
+      "2012-2016",
+      "2008-2011",
+      "2008-2012",
+      "2006-2008",
+      "2005-2008",
+      "2003-2005",
+      "2001-2003",
+      "2001-2005",
+      "2000-2003",
+      "1997-2001",
+      "1996-2001",
+      "1995-2000",
+      "1995-1997",
+      "1994-1996",
+      "1991-1995",
+      "1991-1996",
+      "1987-1991",
+      "1983-1987",
+      "1982-1983",
+      "1979-1982",
+      "1972-1979"
+    ],
+    "Civic Aero Deck": [
+      "1998-2001"
+    ],
+    "Civic CRX": [
+      "1988-1993"
+    ],
+    "Civic Coupe Si": [
+      "2012-2015",
+      "2008-2011",
+      "2006-2008"
+    ],
+    "Civic Sedan HF": [
+      "2012-2016"
+    ],
+    "Civic Sedan Natural Gas": [
+      "2012-2016"
+    ],
+    "Civic Sedan Si": [
+      "2012-2016"
+    ],
+    "Civic Sedan Si US": [
+      "2008-Günümüz"
+    ],
+    "Civic Sedan US": [
+      "2008-Günümüz",
+      "2005-2008"
+    ],
+    "Civic Shuttle": [
+      "1987-1993"
+    ],
+    "Civic Si": [
+      "2015-2016"
+    ],
+    "Civic Tourer": [
+      "2013-2017"
+    ],
+    "Civic Type S": [
+      "2008-2011",
+      "2005-2008"
+    ],
+    "Civic Type-R": [
+      "2015-2016",
+      "2008-2010",
+      "2006-2007",
+      "2001-2005"
+    ],
+    "Civic Type-R Mugen": [
+      "2009-2010"
+    ],
+    "Concerto": [
+      "1990-1994"
+    ],
+    "Crosstour": [
+      "2013-2016"
+    ],
+    "Element": [
+      "2003-2011"
+    ],
+    "FCX Clarity": [
+      "2007-2014"
+    ],
+    "FR-V / Edix": [
+      "2007-2011",
+      "2004-2007"
+    ],
+    "Fit EV": [
+      "2012-2014"
+    ],
+    "HR-V": [
+      "2022-Günümüz",
+      "2021-2022",
+      "2018-2021",
+      "2014-2018",
+      "2001-2006",
+      "1999-2001"
+    ],
+    "Insight": [
+      "2018-Günümüz",
+      "2009-2012",
+      "1999-2006"
+    ],
+    "Jazz / Fit": [
+      "2020-Günümüz",
+      "2017-2020"
+    ],
+    "Jazz/City": [
+      "1983-1986"
+    ],
+    "Jazz/Fit": [
+      "2013-2017",
+      "2008-2013",
+      "2004-2008",
+      "2002-2004"
+    ],
+    "L700": [
+      "1965-1967"
+    ],
+    "Legend": [
+      "2014-Günümüz",
+      "2009-2012",
+      "2004-2008",
+      "1996-2005",
+      "1991-1996",
+      "1988-1991",
+      "1987-1991"
+    ],
+    "Logo/Fit": [
+      "1996-2001"
+    ],
+    "MDX": [
+      "2003-2006"
+    ],
+    "Mobilio": [
+      "2004-2008",
+      "2001-2004"
+    ],
+    "N360": [
+      "1967-1972"
+    ],
+    "N600": [
+      "1969-1972"
+    ],
+    "NSX": [
+      "2002-2005",
+      "1997-2002",
+      "1991-1997"
+    ],
+    "Odyssey": [
+      "2011-2017",
+      "2008-2011",
+      "2005-2008"
+    ],
+    "Prelude": [
+      "1996-2000",
+      "1992-1996",
+      "1987-1992",
+      "1983-1987",
+      "1979-1982"
+    ],
+    "S2000": [
+      "1999-2009"
+    ],
+    "S500": [
+      "1963-1964"
+    ],
+    "S600": [
+      "1964-1966"
+    ],
+    "S660": [
+      "2015-Günümüz"
+    ],
+    "S800C": [
+      "1966-1970"
+    ],
+    "Shuttle": [
+      "1998-2001",
+      "1995-1998"
+    ],
+    "Stream": [
+      "2006-2009",
+      "2003-2006",
+      "2000-2003"
+    ],
+    "That's": [
+      "2002-2007"
+    ],
+    "insight": [
+      "2012-2014"
+    ]
+  },
+  "Hyundai": {
+    "Accent": [
+      "2017-Günümüz",
+      "2006-2011",
+      "2003-2006",
+      "1999-2003"
+    ],
+    "Atos": [
+      "2005-2008",
+      "2003-2005"
+    ],
+    "Atos Multi": [
+      "1998-2003"
+    ],
+    "Coupe / Tiburon": [
+      "2007-2009",
+      "2004-2007",
+      "2001-2004",
+      "1999-2001",
+      "1996-1999"
+    ],
+    "Elantra": [
+      "2014-2016",
+      "2012-2014",
+      "2009-2012",
+      "2006-2010",
+      "2003-2006",
+      "2000-2003"
+    ],
+    "Elantra GT": [
+      "2017-Günümüz",
+      "2015-2017",
+      "2012-Günümüz",
+      "2012-2015"
+    ],
+    "Equus": [
+      "2013-2016",
+      "2010-2013"
+    ],
+    "Excel": [
+      "1998-2000",
+      "1994-1998",
+      "1989-1994"
+    ],
+    "Genesis": [
+      "2014-2016",
+      "2013-2016",
+      "2008-2013",
+      "2008-2014"
+    ],
+    "Getz": [
+      "2005-2011",
+      "2002-2005"
+    ],
+    "Grandeur": [
+      "2005-2011"
+    ],
+    "Ioniq": [
+      "2016-2019"
+    ],
+    "Ioniq 5": [
+      "2021-Günümüz"
+    ],
+    "Lantra": [
+      "1999-2001",
+      "1998-2000",
+      "1995-1998",
+      "1993-1995",
+      "1991-1993"
+    ],
+    "Matrix": [
+      "2001-2010"
+    ],
+    "Mistra": [
+      "2014-Günümüz"
+    ],
+    "NEXO": [
+      "2018-Günümüz"
+    ],
+    "Palisade": [
+      "2022-Günümüz",
+      "2019-2022"
+    ],
+    "Pony": [
+      "1989-1994"
+    ],
+    "Santa Fe": [
+      "2018-2020",
+      "2016-2018",
+      "2012-2016",
+      "2009-2012",
+      "2006-2009",
+      "2004-2006",
+      "2000-2004"
+    ],
+    "Santa Fe Sport": [
+      "2016-2018"
+    ],
+    "Satellite": [
+      "1997-2000"
+    ],
+    "Scoupe": [
+      "1992-1996",
+      "1990-1992"
+    ],
+    "Terracan": [
+      "2004-2007",
+      "2001-2004"
+    ],
+    "Trajet": [
+      "2004-2008",
+      "2000-2004"
+    ],
+    "Tucson": [
+      "2018-2020",
+      "2016-2018",
+      "2004-2009"
+    ],
+    "Veloster": [
+      "2018-Günümüz",
+      "2011-2018"
+    ],
+    "Veloster N": [
+      "2018-Günümüz"
+    ],
+    "XG": [
+      "2003-2005",
+      "1999-2003"
+    ],
+    "i10": [
+      "2008-2013"
+    ],
+    "i20": [
+      "2015-2018",
+      "2014-2018",
+      "2009-2014"
+    ],
+    "i20 5-doors": [
+      "2018-2020"
+    ],
+    "i20 Active": [
+      "2018-Günümüz",
+      "2015-2018"
+    ],
+    "i20 N": [
+      "2020-Günümüz"
+    ],
+    "i30": [
+      "2018-2020",
+      "2017-2019",
+      "2016-2018",
+      "2012-Günümüz",
+      "2012-2017",
+      "2008-2012",
+      "2007-2011"
+    ],
+    "i30 N": [
+      "2020-Günümüz",
+      "2017-2020"
+    ],
+    "i30 Tourer": [
+      "2017-2019"
+    ],
+    "i40": [
+      "2018-Günümüz"
+    ],
+    "i40 Saloon": [
+      "2011-2018"
+    ],
+    "i40 Tourer": [
+      "2012-2018"
+    ],
+    "i800 / H-1": [
+      "2008-2018"
+    ],
+    "ix20": [
+      "2015-2019",
+      "2010-2015"
+    ],
+    "ix35 / Tucson": [
+      "2013-2015",
+      "2009-2013"
+    ],
+    "ix55 / Veracruz": [
+      "2009-2012"
+    ]
+  },
+  "Jaguar": {
+    "F-Pace": [
+      "2020-Günümüz"
+    ],
+    "F-Pace SVR": [
+      "2020-Günümüz",
+      "2018-2020"
+    ],
+    "F-Type": [
+      "2020-Günümüz",
+      "2017-2020"
+    ],
+    "F-Type 400": [
+      "2017-2020"
+    ],
+    "I-PACE": [
+      "2018-Günümüz"
+    ],
+    "S-Type": [
+      "2004-2007",
+      "1999-2002"
+    ],
+    "S-Type R": [
+      "2004-2007",
+      "2002-2004"
+    ],
+    "X-Type": [
+      "2004-2009",
+      "2001-2009"
+    ],
+    "XE": [
+      "2019-Günümüz"
+    ],
+    "XE 300 Sport": [
+      "2018-Günümüz"
+    ],
+    "XE SV Project 8": [
+      "2017-Günümüz"
+    ],
+    "XF": [
+      "2020-Günümüz",
+      "2015-Günümüz",
+      "2012-2015",
+      "2008-2012"
+    ],
+    "XF Sportbrake": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2012-2015"
+    ],
+    "XFR": [
+      "2011-2015",
+      "2009-2011"
+    ],
+    "XJ": [
+      "2012-2019",
+      "2009-2012",
+      "2007-2009",
+      "2003-2007",
+      "1997-2003",
+      "1994-1997",
+      "1986-1994",
+      "1979-1992"
+    ],
+    "XJ220": [
+      "1992-1994"
+    ],
+    "XJR": [
+      "2007-2010",
+      "2003-2007",
+      "1997-2003",
+      "1994-1997"
+    ],
+    "XJR15": [
+      "1990-1992"
+    ],
+    "XJR575": [
+      "2017-Günümüz"
+    ],
+    "XK": [
+      "2010-2014",
+      "2006-2009"
+    ],
+    "XK Cabrio": [
+      "2010-2014"
+    ],
+    "XK Convertible": [
+      "2006-2009"
+    ]
+  },
+  "Jeep": {
+    "Avenger": [
+      "2022-Günümüz"
+    ],
+    "Commander": [
+      "2008-2010",
+      "2005-2007"
+    ],
+    "GRAND CHEROKEE TRACKHAWK": [
+      "2018-Günümüz"
+    ],
+    "Grand Cherokee": [
+      "2021-Günümüz",
+      "2013-2020",
+      "2010-2013",
+      "2005-2010",
+      "2003-2005",
+      "1999-2003"
+    ],
+    "Grand Cherokee L": [
+      "2020-Günümüz"
+    ],
+    "Grand Cherokee SRT-8": [
+      "2006-2010"
+    ],
+    "Renegade": [
+      "2018-2022",
+      "2014-2018"
+    ]
+  },
+  "Kia": {
+    "Borrego": [
+      "2009-Günümüz"
+    ],
+    "Carens": [
+      "2016-2018",
+      "2013-2016",
+      "2008-2013",
+      "2002-2006",
+      "2000-2002"
+    ],
+    "Carnival/Sedona": [
+      "2018-2021",
+      "2015-2018",
+      "2006-2015",
+      "2002-2006"
+    ],
+    "Ceed": [
+      "2021-Günümüz",
+      "2018-2021"
+    ],
+    "Cerato / Spectra": [
+      "2007-2009",
+      "2004-2007"
+    ],
+    "Cerato/Forte": [
+      "2013-Günümüz"
+    ],
+    "EV6": [
+      "2021-Günümüz"
+    ],
+    "Forte": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2016-2018",
+      "2009-2013"
+    ],
+    "Forte 5 Door": [
+      "2016-Günümüz",
+      "2013-2016",
+      "2010-2012"
+    ],
+    "K5": [
+      "2020-Günümüz"
+    ],
+    "K7 / Cadenza": [
+      "2016-Günümüz",
+      "2013-2016"
+    ],
+    "K9 / K900": [
+      "2012-2018"
+    ],
+    "K900/K9": [
+      "2018-Günümüz"
+    ],
+    "Niro": [
+      "2019-Günümüz",
+      "2016-2019"
+    ],
+    "Niro Plug-In Hybrid": [
+      "2018-Günümüz"
+    ],
+    "Opirus/Amanti": [
+      "2007-2010",
+      "2003-2007"
+    ],
+    "Optima": [
+      "2018-2020",
+      "2016-2019"
+    ],
+    "Optima / K5": [
+      "2010-2016"
+    ],
+    "Optima / Magentis": [
+      "2008-2010",
+      "2006-2008",
+      "2003-2006",
+      "2001-2003"
+    ],
+    "Optima Sportswagon": [
+      "2018-Günümüz",
+      "2016-2018"
+    ],
+    "Picanto": [
+      "2017-2020",
+      "2015-2017",
+      "2007-2011",
+      "2004-2007"
+    ],
+    "Pro cee'd": [
+      "2007-2013"
+    ],
+    "Rio": [
+      "2020-Günümüz",
+      "2016-2018",
+      "2011-2016",
+      "2009-2011",
+      "2005-2008"
+    ],
+    "Rondo": [
+      "2013-Günümüz",
+      "2008-2013"
+    ],
+    "Shuma": [
+      "2001-2004",
+      "1998-2001"
+    ],
+    "Sorento": [
+      "2020-Günümüz",
+      "2018-Günümüz",
+      "2017-2020",
+      "2006-2009",
+      "2002-2006"
+    ],
+    "Soul": [
+      "2022-Günümüz",
+      "2018-2022",
+      "2008-2013"
+    ],
+    "Soul EV": [
+      "2018-Günümüz"
+    ],
+    "Sportage": [
+      "2021-Günümüz",
+      "2013-2015",
+      "2010-2013",
+      "2008-2010"
+    ],
+    "Sportage HEV": [
+      "2022-Günümüz"
+    ],
+    "Stinger": [
+      "2021-Günümüz"
+    ],
+    "Stonic": [
+      "2017-Günümüz"
+    ],
+    "Stonic GT-Line": [
+      "2020-Günümüz"
+    ],
+    "Telluride": [
+      "2022-Günümüz",
+      "2019-2022"
+    ],
+    "Venga": [
+      "2014-2019",
+      "2009-2014"
+    ],
+    "XCeed": [
+      "2022-Günümüz"
+    ],
+    "cee'd": [
+      "2015-Günümüz",
+      "2009-2012",
+      "2007-2009"
+    ],
+    "cee'd Sport": [
+      "2007-2012"
+    ],
+    "pro_cee’d GT": [
+      "2013-Günümüz"
+    ]
+  },
+  "Lamborghini": {
+    "350 GT": [
+      "1964-1966"
+    ],
+    "350 GTS": [
+      "1965"
+    ],
+    "400 GT": [
+      "1965-1968"
+    ],
+    "Aventador LP 700-4": [
+      "2012-Günümüz",
+      "2011-2016"
+    ],
+    "Aventador LP750-4 SV": [
+      "2015-2017"
+    ],
+    "Aventador S": [
+      "2017-Günümüz"
+    ],
+    "Aventador SVJ": [
+      "2019-Günümüz",
+      "2018-Günümüz"
+    ],
+    "Centenario": [
+      "2016-2017",
+      "2016-Günümüz"
+    ],
+    "Countach 25th Anniversary": [
+      "1989-1990"
+    ],
+    "Countach 5000 Quattro Valvole": [
+      "1985-1989"
+    ],
+    "Countach LP 400": [
+      "1973-1981"
+    ],
+    "Diablo": [
+      "1999-2000",
+      "1996-1999",
+      "1990-1999"
+    ],
+    "Diablo SE 30": [
+      "1994-1995"
+    ],
+    "Diablo SE 30 \"Jota\"": [
+      "1995"
+    ],
+    "Diablo SV": [
+      "1996-1999"
+    ],
+    "Diablo VT": [
+      "1993-1999"
+    ],
+    "Diablo VT 6.0": [
+      "2000-2001"
+    ],
+    "Espada": [
+      "1968-1976"
+    ],
+    "Gallardo": [
+      "2003-2008"
+    ],
+    "Gallardo 560-4 Spyder": [
+      "2008-2013"
+    ],
+    "Gallardo LP 550-2 Spyder": [
+      "2012-2013"
+    ],
+    "Gallardo LP 550-2 Valentino Balboni": [
+      "2009-2013"
+    ],
+    "Gallardo LP 560-4": [
+      "2012-2013",
+      "2008-2012"
+    ],
+    "Gallardo LP 570-4 Edizione Tecnica": [
+      "2012-2013"
+    ],
+    "Gallardo LP 570-4 Superleggera": [
+      "2010-2013"
+    ],
+    "Gallardo SE": [
+      "2005-2006"
+    ],
+    "Gallardo Spyder": [
+      "2006-2008"
+    ],
+    "Gallardo Superleggera": [
+      "2007-2008"
+    ],
+    "Islero": [
+      "1968-1969"
+    ],
+    "Jalpa 350S": [
+      "1981-1988"
+    ],
+    "Jarama": [
+      "1970-1976"
+    ],
+    "Jarama Rallye": [
+      "1972"
+    ],
+    "LM 002": [
+      "1986-1993"
+    ],
+    "LP780-4 Ultimae": [
+      "2022-Günümüz"
+    ],
+    "Miura": [
+      "1968",
+      "1966-1973"
+    ],
+    "Miura SV/J": [
+      "1971-1987"
+    ],
+    "Murcielago": [
+      "2004-2007",
+      "2001-2006"
+    ],
+    "Murcielago LP 640": [
+      "2007-2010",
+      "2006-2010"
+    ],
+    "Reventon": [
+      "2008-2009"
+    ],
+    "Sian": [
+      "2020-Günümüz",
+      "2019-Günümüz"
+    ],
+    "Silhouette P300": [
+      "1976-1979"
+    ],
+    "Urraco": [
+      "1972-1979"
+    ],
+    "Urus": [
+      "2018-Günümüz"
+    ],
+    "Urus Performante": [
+      "2022-Günümüz"
+    ],
+    "Veneno": [
+      "2014-Günümüz",
+      "2013-2014"
+    ]
+  },
+  "Land Rover": {
+    "Defender 110": [
+      "2012-2016",
+      "2007-2012",
+      "1991-2007"
+    ],
+    "Defender 130": [
+      "2022-Günümüz"
+    ],
+    "Defender 90": [
+      "2012-2016",
+      "2007-2012",
+      "1991-2007"
+    ],
+    "Defender 90 Works V8": [
+      "2018-2019"
+    ],
+    "Discovery": [
+      "2017-Günümüz",
+      "2002-2004",
+      "1994-1999",
+      "1990-1994"
+    ],
+    "Discovery - LR3": [
+      "2004-2009"
+    ],
+    "Discovery - LR4": [
+      "2013-Günümüz"
+    ],
+    "Discovery SVX": [
+      "2018-Günümüz"
+    ],
+    "Discovery Sport": [
+      "2019-Günümüz",
+      "2014-2019"
+    ],
+    "Freelander": [
+      "2003-2007",
+      "2000-2003",
+      "1998-2000"
+    ],
+    "Freelander - LR2": [
+      "2009-2014",
+      "2006-2009"
+    ],
+    "Range Rover": [
+      "2021-Günümüz",
+      "2017-2021",
+      "2013-2017",
+      "2005-2009",
+      "2002-2005",
+      "1994-2002",
+      "1988-1993",
+      "1988-1994"
+    ],
+    "Range Rover Evoque": [
+      "2016-Günümüz",
+      "2011-2015"
+    ],
+    "Range Rover Evoque 3 Door": [
+      "2015-Günümüz"
+    ],
+    "Range Rover Evoque 5 Door": [
+      "2015-2018",
+      "2011-2015"
+    ],
+    "Range Rover L": [
+      "2014-Günümüz"
+    ],
+    "Range Rover PHEV": [
+      "2017-Günümüz"
+    ],
+    "Range Rover Sport": [
+      "2017-2022",
+      "2009-2013",
+      "2005-2009"
+    ],
+    "Range Rover Sport HST": [
+      "2019-Günümüz"
+    ],
+    "Range Rover Sport PHEV": [
+      "2017-Günümüz"
+    ],
+    "Range Rover Sport SVR": [
+      "2017-Günümüz"
+    ],
+    "SV": [
+      "2018"
+    ]
+  },
+  "Lexus": {
+    "CT": [
+      "2017-Günümüz",
+      "2014-2017",
+      "2011-2014"
+    ],
+    "ES": [
+      "2018-2021",
+      "2016-2018",
+      "2012-2015",
+      "2006-2012",
+      "2002-2006"
+    ],
+    "GX": [
+      "2010-2013",
+      "2003-2009"
+    ],
+    "GX 460": [
+      "2013-2019"
+    ],
+    "HS 250h": [
+      "2009-2013"
+    ],
+    "IS": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2005-2012",
+      "1998-2005"
+    ],
+    "IS C": [
+      "2009-2013"
+    ],
+    "IS F": [
+      "2013-Günümüz",
+      "2008-2012"
+    ],
+    "IS Sport Cross": [
+      "2001-2005"
+    ],
+    "LS": [
+      "2020-Günümüz",
+      "2012-2017",
+      "2009-2012",
+      "2003-2006",
+      "2000-2003",
+      "1997-2000",
+      "1995-1997",
+      "1990-1995"
+    ],
+    "LX": [
+      "2021-Günümüz",
+      "2015-2021",
+      "2012-2015",
+      "2008-2012",
+      "1997-2007",
+      "1996-1997"
+    ],
+    "NX": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "RC": [
+      "2018-Günümüz",
+      "2014-2018"
+    ],
+    "RX": [
+      "2022-Günümüz",
+      "2019-2022",
+      "2016-2019",
+      "2012-2016",
+      "2008-2012",
+      "2004-2008",
+      "1998-2003"
+    ],
+    "RZ 450e": [
+      "2022-Günümüz"
+    ],
+    "SC": [
+      "2005-2010",
+      "2001-2005",
+      "1991-2000"
+    ],
+    "UX": [
+      "2018-Günümüz"
+    ],
+    "UX 300e": [
+      "2020-Günümüz"
+    ]
+  },
+  "Maserati": {
+    "Coupe": [
+      "2002-2004"
+    ],
+    "Ghibli": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2013-2017",
+      "1967-1974"
+    ],
+    "Ghibli GranLusso": [
+      "2017-2020"
+    ],
+    "Ghibli Trofeo": [
+      "2020-Günümüz"
+    ],
+    "GranSport": [
+      "2004-2007"
+    ],
+    "Indy": [
+      "1969-1974"
+    ],
+    "Levante Trofeo": [
+      "2020-Günümüz",
+      "2018-2020"
+    ],
+    "MC 12": [
+      "2004-2005"
+    ],
+    "Quattroporte I": [
+      "1963-1969"
+    ],
+    "Quattroporte II": [
+      "1974-1978"
+    ],
+    "Quattroporte III": [
+      "1976-1990"
+    ],
+    "Quattroporte IV": [
+      "1994-2000"
+    ],
+    "Quattroporte S": [
+      "2008-2012"
+    ],
+    "Quattroporte Sport GT S": [
+      "2009-2013"
+    ],
+    "Quattroporte Trofeo": [
+      "2020-Günümüz"
+    ],
+    "Quattroporte V": [
+      "2003-2012"
+    ],
+    "Quattroporte VI": [
+      "2016-Günümüz",
+      "2013-2016"
+    ]
+  },
+  "Mazda": {
+    "2": [
+      "2014-2019",
+      "2007-2014"
+    ],
+    "323": [
+      "1989-1994",
+      "1989-1991"
+    ],
+    "121 (Mk.1)": [
+      "1987-1991"
+    ],
+    "121/ Revue (Mk.2)": [
+      "1991-1998"
+    ],
+    "2 / Demio": [
+      "2002-2007"
+    ],
+    "2 / Demio -": [
+      "2008-2014"
+    ],
+    "3 / Axela": [
+      "2018-Günümüz",
+      "2016-2018",
+      "2013-2016",
+      "2009-2013",
+      "2004-2009"
+    ],
+    "3 MPS / MAZDASPEED3": [
+      "2009-2013",
+      "2006-2009"
+    ],
+    "323 (BF) Station": [
+      "1986-1994"
+    ],
+    "323 C": [
+      "1994-1997"
+    ],
+    "323 F": [
+      "1994-1998"
+    ],
+    "5 / Premacy": [
+      "2010-Günümüz",
+      "2008-2010",
+      "2005-2008"
+    ],
+    "6 / Atenza": [
+      "2018-Günümüz",
+      "2015-2018",
+      "2015-Günümüz"
+    ],
+    "6 MPS": [
+      "2006-2007"
+    ],
+    "6/Atenza": [
+      "2013-2015",
+      "2007-2013",
+      "2007-2012",
+      "2005-2007",
+      "2002-2005"
+    ],
+    "626 (Mk.3)": [
+      "1988-1991"
+    ],
+    "626 (Mk.3) Station": [
+      "1988-1991"
+    ],
+    "626 (Mk.4)": [
+      "1991-1998"
+    ],
+    "626 (Mk.5)": [
+      "1997-2002",
+      "1991-1997"
+    ],
+    "B Series / Bravo Dual Cab": [
+      "1999-2006"
+    ],
+    "B Series / Bravo Freestyle Cab": [
+      "1999-2006"
+    ],
+    "BT-50": [
+      "2018-2020",
+      "2015-2018",
+      "2011-2015",
+      "2006-2011"
+    ],
+    "Biante": [
+      "2008-Günümüz"
+    ],
+    "CX-3": [
+      "2018-Günümüz",
+      "2015-2018"
+    ],
+    "CX-30": [
+      "2019-Günümüz"
+    ],
+    "CX-5": [
+      "2016-Günümüz",
+      "2012-Günümüz"
+    ],
+    "CX-50": [
+      "2021-Günümüz"
+    ],
+    "CX-60": [
+      "2022-Günümüz"
+    ],
+    "CX-7": [
+      "2009-2012",
+      "2007-2009"
+    ],
+    "CX-8": [
+      "2017-Günümüz"
+    ],
+    "CX-9": [
+      "2016-Günümüz",
+      "2013-2016"
+    ],
+    "Flair": [
+      "2012-Günümüz"
+    ],
+    "Flairwagon": [
+      "2012-2013"
+    ],
+    "MX-3": [
+      "1991-1998"
+    ],
+    "MX-5 / Miata": [
+      "2008-2015",
+      "2005-2008",
+      "1998-2005",
+      "1989-1998"
+    ],
+    "MX-5 / Miata RF": [
+      "2016-Günümüz"
+    ],
+    "MX-5 / Miata Roadster": [
+      "2012-Günümüz"
+    ],
+    "MX-6": [
+      "1992-1997"
+    ],
+    "Mazda speed MX-5 / Miata": [
+      "2004-2005"
+    ],
+    "RX-3": [
+      "1971-1978"
+    ],
+    "RX-7": [
+      "1985-1992"
+    ],
+    "RX-7 (SA/FB)": [
+      "1978-1985"
+    ],
+    "RX-8": [
+      "2008-2012",
+      "2003-2008"
+    ],
+    "Tribute": [
+      "2007-2008",
+      "2001-2007"
+    ],
+    "Xedos 6": [
+      "1992-1999"
+    ],
+    "Xedos 9": [
+      "2001-2002",
+      "1993-2001"
+    ]
+  },
+  "Mg": {
+    "MG 5 EV": [
+      "2021-Günümüz"
+    ],
+    "MG6 GT": [
+      "2011-Günümüz"
+    ],
+    "MG6 Magnette": [
+      "2011-Günümüz"
+    ],
+    "Marvel R": [
+      "2021-Günümüz"
+    ],
+    "TF": [
+      "2002-2005"
+    ],
+    "XPower": [
+      "2004-2005"
+    ],
+    "ZR": [
+      "2004-2005",
+      "2001-2004"
+    ],
+    "ZS": [
+      "2017-2021",
+      "2004-2005",
+      "2002-2004",
+      "2001-2004"
+    ],
+    "ZS EV": [
+      "2021-Günümüz"
+    ],
+    "ZT": [
+      "2004-2005",
+      "2001-2004"
+    ],
+    "ZT-T": [
+      "2004-2005",
+      "2001-2004"
+    ]
+  },
+  "Mini": {
+    "Clubman": [
+      "2007-2015"
+    ],
+    "Clubvan": [
+      "2012-Günümüz"
+    ],
+    "Convertible": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2015-2018",
+      "2009-2015",
+      "2004-2009"
+    ],
+    "Countryman": [
+      "2016-2020",
+      "2014-2016",
+      "2010-2014"
+    ],
+    "Coupe": [
+      "2011-2015"
+    ],
+    "Hatch": [
+      "2018-2021",
+      "2014-2018",
+      "2006-2014",
+      "2001-2006",
+      "1997-2000"
+    ],
+    "John Cooper Works GP": [
+      "2019-Günümüz"
+    ],
+    "Mini Classic": [
+      "1997-2000"
+    ],
+    "Mini Cooper 3-door": [
+      "2021-Günümüz"
+    ],
+    "Paceman": [
+      "2013-2016"
+    ]
+  },
+  "Mitsubishi": {
+    "1994 Mitsubishi": [
+      "3000"
+    ],
+    "3000 GT": [
+      "1994-2001",
+      "1990-1993",
+      "1990-1994"
+    ],
+    "ASX / RVR / Outlander Sport": [
+      "2016-2019",
+      "2012-2016",
+      "2010-2012"
+    ],
+    "Attrage": [
+      "2013-Günümüz"
+    ],
+    "Carisma": [
+      "1995-2004"
+    ],
+    "Colt": [
+      "2008-2012",
+      "2004-2008",
+      "1996-2004",
+      "1992-1996",
+      "1988-1992"
+    ],
+    "Colt CZ3": [
+      "2004-2008"
+    ],
+    "Colt CZC": [
+      "2006-2012"
+    ],
+    "Colt CZT": [
+      "2005-2008"
+    ],
+    "Colt Ralliart": [
+      "2008-2012"
+    ],
+    "Eclipse": [
+      "2009-2012",
+      "2005-2009",
+      "2000-2005",
+      "1995-1999"
+    ],
+    "Eclipse Cross": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "Eclipse Spyder": [
+      "2009-2012",
+      "2006-2009",
+      "2000-2005"
+    ],
+    "Endeavor": [
+      "2008-2011",
+      "2002-2007"
+    ],
+    "Galant": [
+      "2008-2012",
+      "2004-2008",
+      "1997-2004",
+      "1993-1997",
+      "1988-1993"
+    ],
+    "Galant Station": [
+      "1997-2001"
+    ],
+    "Galant Station Wagon VR-4": [
+      "1997-2001"
+    ],
+    "Galant VR-4": [
+      "1997-2004"
+    ],
+    "L 200/Triton Crew Cab": [
+      "2005-Günümüz"
+    ],
+    "L 200/Triton Single Cab": [
+      "2005-Günümüz"
+    ],
+    "L200 Crew Cab": [
+      "1995-2005"
+    ],
+    "L200 Double Cab": [
+      "1995-2005"
+    ],
+    "L200 Single Cab": [
+      "1995-2005"
+    ],
+    "L300": [
+      "1986-1994"
+    ],
+    "Lancer": [
+      "2016-Günümüz",
+      "2008-Günümüz",
+      "2007-2015",
+      "2003-2007",
+      "2000-2003",
+      "1994-1996",
+      "1988-1993"
+    ],
+    "Lancer Combi": [
+      "2003-2006",
+      "1992-2001",
+      "1989-1992"
+    ],
+    "Lancer Evolution I": [
+      "1992-1994"
+    ],
+    "Lancer Evolution II": [
+      "1994-1995"
+    ],
+    "Lancer Evolution IV": [
+      "1996-1998"
+    ],
+    "Lancer Evolution IX": [
+      "2005-2007"
+    ],
+    "Lancer Evolution V": [
+      "1998-1999"
+    ],
+    "Lancer Evolution VI": [
+      "1999-2000"
+    ],
+    "Lancer Evolution VII": [
+      "2000-2003"
+    ],
+    "Lancer Ralliart": [
+      "2008-2011"
+    ],
+    "Mirage": [
+      "2019-Günümüz",
+      "2012-2016"
+    ],
+    "Mirage G4": [
+      "2016-Günümüz"
+    ],
+    "Mirage GT": [
+      "2016-2019"
+    ],
+    "Outlander": [
+      "2021-Günümüz",
+      "2012-2016"
+    ],
+    "Outlander PHEV": [
+      "2016-Günümüz"
+    ],
+    "Outlander/Airtrek": [
+      "2007-2011"
+    ],
+    "Pajero": [
+      "1992-1997",
+      "1986-1990",
+      "1983-1991",
+      "1982-1991"
+    ],
+    "Pajero Pinin / Shogun Pinin / Montero iO": [
+      "2001-2005",
+      "1998-Günümüz"
+    ],
+    "Pajero/Montero/Shogun": [
+      "2006-Günümüz",
+      "2003-2006",
+      "2000-2003"
+    ],
+    "Pajero/Montero/Shogun Sport": [
+      "2004-2008"
+    ],
+    "Raider Crew Cab": [
+      "2005-2009"
+    ],
+    "Raider Double Cab": [
+      "2005-2009"
+    ],
+    "Sigma": [
+      "1991-1996"
+    ],
+    "Space Runner": [
+      "1991-1999"
+    ],
+    "Space Star": [
+      "2013-Günümüz",
+      "2002-2006"
+    ],
+    "Starion": [
+      "1982-1991"
+    ],
+    "i-MiEV": [
+      "2009-Günümüz"
+    ]
+  },
+  "Nissan": {
+    "100 NX": [
+      "1991-1996"
+    ],
+    "200 SX": [
+      "1994-2000"
+    ],
+    "300 ZX": [
+      "1990-1996",
+      "1984-1989"
+    ],
+    "350 Z": [
+      "2006-2008"
+    ],
+    "350Z": [
+      "2008-2009",
+      "2005-2007",
+      "2002-2005"
+    ],
+    "370Z": [
+      "2012-Günümüz",
+      "2009-2012",
+      "2008-2012"
+    ],
+    "370z Nismo": [
+      "2014-Günümüz",
+      "2013-2014",
+      "2009-2012"
+    ],
+    "Almera / Pulsar": [
+      "2002-2007",
+      "2000-2007",
+      "2000-2002",
+      "1995-2000"
+    ],
+    "Almera Tino": [
+      "2000-2006"
+    ],
+    "Altima": [
+      "2022-Günümüz",
+      "2018-2022",
+      "2012-2018",
+      "2012-Günümüz",
+      "2011-Günümüz",
+      "2007-2012",
+      "2002-2006"
+    ],
+    "Ariya": [
+      "2020-Günümüz"
+    ],
+    "Armada": [
+      "2016-2020",
+      "2008-2016",
+      "2003-2008"
+    ],
+    "Bluebird": [
+      "1986-1990"
+    ],
+    "Bluebird Traveller": [
+      "1986-1990"
+    ],
+    "CrossCabriolet": [
+      "2011-2014"
+    ],
+    "Frontier": [
+      "2021-Günümüz",
+      "2018-2019",
+      "2009-2018"
+    ],
+    "Frontier/Navara Double Cab": [
+      "2019-2021"
+    ],
+    "Frontier/Navara King Cab": [
+      "2019-Günümüz"
+    ],
+    "GT-R": [
+      "2007-2011"
+    ],
+    "GT-R (R35) - Facelift": [
+      "2011-2016"
+    ],
+    "GT-R (R35) Nismo": [
+      "2014-2016"
+    ],
+    "Grand Livina": [
+      "2006-Günümüz"
+    ],
+    "Juke": [
+      "2019-Günümüz",
+      "2010-2019"
+    ],
+    "Kicks": [
+      "2020-Günümüz",
+      "2016-2020"
+    ],
+    "Leaf": [
+      "2010-2017"
+    ],
+    "Liberty": [
+      "1999-2004"
+    ],
+    "Maxima": [
+      "2018-Günümüz",
+      "2016-2018",
+      "2009-2016",
+      "2004-2009",
+      "2000-2004",
+      "1995-2000",
+      "1989-1995"
+    ],
+    "Micra": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2010-2013",
+      "2007-2010",
+      "2005-2007",
+      "2003-2005",
+      "2000-2003",
+      "1998-2000",
+      "1992-1998",
+      "1989-1992",
+      "1982-1989"
+    ],
+    "Micra C+C": [
+      "2005-2008"
+    ],
+    "Murano": [
+      "2015-2018",
+      "2008-2015",
+      "2003-2007"
+    ],
+    "NP300 Pickup Double Cab": [
+      "2008-2014"
+    ],
+    "NP300 Pickup King Cab": [
+      "2008-2014"
+    ],
+    "NP300 Pickup Single Cab": [
+      "2008-2015"
+    ],
+    "NV200": [
+      "2009-Günümüz"
+    ],
+    "Navara / Frontier Double Cab": [
+      "2005-2015"
+    ],
+    "Navara / Frontier King Cab": [
+      "2005-2015"
+    ],
+    "Navara NP300 Double Cab": [
+      "2015-Günümüz"
+    ],
+    "Navara NP300 King Cab": [
+      "2015-Günümüz"
+    ],
+    "Note": [
+      "2008-2012",
+      "2005-2008"
+    ],
+    "Pathfinder": [
+      "2021-Günümüz",
+      "2016-2021",
+      "2012-2016",
+      "2007-2012",
+      "2005-2007",
+      "2001-2005"
+    ],
+    "Patrol": [
+      "2010-2014",
+      "2004-2010",
+      "1998-2004",
+      "1988-1998"
+    ],
+    "Pixo": [
+      "2009-2013"
+    ],
+    "Platina": [
+      "2006-2010"
+    ],
+    "Prairie": [
+      "1989-1996"
+    ],
+    "Pulsar": [
+      "2014-Günümüz"
+    ],
+    "Qashqai": [
+      "2018-2021",
+      "2013-2018",
+      "2010-2013",
+      "2007-2010"
+    ],
+    "Quest": [
+      "2011-Günümüz",
+      "2009-2011",
+      "2004-2008"
+    ],
+    "Rogue": [
+      "2016-2020",
+      "2013-2016",
+      "2007-2014"
+    ],
+    "Rogue Sport": [
+      "2019-Günümüz"
+    ],
+    "Sakura": [
+      "2022-Günümüz"
+    ],
+    "Sentra": [
+      "2015-2019",
+      "2012-2015",
+      "2006-2012",
+      "2000-2006"
+    ],
+    "Sentra SE-R": [
+      "2006-Günümüz",
+      "2004-2006"
+    ],
+    "Serena": [
+      "2016-Günümüz",
+      "2010-2016",
+      "2005-2010",
+      "1999-2012",
+      "1991-2001"
+    ],
+    "Skyline": [
+      "2006-Günümüz",
+      "2001-2006"
+    ],
+    "Skyline GT-R": [
+      "1995-1998",
+      "1989-1994",
+      "1972-1973"
+    ],
+    "Skyline GT-R (KPGC-10)": [
+      "1971-1972"
+    ],
+    "Skyline GT-R (PGC-10)": [
+      "1969-1972"
+    ],
+    "Skyline GT-R V-Spec": [
+      "1999-2002",
+      "1995-1998",
+      "1993-1994"
+    ],
+    "Sunny": [
+      "2010-Günümüz",
+      "1993-1995"
+    ],
+    "Sunny Traveller": [
+      "1993-1996"
+    ],
+    "Teana": [
+      "2009-Günümüz",
+      "2003-2009"
+    ],
+    "Terrano": [
+      "2013-Günümüz",
+      "1990-1993",
+      "1988-1993"
+    ],
+    "Terrano II": [
+      "2002-2006",
+      "2002-2005",
+      "2000-2002",
+      "1996-2000",
+      "1993-1996"
+    ],
+    "Tiida/Versa": [
+      "2019-2022",
+      "2011-Günümüz",
+      "2006-2018"
+    ],
+    "Titan Crew Cab": [
+      "2016-2019",
+      "2004-2015"
+    ],
+    "Titan King Cab": [
+      "2009-2015",
+      "2004-2009"
+    ],
+    "Titan XD Crew Cab": [
+      "2015-2019"
+    ],
+    "Versa": [
+      "2022-Günümüz"
+    ],
+    "Versa/Note": [
+      "2017-Günümüz"
+    ],
+    "X-Trail": [
+      "2022-Günümüz",
+      "2017-2022",
+      "2014-2017",
+      "2007-2013",
+      "2003-2007"
+    ],
+    "XTerra": [
+      "2009-2015",
+      "2005-2008",
+      "2002-2005"
+    ],
+    "Z": [
+      "2021-Günümüz"
+    ]
+  },
+  "Opel": {
+    "Agila": [
+      "2008-2015",
+      "2003-2007",
+      "2000-2003"
+    ],
+    "Antara": [
+      "2010-2017",
+      "2007-2010"
+    ],
+    "Astra": [
+      "2021-Günümüz",
+      "2019-2021",
+      "2015-2019",
+      "2009-2015",
+      "2007-2009",
+      "2004-2007",
+      "2001-2006",
+      "2000-2006",
+      "1998-2004",
+      "1995-1999",
+      "1994-1998",
+      "1993-1994",
+      "1992-1994",
+      "1991-1994"
+    ],
+    "Astra 3 Doors": [
+      "2005-2009"
+    ],
+    "Astra 3 Doors (GTC) OPC": [
+      "2005-2009"
+    ],
+    "Astra Caravan": [
+      "1998-2004"
+    ],
+    "Astra Caravan OPC": [
+      "2002-2004"
+    ],
+    "Astra GTC": [
+      "2011-Günümüz"
+    ],
+    "Astra OPC": [
+      "2013-Günümüz"
+    ],
+    "Astra Sport": [
+      "2012-Günümüz"
+    ],
+    "Astra Sports Tourer": [
+      "2019-Günümüz",
+      "2015-2019",
+      "2010-2015"
+    ],
+    "Astra Twin Top": [
+      "2006-2011"
+    ],
+    "Combo": [
+      "2001-2011"
+    ],
+    "Combo Life": [
+      "2018-Günümüz"
+    ],
+    "Corsa": [
+      "2014-2019",
+      "2014-Günümüz",
+      "2010-2014",
+      "2006-2010",
+      "2003-2006",
+      "2000-2003",
+      "1997-2000",
+      "1993-1997"
+    ],
+    "Corsa OPC": [
+      "2015-Günümüz"
+    ],
+    "Corsa-e": [
+      "2019-Günümüz"
+    ],
+    "Crossland": [
+      "2020-Günümüz"
+    ],
+    "Crossland X": [
+      "2017-Günümüz"
+    ],
+    "Frontera": [
+      "1998-2004",
+      "1995-1998",
+      "1992-1995"
+    ],
+    "Frontera Sport": [
+      "1998-2004",
+      "1995-1998",
+      "1993-1995"
+    ],
+    "GT": [
+      "2007-2009",
+      "1968-1973"
+    ],
+    "Grandland X": [
+      "2017-2021"
+    ],
+    "Insignia": [
+      "2013-2017",
+      "2013-Günümüz",
+      "2008-2013"
+    ],
+    "Insignia Country Tourer": [
+      "2013-Günümüz"
+    ],
+    "Insignia GSi": [
+      "2017-Günümüz"
+    ],
+    "Insignia Grand Sport": [
+      "2019-Günümüz"
+    ],
+    "Insignia OPC": [
+      "2009-Günümüz"
+    ],
+    "Insignia Sports Tourer": [
+      "2017-Günümüz",
+      "2009-2013"
+    ],
+    "Insignia Sports Tourer GSi": [
+      "2017-Günümüz"
+    ],
+    "Insignia Sports Tourer OPC": [
+      "2013-2017"
+    ],
+    "Kadett": [
+      "1987-1993",
+      "1985-1991",
+      "1984-1991"
+    ],
+    "Kadett Caravan": [
+      "1984-1991"
+    ],
+    "Karl": [
+      "2015-2019"
+    ],
+    "Manta": [
+      "1975-1989"
+    ],
+    "Meriva": [
+      "2010-2014",
+      "2006-2009"
+    ],
+    "Meriva OPC": [
+      "2005-2010"
+    ],
+    "Mokka": [
+      "2012-2016"
+    ],
+    "Mokka X": [
+      "2016-2020"
+    ],
+    "Mokka-e": [
+      "2020-Günümüz"
+    ],
+    "Monterey LTD": [
+      "1992-1998"
+    ],
+    "Monterey RS": [
+      "1992-1998"
+    ],
+    "Monza": [
+      "1983-1987"
+    ],
+    "Omega": [
+      "1999-2003",
+      "1994-1999",
+      "1986-1994"
+    ],
+    "Omega Caravan": [
+      "1999-2003",
+      "1994-1999",
+      "1986-1994"
+    ],
+    "Rekord": [
+      "1982-1986",
+      "1977-1982"
+    ],
+    "Rekord Caravan": [
+      "1982-1986",
+      "1977-1982"
+    ],
+    "Rocks-e": [
+      "2021-Günümüz"
+    ],
+    "Senator": [
+      "1987-1993",
+      "1983-1987"
+    ],
+    "Signum": [
+      "2005-2008"
+    ],
+    "Sintra": [
+      "1997-1999"
+    ],
+    "Speedster": [
+      "2001-2005"
+    ],
+    "Tigra": [
+      "1994-2000"
+    ],
+    "Tigra Twin Top": [
+      "2005-2009"
+    ],
+    "Vectra": [
+      "2005-2008",
+      "2002-2005",
+      "1999-2002",
+      "1995-1999",
+      "1992-1995",
+      "1988-1992"
+    ],
+    "Vectra Caravan": [
+      "2005-2008",
+      "2002-2005",
+      "1999-2002",
+      "1996-1999"
+    ],
+    "Vectra Caravan OPC": [
+      "2005-2008"
+    ],
+    "Vectra GTS": [
+      "2005-2008",
+      "2002-2005"
+    ],
+    "Vectra GTS OPC": [
+      "2005-2008"
+    ],
+    "Zafira": [
+      "2008-2014",
+      "2006-2008",
+      "2003-2005",
+      "1999-2003"
+    ],
+    "Zafira OPC": [
+      "2005-Günümüz",
+      "2001-2005"
+    ],
+    "Zafira Tourer": [
+      "2011-2016"
+    ],
+    "Zafira Tourer C": [
+      "2016-2019"
+    ]
+  },
+  "Peugeot": {
+    "106": [
+      "1996-2003",
+      "1991-1996"
+    ],
+    "107": [
+      "2008-2014",
+      "2005-2008"
+    ],
+    "205": [
+      "1984-1998",
+      "1983-1998"
+    ],
+    "206": [
+      "2002-2010",
+      "1998-2002"
+    ],
+    "207": [
+      "2006-2009"
+    ],
+    "208": [
+      "2015-2018",
+      "2015-2019",
+      "2012-2015"
+    ],
+    "301": [
+      "2012-2016"
+    ],
+    "306": [
+      "1997-2003",
+      "1997-2001",
+      "1994-1997",
+      "1993-1997"
+    ],
+    "307": [
+      "2006-2008",
+      "2005-2008",
+      "2001-2005"
+    ],
+    "308": [
+      "2021-Günümüz",
+      "2017-2021",
+      "2008-2013"
+    ],
+    "405": [
+      "1987-1996"
+    ],
+    "406": [
+      "2003-2004",
+      "1999-2004",
+      "1997-2003",
+      "1995-1999"
+    ],
+    "407": [
+      "2005-2008",
+      "2004-2010"
+    ],
+    "408": [
+      "2022-Günümüz",
+      "2010-2014"
+    ],
+    "504": [
+      "1974-1982",
+      "1973-1982",
+      "1968-1982"
+    ],
+    "505": [
+      "1979-1992"
+    ],
+    "508": [
+      "2014-2018"
+    ],
+    "604": [
+      "1975-1986"
+    ],
+    "605": [
+      "1989-1994"
+    ],
+    "607": [
+      "2005-2010",
+      "2000-2005"
+    ],
+    "806": [
+      "1998-2002",
+      "1994-1998"
+    ],
+    "1007": [
+      "2007-2009"
+    ],
+    "2008": [
+      "2013-2016"
+    ],
+    "3008": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "4007": [
+      "2007-2012"
+    ],
+    "5008": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "106 Rallye": [
+      "1993-1996"
+    ],
+    "108 5 Door": [
+      "2014-Günümüz"
+    ],
+    "2016 Peugeot": [
+      "2008"
+    ],
+    "2020 Peugeot": [
+      "2008"
+    ],
+    "2024 Peugeot": [
+      "2008"
+    ],
+    "205 CTI": [
+      "1986-1994"
+    ],
+    "205 GTI": [
+      "1984-1994"
+    ],
+    "205 T16": [
+      "1984-1985"
+    ],
+    "206 RC": [
+      "2003-2006"
+    ],
+    "206 SW": [
+      "2002-2007"
+    ],
+    "206+": [
+      "2009-2013",
+      "2009-2012"
+    ],
+    "207 -": [
+      "2009-2012"
+    ],
+    "207 CC": [
+      "2009-2014",
+      "2007-2009"
+    ],
+    "207 RC": [
+      "2007-2009"
+    ],
+    "207 SW Outdoor": [
+      "2008-2012"
+    ],
+    "208 GTI": [
+      "2013-2015"
+    ],
+    "208 GTi": [
+      "2015-2018"
+    ],
+    "208 XY": [
+      "2013-2015"
+    ],
+    "306 Break": [
+      "1997-2002"
+    ],
+    "306 GTi-6": [
+      "1996-2000"
+    ],
+    "307 Break": [
+      "2005-2008",
+      "2002-2005"
+    ],
+    "307 CC": [
+      "2005-2008",
+      "2003-2005"
+    ],
+    "307 SW": [
+      "2005-2008",
+      "2002-2005"
+    ],
+    "308 -": [
+      "2013-2017"
+    ],
+    "308 CC": [
+      "2011-2015",
+      "2008-2011"
+    ],
+    "308 GT": [
+      "2017-Günümüz",
+      "2014-2017"
+    ],
+    "308 SW": [
+      "2021-Günümüz",
+      "2017-2021",
+      "2008-2013"
+    ],
+    "308 SW GT": [
+      "2017-Günümüz",
+      "2014-2017"
+    ],
+    "405 Break": [
+      "1988-1996"
+    ],
+    "406 Break": [
+      "1999-2004",
+      "1996-1999"
+    ],
+    "407 SW": [
+      "2004-2010"
+    ],
+    "505 Break": [
+      "1982-1992"
+    ],
+    "508 RXH": [
+      "2014-2018"
+    ],
+    "508 SW": [
+      "2014-2018",
+      "2010-2014"
+    ],
+    "Hoggar": [
+      "2010-2014"
+    ],
+    "Landtrek": [
+      "2020-Günümüz"
+    ],
+    "Landtrek Single Cab": [
+      "2020-Günümüz"
+    ],
+    "Partner Combi": [
+      "2002-2008"
+    ],
+    "Peugeot 4008": [
+      "2012-2017"
+    ],
+    "Peugeot 508 RXH": [
+      "2011-2014"
+    ],
+    "Pick Up": [
+      "2017-Günümüz"
+    ],
+    "RCZ": [
+      "2009-2013"
+    ],
+    "RIFTER": [
+      "2018-Günümüz"
+    ],
+    "Tepee Bipper": [
+      "2008-Günümüz"
+    ],
+    "Tepee Expert": [
+      "2007-Günümüz"
+    ],
+    "Tepee Partner": [
+      "2008-2012"
+    ],
+    "iOn": [
+      "2010-2012"
+    ]
+  },
+  "Porsche": {
+    "911": [
+      "1964-1973"
+    ],
+    "912": [
+      "1965-1969"
+    ],
+    "928": [
+      "1978-1982"
+    ],
+    "944": [
+      "1981-1990"
+    ],
+    "959": [
+      "1987-1988"
+    ],
+    "968": [
+      "1991-1995"
+    ],
+    "911 Cabriolet": [
+      "1994-1997"
+    ],
+    "911 Carrera": [
+      "2012-2015",
+      "2008-2012",
+      "2004-2008",
+      "2001-2004",
+      "1997-2001",
+      "1993-1997",
+      "1973-1989"
+    ],
+    "911 Carrera 2": [
+      "1989-1993"
+    ],
+    "911 Carrera 2 Cabriolet": [
+      "1989-1993"
+    ],
+    "911 Carrera 4": [
+      "2012-2015",
+      "2008-2012",
+      "2005-2008",
+      "2001-2005",
+      "1998-2001",
+      "1994-1997",
+      "1988-1993"
+    ],
+    "911 Carrera 4 Cabriolet": [
+      "2012-Günümüz",
+      "2008-2011",
+      "2005-2008",
+      "2001-2004",
+      "1998-2001"
+    ],
+    "911 Carrera 4 GTS": [
+      "2014-2018"
+    ],
+    "911 Carrera 4 GTS Cabriolet": [
+      "2014-2018"
+    ],
+    "911 Carrera 4S": [
+      "2018-Günümüz",
+      "2012-2018",
+      "2008-2012",
+      "2005-2008",
+      "2001-2005",
+      "1995-1998"
+    ],
+    "911 Carrera 4S Cabriolet": [
+      "2018-Günümüz",
+      "2012-2018",
+      "2008-2012",
+      "2005-2008",
+      "2003-2005"
+    ],
+    "911 Carrera Cabrio": [
+      "2015-2019"
+    ],
+    "911 Carrera Cabriolet": [
+      "2012-2015",
+      "2008-2012",
+      "2005-2008",
+      "1998-2001",
+      "1983-1989"
+    ],
+    "911 Carrera Coupe": [
+      "2019-Günümüz",
+      "2015-2019"
+    ],
+    "911 Carrera GTS": [
+      "2014-2021",
+      "2014-Günümüz",
+      "2010-2011"
+    ],
+    "911 Carrera GTS Cabriolet": [
+      "2010-2011"
+    ],
+    "911 Carrera RS": [
+      "1995-1996",
+      "1993-1994",
+      "1991-1992",
+      "1972-1973"
+    ],
+    "911 Carrera S": [
+      "2019-Günümüz",
+      "2012-2015",
+      "2008-2011",
+      "2004-2008",
+      "1995-1997"
+    ],
+    "911 Carrera S Cabriolet": [
+      "2015-2018",
+      "2012-2015",
+      "2008-2011",
+      "2005-2008"
+    ],
+    "911 Carrera S Coupe": [
+      "2015-2019"
+    ],
+    "911 Carrera T": [
+      "2017-2022"
+    ],
+    "911 Carrera Targa 4": [
+      "2014-2016",
+      "2008-2013",
+      "2006-2008"
+    ],
+    "911 Carrera Targa 4S": [
+      "2014-2020",
+      "2008-2013",
+      "2006-2008"
+    ],
+    "911 GT2": [
+      "2007-2009",
+      "2001-2006",
+      "1995-1997"
+    ],
+    "911 GT2 RS": [
+      "2017-2019",
+      "2010-2012"
+    ],
+    "911 GT3": [
+      "2013-2017",
+      "2009-2011",
+      "2006-2009",
+      "2003-2006",
+      "1999-2001"
+    ],
+    "911 GT3 (991.2)": [
+      "2017-2021"
+    ],
+    "911 GT3 RS": [
+      "2022-Günümüz",
+      "2006-2009",
+      "2004-2006"
+    ],
+    "911 GT3 RS (991.1)": [
+      "2016-2018"
+    ],
+    "911 GT3 RS (991.2)": [
+      "2018-2019"
+    ],
+    "911 GT3 RS (997.2)": [
+      "2009-2011"
+    ],
+    "911 GT3 RS 4.0": [
+      "2011-2013"
+    ],
+    "911 R": [
+      "2016-Günümüz"
+    ],
+    "911 Speedster": [
+      "2019-Günümüz"
+    ],
+    "911 Sport Classic": [
+      "2010-2012"
+    ],
+    "911 Targa": [
+      "1995-1997",
+      "1974-1989",
+      "1967-1973"
+    ],
+    "911 Targa 2": [
+      "1989-1993"
+    ],
+    "911 Targa 4": [
+      "2020-Günümüz"
+    ],
+    "911 Targa 4 (991.2)": [
+      "2016-2020"
+    ],
+    "911 Targa 4 GTS": [
+      "2021-Günümüz",
+      "2015-2021"
+    ],
+    "911 Targa 4S": [
+      "2020-Günümüz"
+    ],
+    "911 Turbo": [
+      "2020-Günümüz",
+      "2013-2016",
+      "2009-2011",
+      "2006-2009",
+      "2000-2006",
+      "1995-1997",
+      "1990-1995",
+      "1977-1989",
+      "1974-1977"
+    ],
+    "911 Turbo \"Flachbau\"": [
+      "1981-1989"
+    ],
+    "911 Turbo (991.2)": [
+      "2016-2020"
+    ],
+    "911 Turbo Cabriolet": [
+      "2013-2016",
+      "2009-2011",
+      "2007-2009",
+      "2004-2007"
+    ],
+    "911 Turbo Cabriolet \"Flachtbau\"": [
+      "1987-1989"
+    ],
+    "911 Turbo Cabriolet (991.2)": [
+      "2016-2020"
+    ],
+    "911 Turbo S": [
+      "2020-Günümüz",
+      "2013-2016",
+      "2010-2011",
+      "2004-2005"
+    ],
+    "911 Turbo S (991.2)": [
+      "2016-2020"
+    ],
+    "911 Turbo S Cabriolet": [
+      "2020-Günümüz",
+      "2013-2016",
+      "2010-2011",
+      "2004-2006"
+    ],
+    "911 Turbo S Cabriolet (991.2)": [
+      "2016-2020"
+    ],
+    "928 GT": [
+      "1989-1991"
+    ],
+    "928 GTS": [
+      "1992-1995"
+    ],
+    "928 S": [
+      "1980-1986"
+    ],
+    "928 S4": [
+      "1986-1991"
+    ],
+    "944 S": [
+      "1986-1988"
+    ],
+    "944 S2": [
+      "1988-1991"
+    ],
+    "944 Turbo/Turbo S": [
+      "1985-1990"
+    ],
+    "968 Cabrio": [
+      "1991-1995"
+    ],
+    "968 Club Sport": [
+      "1992-1995"
+    ],
+    "968 Turbo S": [
+      "1993-1994"
+    ],
+    "Cayenne": [
+      "2015-2017",
+      "2010-2015",
+      "2007-2009",
+      "2002-2007"
+    ],
+    "Cayenne Diesel": [
+      "2014-2017",
+      "2010-2014",
+      "2008-2010"
+    ],
+    "Cayenne GTS": [
+      "2014-2018",
+      "2012-2014",
+      "2008-2010"
+    ],
+    "Cayenne GTS Coupe": [
+      "2020-Günümüz"
+    ],
+    "Cayenne S": [
+      "2014-2017",
+      "2010-2014",
+      "2007-2009",
+      "2002-2007"
+    ],
+    "Cayenne S Diesel": [
+      "2014-2017",
+      "2012-2014"
+    ],
+    "Cayenne S E-Hybrid": [
+      "2014-Günümüz"
+    ],
+    "Cayenne S Hybrid": [
+      "2010-2014"
+    ],
+    "Cayenne S TransSyberia": [
+      "2009-2011"
+    ],
+    "Cayenne Turbo": [
+      "2017-Günümüz",
+      "2014-Günümüz",
+      "2010-2014",
+      "2007-2009",
+      "2002-2007"
+    ],
+    "Cayenne Turbo S": [
+      "2015-2017",
+      "2012-2014",
+      "2008-2009",
+      "2006-2007"
+    ],
+    "Cayenne Turbo S E-Hybrid": [
+      "2019-Günümüz"
+    ],
+    "GTS": [
+      "2021-Günümüz"
+    ],
+    "GTS Sport Turismo": [
+      "2021-Günümüz"
+    ],
+    "Macan": [
+      "2018-Günümüz",
+      "2014-2018"
+    ],
+    "Macan GTS": [
+      "2021-Günümüz",
+      "2019-2021",
+      "2015-2019"
+    ],
+    "Macan S": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2014-2018"
+    ],
+    "Macan S Diesel": [
+      "2014-2018"
+    ],
+    "Macan T": [
+      "2022-Günümüz"
+    ],
+    "Macan Turbo": [
+      "2014-2019"
+    ],
+    "Panamera": [
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "Panamera 4": [
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "Panamera 4 E-Hybrid": [
+      "2016-2020"
+    ],
+    "Panamera 4 E-Hybrid Sport Turismo": [
+      "2017-2020"
+    ],
+    "Panamera 4 Sport Turismo": [
+      "2017-2020"
+    ],
+    "Panamera 4S": [
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "Panamera 4S Diesel": [
+      "2016-2020"
+    ],
+    "Panamera 4S E-Hybrid": [
+      "2020-Günümüz"
+    ],
+    "Panamera 4S E-Hybrid Executive": [
+      "2020-Günümüz"
+    ],
+    "Panamera 4S Sport Turismo": [
+      "2017-Günümüz"
+    ],
+    "Panamera Diesel": [
+      "2013-2016",
+      "2011-2013"
+    ],
+    "Panamera GTS": [
+      "2020-Günümüz",
+      "2018-2020",
+      "2013-2016",
+      "2011-2013"
+    ],
+    "Panamera GTS Sport Turismo": [
+      "2020-Günümüz",
+      "2018-2020"
+    ],
+    "Panamera S": [
+      "2013-2016",
+      "2009-2013"
+    ],
+    "Panamera S E-Hybrid": [
+      "2013-2016"
+    ],
+    "Panamera S Hybrid": [
+      "2011-2013"
+    ],
+    "Panamera Turbo": [
+      "2016-2020",
+      "2013-2016",
+      "2009-2013"
+    ],
+    "Panamera Turbo S": [
+      "2020-Günümüz",
+      "2013-2016",
+      "2011-2013"
+    ],
+    "Panamera Turbo S E-Hybrid": [
+      "2017-2020"
+    ],
+    "Panamera Turbo S E-Hybrid Sport Turismo": [
+      "2017-Günümüz"
+    ],
+    "Panamera Turbo S Sport Turismo": [
+      "2020-Günümüz"
+    ],
+    "Panamera Turbo Sport Turismo": [
+      "2017-Günümüz"
+    ]
+  },
+  "Renault": {
+    "5": [
+      "1972-1984"
+    ],
+    "8": [
+      "1962-1971"
+    ],
+    "9": [
+      "1986-1988",
+      "1981-1986"
+    ],
+    "12": [
+      "1969-1980"
+    ],
+    "14": [
+      "1976-1983"
+    ],
+    "18": [
+      "1979-1984",
+      "1978-1984"
+    ],
+    "19": [
+      "1992-1995",
+      "1992-1996",
+      "1988-1992"
+    ],
+    "20": [
+      "1975-1984"
+    ],
+    "21": [
+      "1989-1994",
+      "1986-1989"
+    ],
+    "25": [
+      "1988-1992",
+      "1984-1988"
+    ],
+    "30": [
+      "1979-1984"
+    ],
+    "11 3 door": [
+      "1983-1986"
+    ],
+    "12 Gordini": [
+      "1970-1974"
+    ],
+    "19 Cabrio": [
+      "1992-1996"
+    ],
+    "19 Chamade": [
+      "1989-1992"
+    ],
+    "21 Nevada": [
+      "1987-1989"
+    ],
+    "4 CV": [
+      "1947-1961"
+    ],
+    "5 Turbo": [
+      "1980-1984"
+    ],
+    "8 Gordini": [
+      "1964-1970"
+    ],
+    "Alaskan": [
+      "2016-Günümüz"
+    ],
+    "Alpine A310": [
+      "1977-1985"
+    ],
+    "Alpine A610": [
+      "1991-1994"
+    ],
+    "Austral": [
+      "2022-Günümüz"
+    ],
+    "Avantime": [
+      "2001-2003"
+    ],
+    "Captur": [
+      "2017-2019",
+      "2013-2017"
+    ],
+    "Clio": [
+      "2016-2019",
+      "2013-2016",
+      "2009-2012",
+      "2006-2009",
+      "2001-2006",
+      "1990-1996"
+    ],
+    "Clio -": [
+      "2012-2016"
+    ],
+    "Clio Estate GT": [
+      "2013-2016"
+    ],
+    "Clio GT": [
+      "2013-Günümüz",
+      "2009-2013"
+    ],
+    "Clio RS": [
+      "2013-Günümüz",
+      "2009-2013",
+      "2006-2009"
+    ],
+    "Clio Symbol/Thalia": [
+      "2008-2013",
+      "2002-2006",
+      "2000-2002"
+    ],
+    "Clio V6": [
+      "2003-2005"
+    ],
+    "Clio Williams": [
+      "1993-1996"
+    ],
+    "Espace": [
+      "2014-2019",
+      "2006-2014",
+      "1991-1997",
+      "1985-1991"
+    ],
+    "Fluence": [
+      "2013-2016",
+      "2009-2012"
+    ],
+    "Fluence ZE": [
+      "2009-2014"
+    ],
+    "Fuego": [
+      "1980-1985"
+    ],
+    "Grand Espace": [
+      "2002-2006"
+    ],
+    "Grand Modus": [
+      "2008-2012"
+    ],
+    "Grand Scenic": [
+      "2016-Günümüz",
+      "2009-2013",
+      "2006-2009",
+      "2003-2006"
+    ],
+    "Kadjar": [
+      "2018-Günümüz",
+      "2015-2018"
+    ],
+    "Kangoo": [
+      "2020-Günümüz",
+      "2008-2020",
+      "2005-2008",
+      "2003-2005",
+      "1997-2003"
+    ],
+    "Kangoo 4x4": [
+      "2001-2003"
+    ],
+    "Kiger": [
+      "2021-Günümüz"
+    ],
+    "Koleos": [
+      "2016-2019",
+      "2013-2017"
+    ],
+    "Kwid": [
+      "2015-Günümüz"
+    ],
+    "Laguna": [
+      "2010-2016",
+      "2008-Günümüz",
+      "2007-2010",
+      "2005-2007",
+      "2001-2005",
+      "1998-2001",
+      "1995-1998",
+      "1994-1998"
+    ],
+    "Latitude": [
+      "2010-Günümüz"
+    ],
+    "Logan": [
+      "2014-Günümüz"
+    ],
+    "Megane": [
+      "2020-Günümüz",
+      "2016-2020",
+      "2014-2015",
+      "2014-2016",
+      "2009-2014",
+      "2008-2015",
+      "2006-2008",
+      "2006-2009",
+      "2003-2006",
+      "2002-2006",
+      "1999-2002",
+      "1999-2003",
+      "1996-1999"
+    ],
+    "Megane Cabrio": [
+      "1999-2003",
+      "1997-1999"
+    ],
+    "Megane Coupe - Cabrio": [
+      "2014-Günümüz",
+      "2010-2013",
+      "2006-2010",
+      "2003-2006"
+    ],
+    "Megane E-Tech": [
+      "2021-Günümüz"
+    ],
+    "Megane Estate GT": [
+      "2016-Günümüz"
+    ],
+    "Megane GT": [
+      "2013-2015",
+      "2010-2013",
+      "2006-2008"
+    ],
+    "Megane RS": [
+      "2017-Günümüz",
+      "2014-2017",
+      "2009-2013",
+      "2006-2009",
+      "2004-2006"
+    ],
+    "Megane Scenic": [
+      "1995-1999"
+    ],
+    "Modus": [
+      "2008-2012"
+    ],
+    "Safrane": [
+      "1996-2000",
+      "1992-1996"
+    ],
+    "Sandero GT Line": [
+      "2012-Günümüz"
+    ],
+    "Scala": [
+      "2012-2017"
+    ],
+    "Scenic": [
+      "2016-Günümüz",
+      "2009-2013",
+      "2003-2009",
+      "1999-2003"
+    ],
+    "Scenic RX4": [
+      "2000-2003"
+    ],
+    "Scenic XMOD": [
+      "2013-Günümüz"
+    ],
+    "Sport Spider": [
+      "1996-1998"
+    ],
+    "Talisman": [
+      "2019-Günümüz",
+      "2016-2019"
+    ],
+    "Triber": [
+      "2019-Günümüz"
+    ],
+    "Twingo": [
+      "2019-Günümüz",
+      "2011-2014",
+      "2007-2011",
+      "1998"
+    ],
+    "Twingo GT": [
+      "2016-2019",
+      "2007-Günümüz"
+    ],
+    "Twingo RS": [
+      "2008-2011"
+    ],
+    "Twizy": [
+      "2012-Günümüz"
+    ],
+    "Vel Satis": [
+      "2005-2009",
+      "2002-2005"
+    ],
+    "Wind": [
+      "2010-2013"
+    ],
+    "ZOE": [
+      "2019-Günümüz",
+      "2013-2019"
+    ]
+  },
+  "Seat": {
+    "Alhambra": [
+      "2010-Günümüz",
+      "2000-2010",
+      "1996-2000"
+    ],
+    "Altea": [
+      "2009-Günümüz",
+      "2004-2009"
+    ],
+    "Altea Freetrack": [
+      "2009-2015",
+      "2007-2009"
+    ],
+    "Altea XL": [
+      "2009-2015",
+      "2006-2009"
+    ],
+    "Arona": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "Arosa": [
+      "1997-2001"
+    ],
+    "Ateca": [
+      "2020-Günümüz",
+      "2016-2020"
+    ],
+    "Cordoba": [
+      "2003-2009",
+      "1999-2003",
+      "1996-1999"
+    ],
+    "Cordoba SX": [
+      "1999-2003",
+      "1996-1999"
+    ],
+    "Cordoba Vario": [
+      "1999-2003",
+      "1996-1999"
+    ],
+    "Exeo": [
+      "2008-2013"
+    ],
+    "Ibiza": [
+      "2021-Günümüz",
+      "2017-Günümüz",
+      "2008-2017",
+      "2006-2008",
+      "2002-2006",
+      "1999-2002",
+      "1996-1999",
+      "1993-1996"
+    ],
+    "Ibiza 5-doors": [
+      "2017-2021"
+    ],
+    "Ibiza Bocanegra": [
+      "2009-2017"
+    ],
+    "Ibiza Cupra": [
+      "2012-2017",
+      "2009-2012",
+      "2006-2009",
+      "1999-2001",
+      "1996-1999"
+    ],
+    "Ibiza FR Sport Coupe": [
+      "2009-2017"
+    ],
+    "Ibiza ST": [
+      "2010-2017"
+    ],
+    "Ibiza SportCoupe": [
+      "2008-2017"
+    ],
+    "Leon": [
+      "2009-2012",
+      "2005-2009",
+      "2000-2006"
+    ],
+    "Leon Cupra": [
+      "2013-Günümüz",
+      "2006-Günümüz"
+    ],
+    "Leon Cupra 4": [
+      "2001-2002"
+    ],
+    "Leon Cupra R": [
+      "2017-Günümüz",
+      "2009-2012"
+    ],
+    "Leon FR": [
+      "2006-2012"
+    ],
+    "Leon FR / TopSport": [
+      "2002-2005"
+    ],
+    "Leon SC 3-doors": [
+      "2017-Günümüz",
+      "2013-2017"
+    ],
+    "Leon X-Perience": [
+      "2014-Günümüz"
+    ],
+    "Malaga": [
+      "1985-1992"
+    ],
+    "Marbella": [
+      "1986-1998"
+    ],
+    "Mii": [
+      "2012-2019",
+      "2011-2019"
+    ],
+    "Tarraco": [
+      "2018-Günümüz"
+    ],
+    "Toledo": [
+      "2012-2018",
+      "2004-2009",
+      "1995-1999"
+    ]
+  },
+  "Skoda": {
+    "860": [
+      "1929-1933"
+    ],
+    "100/110": [
+      "1969-1977"
+    ],
+    "110R": [
+      "1970-1982"
+    ],
+    "Citigo": [
+      "2017-Günümüz",
+      "2012-2017",
+      "2011-2017"
+    ],
+    "Citigo-e IV": [
+      "2019-Günümüz"
+    ],
+    "Enyaq Coupe RS iV": [
+      "2022-Günümüz"
+    ],
+    "Enyaq Coupe iV": [
+      "2022-Günümüz"
+    ],
+    "Enyaq iV": [
+      "2020-Günümüz"
+    ],
+    "Fabia": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2014-2018",
+      "2007-2014",
+      "2001-2006"
+    ],
+    "Fabia Combi": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2008-2014",
+      "2000-2007"
+    ],
+    "Fabia Combi RS": [
+      "2010-2014"
+    ],
+    "Fabia RS": [
+      "2003-2007"
+    ],
+    "Favorit": [
+      "1991-1994",
+      "1989-1995"
+    ],
+    "Felicia": [
+      "1995-2001"
+    ],
+    "Felicia Combi": [
+      "1995-2001"
+    ],
+    "Karoq": [
+      "2021-Günümüz",
+      "2017-2021"
+    ],
+    "Kodiaq": [
+      "2016-2021"
+    ],
+    "Kodiaq GT": [
+      "2018-Günümüz"
+    ],
+    "Kushaq": [
+      "2021-Günümüz"
+    ],
+    "Octavia": [
+      "2020-Günümüz",
+      "2017-2019",
+      "2017-2020",
+      "2014-2017",
+      "2009-2013",
+      "2008-2012",
+      "2006-2008"
+    ],
+    "Octavia Combi": [
+      "2017-2019",
+      "2008-2013"
+    ],
+    "Octavia Combi 4x4": [
+      "2013-2017",
+      "2009-2013"
+    ],
+    "Octavia Combi RS": [
+      "2014-2017"
+    ],
+    "Octavia Combi RS 1.8T": [
+      "2002-2004"
+    ],
+    "Octavia I": [
+      "1997-2004"
+    ],
+    "Octavia I Combi": [
+      "1997-2004"
+    ],
+    "Octavia II": [
+      "2004-2008"
+    ],
+    "Octavia II Combi": [
+      "2004-2008"
+    ],
+    "Octavia II Combi RS": [
+      "2005-2008"
+    ],
+    "Octavia II RS": [
+      "2005-2008"
+    ],
+    "Octavia RS": [
+      "2016-2019",
+      "2001-2004"
+    ],
+    "Octavia RS IV": [
+      "2019-Günümüz"
+    ],
+    "Rapid": [
+      "2012-Günümüz"
+    ],
+    "Rapid (non-EUROPE)": [
+      "2011-Günümüz"
+    ],
+    "Rapid Spaceback": [
+      "2013-Günümüz"
+    ],
+    "Slavia": [
+      "2021-Günümüz"
+    ],
+    "Superb": [
+      "2013-2015",
+      "2008-2013",
+      "2006-2008"
+    ],
+    "Superb Combi": [
+      "2013-2015",
+      "2009-2013"
+    ],
+    "Superb Combi /": [
+      "2015-2019"
+    ],
+    "Yeti": [
+      "2013-2017",
+      "2009-2013"
+    ]
+  },
+  "SsangYong": {
+    "Actyon": [
+      "2006-2011"
+    ],
+    "Chairman": [
+      "2008-2017",
+      "2004-2007"
+    ],
+    "Korando": [
+      "2019-Günümüz",
+      "2017-2019",
+      "2010-2013"
+    ],
+    "Korando C": [
+      "2013-2017"
+    ],
+    "Kyron": [
+      "2004-2014"
+    ],
+    "Musso": [
+      "2018-Günümüz",
+      "1998-2005"
+    ],
+    "Musso Sports": [
+      "1998-2005"
+    ],
+    "Rexton": [
+      "2021-Günümüz",
+      "2018-2021",
+      "2006-2018",
+      "2001-2006"
+    ],
+    "Rodius": [
+      "2004-2013"
+    ],
+    "Tivoli": [
+      "2019-Günümüz",
+      "2015-2019"
+    ]
+  },
+  "Subaru": {
+    "360": [
+      "1958-1971"
+    ],
+    "Ascent": [
+      "2022-Günümüz",
+      "2019-2022"
+    ],
+    "BRZ": [
+      "2021-Günümüz",
+      "2016-2021",
+      "2012-2016"
+    ],
+    "Baja": [
+      "2003-2006"
+    ],
+    "Crosstrek": [
+      "2015-2017"
+    ],
+    "Exiga": [
+      "2008-Günümüz"
+    ],
+    "Forester": [
+      "2013-2018",
+      "2008-2013",
+      "2005-2008",
+      "2002-2005",
+      "2000-2002",
+      "1997-2000"
+    ],
+    "G3X Justy": [
+      "2004-2007"
+    ],
+    "Impreza": [
+      "2012-2016",
+      "2007-2011",
+      "2005-2007",
+      "2003-2005",
+      "2000-2003",
+      "1998-2000",
+      "1993-1998"
+    ],
+    "Impreza WRX STi": [
+      "2008-2014",
+      "2005-2007",
+      "2003-2005",
+      "2001-2003",
+      "1998-2000"
+    ],
+    "Justy": [
+      "2008-2016",
+      "1997-2003",
+      "1996-2003",
+      "1989-1996"
+    ],
+    "Legacy": [
+      "2022-Günümüz",
+      "2019-2022",
+      "2014-2019",
+      "2009-2014",
+      "2008-2009",
+      "2006-2008",
+      "2003-2006",
+      "2002-2003",
+      "1999-2002",
+      "1998-2002"
+    ],
+    "Legacy Sedan B4": [
+      "2009-2014"
+    ],
+    "Levorg": [
+      "2014-Günümüz"
+    ],
+    "Liberty": [
+      "2008-2015"
+    ],
+    "Mini Jumbo": [
+      "1988-1991",
+      "1988-1992"
+    ],
+    "Outback": [
+      "2014-2019"
+    ],
+    "R1": [
+      "2005-2010"
+    ],
+    "R2": [
+      "2003-2010",
+      "1969-1972"
+    ],
+    "SVX": [
+      "1992-1997"
+    ],
+    "Solterra": [
+      "2021-Günümüz"
+    ],
+    "Stella": [
+      "2006-2011"
+    ],
+    "Trezia": [
+      "2010-2014"
+    ],
+    "Vivio": [
+      "1992-2000"
+    ],
+    "XV": [
+      "2012-2015"
+    ]
+  },
+  "Suzuki": {
+    "APV": [
+      "2004-Günümüz"
+    ],
+    "Across": [
+      "2020-Günümüz"
+    ],
+    "Aerio / Liana": [
+      "2001-2007"
+    ],
+    "Alto": [
+      "2009-2013",
+      "2002-2006"
+    ],
+    "Baleno": [
+      "2016-Günümüz"
+    ],
+    "Equator Crew Cab": [
+      "2009-2012"
+    ],
+    "Equator Extended Cab": [
+      "2009-2012"
+    ],
+    "Escudo / Grand Vitara": [
+      "2005-2007",
+      "1998-2005"
+    ],
+    "Escudo / Vitara": [
+      "2005-Günümüz"
+    ],
+    "Forenza": [
+      "2004-2008"
+    ],
+    "Grand Vitara": [
+      "2008-2014",
+      "2008-Günümüz"
+    ],
+    "Grand Vitara XL7": [
+      "2004-2006"
+    ],
+    "Ignis": [
+      "2019-Günümüz",
+      "2016-2019",
+      "2003-2008",
+      "2000-2003"
+    ],
+    "Ignis Sport": [
+      "2003-2006"
+    ],
+    "Jimny": [
+      "2005-2012",
+      "2005-2011"
+    ],
+    "SX4": [
+      "2013-2016",
+      "2006-2013",
+      "2006-2014"
+    ],
+    "SX4 S-Cross": [
+      "2016-Günümüz"
+    ],
+    "Splash": [
+      "2011-2014"
+    ],
+    "Swace": [
+      "2020-Günümüz"
+    ],
+    "Swift": [
+      "2017-2020",
+      "2014-2017",
+      "2010-2014",
+      "2005-2009",
+      "1996-2003",
+      "1996-2002",
+      "1991-1996"
+    ],
+    "Swift Cabrio": [
+      "1992-1995"
+    ],
+    "Swift Sport": [
+      "2017-Günümüz"
+    ],
+    "Verona": [
+      "2004-2006"
+    ],
+    "Vitara": [
+      "2018-Günümüz",
+      "2014-2018",
+      "1991-1994",
+      "1989-1998"
+    ],
+    "Vitara Cabrio": [
+      "1989-1998"
+    ],
+    "Wagon R": [
+      "2003-2007",
+      "2000-2003",
+      "1997-2000"
+    ],
+    "X-90": [
+      "1996-1997"
+    ],
+    "XL7": [
+      "2007-2009"
+    ]
+  },
+  "Tesla": {
+    "Cybertruck": [
+      "2021-Günümüz"
+    ],
+    "Model S": [
+      "2016-Günümüz",
+      "2012-2016"
+    ],
+    "Model Y": [
+      "2019-Günümüz"
+    ],
+    "Roadster": [
+      "2018-Günümüz",
+      "2009-2012"
+    ]
+  },
+  "Toyota": {
+    "4Runner": [
+      "2009-2013",
+      "2003-2009",
+      "1990-1995"
+    ],
+    "AURIS": [
+      "2018-Günümüz"
+    ],
+    "Agya": [
+      "2012-Günümüz"
+    ],
+    "Alphard": [
+      "2002-2007"
+    ],
+    "Aqua": [
+      "2021-Günümüz"
+    ],
+    "Aurion": [
+      "2012-2017",
+      "2006-2012"
+    ],
+    "Auris": [
+      "2015",
+      "2013-2015",
+      "2006-2010"
+    ],
+    "Avalon": [
+      "2015-2018",
+      "2012-2015",
+      "2005-2012"
+    ],
+    "Avalon TRD": [
+      "2019-Günümüz"
+    ],
+    "Avensis": [
+      "2015-Günümüz",
+      "2009-2011",
+      "2009-2015",
+      "2006-2008",
+      "2003-2006",
+      "2000-2003",
+      "1997-2000"
+    ],
+    "Avensis Verso": [
+      "2003-2006",
+      "2001-2003"
+    ],
+    "Aygo": [
+      "2018-Günümüz",
+      "2014-2018",
+      "2009-2014",
+      "2005-2008"
+    ],
+    "Aygo X": [
+      "2021-Günümüz"
+    ],
+    "C-HR": [
+      "2016-2019"
+    ],
+    "Camry": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2011-2014",
+      "2001-2004",
+      "1997-2001",
+      "1987-1991",
+      "1983-1987"
+    ],
+    "Camry Hybrid": [
+      "2009-2014"
+    ],
+    "Camry Japan": [
+      "2007-2011"
+    ],
+    "Camry Solara": [
+      "2004-2009"
+    ],
+    "Camry TRD": [
+      "2019-Günümüz"
+    ],
+    "Celica": [
+      "2002-2006",
+      "1995-1999",
+      "1994-1999",
+      "1991-1994",
+      "1990-1994"
+    ],
+    "Corolla": [
+      "2018-Günümüz",
+      "2010-2013",
+      "2004-2007",
+      "2002-2004",
+      "2002-2008",
+      "2000-2002",
+      "1997-2000",
+      "1992-1997",
+      "1987-1992"
+    ],
+    "Corolla Altis": [
+      "2014-Günümüz"
+    ],
+    "Corolla Cross": [
+      "2022-Günümüz",
+      "2021-Günümüz",
+      "2020-2022"
+    ],
+    "Corolla US": [
+      "2016-2018"
+    ],
+    "Corolla Verso": [
+      "2007-2009",
+      "2004-2007",
+      "2002-2004"
+    ],
+    "Crown": [
+      "1979-1983"
+    ],
+    "Estima / Previa": [
+      "2007-Günümüz"
+    ],
+    "Etios Liva": [
+      "2011-Günümüz"
+    ],
+    "FJ Cruiser": [
+      "2011-2016",
+      "2006-2010"
+    ],
+    "Fortuner": [
+      "2015-Günümüz",
+      "2011-2015"
+    ],
+    "GR 86": [
+      "2021-Günümüz"
+    ],
+    "GR Corolla": [
+      "2022-Günümüz"
+    ],
+    "GT 86": [
+      "2016-Günümüz"
+    ],
+    "Harrier": [
+      "2014-Günümüz"
+    ],
+    "Highlander": [
+      "2016-2018"
+    ],
+    "Land Cruiser": [
+      "2020-Günümüz"
+    ],
+    "Land Cruiser 100": [
+      "2002-2007",
+      "1998-2002"
+    ],
+    "Land Cruiser 120": [
+      "2003-2009"
+    ],
+    "Land Cruiser 150": [
+      "2017-2020",
+      "2013-2017",
+      "2009-2013"
+    ],
+    "Land Cruiser 200 / V8": [
+      "2011-2015"
+    ],
+    "Land Cruiser FJ70 Pick-up": [
+      "1984-1990"
+    ],
+    "MR2": [
+      "2002-2005",
+      "1985-1990"
+    ],
+    "MR2 Spyder Cabrio": [
+      "2000-2002"
+    ],
+    "Mirai": [
+      "2021-Günümüz",
+      "2015-2021"
+    ],
+    "Paseo": [
+      "1996-2000"
+    ],
+    "Prado / Meru": [
+      "1996-2001"
+    ],
+    "Previa": [
+      "2003-2005",
+      "2000-2003",
+      "1992-1998"
+    ],
+    "RAV4": [
+      "2015-2018",
+      "2013-2015",
+      "2010-2015",
+      "2008-2010",
+      "2006-2008",
+      "2003-2006",
+      "2000-2003"
+    ],
+    "Rav4": [
+      "2018-Günümüz"
+    ],
+    "Rukus": [
+      "2007-Günümüz"
+    ],
+    "Sequoia": [
+      "2022-Günümüz",
+      "2007-2017",
+      "2000-2007"
+    ],
+    "Sienna": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2014-2017",
+      "2010-2014",
+      "2004-2009"
+    ],
+    "Solara": [
+      "2004-2008"
+    ],
+    "Starlet": [
+      "1996-1999",
+      "1990-1996",
+      "1989-1996",
+      "1984-1989"
+    ],
+    "Supra": [
+      "2019-Günümüz",
+      "1993-2002"
+    ],
+    "Tacoma": [
+      "2005-2011"
+    ],
+    "Tacoma Access Cab": [
+      "2011-2015"
+    ],
+    "Tacoma Double Cab": [
+      "2015-2019",
+      "2011-2015"
+    ],
+    "Tundra": [
+      "2021-Günümüz"
+    ],
+    "Tundra Access Cab": [
+      "1999-2003"
+    ],
+    "Tundra Crewmax": [
+      "2006-2013"
+    ],
+    "Tundra Double Cab": [
+      "2013-2017",
+      "2006-2013"
+    ],
+    "Tundra Regular Cab": [
+      "2013-2017",
+      "2006-2013"
+    ],
+    "Urban Cruiser": [
+      "2009-2014"
+    ],
+    "Venza": [
+      "2020-Günümüz",
+      "2012-2017",
+      "2009-2012"
+    ],
+    "Verso": [
+      "2013-2018",
+      "2009-2013"
+    ],
+    "Verso-S": [
+      "2010-Günümüz"
+    ],
+    "Vios": [
+      "2013-Günümüz"
+    ],
+    "Yaris": [
+      "2018-Günümüz",
+      "2017-2019",
+      "2014-2017",
+      "2013-Günümüz",
+      "2011-2014",
+      "2008-2011",
+      "2006-2008",
+      "2003-2005",
+      "1999-2003"
+    ],
+    "Yaris GRMN": [
+      "2017-2020"
+    ],
+    "Yaris Hatchback": [
+      "2019-Günümüz"
+    ],
+    "Yaris TS": [
+      "2007-2010"
+    ],
+    "Yaris Verso": [
+      "2003-2007",
+      "1999-2003"
+    ],
+    "Yaris iA": [
+      "2016-2018"
+    ],
+    "bZ4X": [
+      "2021-Günümüz"
+    ]
+  },
+  "Volkswagen": {
+    "Amarok Double Cab": [
+      "2009-2016"
+    ],
+    "Amarok Single Cab": [
+      "2011-2016"
+    ],
+    "Ameo": [
+      "2016-2020"
+    ],
+    "Arteon": [
+      "2020-Günümüz"
+    ],
+    "Arteon R": [
+      "2020-Günümüz"
+    ],
+    "Arteon Shooting Brake": [
+      "2020-Günümüz"
+    ],
+    "Arteon Shooting Brake R": [
+      "2020-Günümüz"
+    ],
+    "Atlas": [
+      "2017-2019"
+    ],
+    "Beetle Cabrio": [
+      "2003-2005"
+    ],
+    "Bora": [
+      "2008-Günümüz",
+      "1998-2005"
+    ],
+    "Bora Variant": [
+      "1999-2004"
+    ],
+    "CC": [
+      "2012-2017"
+    ],
+    "Caddy": [
+      "2020-Günümüz",
+      "2010-2016",
+      "2005-2010"
+    ],
+    "Corrado": [
+      "1989-1995"
+    ],
+    "Cross up!": [
+      "2013-2016"
+    ],
+    "CrossGolf": [
+      "2010-Günümüz",
+      "2007-2010"
+    ],
+    "CrossPolo": [
+      "2006-2009"
+    ],
+    "CrossTouran": [
+      "2011-Günümüz",
+      "2007-2010"
+    ],
+    "Derby": [
+      "1977-1981"
+    ],
+    "Eos": [
+      "2011-2016",
+      "2006-2011"
+    ],
+    "Fox": [
+      "2005-2009"
+    ],
+    "Gol": [
+      "2014-Günümüz",
+      "2008-2014"
+    ],
+    "Golf Alltrack": [
+      "2020-Günümüz"
+    ],
+    "Golf GTD": [
+      "2020-Günümüz",
+      "2017-2020",
+      "2013-2017",
+      "2009-2013"
+    ],
+    "Golf GTI": [
+      "2013-2017",
+      "2008-2013"
+    ],
+    "Golf I": [
+      "1974-1983"
+    ],
+    "Golf I (5 Doors)": [
+      "1974-1983"
+    ],
+    "Golf I GTI": [
+      "1976-1983"
+    ],
+    "Golf II": [
+      "1983-1992"
+    ],
+    "Golf III": [
+      "1992-1997",
+      "1991-1997"
+    ],
+    "Golf III Cabrio": [
+      "1993-1998"
+    ],
+    "Golf III GTI": [
+      "1992-1997"
+    ],
+    "Golf III Variant": [
+      "1993-1999"
+    ],
+    "Golf IV": [
+      "1997-2003"
+    ],
+    "Golf IV Cabrio": [
+      "1998-2002"
+    ],
+    "Golf IV R32": [
+      "2002-2004"
+    ],
+    "Golf IV Variant": [
+      "1999-2006"
+    ],
+    "Golf Plus": [
+      "2008-2013",
+      "2005-2008"
+    ],
+    "Golf Sportsvan": [
+      "2017-Günümüz",
+      "2014-2017"
+    ],
+    "Golf V": [
+      "2003-2008"
+    ],
+    "Golf V GTI": [
+      "2004-2008"
+    ],
+    "Golf V R32": [
+      "2005-2008"
+    ],
+    "Golf V Variant/ Jetta Sportwagon": [
+      "2007-2014"
+    ],
+    "Golf VI": [
+      "2008-2012"
+    ],
+    "Golf VI Cabrio": [
+      "2015-2016"
+    ],
+    "Golf VI GTI Cabrio": [
+      "2012-2015"
+    ],
+    "Golf VI R": [
+      "2009-2013"
+    ],
+    "Golf VI R Cabrio": [
+      "2013-2017"
+    ],
+    "Golf VI Variant": [
+      "2009-2013"
+    ],
+    "Golf VII": [
+      "2017-2019",
+      "2012-2017"
+    ],
+    "Golf VII Alltrack": [
+      "2017-2020",
+      "2014-2017"
+    ],
+    "Golf VII GTD Variant": [
+      "2015-Günümüz"
+    ],
+    "Golf VII GTE": [
+      "2017-2020",
+      "2014-2017"
+    ],
+    "Golf VII R": [
+      "2017-2021",
+      "2013-2017"
+    ],
+    "Golf VII R Variant": [
+      "2017-2021"
+    ],
+    "Golf VII Variant": [
+      "2017-2020",
+      "2013-2017"
+    ],
+    "ID. Buzz": [
+      "2023-Günümüz"
+    ],
+    "ID.4": [
+      "2020-Günümüz"
+    ],
+    "ID.4 GTX": [
+      "2021-Günümüz"
+    ],
+    "ID.5": [
+      "2021-Günümüz"
+    ],
+    "ID.5 GTX": [
+      "2021-Günümüz"
+    ],
+    "Jetta": [
+      "2018-2021",
+      "2014-2018",
+      "2010-2014",
+      "2005-2011"
+    ],
+    "Lavida": [
+      "2008-2012"
+    ],
+    "Lupo": [
+      "1998-2005"
+    ],
+    "Lupo 3L": [
+      "1999-2005"
+    ],
+    "Lupo GTI": [
+      "2002-2005"
+    ],
+    "Multivan": [
+      "2003-2015"
+    ],
+    "Nivus": [
+      "2020-Günümüz"
+    ],
+    "Passat": [
+      "2019-Günümüz",
+      "2010-2014",
+      "2005-2010",
+      "2000-2005",
+      "1996-2000",
+      "1993-1996",
+      "1981-1987",
+      "1981-1988",
+      "1973-1981"
+    ],
+    "Passat Alltrack": [
+      "2019-Günümüz",
+      "2015-2019",
+      "2012-2015"
+    ],
+    "Passat CC": [
+      "2009-2011"
+    ],
+    "Passat GTE": [
+      "2019-Günümüz",
+      "2015-2019"
+    ],
+    "Passat R36": [
+      "2008-2010"
+    ],
+    "Passat R36 Variant": [
+      "2008-2010"
+    ],
+    "Passat US": [
+      "2012-2019"
+    ],
+    "Passat Variant": [
+      "2010-2014",
+      "2005-2010",
+      "2000-2005",
+      "1997-2000",
+      "1993-1997",
+      "1988-1993",
+      "1981-1988",
+      "1974-1981"
+    ],
+    "Passat Variant GTE": [
+      "2019-Günümüz",
+      "2015-2019"
+    ],
+    "Phaeton": [
+      "2010-2016",
+      "2004-2009",
+      "2002-2009"
+    ],
+    "Pointer": [
+      "1994-1996"
+    ],
+    "Polo": [
+      "2021-Günümüz",
+      "2017-2021",
+      "2014-2017",
+      "2010-Günümüz",
+      "2009-2014",
+      "2005-2008",
+      "2001-2005",
+      "1999-2001",
+      "1994-1999",
+      "1990-1994",
+      "1982-1990",
+      "1981-1994",
+      "1975-1981"
+    ],
+    "Polo BlueGT": [
+      "2013-Günümüz"
+    ],
+    "Polo Classic": [
+      "1996-1998"
+    ],
+    "Polo Fun": [
+      "2004-2005"
+    ],
+    "Polo GTI": [
+      "2014-2017",
+      "2010-2014",
+      "2005-2008"
+    ],
+    "Polo Variant": [
+      "2000-2001",
+      "1997-2000"
+    ],
+    "Routan": [
+      "2008-2013"
+    ],
+    "Santana": [
+      "1982-1985"
+    ],
+    "Scirocco": [
+      "2014-Günümüz",
+      "2008-2014",
+      "1977-1981"
+    ],
+    "Scirocco R": [
+      "2014-Günümüz"
+    ],
+    "Sharan": [
+      "2010-Günümüz",
+      "2000-2010",
+      "1996-2000"
+    ],
+    "Taigo": [
+      "2021-Günümüz"
+    ],
+    "Tiguan": [
+      "2016-2020",
+      "2011-2016",
+      "2008-2011"
+    ],
+    "Tiguan Allspace": [
+      "2021-Günümüz"
+    ],
+    "Tiguan R": [
+      "2020-Günümüz"
+    ],
+    "Touareg": [
+      "2014-2019",
+      "2010-2014",
+      "2007-2010",
+      "2002-2007"
+    ],
+    "Touran": [
+      "2015-Günümüz",
+      "2010-2015",
+      "2006-2010",
+      "2003-2006"
+    ],
+    "Transporter Kombi": [
+      "2015-Günümüz"
+    ],
+    "Vento": [
+      "2010-Günümüz"
+    ],
+    "Vento/Jetta": [
+      "1992-1998"
+    ],
+    "XL1": [
+      "2013-2016"
+    ],
+    "e-Golf": [
+      "2016-Günümüz",
+      "2014-2016"
+    ],
+    "e-UP!": [
+      "2019-Günümüz"
+    ],
+    "up!": [
+      "2016-Günümüz",
+      "2012-2016"
+    ],
+    "up! GTI": [
+      "2018-Günümüz"
+    ]
+  },
+  "Volvo": {
+    "66": [
+      "1975-1981"
+    ],
+    "142": [
+      "1967-1974"
+    ],
+    "145": [
+      "1967-1974"
+    ],
+    "244": [
+      "1975-1990"
+    ],
+    "245": [
+      "1975-1990"
+    ],
+    "264": [
+      "1980-1982"
+    ],
+    "265": [
+      "1980-1982"
+    ],
+    "343": [
+      "1976-1982"
+    ],
+    "345": [
+      "1979-1982"
+    ],
+    "440": [
+      "1993-1996",
+      "1988-1993"
+    ],
+    "460": [
+      "1993-1996",
+      "1990-1993"
+    ],
+    "480": [
+      "1986-1995"
+    ],
+    "760": [
+      "1985-1990",
+      "1982-1990"
+    ],
+    "780": [
+      "1986-1990"
+    ],
+    "850": [
+      "1993-1997",
+      "1992-1997"
+    ],
+    "940": [
+      "1990-1997",
+      "1990-1998"
+    ],
+    "960": [
+      "1994-1997"
+    ],
+    "262 C": [
+      "1977-1981"
+    ],
+    "850 Estate R": [
+      "1994-1996"
+    ],
+    "850 R": [
+      "1994-1996"
+    ],
+    "C30": [
+      "2009-2013",
+      "2006-2009"
+    ],
+    "C40 Recharge": [
+      "2022-Günümüz",
+      "2021-Günümüz"
+    ],
+    "C70": [
+      "2005-2013",
+      "1999-2005"
+    ],
+    "EX90": [
+      "2022-Günümüz"
+    ],
+    "P1800": [
+      "1961-1973"
+    ],
+    "S40": [
+      "2007-2012",
+      "1996-2000"
+    ],
+    "S60": [
+      "2018-Günümüz",
+      "2015-2018",
+      "2013-2018",
+      "2010-2013",
+      "2008-2010",
+      "2004-2007",
+      "2000-2004"
+    ],
+    "S60 Polestar": [
+      "2017-Günümüz"
+    ],
+    "S60 R": [
+      "2003-2004"
+    ],
+    "S70": [
+      "1997-2000"
+    ],
+    "S70 R": [
+      "1997-1999"
+    ],
+    "S80": [
+      "2009-2016",
+      "2006-2008",
+      "2003-2006",
+      "1998-2003"
+    ],
+    "S90": [
+      "2019-Günümüz",
+      "2016-2019",
+      "1997-1998"
+    ],
+    "V40": [
+      "2016-2019",
+      "2012-2016",
+      "2000-2004",
+      "1996-2000"
+    ],
+    "V50": [
+      "2007-2011",
+      "2004-2007"
+    ],
+    "V60": [
+      "2018-Günümüz",
+      "2015-2018",
+      "2014-2018",
+      "2010-2013"
+    ],
+    "V60 Polestar": [
+      "2017-Günümüz"
+    ],
+    "V70": [
+      "2007-2016",
+      "2004-2007",
+      "2000-2004",
+      "1997-2000"
+    ],
+    "V70 R": [
+      "2003-2004",
+      "1997-1999"
+    ],
+    "V90": [
+      "2019-Günümüz",
+      "2016-2019",
+      "1997-1998"
+    ],
+    "XC40": [
+      "2017-Günümüz"
+    ],
+    "XC40 Recharge": [
+      "2022-Günümüz"
+    ],
+    "XC60": [
+      "2017-Günümüz",
+      "2013-2017",
+      "2008-2013"
+    ],
+    "XC60 Polestar": [
+      "2018-2021"
+    ],
+    "XC70": [
+      "2007-2016",
+      "2004-2007"
+    ],
+    "XC70/ V70XC": [
+      "2000-2004"
+    ],
+    "XC90": [
+      "2014-2019",
+      "2007-2014",
+      "2002-2006"
+    ]
+  }
 }
-
-
-

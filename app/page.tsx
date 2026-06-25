@@ -33,7 +33,7 @@ export default function HomePage() {
                             <span className="text-[#A91D3A]">kusurunu öğren.</span>
                         </h1>
                         <p className="text-[14px] sm:text-[15px] text-[#71717A] leading-relaxed max-w-md mx-auto">
-                            Marka, model, yakıt tipi ve şanzıman seçerek kronik arızaları ve risk skorunu tek sayfada inceleyin.
+                            Marka, model ve motor seçerek kronik arızaları ve risk skorunu tek sayfada inceleyin.
                         </p>
                     </div>
 
