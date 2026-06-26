@@ -8782,4 +8782,253 @@ export const engineDNAData: VehicleEngineData[] = [
       },
     ],
   },
+  // ═══════════════════════════════════════════════
+  // ▼ YENİ ARAÇLAR — Motor Verileri ▼
+  // ═══════════════════════════════════════════════
+  {
+    vehicleId: 162,
+    engines: [
+      {
+        slug: "18-hibrit-140-hp-e-cvt",
+        name: "1.8 Hibrit 140 HP",
+        fuelType: "Hibrit",
+        transmission: "e-CVT",
+        score: 90,
+        description: "Toyota'nın 5. nesil hibrit sistemi. Sessiz, ekonomik ve kanıtlanmış güvenilirlik.",
+        pros: [
+          "Şehir içi 4-5 lt/100km tüketim mümkün",
+          "Pürüzsüz ve sessiz sürüş deneyimi",
+          "Bakım maliyetleri düşük (triger zincir, CVT bakımsız)"
+        ],
+        cons: [
+          "Sportif sürüşte CVT'nin gürültüsü artıyor",
+          "Tek motor seçeneği — alternatif yok"
+        ],
+        chronicIssues: [
+          {
+            title: "Düşük Hızda Motor Devreye Girme Gürültüsü",
+            description: "Düşük akü seviyesinde benzin motorunun beklenmedik zamanlarda devreye girip kısa süreli gürültü yapması.",
+            severity: "low",
+            reportCount: 5,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    vehicleId: 163,
+    engines: [
+      {
+        slug: "15-dmi-phev-218-hp-e-cvt",
+        name: "1.5 DM-i PHEV 218 HP",
+        fuelType: "Hibrit",
+        transmission: "e-CVT (Çift Motor)",
+        score: 78,
+        description: "BYD'nin DM-i (Dual Mode Intelligence) şarj edilebilir hibrit sistemi. 18.3 kWh batarya, ~80 km saf elektrik menzil.",
+        pros: [
+          "Düzenli şarjla günlük kullanımda neredeyse sıfır yakıt",
+          "Hibrit modda bile 5-6 lt/100km",
+          "218 HP kombinasyon güç yeterli performans"
+        ],
+        cons: [
+          "Batarya boşaldıktan sonra benzin motoru biraz gürültülü",
+          "AC şarj hızı sınırlı (3.3 kW)",
+          "Uzun dönem güvenilirlik bilinmiyor"
+        ],
+        chronicIssues: [
+          {
+            title: "EV/HEV Mod Geçiş Sarsıntısı",
+            description: "Elektrikten benzin motoruna geçiş anında nadiren hissedilen hafif sarsıntı. Yazılım güncellemeleri ile azaltılıyor.",
+            severity: "low",
+            reportCount: 8,
+          },
+          {
+            title: "Batarya Şarj Yönetimi Uyarıları",
+            description: "Aşırı sıcak veya soğuk havalarda batarya şarj hızının düşürülmesi ve bilgilendirme uyarıları.",
+            severity: "low",
+            reportCount: 6,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    vehicleId: 164,
+    engines: [
+      {
+        slug: "14-mpi-100-hp-benzin-6at",
+        name: "1.4 MPI 100 HP",
+        fuelType: "Benzin",
+        transmission: "Tam Otomatik (6AT)",
+        score: 82,
+        description: "Kappa 1.4 MPI atmosferik motor. Basit, güvenilir, LPG uyumlu. Tork konvertörlü 6AT şanzıman sorunsuz.",
+        pros: [
+          "LPG takılabilir (Fabrika garantisi korunur)",
+          "Sorunsuz 6AT şanzıman (DCT yok)",
+          "Bakım maliyetleri düşük"
+        ],
+        cons: [
+          "100 HP otobanda yetersiz kalabilir",
+          "Yakıt tüketimi T-GDI'ye göre yüksek"
+        ],
+        chronicIssues: [
+          {
+            title: "Yüksek Yakıt Tüketimi",
+            description: "Şehir içi 8-9 lt/100km tüketim. Atmosferik motor+otomatik şanzıman kombinasyonu nedeniyle beklentilerin üzerinde.",
+            severity: "low",
+            reportCount: 6,
+          },
+        ],
+      },
+      {
+        slug: "10-t-gdi-100-hp-benzin-dct",
+        name: "1.0 T-GDI 100 HP",
+        fuelType: "Benzin",
+        transmission: "Çift Kavrama (DCT)",
+        score: 70,
+        description: "Kappa 1.0 T-GDI turbolu motor + 7 ileri DCT şanzıman. Düşük tüketim ama DCT problemleri mevcut.",
+        pros: [
+          "Şehir içi 5.5-6.5 lt/100km",
+          "Düşük emisyon değerleri",
+          "Canlı performans (turbo etkisi)"
+        ],
+        cons: [
+          "DCT şanzıman ısınma ve titreme sorunu",
+          "LPG takmak önerilmiyor (direkt enjeksiyon)",
+          "Turbo bakım maliyetleri"
+        ],
+        chronicIssues: [
+          {
+            title: "DCT Kavrama Titremesi ve Isınma",
+            description: "Dur-kalkta kavrama titremesi ve trafikte DCT ısınma uyarısı. Hyundai'nin bilinen DCT sorunu; yazılım güncellemeleri kısmen iyileştiriyor.",
+            severity: "high",
+            reportCount: 18,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    vehicleId: 165,
+    engines: [
+      {
+        slug: "10-ecoboost-125-hp-mhev-benzin-otomatik",
+        name: "1.0 EcoBoost 125 HP mHEV",
+        fuelType: "Hibrit",
+        transmission: "7 İleri Powershift (DCT)",
+        score: 78,
+        description: "Ford'un 1.0 EcoBoost motoru hafif hibrit (48V) desteğiyle. Düşük tüketim ama triger kayışı bakımı kritik.",
+        pros: [
+          "5.5-6.5 lt/100km karma tüketim",
+          "mHEV ile yumuşak start-stop ve torque fill",
+          "Ödüllü EcoBoost motor mimarisi"
+        ],
+        cons: [
+          "Triger kayışı (wet belt) 60.000 km'de değişim şart",
+          "Powershift DCT düşük hızda titreme yapabilir"
+        ],
+        chronicIssues: [
+          {
+            title: "Triger Kayışı (Wet Belt) Bakım Zorunluluğu",
+            description: "Yağ içinde çalışan triger kayışı 60.000 km'de mutlaka değiştirilmeli. İhmal edilirse kayış kopması ve motor hasarı riski çok yüksek.",
+            severity: "high",
+            reportCount: 14,
+          },
+          {
+            title: "Powershift Titremesi",
+            description: "1. ve 2. viteslerde düşük hızda vites geçişlerinde titreme. Kavrama adaptasyonu sıfırlama ve yazılım güncellemesi gerekebilir.",
+            severity: "medium",
+            reportCount: 8,
+          },
+        ],
+      },
+      {
+        slug: "10-ecoboost-155-hp-mhev-benzin-otomatik",
+        name: "1.0 EcoBoost 155 HP mHEV",
+        fuelType: "Hibrit",
+        transmission: "7 İleri Powershift (DCT)",
+        score: 80,
+        description: "Daha güçlü EcoBoost versiyonu. ST-Line paketlerde tercih edilen performans odaklı seçenek.",
+        pros: [
+          "155 HP ile canlı ve eğlenceli performans",
+          "Aynı verimli mHEV teknolojisi",
+          "ST-Line ile sportif sürüş deneyimi"
+        ],
+        cons: [
+          "Aynı triger kayışı riski mevcut",
+          "Fiyat farkı yüksek"
+        ],
+        chronicIssues: [
+          {
+            title: "Triger Kayışı (Wet Belt) Bakım Zorunluluğu",
+            description: "125 HP ile aynı motor ailesi — aynı triger kayışı riski. 60.000 km'de değişim şart.",
+            severity: "high",
+            reportCount: 12,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    vehicleId: 166,
+    engines: [
+      {
+        slug: "12-puretech-75-hp-benzin-manuel",
+        name: "1.2 PureTech 75 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel (5 İleri)",
+        score: 68,
+        description: "PSA 1.2 PureTech atmosferik motor. Basit ve ekonomik ama triger kayışı riski mevcut.",
+        pros: [
+          "Düşük sigorta ve bakım maliyeti",
+          "Sade ve öğrenmesi kolay manuel vites",
+          "LPG takılabilir (atmosferik versiyon)"
+        ],
+        cons: [
+          "75 HP şehirlerarası yetersiz",
+          "Triger kayışı (wet belt) kopma riski",
+          "Manuel vites dışında seçenek yok bu güçte"
+        ],
+        chronicIssues: [
+          {
+            title: "PureTech Triger Kayışı Kopması",
+            description: "PSA grubunun bilinen sorunu. Yağ banyosunda çalışan triger kayışı 60.000 km'den önce kontrol ve değişim yapılmazsa motor hasarı riski. Stellantis geri çağırma kampanyası mevcut.",
+            severity: "high",
+            reportCount: 20,
+          },
+        ],
+      },
+      {
+        slug: "12-puretech-100-hp-benzin-eat8",
+        name: "1.2 PureTech 100 HP",
+        fuelType: "Benzin",
+        transmission: "Tam Otomatik (EAT8)",
+        score: 74,
+        description: "Turbolu 1.2 PureTech + Aisin 8 ileri tam otomatik şanzıman. Konforlu ama triger riski devam ediyor.",
+        pros: [
+          "EAT8 pürüzsüz ve konforlu",
+          "Şehir içi 6-7 lt/100km",
+          "8 ileri şanzıman sayesinde otobanda düşük devir"
+        ],
+        cons: [
+          "Triger kayışı riski devam ediyor",
+          "LPG takılması önerilmiyor (turbo + direkt enjeksiyon)"
+        ],
+        chronicIssues: [
+          {
+            title: "PureTech Triger Kayışı Kopması",
+            description: "Aynı motor ailesi — aynı triger kayışı riski. 60.000 km'de kontrol ve değişim şart.",
+            severity: "high",
+            reportCount: 18,
+          },
+          {
+            title: "EAT8 Şanzıman Sarsıntısı",
+            description: "Soğuk havalarda ilk birkaç vites geçişinde hafif sarsıntı. Şanzıman yağı ısındıktan sonra düzeliyor.",
+            severity: "low",
+            reportCount: 5,
+          },
+        ],
+      },
+    ],
+  },
 ];

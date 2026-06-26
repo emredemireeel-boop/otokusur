@@ -2,6 +2,8 @@ import { vehicleDNAData, createSlug } from '@/data/vehicle-dna';
 import type { VehicleDNA, ChronicIssue } from '@/data/vehicle-dna';
 import { engineDNAData } from '@/data/engine-dna';
 import type { VehicleEngineData, EngineOption } from '@/data/engine-dna';
+import { trimDNAData } from '@/data/trim-dna';
+import type { VehicleTrimData } from '@/data/trim-dna';
 
 export type RiskLevel = 'low' | 'medium' | 'high';
 
@@ -94,6 +96,10 @@ export function getBrandInfo(bSlug: string): BrandInfo | undefined {
 export function getEnginesByVehicleId(vehicleId: number): EngineOption[] {
     const entry = engineDNAData.find(e => e.vehicleId === vehicleId);
     return entry?.engines || [];
+}
+
+export function getTrimsByVehicleId(vehicleId: number): VehicleTrimData | undefined {
+    return trimDNAData.find(t => t.vehicleId === vehicleId);
 }
 
 // ── Fuel Type Extraction ───────────────────────────────

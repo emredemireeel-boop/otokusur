@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getVehicleBySlug, getEnginesByVehicleId, getRiskLevel, getCostLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
+import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLevel, getCostLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
+import TrimComparisonTable from '@/components/TrimComparisonTable';
+import Comments from '@/components/Comments';
 import { ChevronRight, Star, ArrowRight, Fuel, Settings, AlertTriangle, Wrench } from 'lucide-react';
 
 interface Props { params: Promise<{ marka: string; model: string }> }
@@ -30,6 +32,7 @@ export default async function ModelDetayPage({ params }: Props) {
     const risk = getRiskLevel(v.dnaScore);
     const engines = getEnginesByVehicleId(v.id);
     const costLevel = getCostLevel(v.dnaScore);
+    const trimData = getTrimsByVehicleId(v.id);
 
     return (
         <article className="container-main py-6 sm:py-10">
@@ -128,6 +131,13 @@ export default async function ModelDetayPage({ params }: Props) {
                 </div>
             </div>
 
+            {/* ═══════ TRIM COMPARISON ═══════ */}
+            {trimData && (
+                <div className="mb-8">
+                    <TrimComparisonTable trimData={trimData} vehicleName={`${v.brand} ${v.model}`} />
+                </div>
+            )}
+
             {/* Vehicle-level Quick Info */}
             {v.chronicIssues.length > 0 && (
                 <div className="card-elevated p-5 sm:p-6">
@@ -146,6 +156,9 @@ export default async function ModelDetayPage({ params }: Props) {
                     </div>
                 </div>
             )}
+
+            {/* Kullanıcı Yorumları */}
+            <Comments vehicleId={v.id} vehicleName={`${v.brand} ${v.model}`} />
 
             {/* JSON-LD */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

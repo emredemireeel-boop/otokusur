@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getVehicleBySlug, getEnginesByVehicleId, getRiskLevel, getCostLevel, categorizeIssues, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import { getSeverityLabel } from '@/data/vehicle-dna';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
+import Comments from '@/components/Comments';
 import { ChevronRight, AlertTriangle, CheckCircle2, XCircle, Star, Info, Fuel, Settings, TrendingUp, TrendingDown, CircleAlert, Wrench } from 'lucide-react';
 import UserComments from '@/components/UserComments';
 
@@ -330,8 +331,37 @@ export default async function MotorDetayPage({ params }: Props) {
                             </div>
                         </div>
                     </div>
+
+                    {/* OtoSöz.com Tanıtım */}
+                    <a href="https://otosoz.com" target="_blank" rel="noopener noreferrer"
+                       className="block mt-4 group">
+                        <div className="relative overflow-hidden rounded-xl border border-[#EBEBED] bg-gradient-to-r from-[#0F0F10] via-[#1A1A2E] to-[#16213E] p-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#A91D3A]/10 hover:border-[#A91D3A]/30">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#A91D3A] to-[#E94560] flex items-center justify-center text-white font-black text-[14px] flex-shrink-0 shadow-lg">
+                                    ÖS
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-[13px] font-bold text-white group-hover:text-[#E94560] transition-colors">
+                                        OtoSöz.com
+                                    </p>
+                                    <p className="text-[11px] text-[#94A3B8] mt-0.5">
+                                        Otomobil Tutkunlarının Sözlüğü 🚗
+                                    </p>
+                                </div>
+                                <div className="flex items-center gap-1.5 bg-[#A91D3A] text-white text-[10px] font-bold px-3 py-1.5 rounded-full group-hover:bg-[#E94560] transition-colors flex-shrink-0">
+                                    Keşfet
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                            {/* Decorative glow */}
+                            <div className="absolute -top-6 -right-6 w-20 h-20 bg-[#A91D3A]/10 rounded-full blur-2xl group-hover:bg-[#A91D3A]/20 transition-all" />
+                        </div>
+                    </a>
                 </div>
             </div>
+
+            {/* Kullanıcı Yorumları (Motor bazlı) */}
+            <Comments vehicleId={v.id} engineSlug={eng.slug} vehicleName={`${v.brand} ${v.model} — ${eng.name}`} />
 
             {/* JSON-LD */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

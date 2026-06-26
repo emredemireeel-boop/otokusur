@@ -335,3 +335,15 @@ body {
 .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
 }
+
+/* ─── Trim Table ──────────────────────────────────── */
+@keyframes trimRowFadeIn {
+    from { opacity: 0; transform: translateX(-8px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.trim-table-scroll::-webkit-scrollbar { height: 4px; }
+.trim-table-scroll::-webkit-scrollbar-track { background: #F7F7F8; }
+.trim-table-scroll::-webkit-scrollbar-thumb { background: #D4D4D8; border-radius: 2px; }
+.trim-table-scroll::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
+

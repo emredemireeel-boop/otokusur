@@ -3657,6 +3657,233 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 7,
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Fiat_124.jpg/800px-Fiat_124.jpg"
     },
+    // ══════════════════════════════════════════════════════════
+    // ▼ YENİ ARAÇLAR (2025 Satış Liderleri) ▼
+    // ══════════════════════════════════════════════════════════
+    {
+        id: 162,
+        brand: "Toyota",
+        model: "C-HR 2. Nesil (2024-2025)",
+        year: "2024-2025",
+        ncapStars: 5,
+        ncapYear: "2023",
+        dnaScore: 88,
+        strengths: [
+            "Göz Kamaştıran Cesur Tasarım (Hamle kokpiti ve LED imza)",
+            "5. Nesil Hibrit Sistem (Pürüzsüz, sessiz, düşük tüketim)",
+            "Toyota Safety Sense 3 (Sınıfın en gelişmiş güvenlik paketi)",
+            "Yüksek İkinci El Değeri",
+            "Toyota Güvenilirliği ve Yaygın Servis Ağı"
+        ],
+        weaknesses: [
+            "Yüksek Fiyat Etiketinin Donanıma Yansımama Riski (Alt paketler sade)",
+            "Arka Görüş Alanı Kısıtlı (Tasarım kaynaklı)",
+            "Bagaj Hacmi Rakiplerin Altında (388 lt)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Multimedya Donma / Yavaşlama",
+                severity: "low",
+                reportCount: 6,
+                description: "Yeni nesil infotainment sisteminin soğuk havalarda ilk açılışta yavaşlaması veya nadiren donması (OTA güncellemesi ile iyileşiyor)."
+            },
+            {
+                id: 2,
+                title: "Hibrit Sistem Kalibrasyonu Bekleme Süresi",
+                severity: "low",
+                reportCount: 4,
+                description: "İlk birkaç bin km'de hibrit geçişlerin tam optimize olmayabileceği ve düşük hızda motorun daha sık devreye girmesi (zamanla öğreniyor)."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 4
+    },
+    {
+        id: 163,
+        brand: "BYD",
+        model: "Seal U DM-i (2024-2025)",
+        year: "2024-2025",
+        ncapStars: 5,
+        ncapYear: "2024",
+        dnaScore: 80,
+        strengths: [
+            "Şarj Edilebilir Hibrit Teknoloji (PHEV — düşük yakıt tüketimi)",
+            "15.6 inç Döner Multimedya Ekranı (Dikkat çekici teknoloji)",
+            "Zengin Standart Donanım (360° kamera, panoramik tavan, havalandırmalı koltuk)",
+            "Fiyat/Donanım Oranında Agresif Konumlanma",
+            "8 Yıl / 150.000 km Batarya Garantisi"
+        ],
+        weaknesses: [
+            "Servis Ağı Henüz Yetersiz (Büyükşehir dışında sınırlı)",
+            "İkinci El Değer Belirsizliği (Yeni marka bilinmezliği)",
+            "Yedek Parça Temin Süresi Uzun Olabilir",
+            "Sürüş Hissi Avrupa Standartlarına Tam Ulaşamıyor"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Multimedya Sistem Donmaları",
+                severity: "medium",
+                reportCount: 12,
+                description: "15.6 inç ekranın yanıt vermemesi veya donması; genelde araç yeniden çalıştırınca düzeliyor. BYD OTA güncellemeleri ile iyileştirilmeye çalışılıyor."
+            },
+            {
+                id: 2,
+                title: "Şarj Sistemi Uyarıları",
+                severity: "medium",
+                reportCount: 9,
+                description: "AC şarjda bazı ev tipi wallbox'lar ile uyumsuzluk yaşanması ve 'şarj hatası' uyarısı; BYD onaylı şarj ünitesi kullanılması öneriliyor."
+            },
+            {
+                id: 3,
+                title: "Süspansiyon Sertliği & Tümsek Sesleri",
+                severity: "low",
+                reportCount: 7,
+                description: "Bozuk yollarda süspansiyondan gelen 'tok' sesler. Türkiye yol şartlarına göre biraz sert bulunan süspansiyon ayarı."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 11
+    },
+    {
+        id: 164,
+        brand: "Hyundai",
+        model: "Bayon 1. Nesil (2021-2025)",
+        year: "2021-2025",
+        ncapStars: 4,
+        ncapYear: "2021",
+        dnaScore: 78,
+        strengths: [
+            "Kompakt B-SUV Segmentinde Yüksek Gövde ve Geniş İç Mekan",
+            "Fiyat/Performans Oranı (Segmentte uygun fiyat)",
+            "SmartSense Güvenlik Paketi (Şerit takip, çarpışma önleme)",
+            "1.4 MPI + 6AT Kombinasyonu (LPG uyumlu, sorunsuz)"
+        ],
+        weaknesses: [
+            "1.0 T-GDI DCT Şanzıman Isınma/Titreşim Sorunu",
+            "İç Mekan Malzeme Kalitesi (Sert plastikler hakim)",
+            "Gürültü Yalıtımı Yetersiz (Yüksek hızda rüzgar sesi)",
+            "Bagaj Hacmi Sınıflı (411 lt)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DCT Kavrama Titremesi / Isınma Uyarısı",
+                severity: "high",
+                reportCount: 18,
+                description: "1.0 T-GDI motorlu DCT versiyonlarda dur-kalkta kavrama titremesi ve aşırı ısınma ikaz ışığı. Yoğun trafikte sık yaşanıyor; yazılım güncellemesi kısmen iyileştiriyor."
+            },
+            {
+                id: 2,
+                title: "Trim (Plastik) Tıkırtı Sesleri",
+                severity: "medium",
+                reportCount: 10,
+                description: "Özellikle soğuk havalarda torpido, kapı panelleri ve C sütunundan gelen tıkırtı ve çıtırtı sesleri."
+            },
+            {
+                id: 3,
+                title: "Multimedya Donma / Bağlantı Kopması",
+                severity: "low",
+                reportCount: 7,
+                description: "CarPlay/Android Auto bağlantısının kesilmesi veya ekranın birkaç saniyeliğine donması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 14
+    },
+    {
+        id: 165,
+        brand: "Ford",
+        model: "Puma 1. Nesil (2020-2025)",
+        year: "2020-2025",
+        ncapStars: 5,
+        ncapYear: "2019",
+        dnaScore: 82,
+        strengths: [
+            "Eğlenceli Sürüş Dinamikleri (Ford DNA'sı korunmuş)",
+            "MegaBox Bagaj Sistemi (Suya dayanıklı derinleştirilebilir bagaj)",
+            "mHEV (Hafif Hibrit) ile Düşük Tüketim",
+            "SYNC 4 Multimedya Sistemi (Hızlı, modern arayüz)",
+            "Sportif Dış Tasarım (Crossover/Coupe karışımı)"
+        ],
+        weaknesses: [
+            "Arka Koltuk Diz Mesafesi Sınırlı",
+            "1.0 EcoBoost Triger Kayışı (Wet Belt) Bakım Maliyeti",
+            "ST-Line Paketler Çok Yüksek Fiyat Etiketinde"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EcoBoost Triger Kayışı (Wet Belt) Bakımı",
+                severity: "high",
+                reportCount: 14,
+                description: "1.0 EcoBoost motorlarda triger kayışının yağ içinde çalışması nedeniyle periyodik bakım ihmal edilirse motor hasarı riski. 60.000 km'de mutlaka kayış değişimi yapılmalı."
+            },
+            {
+                id: 2,
+                title: "Powershift Şanzıman Titremesi",
+                severity: "medium",
+                reportCount: 10,
+                description: "Otomatik vitesli modellerde düşük hızda vites geçişlerinde titreme/tekleme hissi. Kavrama adaptasyonu ve yazılım güncellemesi gerekebilir."
+            },
+            {
+                id: 3,
+                title: "Akü Kaynaklı Elektronik Arızalar",
+                severity: "medium",
+                reportCount: 6,
+                description: "mHEV sistemiyle çalışan 48V akünün düşük şarjda kalması durumunda rastgele uyarı ışıkları ve start-stop arızası."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 12
+    },
+    {
+        id: 166,
+        brand: "Opel",
+        model: "Corsa F (2019-2025)",
+        year: "2019-2025",
+        ncapStars: 4,
+        ncapYear: "2019",
+        dnaScore: 76,
+        strengths: [
+            "Kompakt Boyut ve Şehir İçi Manevra Kabiliyeti",
+            "PSA/Stellantis Platformu (Peugeot 208 ile paylaşımlı, kanıtlanmış)",
+            "Uygun Fiyat Segmentinde Zengin Güvenlik Donanımı",
+            "Geniş Servis/Yedek Parça Ağı (Stellantis ortak)"
+        ],
+        weaknesses: [
+            "1.2 PureTech Motor Triger Kayışı Riski (Wet Belt — PSA ortak sorunu)",
+            "İç Mekan Malzeme Kalitesi Orta Seviye",
+            "Bagaj Hacmi Sınıfının Ortasında (309 lt)",
+            "Süspansiyon Sertliği (Bozuk yollarda rahatsız edebilir)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.2 PureTech Triger Kayışı Kopması",
+                severity: "high",
+                reportCount: 20,
+                description: "1.2 PureTech motorlarda yağ banyosunda çalışan triger kayışının kopma riski. PSA grubunun bilinen sorunu; 60.000 km öncesi mutlaka kontrol ve değişim şart. Geri çağırma kampanyası mevcut."
+            },
+            {
+                id: 2,
+                title: "Şanzıman 'F' Arıza Uyarısı",
+                severity: "medium",
+                reportCount: 8,
+                description: "Otomatik şanzımanlı modellerde 'F' hata kodu ve şanzıman uyarısı. Genelde kontrol ünitesi yazılımı veya sensör kaynaklı; mekanik şanzıman arızası değil."
+            },
+            {
+                id: 3,
+                title: "Kapı Kilit Tıkırtısı",
+                severity: "low",
+                reportCount: 5,
+                description: "Kapı kilit mekanizmasından gelen tıkırtı sesleri, özellikle bozuk yollarda. Kilit modülü yağlanması veya değişimi gerekebilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 13
+    },
     {
         id: 1001,
         brand: "Audi",
