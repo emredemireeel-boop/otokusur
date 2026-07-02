@@ -1914,5 +1914,228 @@ export const trimDNAData: VehicleTrimData[] = [
                 availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"]
             }
         ]
+    },
+
+    // ══════════════════════════════════════════════════════════════════════
+    // YENİ EKLENEN ARAÇLARIN DONANIM VERİLERİ (id: 1010-1029)
+    // ══════════════════════════════════════════════════════════════════════
+
+    // Toyota Yaris 4. Nesil Hibrit — id: 1010
+    {
+        vehicleId: 1010,
+        features: ["LED Farlar", "7\" Dokunmatik Ekran", "Toyota Safety Sense 2.0", "Otomatik Klima", "Geri Görüş Kamerası", "Akıllı Giriş ve Çalıştırma", "17\" Alaşım Jantlar", "Kablosuz Şarj"],
+        trims: [
+            { name: "Dream", availability: ["standard", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Passion", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Premiere", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Toyota Yaris 3. Nesil — id: 1011
+    {
+        vehicleId: 1011,
+        features: ["Klima", "CD/MP3 Çalar", "Elektrikli Aynalar", "ABS + EBD", "Direksiyon Airbag", "Merkezi Kilit", "Yolcu Airbag", "Sis Farları"],
+        trims: [
+            { name: "Terra", availability: ["unavailable", "standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "Sol", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Luna", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Renault Megane 3 — id: 1012
+    {
+        vehicleId: 1012,
+        features: ["16\" Alaşım Jantlar", "Klima", "Bluetooth", "Hız Sabitleyici", "Elektrikli Aynalar", "Yol Bilgisayarı", "Arka Park Sensörü", "Deri Direksiyon"],
+        trims: [
+            { name: "Joy", availability: ["unavailable", "standard", "unavailable", "unavailable", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "Touch", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Privilege", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Fiat Grande Punto — id: 1013
+    {
+        vehicleId: 1013,
+        features: ["Klima", "Radyo CD", "Elektrikli Ön Camlar", "ABS", "Çift Airbag", "Merkezi Kilit", "Sis Farları", "Alaşım Jantlar"],
+        trims: [
+            { name: "Active", availability: ["unavailable", "standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "Dynamic", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Emotion", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Opel Astra H — id: 1014
+    {
+        vehicleId: 1014,
+        features: ["Klima", "CD Çalar", "ABS + ESP", "Elektrikli Aynalar", "Ön + Yan Airbag", "Yol Bilgisayarı", "16\" Alaşım Jantlar", "Xenon Farlar"],
+        trims: [
+            { name: "Essentia", availability: ["standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Edition", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Cosmo", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Hyundai Accent Blue — id: 1015
+    {
+        vehicleId: 1015,
+        features: ["Klima", "Bluetooth + USB", "Geri Görüş Kamerası", "Alaşım Jantlar", "Elektrikli Aynalar", "Hız Sabitleyici", "Deri Koltuk", "Navigasyon"],
+        trims: [
+            { name: "Mode", availability: ["standard", "standard", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Mode Plus", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "Elite", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Skoda Fabia 3. Nesil — id: 1016
+    {
+        vehicleId: 1016,
+        features: ["Klima", "6.5\" Dokunmatik Ekran", "LED Gündüz Farı", "Elektrikli Aynalar", "Hız Sabitleyici", "Arka Park Sensörü", "Alaşım Jantlar", "Otomatik Klima"],
+        trims: [
+            { name: "Active", availability: ["standard", "unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Ambition", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Style", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Seat Ibiza 5. Nesil — id: 1017
+    {
+        vehicleId: 1017,
+        features: ["Full LED Farlar", "8\" Dokunmatik Ekran", "Apple CarPlay / Android Auto", "Otomatik Klima", "Geri Görüş Kamerası", "Hız Sabitleyici", "17\" Alaşım Jantlar", "Dijital Gösterge"],
+        trims: [
+            { name: "Reference", availability: ["unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Style", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "FR", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Nissan Juke F15 — id: 1018
+    {
+        vehicleId: 1018,
+        features: ["Klima", "5\" Ekran", "Bluetooth", "Hız Sabitleyici", "Alaşım Jantlar", "Geri Görüş Kamerası", "Deri Direksiyon", "Navigasyon"],
+        trims: [
+            { name: "Visia", availability: ["standard", "unavailable", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Acenta", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable"] },
+            { name: "Tekna", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Honda HR-V 2. Nesil — id: 1019
+    {
+        vehicleId: 1019,
+        features: ["Otomatik Klima", "7\" Dokunmatik Ekran", "Magic Seat", "Honda Sensing", "LED Farlar", "Geri Görüş Kamerası", "Akıllı Giriş", "Elektrikli Cam Tavan"],
+        trims: [
+            { name: "S", availability: ["standard", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Executive", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Executive Premium", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Kia Picanto 3. Nesil — id: 1020
+    {
+        vehicleId: 1020,
+        features: ["Klima", "8\" Dokunmatik Ekran", "Apple CarPlay / Android Auto", "Geri Görüş Kamerası", "Elektrikli Aynalar", "15\" Alaşım Jantlar", "Hız Sabitleyici", "LED Gündüz Farı"],
+        trims: [
+            { name: "Concept", availability: ["standard", "unavailable", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "standard"] },
+            { name: "Cool", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "unavailable", "standard"] },
+            { name: "Prestige", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Hyundai i10 3. Nesil — id: 1021
+    {
+        vehicleId: 1021,
+        features: ["Klima", "8\" Dokunmatik Ekran", "Apple CarPlay / Android Auto", "Geri Görüş Kamerası", "Elektrikli Aynalar", "15\" Alaşım Jantlar", "Hız Sabitleyici", "LED Gündüz Farı"],
+        trims: [
+            { name: "Jump", availability: ["standard", "unavailable", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "standard"] },
+            { name: "Style", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "unavailable", "standard"] },
+            { name: "Elite", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // VW Jetta 6. Nesil — id: 1022
+    {
+        vehicleId: 1022,
+        features: ["Otomatik Klima", "5.8\" Dokunmatik Ekran", "Bluetooth", "Hız Sabitleyici", "Arka Park Sensörü", "16\" Alaşım Jantlar", "Deri Direksiyon", "Xenon Farlar"],
+        trims: [
+            { name: "Trendline", availability: ["unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Comfortline", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Highline", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Renault Fluence — id: 1023
+    {
+        vehicleId: 1023,
+        features: ["Klima", "Bluetooth + USB", "Elektrikli Aynalar", "ABS + ESP", "Ön + Yan Airbag", "Hız Sabitleyici", "Arka Park Sensörü", "Navigasyon"],
+        trims: [
+            { name: "Joy", availability: ["standard", "standard", "standard", "standard", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Touch", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Privilege", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Ford Fiesta Mk7.5 — id: 1024
+    {
+        vehicleId: 1024,
+        features: ["Klima", "Ford SYNC", "Bluetooth", "Hız Sabitleyici", "ESP", "15\" Alaşım Jantlar", "Arka Park Sensörü", "Otomatik Farlar"],
+        trims: [
+            { name: "Trend", availability: ["standard", "standard", "standard", "unavailable", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Titanium", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Dacia Logan 3. Nesil — id: 1025
+    {
+        vehicleId: 1025,
+        features: ["Manuel Klima", "8\" Media Display", "Apple CarPlay / Android Auto", "LED Farlar", "Geri Görüş Kamerası", "Elektrikli Aynalar", "Hız Sabitleyici", "Arka Park Sensörü"],
+        trims: [
+            { name: "Essential", availability: ["standard", "unavailable", "unavailable", "unavailable", "unavailable", "standard", "unavailable", "unavailable"] },
+            { name: "Comfort", availability: ["standard", "standard", "standard", "standard", "unavailable", "standard", "standard", "standard"] },
+            { name: "Prestige", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Toyota Corolla 11. Nesil E170 — id: 1026
+    {
+        vehicleId: 1026,
+        features: ["Otomatik Klima", "6.1\" Dokunmatik Ekran", "Bluetooth", "Geri Görüş Kamerası", "Toyota Safety Sense", "16\" Alaşım Jantlar", "Deri Koltuk", "Hız Sabitleyici"],
+        trims: [
+            { name: "Life", availability: ["unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "unavailable", "unavailable"] },
+            { name: "Dream", availability: ["standard", "standard", "standard", "standard", "unavailable", "standard", "unavailable", "standard"] },
+            { name: "Advance", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Peugeot 301 — id: 1027
+    {
+        vehicleId: 1027,
+        features: ["Manuel Klima", "7\" Dokunmatik Ekran", "Bluetooth", "Elektrikli Aynalar", "ABS + ESP", "Arka Park Sensörü", "15\" Alaşım Jantlar", "Hız Sabitleyici"],
+        trims: [
+            { name: "Access", availability: ["standard", "unavailable", "standard", "standard", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Active", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Allure", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Citroen C-Elysée — id: 1028
+    {
+        vehicleId: 1028,
+        features: ["Manuel Klima", "7\" Dokunmatik Ekran", "Bluetooth", "Elektrikli Aynalar", "ABS + ESP", "Arka Park Sensörü", "15\" Alaşım Jantlar", "Hız Sabitleyici"],
+        trims: [
+            { name: "Live", availability: ["standard", "unavailable", "standard", "standard", "standard", "unavailable", "unavailable", "unavailable"] },
+            { name: "Feel", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Shine", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
+    },
+
+    // Ford Tourneo Courier Yeni Nesil — id: 1029
+    {
+        vehicleId: 1029,
+        features: ["Otomatik Klima", "8\" SYNC 4 Ekran", "Apple CarPlay / Android Auto", "Geri Görüş Kamerası", "Ford Co-Pilot360", "17\" Alaşım Jantlar", "Kayan Kapılar", "Kablosuz Şarj"],
+        trims: [
+            { name: "Trend", availability: ["unavailable", "standard", "standard", "unavailable", "unavailable", "unavailable", "standard", "unavailable"] },
+            { name: "Titanium", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "unavailable"] },
+            { name: "Titanium X", availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard"] }
+        ]
     }
 ];

@@ -220,9 +220,42 @@ export function getGlobalStats() {
     return { totalVehicles: total, totalIssues, totalBrands: brands };
 }
 
-// ── Popular Vehicles ───────────────────────────────────
+// ── Popular Vehicles ───────────────────────────────
 export function getPopularVehicles(count = 8): VehicleDNA[] {
     return [...vehicleDNAData]
         .sort((a, b) => b.totalReports - a.totalReports || b.chronicIssues.length - a.chronicIssues.length)
         .slice(0, count);
+}
+
+// ── Vehicle by ID ──────────────────────────────────
+export function getVehicleById(id: number): VehicleDNA | undefined {
+    return vehicleDNAData.find(v => v.id === id);
+}
+
+// ── Global Average Score ───────────────────────────
+export function getGlobalAvgScore(): number {
+    if (vehicleDNAData.length === 0) return 0;
+    return Math.round(vehicleDNAData.reduce((s, v) => s + v.dnaScore, 0) / vehicleDNAData.length);
+}
+
+// ── Brand Top Risk / Safe Vehicles ─────────────────
+export function getTopRiskVehicle(bSlug: string): VehicleDNA | undefined {
+    const vehicles = getVehiclesByBrand(bSlug);
+    if (vehicles.length === 0) return undefined;
+    return vehicles.reduce((min, v) => v.dnaScore < min.dnaScore ? v : min, vehicles[0]);
+}
+
+export function getTopSafeVehicle(bSlug: string): VehicleDNA | undefined {
+    const vehicles = getVehiclesByBrand(bSlug);
+    if (vehicles.length === 0) return undefined;
+    return vehicles.reduce((max, v) => v.dnaScore > max.dnaScore ? v : max, vehicles[0]);
+}
+
+// ── Unique Brands List (for comparison selectors) ──
+export function getUniqueBrands(): string[] {
+    return [...new Set(vehicleDNAData.map(v => v.brand))].sort();
+}
+
+export function getModelsByBrand(brandName: string): VehicleDNA[] {
+    return vehicleDNAData.filter(v => v.brand === brandName);
 }

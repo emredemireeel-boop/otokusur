@@ -347,3 +347,13 @@ body {
 .trim-table-scroll::-webkit-scrollbar-thumb { background: #D4D4D8; border-radius: 2px; }
 .trim-table-scroll::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
 
+/* ─── Scrollbar Hide ──────────────────────────────── */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+

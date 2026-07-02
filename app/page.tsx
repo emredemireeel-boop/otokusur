@@ -2,14 +2,16 @@ import Link from 'next/link';
 import HeroSearch from '@/components/HeroSearch';
 import VehicleCard from '@/components/VehicleCard';
 import BlogCard from '@/components/BlogCard';
-import { getGlobalStats, getPopularVehicles } from '@/lib/dataService';
+import FAQ from '@/components/FAQ';
+import { getGlobalStats, getPopularVehicles, getAllBrands, brandSlug } from '@/lib/dataService';
 import { guidesData } from '@/data/guides';
-import { ArrowRight, Search, Shield, BarChart3, AlertTriangle, ChevronRight } from 'lucide-react';
+import { ArrowRight, Search, Shield, BarChart3, AlertTriangle, ChevronRight, Scale, HelpCircle } from 'lucide-react';
 
 export default function HomePage() {
     const stats = getGlobalStats();
     const popular = getPopularVehicles(6);
     const guides = guidesData.slice(0, 3);
+    const brands = getAllBrands();
 
     return (
         <>
@@ -58,6 +60,26 @@ export default function HomePage() {
                                 <span className="text-[18px] sm:text-[20px] font-extrabold text-[#0F0F10]">{s.val}</span>
                                 <span className="text-[11px] text-[#A1A1AA] font-medium">{s.label}</span>
                             </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ════════════════════════════════════════════
+                BRANDS BAND
+            ════════════════════════════════════════════ */}
+            <section className="border-b border-[#EBEBED] overflow-hidden">
+                <div className="container-main py-6">
+                    <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
+                        {brands.slice(0, 20).map(b => (
+                            <Link
+                                key={b.slug}
+                                href={`/araclar/${b.slug}`}
+                                className="flex-shrink-0 bg-[#F7F7F8] hover:bg-[#EBEBED] border border-[#EBEBED] hover:border-[#D4D4D8] rounded-lg px-4 py-2.5 transition-all group"
+                            >
+                                <span className="text-[12px] font-bold text-[#3F3F46] group-hover:text-[#A91D3A] transition-colors">{b.name}</span>
+                                <span className="text-[9px] text-[#A1A1AA] ml-1.5 font-medium">{b.vehicleCount}</span>
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -138,17 +160,38 @@ export default function HomePage() {
             </section>
 
             {/* ════════════════════════════════════════════
+                FAQ — Sıkça Sorulan Sorular
+            ════════════════════════════════════════════ */}
+            <section className="bg-[#F7F7F8] border-y border-[#EBEBED]">
+                <div className="container-main py-14 sm:py-20">
+                    <div className="text-center mb-10 sm:mb-12">
+                        <div className="flex items-center justify-center gap-2 mb-2">
+                            <span className="accent-dot" />
+                            <span className="text-[10px] font-bold text-[#A91D3A] uppercase tracking-[0.1em]">SSS</span>
+                        </div>
+                        <h2 className="text-[22px] sm:text-[26px] font-extrabold text-[#0F0F10] tracking-tight">Sıkça Sorulan Sorular</h2>
+                    </div>
+                    <div className="max-w-2xl mx-auto">
+                        <FAQ />
+                    </div>
+                </div>
+            </section>
+
+            {/* ════════════════════════════════════════════
                 CTA — Dark minimal
             ════════════════════════════════════════════ */}
-            <section className="container-main pb-14 sm:pb-20">
+            <section className="container-main py-14 sm:py-20">
                 <div className="card-dark p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
                     <div>
                         <h2 className="text-[20px] sm:text-[24px] font-extrabold text-white tracking-tight mb-2">Almadan önce araştır.</h2>
                         <p className="text-[13px] text-[#71717A] max-w-md">İkinci el araç almadan önce modelin kronik kusurlarını ve risk skorunu incele.</p>
                     </div>
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex items-center gap-3 flex-shrink-0 flex-wrap">
                         <Link href="/araclar" className="bg-[#A91D3A] hover:bg-[#8B1730] text-white font-semibold rounded-lg px-6 py-3 text-[13px] transition-colors flex items-center gap-2">
                             <Search size={14} /> Hemen Araştır
+                        </Link>
+                        <Link href="/karsilastir" className="bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg px-6 py-3 text-[13px] transition-colors flex items-center gap-2">
+                            <Scale size={14} /> Karşılaştır
                         </Link>
                     </div>
                 </div>

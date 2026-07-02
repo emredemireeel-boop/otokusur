@@ -9031,4 +9031,1111 @@ export const engineDNAData: VehicleEngineData[] = [
       },
     ],
   },
+
+  // ══════════════════════════════════════════════════════════════════════
+  // YENİ EKLENEN ARAÇLARIN MOTOR VERİLERİ (id: 1010-1029)
+  // ══════════════════════════════════════════════════════════════════════
+
+  // ─── Toyota Yaris 4. Nesil Hibrit (id: 1010) ───
+  {
+    vehicleId: 1010,
+    engines: [
+      {
+        slug: "15-hybrid-116-hp-e-cvt",
+        name: "1.5 Hybrid 116 HP",
+        fuelType: "Hibrit",
+        transmission: "e-CVT (Sürekli Değişken)",
+        score: 88,
+        description: "Toyota'nın 4. nesil hibrit sistemi. 1.5 litre 3 silindirli Atkinson çevrim benzinli motor + elektrik motoru kombinasyonu. Şehir içinde %80'e varan elektrikli sürüş oranı ile 3.5-4.5 lt/100km tüketim sağlıyor.",
+        pros: [
+          "Şehir içi tüketim 3.5-4.5 lt/100km (gerçek dünya verisi)",
+          "V-kayışı, marş motoru, alternatör yok — düşük bakım maliyeti",
+          "Toyota'nın kanıtlanmış hibrit güvenilirliği"
+        ],
+        cons: [
+          "Otobanda hibrit avantajı azalır (6-7 lt/100km)",
+          "3 silindirli motor yüksek devirlerde sert seslenir",
+          "CVT karakter — sportif sürüş beklenmemeli"
+        ],
+        chronicIssues: [
+          {
+            title: "12V Akü Boşalması",
+            description: "Uzun süre park edilen araçlarda 12V akü boşalarak 'Ready' moduna geçişi engelleyebiliyor. Fabrikasyon akü ömrü 2-3 yıl ile sınırlı kalabiliyor.",
+            severity: "medium",
+            reportCount: 12,
+          },
+          {
+            title: "Hibrit Batarya Soğutma Fanı Tozlanması",
+            description: "Arka koltuk altındaki soğutma fanının tozlanması invertör ısınma uyarılarına neden olabiliyor. Periyodik temizlik gerekli.",
+            severity: "low",
+            reportCount: 6,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Toyota Yaris 3. Nesil (id: 1011) ───
+  {
+    vehicleId: 1011,
+    engines: [
+      {
+        slug: "133-dual-vvt-i-99-hp-mmt-manuel",
+        name: "1.33 Dual VVT-i 99 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / MMT",
+        score: 72,
+        description: "Atmosferik 1.33 litre 4 silindirli Dual VVT-i motor. Güvenilir ve basit mekanik yapı. MMT şanzımanlı versiyonlarda baskı balata ömrü kısa olabiliyor.",
+        pros: [
+          "Atmosferik yapı — turbo riski yok",
+          "Toyota güvenilirlik geleneği",
+          "LPG uyumluluğu iyi"
+        ],
+        cons: [
+          "MMT şanzımanda baskı balata çabuk aşınır",
+          "99 HP güç otobanda yetersiz kalabilir",
+          "Motor sesi kabine fazla yansır"
+        ],
+        chronicIssues: [
+          {
+            title: "MMT Baskı Balata Erken Aşınması",
+            description: "MMT şanzımanlarda baskı balata ömrü 40.000-60.000 km ile sınırlı kalabiliyor. Sıkışık trafikte bu süre daha da kısalır.",
+            severity: "high",
+            reportCount: 14,
+          },
+          {
+            title: "Motor Takoz Aşınması",
+            description: "Motor takozlarının aşınması ile rölantide kabin titreşimi artıyor.",
+            severity: "medium",
+            reportCount: 8,
+          },
+        ],
+      },
+      {
+        slug: "14-d4d-90-hp-dizel-manuel",
+        name: "1.4 D-4D 90 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 65,
+        description: "1.4 litre turbolu dizel motor. Ekonomik ama bakım hassasiyeti yüksek. Şehir içi kullanımda EGR/DPF tıkanma riski belirgin.",
+        pros: [
+          "Yakıt ekonomisi (4-5 lt/100km şehir dışı)",
+          "Düşük devirde iyi tork",
+          "Uzun yol kullanımında verimli"
+        ],
+        cons: [
+          "Şehir içi kullanımda DPF tıkanıyor",
+          "EGR valfi sık bakım gerektiriyor",
+          "Enjektör geri dönüş kaçağı riski"
+        ],
+        chronicIssues: [
+          {
+            title: "EGR Valfi Tıkanıklığı",
+            description: "Şehir içi kullanımda EGR valfi kurum bağlayarak motor arıza ışığına neden oluyor.",
+            severity: "high",
+            reportCount: 11,
+          },
+          {
+            title: "DPF Dolumu ve Rejenerasyon Sorunu",
+            description: "Kısa mesafe kullanımda DPF rejenerasyon yapamıyor ve araç güç moduna geçiyor.",
+            severity: "high",
+            reportCount: 10,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Renault Megane 3 (id: 1012) ───
+  {
+    vehicleId: 1012,
+    engines: [
+      {
+        slug: "15-dci-110-hp-edc-manuel",
+        name: "1.5 dCi 110 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel / EDC",
+        score: 75,
+        description: "Efsanevi K9K motor ailesi. Ekonomik ve güçlü ama EDC şanzımanla eşlendiğinde şanzıman güvenilirlik riski artıyor. Manuel şanzımanlı modeller çok daha güvenilir.",
+        pros: [
+          "K9K motor kanıtlanmış dayanıklılık",
+          "4.5-5.5 lt/100km gerçek dünya tüketimi",
+          "Manuel versiyonda çok düşük arıza oranı"
+        ],
+        cons: [
+          "EDC şanzıman kavrama/mekatronik riski",
+          "Enjektör hassasiyeti (kalitesiz yakıt)",
+          "Turbo bakımı düzenli yapılmazsa boşluk riski"
+        ],
+        chronicIssues: [
+          {
+            title: "EDC Şanzıman Sarsıntısı",
+            description: "Çift kavramalı EDC şanzımanda 1→2 ve 3→4 geçişlerde sarsıntı. 'Vites kutusunu kontrol ettirin' hatası. Kavrama seti veya mekatronik onarım maliyeti 15.000-40.000₺.",
+            severity: "high",
+            reportCount: 16,
+          },
+          {
+            title: "Enjektör Aşınması",
+            description: "Yüksek kilometreli araçlarda enjektör aşınması, rölanti titremi ve güç kaybı. Kalitesiz yakıt süreci hızlandırır.",
+            severity: "high",
+            reportCount: 13,
+          },
+          {
+            title: "Turbo Arızası",
+            description: "Yağ değişimi aksatılan araçlarda turbo boşluk yapması. Islık sesi ilk belirtidir.",
+            severity: "high",
+            reportCount: 10,
+          },
+        ],
+      },
+      {
+        slug: "16-16v-110-hp-benzin-manuel",
+        name: "1.6 16V 110 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 70,
+        description: "Atmosferik 1.6 benzinli motor. Basit ve güvenilir yapı. LPG uyumluluğu iyi ama performans ve yakıt ekonomisi dizel versiyona göre geride.",
+        pros: [
+          "Atmosferik — turbo riski yok",
+          "LPG takılabilir",
+          "Bakım maliyeti düşük"
+        ],
+        cons: [
+          "Yakıt tüketimi dizele göre yüksek (7-9 lt/100km)",
+          "Performans yetersiz hissedilebilir",
+          "Otomatik şanzıman seçeneği yok"
+        ],
+        chronicIssues: [
+          {
+            title: "Rölanti Dengesizliği ve Gaz Kelebeği Kirlenmesi",
+            description: "Zamanla gaz kelebeği kirlenerek rölantide dalgalanma ve tekleme yapıyor. Temizlik ile çözülüyor.",
+            severity: "low",
+            reportCount: 7,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Fiat Grande Punto (id: 1013) ───
+  {
+    vehicleId: 1013,
+    engines: [
+      {
+        slug: "13-multijet-75-90-hp-dizel-dualogic-manuel",
+        name: "1.3 Multijet 75/90 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel / Dualogic",
+        score: 62,
+        description: "Fiat'ın yaygın 1.3 Multijet dizel motoru. Ekonomik ama Dualogic şanzımanla eşlendiğinde güvenilirlik düşüyor. Manuel tercih edilmeli.",
+        pros: [
+          "Düşük yakıt tüketimi (4.5-5.5 lt/100km)",
+          "Yaygın yedek parça",
+          "Düşük devirde yeterli tork"
+        ],
+        cons: [
+          "Dualogic şanzıman ciddi arıza riski",
+          "EGR tıkanma riski (şehir içi)",
+          "Turbo kanatçık problemi yüksek km'de"
+        ],
+        chronicIssues: [
+          {
+            title: "Dualogic Şanzıman Arızası",
+            description: "Vites geçişlerinde vuruntu, 'N' konumunda takılma. Mekatronik ve robot bakımı düzenli yapılmazsa ciddi arıza çıkar.",
+            severity: "high",
+            reportCount: 14,
+          },
+          {
+            title: "EGR Valfi Tıkanması",
+            description: "Şehir içi kullanımda EGR valfi kurum bağlıyor. Temizlik veya değişim gerekiyor.",
+            severity: "medium",
+            reportCount: 9,
+          },
+        ],
+      },
+      {
+        slug: "14-8v-77-hp-benzin-manuel",
+        name: "1.4 8V 77 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 68,
+        description: "Basit ve güvenilir atmosferik benzinli motor. LPG'ye uygun. Ama 77 HP bu kasada güç yetersizliği hissettirebilir.",
+        pros: [
+          "Basit mekanik — bakımı ucuz",
+          "LPG'ye çok uygun",
+          "Düşük sigorta maliyeti"
+        ],
+        cons: [
+          "77 HP güç yetersiz (özellikle AC açıkken)",
+          "Yakıt tüketimi turbo dizele göre yüksek",
+          "Ateşleme sistemi bakımı gerekli"
+        ],
+        chronicIssues: [
+          {
+            title: "Ateşleme Bobini Arızası",
+            description: "Ateşleme bobinleri zamanla arızalanarak tekleme ve performans kaybına neden oluyor.",
+            severity: "medium",
+            reportCount: 7,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Opel Astra H (id: 1014) ───
+  {
+    vehicleId: 1014,
+    engines: [
+      {
+        slug: "13-cdti-90-hp-dizel-manuel",
+        name: "1.3 CDTi 90 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 63,
+        description: "Fiat 1.3 Multijet tabanlı küçük dizel motor. Ekonomik ama triger zinciri uzama riski ciddi. 80.000-120.000 km arasında zincir seti kontrolü şart.",
+        pros: [
+          "Çok ekonomik (4.5-5.5 lt/100km)",
+          "Küçük silindir hacmi — düşük vergi",
+          "Manuel şanzıman güvenilir"
+        ],
+        cons: [
+          "Triger zinciri uzama riski (ciddi motor hasarı)",
+          "EGR ve DPF tıkanma sorunu",
+          "Turbo basınç kayıpları yüksek km'de"
+        ],
+        chronicIssues: [
+          {
+            title: "Triger Zinciri Uzaması",
+            description: "Z13DTH motorda triger zinciri zamanla uzayarak ses yapıyor. İhmal edilirse zincir atlayıp motor ağır hasar görebilir. 80.000-120.000 km arasında değişim önerilir.",
+            severity: "high",
+            reportCount: 13,
+          },
+          {
+            title: "EGR ve DPF Tıkanması",
+            description: "Şehir içi kullanımda EGR kurum bağlar, DPF dolar. Motor arıza ışığı ve güç kaybı.",
+            severity: "medium",
+            reportCount: 9,
+          },
+        ],
+      },
+      {
+        slug: "16-16v-115-hp-benzin-manuel-otomatik",
+        name: "1.6 16V 115 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / Otomatik",
+        score: 72,
+        description: "Z16XER kodlu atmosferik benzinli motor. Güvenilir ve LPG uyumlu. Yağ soğutucu kontasına dikkat edilmeli.",
+        pros: [
+          "Atmosferik yapı — basit ve güvenilir",
+          "LPG'ye çok uygun",
+          "Yedek parça bol ve ucuz"
+        ],
+        cons: [
+          "Yağ soğutucu arızası riski",
+          "Yakıt tüketimi şehir içinde yüksek (8-10 lt/100km)",
+          "Gaz kelebeği kirlenmesi"
+        ],
+        chronicIssues: [
+          {
+            title: "Yağ Soğutucu Conta Arızası",
+            description: "Yağ soğutucusundaki conta bozularak yağ ve su karışabilir. Yedek su deposunda kahverengi/sütlü görüntü alarm işaretidir.",
+            severity: "high",
+            reportCount: 15,
+          },
+          {
+            title: "Rölanti Dengesizliği",
+            description: "Gaz kelebeğinin kirlenmesi ve krank sensörü sorunları rölanti dalgalanmasına neden oluyor.",
+            severity: "low",
+            reportCount: 7,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Hyundai Accent Blue (id: 1015) ───
+  {
+    vehicleId: 1015,
+    engines: [
+      {
+        slug: "16-crdi-128-hp-dct-manuel",
+        name: "1.6 CRDi 128 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel / 7 DCT",
+        score: 68,
+        description: "Performanslı ve ekonomik dizel motor. Manuel versiyonda güvenilir ama 7 ileri DCT şanzımanda kavrama ve volan sorunları ciddi risk oluşturuyor.",
+        pros: [
+          "128 HP / 260 Nm — sınıfında güçlü",
+          "Manuel versiyonda 4.5-5.5 lt/100km",
+          "Otobanda rahat performans"
+        ],
+        cons: [
+          "DCT şanzımanda kavrama/volan riski (yüksek maliyet)",
+          "EGR ve DPF bakımı düzenli olmalı",
+          "Enjektör hassasiyeti yüksek km'de"
+        ],
+        chronicIssues: [
+          {
+            title: "DCT Kavrama ve Volan Arızası",
+            description: "7 ileri DCT şanzımanda kavrama ve volan kaynaklı vuruntu, titreme. 40.000 km'de bile volan değişimi gerekebiliyor. Ciddi masraf kalemi.",
+            severity: "high",
+            reportCount: 16,
+          },
+          {
+            title: "EGR Valfi Tıkanması",
+            description: "Şehir içi kullanımda EGR valfi kurum bağlıyor. Motor arıza ışığı ve çekiş düşüklüğü.",
+            severity: "medium",
+            reportCount: 10,
+          },
+        ],
+      },
+      {
+        slug: "14-cvvt-100-hp-benzin-otomatik-manuel",
+        name: "1.4 CVVT 100 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / 4AT",
+        score: 70,
+        description: "Atmosferik 1.4 benzinli motor. Basit ve güvenilir. 4 ileri otomatik şanzıman teknolojik olarak eski ama dayanıklı.",
+        pros: [
+          "Basit atmosferik yapı",
+          "LPG'ye uygun",
+          "4AT şanzıman dayanıklı (DCT riski yok)"
+        ],
+        cons: [
+          "100 HP güç sınırlı",
+          "4AT eski teknoloji (yakıt tüketimi artar)",
+          "Ateşleme sistemi bakımı gerekli"
+        ],
+        chronicIssues: [
+          {
+            title: "Ateşleme Bobini ve Buji Sorunu",
+            description: "Ateşleme bobini ve buji arızaları rölanti dalgalanmasına ve performans kaybına neden oluyor.",
+            severity: "medium",
+            reportCount: 7,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Skoda Fabia 3. Nesil (id: 1016) ───
+  {
+    vehicleId: 1016,
+    engines: [
+      {
+        slug: "10-tsi-95-110-hp-dsg-manuel",
+        name: "1.0 TSI 95/110 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / 7 DSG",
+        score: 78,
+        description: "EA211 Evo motor ailesi. Yeni nesil 1.0 TSI üç silindirli turbo. DSG ile performans odaklı, manuel ile ekonomi odaklı. Eski 1.2 TSI'daki zincir sorunu bu motorda çözülmüştür.",
+        pros: [
+          "EA211 Evo — eski 1.2 TSI zincir sorunu yok",
+          "Manuel ile 5 lt/100km tüketim",
+          "Sınıfına göre sportif hissiyat"
+        ],
+        cons: [
+          "DSG şanzıman mekatronik/kavrama riski devam ediyor",
+          "3 silindirli rölanti titreşimi mevcut",
+          "Motor takozu aşınması zamanla artar"
+        ],
+        chronicIssues: [
+          {
+            title: "DSG (DQ200) Mekatronik Arızası",
+            description: "Kuru kavramalı 7 DSG şanzımanda mekatronik ünite ve kavrama sorunları. Sarsıntı, acil işletim modu ve yüksek onarım maliyeti.",
+            severity: "high",
+            reportCount: 13,
+          },
+        ],
+      },
+      {
+        slug: "12-tsi-90-hp-dsg-manuel-ea111",
+        name: "1.2 TSI 90 HP (EA111)",
+        fuelType: "Benzin",
+        transmission: "Manuel / 7 DSG",
+        score: 58,
+        description: "ESKİ NESİL EA111 kodlu 1.2 TSI motor. Zamanlama zinciri uzama riski nedeniyle dikkatli olunmalı. 2014-2015 model yıllarında bu motor kullanılmıştır.",
+        pros: [
+          "Yeterli performans (90 HP)",
+          "Ekonomik tüketim"
+        ],
+        cons: [
+          "Zamanlama zinciri uzama riski (motor hasarı!)",
+          "Plastik gergi mekanizması zayıf",
+          "Soğuk çalıştırmada şıkırtı sesi alarm işareti"
+        ],
+        chronicIssues: [
+          {
+            title: "Zamanlama Zinciri Uzaması (EA111)",
+            description: "Plastik gergi mekanizması ve zamanlama zinciri erken aşınıyor. Soğuk çalıştırmada metalik şıkırtı duyuluyorsa acil müdahale gerekir. Zincir atlama = motor hasarı.",
+            severity: "high",
+            reportCount: 11,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Seat Ibiza 5. Nesil (id: 1017) ───
+  {
+    vehicleId: 1017,
+    engines: [
+      {
+        slug: "10-ecotsi-95-110-hp-dsg-manuel",
+        name: "1.0 EcoTSI 95/110 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / 7 DSG",
+        score: 77,
+        description: "VW Grubu EA211 Evo 1.0 litre 3 silindirli turbo motor. Fabia ile aynı motor ailesi. Sportif sürüş ile ekonomiyi dengeleyen başarılı bir motor.",
+        pros: [
+          "Manuel ile 5 lt/100km gerçek dünya tüketimi",
+          "Sportif karakter (özellikle 110 HP versiyonu)",
+          "EA211 Evo güvenilirliği"
+        ],
+        cons: [
+          "3 silindirli rölanti titreşimi",
+          "DSG şanzıman kavrama/mekatronik riski",
+          "Supap arkası karbon birikimi riski"
+        ],
+        chronicIssues: [
+          {
+            title: "Supap Arkası Karbon Birikimi",
+            description: "Doğrudan enjeksiyonlu TSI motorlarda supap arkalarında karbon birikmesi. Rölanti düzensizliği ve performans kaybı. Ceviz kabuğu kumlama gerekebilir.",
+            severity: "medium",
+            reportCount: 6,
+          },
+          {
+            title: "Motor Takozu Aşınması",
+            description: "3 silindirli doğası gereği motor takozları zamanla aşınarak kabin titreşimi artıyor.",
+            severity: "medium",
+            reportCount: 10,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Nissan Juke F15 (id: 1018) ───
+  {
+    vehicleId: 1018,
+    engines: [
+      {
+        slug: "12-dig-t-115-hp-cvt-manuel",
+        name: "1.2 DIG-T 115 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / CVT (Xtronic)",
+        score: 45,
+        description: "⚠️ DİKKAT: Bu motor ciddi güvenilirlik riski taşır. Yağ eksiltme sorunu ve triger zinciri erken uzaması ile tanınır. İkinci el alırken bu motor seçeneğinden uzak durulması veya çok detaylı ekspertiz yaptırılması şiddetle önerilir.",
+        pros: [
+          "115 HP kompakt SUV'da yeterli performans",
+          "Turbo benzinli — dinamik sürüş"
+        ],
+        cons: [
+          "CİDDİ yağ eksiltme sorunu",
+          "Triger zinciri erken uzama riski (motor hasarı!)",
+          "CVT şanzıman bakım hassasiyeti",
+          "Bu motor seçeneği ile ikinci el alırken çok dikkatli olunmalı"
+        ],
+        chronicIssues: [
+          {
+            title: "Yağ Eksiltme ve Motor Hasarı Riski",
+            description: "1.2 DIG-T motorda aşırı yağ tüketimi. Yağ seviyesi düzenli kontrol edilmezse motor kuru çalışarak hasar görebilir. Juke F15'in en ciddi sorunu.",
+            severity: "high",
+            reportCount: 17,
+          },
+          {
+            title: "Triger Zinciri Uzaması",
+            description: "Triger zincirinin erken uzayarak sente atlatması. Motor hasarına kadar gidebilen ciddi bir risk.",
+            severity: "high",
+            reportCount: 12,
+          },
+        ],
+      },
+      {
+        slug: "15-dci-110-hp-dizel-manuel",
+        name: "1.5 dCi 110 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 74,
+        description: "Renault'dan alınan K9K motor. 1.2 DIG-T'ye göre çok daha güvenilir. Ekonomik ve yeterli performanslı. DPF bakımına dikkat edilmeli.",
+        pros: [
+          "K9K motor kanıtlanmış güvenilirlik",
+          "Ekonomik tüketim (5-6 lt/100km)",
+          "Manuel şanzıman dayanıklı"
+        ],
+        cons: [
+          "Şehir içi kullanımda DPF tıkanma riski",
+          "EGR bakımı düzenli yapılmalı"
+        ],
+        chronicIssues: [
+          {
+            title: "DPF Tıkanması",
+            description: "Ağırlıklı şehir içi kullanımda DPF dolarak motor arıza ışığı yakıyor. Uzun yol kullanımı gerekli.",
+            severity: "medium",
+            reportCount: 9,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Honda HR-V 2. Nesil (id: 1019) ───
+  {
+    vehicleId: 1019,
+    engines: [
+      {
+        slug: "15-i-vtec-130-hp-cvt-manuel",
+        name: "1.5 i-VTEC 130 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / CVT",
+        score: 79,
+        description: "Honda'nın kanıtlanmış 1.5 i-VTEC atmosferik motoru. Güvenilir ve dayanıklı. CVT şanzımanla ekonomik, manuel ile sportif.",
+        pros: [
+          "Honda i-VTEC güvenilirlik geleneği",
+          "Atmosferik — turbo riski yok",
+          "CVT ile ekonomik tüketim (6-7 lt/100km)"
+        ],
+        cons: [
+          "CVT karakter — sportif sürüş yetersiz",
+          "130 HP SUV için sınırda",
+          "LPG takılması önerilmez (CVT eşleşme sorunu)"
+        ],
+        chronicIssues: [
+          {
+            title: "Arka Süspansiyon Burç Aşınması",
+            description: "Türkiye yol koşullarında arka burçlar çabuk aşınarak 'tok' sesler çıkarıyor. Burç değişimi gerekli.",
+            severity: "medium",
+            reportCount: 10,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Kia Picanto 3. Nesil (id: 1020) ───
+  {
+    vehicleId: 1020,
+    engines: [
+      {
+        slug: "10-mpi-67-hp-manuel",
+        name: "1.0 MPI 67 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 72,
+        description: "Basit ve ekonomik atmosferik 3 silindirli motor. Şehir içi kullanım için ideal. Otobanda güç yetersiz kalabilir.",
+        pros: [
+          "Çok düşük yakıt tüketimi (4-5 lt/100km)",
+          "Basit mekanik — bakımı ucuz",
+          "Sigorta ve vergi maliyeti çok düşük"
+        ],
+        cons: [
+          "67 HP otobanda çok yetersiz",
+          "Klimayı açınca güç belirgin düşer",
+          "3 silindirli rölanti titreşimi"
+        ],
+        chronicIssues: [
+          {
+            title: "Soğuk Havada Marş Sorunu",
+            description: "Fabrikasyon akülerin kışın yetersiz kalarak marş basmama sorunu. Akü değişimi ile çözülüyor.",
+            severity: "medium",
+            reportCount: 8,
+          },
+        ],
+      },
+      {
+        slug: "12-mpi-84-hp-amt-manuel",
+        name: "1.2 MPI 84 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / AMT",
+        score: 74,
+        description: "4 silindirli 1.2 atmosferik motor. 1.0'a göre daha rahat performans. AMT şanzıman robotize yapıda olduğu için geçişlerde hafif hissettirme olabilir.",
+        pros: [
+          "4 silindirli — 3 silindire göre daha az titreşim",
+          "84 HP şehir içinde yeterli",
+          "LPG'ye uygun"
+        ],
+        cons: [
+          "AMT şanzıman vites geçişlerinde hissettiriyor",
+          "Otobanda hala güç yetersiz kalabilir"
+        ],
+        chronicIssues: [
+          {
+            title: "Dokunmatik Ekran Arızası",
+            description: "2020-2023 modellerde ekran tepkisizliği veya 'hayalet dokunuş' sorunu. Yazılım güncelleme veya ekran değişimi.",
+            severity: "medium",
+            reportCount: 12,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Hyundai i10 3. Nesil (id: 1021) ───
+  {
+    vehicleId: 1021,
+    engines: [
+      {
+        slug: "10-mpi-67-hp-manuel-amt",
+        name: "1.0 MPI 67 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / AMT",
+        score: 71,
+        description: "Kappa motor ailesi. 3 silindirli atmosferik. Picanto ile aynı platform. Basit ve ekonomik.",
+        pros: [
+          "Çok düşük tüketim",
+          "Basit mekanik",
+          "Düşük işletme maliyeti"
+        ],
+        cons: [
+          "67 HP çok sınırlı",
+          "AMT geçişlerde hissettiriyor",
+          "3 silindirli titreşim"
+        ],
+        chronicIssues: [
+          {
+            title: "Katalizör Bozulması",
+            description: "Ateşleme sistemi kaynaklı sorunlar katalizörün aşırı ısınarak iç yapısının dağılmasına yol açabiliyor.",
+            severity: "high",
+            reportCount: 9,
+          },
+        ],
+      },
+      {
+        slug: "12-mpi-84-hp-manuel-amt",
+        name: "1.2 MPI 84 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / AMT",
+        score: 74,
+        description: "4 silindirli 1.2 Kappa motor. Daha dengeli performans ve düşük titreşim. A segmentinde rahat bir sürüş deneyimi.",
+        pros: [
+          "4 silindirli — düşük titreşim",
+          "84 HP şehir içinde yeterli",
+          "LPG'ye uygun"
+        ],
+        cons: [
+          "AMT geçişlerde hafif hissettirme",
+          "Otobanda sınırlı"
+        ],
+        chronicIssues: [
+          {
+            title: "Şanzıman Keçe Yağ Sızıntısı",
+            description: "Manuel şanzımanda keçelerden yağ sızıntısı. Keçe değişimi ile çözülüyor ama tekrarlayabiliyor.",
+            severity: "medium",
+            reportCount: 6,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Volkswagen Jetta 6. Nesil (id: 1022) ───
+  {
+    vehicleId: 1022,
+    engines: [
+      {
+        slug: "12-tsi-105-hp-dsg-manuel",
+        name: "1.2 TSI 105 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / 7 DSG",
+        score: 65,
+        description: "EA111 (eski) ve EA211 (yeni) kodlu 1.2 TSI motor. 2014 öncesi üretim EA111 kodlu versiyonlarda zamanlama zinciri riski mevcut. EA211'de bu sorun çözülmüştür.",
+        pros: [
+          "Ekonomik tüketim (5.5-7 lt/100km)",
+          "EA211 versiyonunda zincir sorunu yok",
+          "Sedan kasada yeterli performans"
+        ],
+        cons: [
+          "EA111 versiyonunda zincir uzama riski!",
+          "DSG mekatronik/kavrama riski",
+          "Sedan kasaya göre motor güçsüz kalabilir"
+        ],
+        chronicIssues: [
+          {
+            title: "EA111 Zamanlama Zinciri",
+            description: "2011-2014 üretim yıllarında EA111 kodlu motorda zamanlama zinciri ve plastik gergi erken aşınır. Motor hasarı riski.",
+            severity: "high",
+            reportCount: 11,
+          },
+          {
+            title: "DSG Mekatronik Arızası",
+            description: "7 ileri kuru kavramalı DSG şanzımanda mekatronik ünite ve kavrama sorunları.",
+            severity: "high",
+            reportCount: 14,
+          },
+        ],
+      },
+      {
+        slug: "14-tsi-122-150-hp-dsg",
+        name: "1.4 TSI 122/150 HP",
+        fuelType: "Benzin",
+        transmission: "7 DSG",
+        score: 75,
+        description: "EA211 kodlu 1.4 TSI motor. Jetta'nın en performanslı benzinli motoru. Aktif Silindir Yönetimi (ACT) bazı versiyonlarda mevcut.",
+        pros: [
+          "Yeterli performans ve esneklik",
+          "ACT ile ekonomik sürüş mümkün",
+          "EA211 güvenilirliği"
+        ],
+        cons: [
+          "DSG şanzıman riski devam ediyor",
+          "Yedek parça fiyatları yüksek",
+          "Supap arkası karbon birikimi"
+        ],
+        chronicIssues: [
+          {
+            title: "DSG Kavrama Aşınması",
+            description: "Kuru kavramalı DSG şanzımanda özellikle şehir içi yoğun kullanımda kavrama erken aşınabiliyor.",
+            severity: "medium",
+            reportCount: 10,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Renault Fluence (id: 1023) ───
+  {
+    vehicleId: 1023,
+    engines: [
+      {
+        slug: "15-dci-90-110-hp-edc-manuel",
+        name: "1.5 dCi 90/110 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel / EDC",
+        score: 68,
+        description: "Megane 3 ile aynı K9K motor ve EDC şanzıman platformu. Aynı güvenilirlik profili. Manuel tercih daha güvenli.",
+        pros: [
+          "K9K motor ekonomisi (4.5-5.5 lt/100km)",
+          "Manuel versiyonda güvenilir",
+          "Yaygın yedek parça"
+        ],
+        cons: [
+          "EDC şanzımanda Megane 3 ile aynı sorunlar",
+          "Enjektör hassasiyeti yüksek km'de",
+          "Turbo bakımı kritik"
+        ],
+        chronicIssues: [
+          {
+            title: "EDC Şanzıman Kavrama Arızası",
+            description: "Megane 3 ile aynı EDC sorunları. Vites geçişlerinde sarsıntı ve 'Vites kutusunu kontrol ettirin' hatası.",
+            severity: "high",
+            reportCount: 14,
+          },
+          {
+            title: "Enjektör Aşınması",
+            description: "Yüksek km'de enjektör geri iadesinde sorun. Rölanti titremi ve soğuk çalıştırma zorluğu.",
+            severity: "high",
+            reportCount: 12,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Ford Fiesta Mk7.5 (id: 1024) ───
+  {
+    vehicleId: 1024,
+    engines: [
+      {
+        slug: "10-ecoboost-100-125-hp-powershift-manuel",
+        name: "1.0 EcoBoost 100/125 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / PowerShift",
+        score: 65,
+        description: "Yılın Motoru ödüllü 1.0 EcoBoost. Motor olarak başarılı ama PowerShift şanzımanla eşlendiğinde güvenilirlik ciddi düşüyor. Manuel tercih edilmeli.",
+        pros: [
+          "3x Yılın Motoru ödülü",
+          "Manuel ile 5 lt/100km tüketim",
+          "Sportif karakter"
+        ],
+        cons: [
+          "PowerShift şanzıman CİDDİ arıza riski",
+          "Soğutma sıvısı kaçağı riski (geri çağırma)",
+          "3 silindirli titreşim mevcut"
+        ],
+        chronicIssues: [
+          {
+            title: "PowerShift (DPS6) Şanzıman Arızası",
+            description: "Ford'un en büyük skandalı. Kuru kavramalı PowerShift şanzımanda titreme, sarsıntı, vuruntu ve ani güç kesintisi. Dünya genelinde milyonlarca geri çağırma.",
+            severity: "high",
+            reportCount: 18,
+          },
+          {
+            title: "Soğutma Sıvısı Kaçağı",
+            description: "1.0 EcoBoost motorlarda soğutma sıvısı kaçağı ve motor aşırı ısınma riski. Ford geri çağırma yapmıştır.",
+            severity: "high",
+            reportCount: 11,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Dacia Logan 3. Nesil (id: 1025) ───
+  {
+    vehicleId: 1025,
+    engines: [
+      {
+        slug: "10-tce-90-hp-benzin-cvt-manuel",
+        name: "1.0 TCe 90 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / CVT",
+        score: 73,
+        description: "Renault kaynaklı 1.0 litre 3 silindirli turbo motor. Logan'ın ana motor seçeneği. Ekonomik ama 3 silindirli titreşim mevcut.",
+        pros: [
+          "Turbo ile yeterli performans",
+          "Ekonomik tüketim (5.5-6.5 lt/100km)",
+          "LPG fabrika seçeneği mevcut"
+        ],
+        cons: [
+          "3 silindirli rölanti titreşimi",
+          "CVT karakter sportif değil",
+          "Motor sesi kabin yalıtımı düşük olduğu için fazla gelir"
+        ],
+        chronicIssues: [
+          {
+            title: "Motor Sesleri ve Titreşim",
+            description: "3 silindirli motorun doğası gereği rölantide titreşim. Motor takozu aşınmasıyla zamanla artar.",
+            severity: "medium",
+            reportCount: 7,
+          },
+        ],
+      },
+      {
+        slug: "10-sce-65-hp-benzin-manuel",
+        name: "1.0 SCe 65 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 62,
+        description: "Atmosferik 1.0 litre 3 silindirli motor. En giriş seviyesi. Şehir içi kullanım için tasarlanmış, otobanda çok yetersiz.",
+        pros: [
+          "Çok düşük fiyat ve bakım maliyeti",
+          "Basit mekanik — turbo yok",
+          "Sigorta ve vergi çok düşük"
+        ],
+        cons: [
+          "65 HP çok yetersiz (özellikle AC ile)",
+          "Otobanda çok zorlanır",
+          "Ses yalıtımı olmadığı için motor sesi çok fazla"
+        ],
+        chronicIssues: [
+          {
+            title: "Güç Yetersizliği ve Zorlanma",
+            description: "65 HP bu kasa için sınırda. Klima açıkken veya yokuşlarda zorlanma belirgin. Mekanik bir arıza değil ama kullanıcı memnuniyetsizliği yüksek.",
+            severity: "low",
+            reportCount: 8,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Toyota Corolla 11. Nesil E170 (id: 1026) ───
+  {
+    vehicleId: 1026,
+    engines: [
+      {
+        slug: "16-valvematic-132-hp-cvt-manuel",
+        name: "1.6 Valvematic 132 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel / CVT (Multidrive S)",
+        score: 80,
+        description: "Toyota'nın güvenilir 1.6 Valvematic motoru. Atmosferik yapı ile düşük bakım maliyeti. CVT şanzıman konforlu ama sportif değil.",
+        pros: [
+          "Toyota güvenilirliği — düşük arıza oranı",
+          "Atmosferik yapı — turbo riski yok",
+          "Manuel ile LPG'ye uygun"
+        ],
+        cons: [
+          "CVT şanzıman sportif değil",
+          "Yakıt tüketimi dizele göre yüksek (7-9 lt/100km)",
+          "CVT'de lastik sesi etkisi"
+        ],
+        chronicIssues: [
+          {
+            title: "CVT Hızlanma Gecikmesi",
+            description: "CVT doğası gereği ani hızlanmalarda devir yükselir ama hız gecikmeli gelir. Sportif sürüş arayanlar için hayal kırıklığı.",
+            severity: "medium",
+            reportCount: 9,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Peugeot 301 (id: 1027) ───
+  {
+    vehicleId: 1027,
+    engines: [
+      {
+        slug: "12-puretech-82-hp-benzin-manuel",
+        name: "1.2 PureTech 82 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 58,
+        description: "⚠️ PSA'nın EB2 1.2 PureTech motoru. Triger kayışı kopma riski ile tanınır. PSA geri çağırma kampanyası başlatmıştır. 60.000 km'de mutlaka kontrol şart.",
+        pros: [
+          "Ekonomik tüketim (5.5-6.5 lt/100km)",
+          "Düşük vergi ve sigorta",
+          "Basit yapı (turbo yok)"
+        ],
+        cons: [
+          "TRİGER KAYIŞI KOPMA RİSKİ (motor hasarı!)",
+          "82 HP sedan için sınırlı",
+          "PSA geri çağırma kapsamında kontrol gerekli"
+        ],
+        chronicIssues: [
+          {
+            title: "Triger Kayışı Kopma Riski",
+            description: "EB2 motor ailesinde triger kayışının beklenenden erken kopması. Motor hasarına kadar gidebilir. PSA geri çağırma kapsamında. 60.000 km'de kontrol ve değişim şart.",
+            severity: "high",
+            reportCount: 16,
+          },
+        ],
+      },
+      {
+        slug: "16-bluehdi-100-hp-dizel-manuel",
+        name: "1.6 BlueHDi 100 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 72,
+        description: "PSA'nın güvenilir 1.6 BlueHDi dizel motoru. Ekonomik ve yeterli performanslı. DPF ve EGR bakımına dikkat edilmeli.",
+        pros: [
+          "Çok ekonomik (4-5 lt/100km)",
+          "Yeterli tork (254 Nm)",
+          "Uzun yol kullanımında verimli"
+        ],
+        cons: [
+          "Şehir içi kullanımda DPF tıkanma riski",
+          "EGR bakımı düzenli yapılmalı",
+          "Yedek parça fiyatları ortalama üstü"
+        ],
+        chronicIssues: [
+          {
+            title: "DPF ve EGR Tıkanması",
+            description: "Şehir içi kullanımda DPF dolması ve EGR tıkanması. Motor arıza ışığı ve güç modu. Uzun yol kullanımı ile DPF kendini temizleyebilir.",
+            severity: "medium",
+            reportCount: 10,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Citroen C-Elysée (id: 1028) ───
+  {
+    vehicleId: 1028,
+    engines: [
+      {
+        slug: "12-puretech-82-hp-benzin-manuel",
+        name: "1.2 PureTech 82 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 57,
+        description: "Peugeot 301 ile aynı EB2 1.2 PureTech motor. Aynı triger kayışı kopma riski mevcut. PSA geri çağırma kapsamı.",
+        pros: [
+          "Ekonomik tüketim",
+          "Düşük vergi",
+          "Basit yapı"
+        ],
+        cons: [
+          "TRİGER KAYIŞI KOPMA RİSKİ",
+          "82 HP güç sınırlı",
+          "Geri çağırma kapsamında kontrol gerekli"
+        ],
+        chronicIssues: [
+          {
+            title: "Triger Kayışı Kopma Riski",
+            description: "301 ile aynı motor — aynı triger kayışı riski. EB2 motor ailesinde 60.000 km kontrol şart. Kayış kopması motor hasarı demek.",
+            severity: "high",
+            reportCount: 15,
+          },
+        ],
+      },
+      {
+        slug: "16-bluehdi-100-hp-dizel-manuel",
+        name: "1.6 BlueHDi 100 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 71,
+        description: "301 ile aynı 1.6 BlueHDi dizel. Ekonomik ve güvenilir. DPF/EGR bakımı önemli.",
+        pros: [
+          "Ekonomik dizel tüketim",
+          "Yeterli tork",
+          "Uzun yolda verimli"
+        ],
+        cons: [
+          "DPF/EGR bakımı gerekli",
+          "Şehir içi DPF dolma riski"
+        ],
+        chronicIssues: [
+          {
+            title: "EGR ve DPF Sorunları",
+            description: "Şehir içi kullanımda EGR tıkanması ve DPF doluluk sorunları. Motor arıza ışığı ve güç kaybı.",
+            severity: "medium",
+            reportCount: 9,
+          },
+        ],
+      },
+    ],
+  },
+
+  // ─── Ford Tourneo Courier Yeni Nesil (id: 1029) ───
+  {
+    vehicleId: 1029,
+    engines: [
+      {
+        slug: "10-ecoboost-125-hp-benzin-manuel",
+        name: "1.0 EcoBoost 125 HP",
+        fuelType: "Benzin",
+        transmission: "Manuel",
+        score: 74,
+        description: "Ford'un ödüllü 1.0 EcoBoost motoru yeni Courier'da da kullanılıyor. Hafif ticari bir araç için yeterli performans. Soğutma sistemi takibi önemli.",
+        pros: [
+          "Yılın Motoru ödüllü EcoBoost",
+          "125 HP yeterli performans",
+          "Ekonomik tüketim"
+        ],
+        cons: [
+          "EcoBoost soğutma hassasiyeti devam edebilir",
+          "3 silindirli titreşim",
+          "Yeni model — uzun vadeli güvenilirlik bilinmiyor"
+        ],
+        chronicIssues: [
+          {
+            title: "EcoBoost Soğutma Hassasiyeti",
+            description: "Ford'un geçmiş EcoBoost modellerinde bilinen soğutma sistemi hassasiyeti. Yeni nesilde iyileştirme yapılsa da takip edilmeli.",
+            severity: "medium",
+            reportCount: 5,
+          },
+        ],
+      },
+      {
+        slug: "15-ecoblue-100-hp-dizel-manuel",
+        name: "1.5 EcoBlue 100 HP",
+        fuelType: "Dizel",
+        transmission: "Manuel",
+        score: 77,
+        description: "Ford'un yeni nesil 1.5 EcoBlue dizel motoru. Hafif ticari kullanım için ideal tork (250 Nm) ve ekonomi dengesi.",
+        pros: [
+          "Yeterli tork (250 Nm) — yüklü sürüşte rahat",
+          "Ekonomik dizel tüketim (5-6 lt/100km)",
+          "Yeni nesil — emisyon standartları güncel"
+        ],
+        cons: [
+          "DPF/SCR bakımı gerekli",
+          "AdBlue tüketimi maliyet ekliyor",
+          "Yeni model — servis deneyimi sınırlı"
+        ],
+        chronicIssues: [
+          {
+            title: "SYNC 4 Yazılım Hataları",
+            description: "Yeni SYNC 4 multimedya sisteminde yazılım hataları ve ekran donmaları. OTA güncelleme ile düzeltilmesi bekleniyor.",
+            severity: "low",
+            reportCount: 6,
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -9511,6 +9511,1105 @@ export const vehicleDNAData: VehicleDNA[] = [
         ],
         userExperiences: [],
         totalReports: 7
+    },
+
+    // ══════════════════════════════════════════════════════════════════════
+    // YENİ EKLENEN ARAÇLAR — Gerçek Forum & Şikayet Verilerine Dayalı
+    // Kaynak: sikayetvar.com, donanimhaber.com, otopark.com, araclo.com,
+    //         golftutkusu.com, renaultfanclub.com, hyundaiclubtr.com, vb.
+    // ══════════════════════════════════════════════════════════════════════
+
+    // ─── 1. Toyota Yaris 4. Nesil Hibrit (XP210) ───
+    {
+        id: 1010,
+        brand: "Toyota",
+        model: "Yaris 4. Nesil Hibrit (2020-2025)",
+        year: "2020-2025",
+        ncapStars: 5,
+        ncapYear: "2020",
+        dnaScore: 82,
+        strengths: [
+            "Şehir İçi Yakıt Tüketimi Efsanevi (3.5-4.5 lt/100km)",
+            "5 Yıldız Euro NCAP (Toyota Safety Sense 2.0 standart)",
+            "Hibrit Sistemin Kanıtlanmış Güvenilirliği (V-kayışı, marş motoru, alternatör yok)",
+            "Düşük Bakım Maliyeti (Mekanik basitlik)",
+            "Çevik ve Kompakt Şehir Aracı (Yeni TNGA-B platformu)"
+        ],
+        weaknesses: [
+            "12V Akü Erken Boşalma Riski (Uzun süre park edildiğinde)",
+            "Ses Yalıtımı Yetersiz (Yol ve rüzgar sesi direkt gelir)",
+            "İç Mekan Malzeme Kalitesi Sınıfına Göre Sade",
+            "Arka Koltuk ve Bagaj Hacmi Kısıtlı",
+            "Multimedya Arayüzü Rakiplere Göre Geride"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "12V Akü Boşalması ve Ready Moda Geçememe",
+                severity: "medium",
+                reportCount: 12,
+                description: "Hibrit araçlarda en yaygın şikayet. Araç uzun süre park edildiğinde veya kontağın açık unutulması durumunda 12V akü biter ve araç 'Ready' moduna geçemez. Toyota yetkili servislerinde akü değişimi veya şarj çözümü uygulanıyor. Özellikle ilk 2 yıl içinde fabrikasyon akülerde yaşanıyor."
+            },
+            {
+                id: 2,
+                title: "Hibrit Batarya Soğutma Fanı Tozlanması",
+                severity: "low",
+                reportCount: 6,
+                description: "Arka koltuk altında bulunan hibrit batarya soğutma fanı zamanla tozlanarak verimsizleşiyor. Temizlenmezse invertör ünitesinin aşırı ısınmasına ve hibrit sistem uyarılarına neden olabiliyor. Yetkili servislerde periyodik temizlik öneriliyor."
+            },
+            {
+                id: 3,
+                title: "EGR Valfi Tıkanması (Kısa Mesafe Kullanım)",
+                severity: "medium",
+                reportCount: 7,
+                description: "Sürekli kısa mesafe ve şehir içi kullanımlarda 1.5 benzinli motorun EGR valfi tıkanabiliyor. Motor arıza ışığı yanması ve performans kaybı ile kendini gösteriyor. Uzun yol kullanımı ve periyodik bakım ile minimize edilebiliyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 14
+    },
+
+    // ─── 2. Toyota Yaris 3. Nesil (XP130) ───
+    {
+        id: 1011,
+        brand: "Toyota",
+        model: "Yaris 3. Nesil (2011-2020)",
+        year: "2011-2020",
+        ncapStars: 4,
+        ncapYear: "2011",
+        dnaScore: 70,
+        strengths: [
+            "Toyota Güvenilirlik Geleneği (Düşük arıza oranı)",
+            "Kompakt Boyut ile Şehir İçi Rahatlık",
+            "1.33 Dual VVT-i Motor Sağlamlığı",
+            "İkinci El Değer Koruma",
+            "Düşük Sigorta ve Vergi Maliyetleri"
+        ],
+        weaknesses: [
+            "MMT Şanzıman Karakteri (Vites geçişlerinde hissedilen boşluk)",
+            "İç Mekan Plastik Kalitesi Düşük",
+            "1.4 D-4D Dizel Motorun Bakım Hassasiyeti",
+            "Yalıtım Eksikliği (Motor sesi fazla)",
+            "Güç Yetersizliği (Özellikle otobanda)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "MMT Şanzıman Kararsızlığı ve Baskı Balata Aşınması",
+                severity: "high",
+                reportCount: 14,
+                description: "Yarı otomatik MMT şanzıman, Yaris 3'ün en bilinen kronik sorunudur. Vites geçişlerinde kararsızlık, yokuş kalkışlarında 'boşa düşme' hissi ve baskı balata ömrünün çok kısa olması. Manuel kullanımda da hissedilen bu sorun, özellikle sıkışık trafikte belirginleşiyor. Baskı balata değişim maliyeti yüksek."
+            },
+            {
+                id: 2,
+                title: "1.4 D-4D Dizel EGR ve DPF Sorunları",
+                severity: "high",
+                reportCount: 11,
+                description: "1.4 D-4D dizel motorda EGR valfi tıkanıklığı, DPF dolması ve turbo kanatçıklarının kurum bağlaması sıkça yaşanıyor. Şehir içi kullanımda DPF rejenerasyon yapamayınca motor arıza ışığı yanıyor ve araç güç moduna geçiyor. Enjektör geri dönüş kaçakları da bilinen bir problem."
+            },
+            {
+                id: 3,
+                title: "Motor Takozları Aşınması ve Kabin Titreşimi",
+                severity: "medium",
+                reportCount: 8,
+                description: "Zamanla aşınan motor takozları düşük hızlarda ve rölantide kabine rahatsız edici titreşim yansıtıyor. Özellikle dur-kalk trafikte belirginleşen bu sorun, motor takozu değişimi ile çözülüyor ancak orijinal parça maliyeti yüksek."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 18
+    },
+
+    // ─── 3. Renault Megane 3 (2009-2015) ───
+    {
+        id: 1012,
+        brand: "Renault",
+        model: "Megane 3. Nesil (2009-2015)",
+        year: "2009-2015",
+        ncapStars: 5,
+        ncapYear: "2008",
+        dnaScore: 68,
+        strengths: [
+            "Efsanevi 1.5 dCi K9K Motor Ekonomisi (4.5-5.5 lt/100km)",
+            "Geniş ve Konforlu İç Mekan (C segmenti avantajı)",
+            "5 Yıldız Euro NCAP Güvenlik",
+            "Yaygın Yedek Parça ve Servis Ağı",
+            "İkinci Elde Uygun Fiyatlı Giriş Modeli",
+            "Makyajlı Kasada Geliştirilmiş Multimedya"
+        ],
+        weaknesses: [
+            "EDC Şanzıman Güvenilirlik Endişeleri (Yüksek onarım maliyeti)",
+            "Enjektör ve Turbo Hassasiyeti (Bakımsız araçlarda)",
+            "Kartlı Çalıştırma Sistemi Sorunları",
+            "Trim Sesleri ve Plastik Kalite Düşüklüğü",
+            "DPF Tıkanma Riski (Şehir içi kullanımda)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EDC Şanzıman Sarsıntısı ve 'Vites Kutusunu Kontrol Ettirin' Hatası",
+                severity: "high",
+                reportCount: 16,
+                description: "Megane 3'ün en meşhur kronik sorunudur. Çift kavramalı EDC şanzımanda özellikle 3→4 ve 1→2 vites geçişlerinde sarsıntı, 'vuup' sesi ve titreme yaşanır. Elektronik beyinden 'Vites kutusunu kontrol ettirin' uyarısı gelebilir. Kavrama seti veya mekatronik ünite arızası kaynaklıdır. Onarım maliyeti 15.000-40.000₺ arasında değişiyor."
+            },
+            {
+                id: 2,
+                title: "1.5 dCi Enjektör Aşınması ve Güç Kaybı",
+                severity: "high",
+                reportCount: 13,
+                description: "Yüksek kilometreli araçlarda enjektörlerin aşınması sonucu rölantide titreme, soğuk çalıştırmada zorlanma ve belirgin güç kaybı yaşanıyor. Kalitesiz yakıt kullanımı süreci hızlandırıyor. Enjektör test raporu almadan ikinci el alınmaması önerilir. 4'lü enjektör seti değişimi ciddi bir maliyet."
+            },
+            {
+                id: 3,
+                title: "Turbo Arızası ve Islık Sesi",
+                severity: "high",
+                reportCount: 10,
+                description: "Yağ değişimleri aksatılmış araçlarda turbo boşluk yapması veya tamamen arızalanması. Islık sesi ve güç kaybı temel belirtileridir. Turbo değişimi hem parça hem işçilik olarak yüksek maliyet çıkarır. Bakımlı araçlarda risk düşüktür."
+            },
+            {
+                id: 4,
+                title: "Kartlı Çalıştırma Sistemi Arızası",
+                severity: "medium",
+                reportCount: 9,
+                description: "Anahtarsız (kartlı) çalıştırma sisteminin zaman zaman kartı algılamaması veya 'Kart Bulunamadı' hatası vermesi. Okuyucu ünitesindeki pil zayıflığı, anten arızası veya kartın kendisindeki bozulma kaynaklı olabiliyor. Servis müdahalesi gerektiren bir durum."
+            },
+            {
+                id: 5,
+                title: "EGR Valfi ve DPF Tıkanıklığı",
+                severity: "medium",
+                reportCount: 11,
+                description: "Şehir içi ve düşük devirli kullanımlarda EGR valfi kurum bağlayarak tıkanıyor. DPF doluluğu ile birleşince motor arıza ışığı yanıyor ve çekiş düşüklüğü başlıyor. EGR temizliği veya değişimi ve DPF rejenerasyon işlemi gerektiriyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 25
+    },
+
+    // ─── 4. Fiat Grande Punto (2005-2012) ───
+    {
+        id: 1013,
+        brand: "Fiat",
+        model: "Grande Punto (2005-2012)",
+        year: "2005-2012",
+        ncapStars: 5,
+        ncapYear: "2005",
+        dnaScore: 58,
+        strengths: [
+            "Lansmanında 5 Yıldız Euro NCAP (Dönemin rekoru)",
+            "İtalyan Tasarım Estetiği (Giugiaro çizgileri)",
+            "1.3 Multijet Motor Ekonomisi",
+            "Geniş Motor Seçenekleri (1.2 - 1.9 arası)",
+            "Sportif Sürüş Hissi ve Yol Tutuş"
+        ],
+        weaknesses: [
+            "Elektrikli Direksiyon (EPS) Güvenilirlik Krizi",
+            "Dualogic Şanzıman Masraf Kapısı",
+            "Yüksek Yedek Parça Maliyetleri",
+            "Elektrik Tesisatı Hassasiyeti",
+            "İç Mekan Malzeme Kalitesi Düşük (Plastiğin her yeri)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Elektrikli Direksiyon (EPS) Sertleşmesi ve Kilitlenmesi",
+                severity: "high",
+                reportCount: 18,
+                description: "Grande Punto'nun en kötü şöhretli kronik sorunudur. Seyir halinde veya manevra sırasında direksiyonun aniden sertleşmesi, 'Direksiyon Arızası' uyarısı veya tamamen kilitlenmesi. Tork sensörü veya elektrikli direksiyon motorundaki arızalardan kaynaklanır. Güvenlik riski oluşturur — seyir halinde yaşanması kaza riski taşır."
+            },
+            {
+                id: 2,
+                title: "Dualogic Şanzıman Arızaları",
+                severity: "high",
+                reportCount: 14,
+                description: "Otomatik vitesli (Dualogic/Selespeed) modellerde vites geçişlerinde vuruntu, şanzıman arıza lambasının yanması, 'N' konumunda takılı kalma. Mekatronik ünite ve şanzıman robotu bakımları düzenli yapılmazsa ciddi arızalar çıkıyor. Manuel şanzımanlı modeller bu riski taşımaz."
+            },
+            {
+                id: 3,
+                title: "ESP/Hill Holder/ASR Devre Dışı Uyarıları",
+                severity: "medium",
+                reportCount: 11,
+                description: "Araç yaşlandıkça güvenlik sistemlerinin 'devre dışı' uyarısı vermesi sıkça yaşanıyor. Sensör kirliliği, voltaj düşüklüğü veya ABS beyin ünitesi kaynaklı olabiliyor. Fren hissi ve güvenlik sistemlerinin çalışmaması tehlike oluşturabilir."
+            },
+            {
+                id: 4,
+                title: "Airbag Kapağı Çatlama ve Torpido Deformasyonu",
+                severity: "low",
+                reportCount: 8,
+                description: "Göğüs (torpido) kısmındaki airbag kapağında zamanla çatlama, kabarma veya deformasyon oluşması. Sıcak iklimlerde plastik malzemenin güneş altında bozulması sonucu oluşan kozmetik ama sinir bozucu bir sorun."
+            },
+            {
+                id: 5,
+                title: "Kapı Kilidi ve Fitil Sorunları",
+                severity: "low",
+                reportCount: 9,
+                description: "Kapı kilit mekanizmalarının sertleşmesi ve kapı fitillerinden yüksek hızlarda rüzgar sesi gelmesi. Arka cam sileceği mekanizmasında tıkanma veya arıza da sıkça bildirilen bir durum."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 30
+    },
+
+    // ─── 5. Opel Astra H (2004-2010) ───
+    {
+        id: 1014,
+        brand: "Opel",
+        model: "Astra H Kasa (2004-2010)",
+        year: "2004-2010",
+        ncapStars: 4,
+        ncapYear: "2004",
+        dnaScore: 63,
+        strengths: [
+            "Sağlam Kasa Yapısı ve Alman Mühendisliği",
+            "Geniş Motor Yelpazesi (1.3 CDTi'dan 2.0 Turbo'ya)",
+            "Konforlu Sürüş ve İyi Yol Tutuş",
+            "Yaygın Yedek Parça Bulunabilirliği",
+            "Geniş İç Mekan ve Bagaj Hacmi (HB ve Sedan)"
+        ],
+        weaknesses: [
+            "Yağ Soğutucu Arızası (Yağ-su karışma riski)",
+            "1.3 CDTi Triger Zinciri Uzaması",
+            "Elektronik ve CIM Modülü Hassasiyeti",
+            "Soğutma Sistemi Kaçakları",
+            "Yaşla Birlikte Artan Elektrik Sorunları"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Yağ Soğutucu Arızası (Yağ-Su Karışması)",
+                severity: "high",
+                reportCount: 15,
+                description: "Astra H'ın en tehlikeli kronik sorunudur. Yağ soğutucusundaki conta veya gövde arızası nedeniyle motor yağı ve soğutma suyu birbirine karışır. Yedek su deposunda kahverengi/sütlü görüntü alarm işaretidir. Erken fark edilmezse motor hasarına yol açar. İkinci el alırken mutlaka kontrol edilmesi gereken ilk nokta."
+            },
+            {
+                id: 2,
+                title: "1.3 CDTi Triger Zinciri Uzaması ve Ses Yapması",
+                severity: "high",
+                reportCount: 13,
+                description: "1.3 CDTi (Z13DTH) motorda triger zinciri zamanla uzayarak ses yapıyor ve senkronizasyonu bozuyor. İhmal edilirse zincir atlayabilir ve motor ciddi hasar görebilir. Servislerde 80.000-120.000 km arasında zincir seti değişimi önerilir. Soğuk çalıştırmada duyulan 'şıkırtı' ilk belirtidir."
+            },
+            {
+                id: 3,
+                title: "CIM Modülü Arızası (Direksiyon Kolon Elektronik)",
+                severity: "medium",
+                reportCount: 10,
+                description: "Direksiyon üzerindeki kontrollerin (sinyal, silecek, hız sabitleyici) merkezi yönetim birimi olan CIM modülünün arızalanması. Sinyal kolunun çalışmaması, sileceklerin kendi kendine açılması veya hız sabitleyicinin devre dışı kalması şeklinde ortaya çıkıyor."
+            },
+            {
+                id: 4,
+                title: "Klima Yönlendirme Klapesi ve Fan Rezistansı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Klima hava yönlendirme klapelerinin arızalanması (ısıtma/soğutma yönlendirme sorunları) ve fan rezistansının yanması sık yaşanır. Klimanın sadece belirli kademelerde çalışması fan rezistansı arızasının belirtisidir."
+            },
+            {
+                id: 5,
+                title: "Soğutma Sıvısı Seviye Sensörü Arızası",
+                severity: "low",
+                reportCount: 8,
+                description: "Soğutma sıvısı seviye sensörünün arızalanarak sıvı dolu olmasına rağmen sürekli uyarı vermesi veya tam tersi — sıvı azaldığında uyarı vermemesi. Termostat gövdesindeki kaçaklar da sıkça bildirilen bir durum."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 28
+    },
+
+    // ─── 6. Hyundai Accent Blue (2011-2018) ───
+    {
+        id: 1015,
+        brand: "Hyundai",
+        model: "Accent Blue (2011-2018)",
+        year: "2011-2018",
+        ncapStars: 4,
+        ncapYear: "2011",
+        dnaScore: 66,
+        strengths: [
+            "1.6 CRDi Dizel Motor Performansı ve Ekonomisi",
+            "Geniş İç Mekan (Sınıfının üstünde diz mesafesi)",
+            "Düşük İşletme Maliyetleri",
+            "Türkiye Üretimi — Yaygın Servis ve Parça",
+            "Bagaj Hacmi Rakiplerinden Geniş (480 lt)"
+        ],
+        weaknesses: [
+            "7 İleri DCT Şanzıman Güvenilirlik Sorunları",
+            "Direksiyon Mili Tıkırtısı (Kronik)",
+            "İç Mekan Plastik Kalitesi Sert ve Ucuz",
+            "Arka Süspansiyon Sertliği (Konfor düşük)",
+            "Boya Kalitesi Zayıf (Taş çarpmalarına hassas)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DCT (7 İleri Çift Kavrama) Şanzıman ve Volan Sorunları",
+                severity: "high",
+                reportCount: 16,
+                description: "2015 sonrası gelen 7 ileri DCT şanzımanda kavrama ve volan kaynaklı ciddi sorunlar sıkça rapor ediliyor. Vites geçişlerinde vuruntu, kalkışta 'ağır kalkış' hissi, titreme ve sarsıntı en yaygın belirtiler. Volan + kavrama seti değişimi ciddi masraf çıkarıyor. Bazı kullanıcılar 40.000 km'de bile volan değişimi yapmak zorunda kalmış."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Mili Tıkırtısı (Yıldız Parça Aşınması)",
+                severity: "medium",
+                reportCount: 13,
+                description: "Direksiyon mili üzerindeki plastik kaplin (yıldız parça) zamanla aşınarak direksiyonu çevirirken veya bozuk yollarda 'kıtlama/tıkırtı' sesi çıkarır. Accent Blue'nun neredeyse tüm örneklerinde zamanla ortaya çıkan kronik bir sorundur. Yıldız parça değişimi ile çözülür ama tekrarlama eğilimi yüksek."
+            },
+            {
+                id: 3,
+                title: "EGR Valfi ve DPF Tıkanması (1.6 CRDi)",
+                severity: "medium",
+                reportCount: 10,
+                description: "Şehir içi kısa mesafe kullanımlarda EGR valfi tıkanması ve DPF rejenerasyon yapamaması. Motor arıza ışığı yanması, güç modu ve çekiş düşüklüğü ile kendini gösteriyor. Uzun yol kullanımı ve kaliteli yakıt ile minimize edilebilir."
+            },
+            {
+                id: 4,
+                title: "Trim Sesleri ve İç Mekan Gıcırtıları",
+                severity: "low",
+                reportCount: 9,
+                description: "İç mekanda kullanılan sert plastik malzemeler nedeniyle konsol, kapı içleri ve torpido bölgesinden gelen tıkırtı ve çatırtı sesleri. Özellikle soğuk havalarda ve bozuk yollarda belirginleşiyor. Kozmetik bir sorun ama konfor algısını düşürüyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 24
+    },
+
+    // ─── 7. Skoda Fabia 3. Nesil NJ (2014-2021) ───
+    {
+        id: 1016,
+        brand: "Skoda",
+        model: "Fabia 3. Nesil NJ (2014-2021)",
+        year: "2014-2021",
+        ncapStars: 4,
+        ncapYear: "2014",
+        dnaScore: 74,
+        strengths: [
+            "Sınıfının En Geniş İç Mekanı (Polo ve Ibiza'dan geniş)",
+            "VW Grubu Güvenilir Platformu (MQB-A0)",
+            "Mükemmel Bagaj Hacmi (330 lt — sınıf lideri)",
+            "Kaliteli Sürüş Hissi ve Yol Tutuş",
+            "Pratik Detaylar (Buz kazıyıcı, şemsiye cebi vb.)"
+        ],
+        weaknesses: [
+            "DSG Şanzıman Güvenilirlik Endişeleri",
+            "1.2 TSI (EA111) Motor Zincir Riski (Eski motor yılları)",
+            "Start-Stop Sistemi Arızaları",
+            "Multimedya Sistemi Donmaları",
+            "Eski Modellerde Donanım Fakiri Gelişi"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG (DQ200) Şanzıman Mekatronik ve Kavrama Arızası",
+                severity: "high",
+                reportCount: 13,
+                description: "Kuru kavramalı 7 ileri DSG şanzımanda mekatronik ünite ve kavrama kaynaklı sorunlar yaşanabiliyor. Vites geçişlerinde sarsıntı, 'Vitesi P konumuna alın' uyarısı, cartlama sesleri ve acil işletim modu. Mekatronik onarımı veya kavrama seti değişimi ciddi maliyet getiriyor."
+            },
+            {
+                id: 2,
+                title: "1.2 TSI (EA111) Zamanlama Zinciri Uzaması",
+                severity: "high",
+                reportCount: 11,
+                description: "2014-2015 üretim yıllarındaki 1.2 TSI motorda zamanlama zinciri ve plastik gergi mekanizmasının erken aşınması. Soğuk çalıştırmada 'tıkırtı/şıkırtı' sesi duyuluyorsa zincirin uzadığı anlamına gelir. İhmal edilirse zincir atlayabilir ve motor ağır hasar görebilir. Yeni EA211 motorlarda bu sorun büyük ölçüde çözülmüştür."
+            },
+            {
+                id: 3,
+                title: "Start-Stop Sistemi Devre Dışı Kalması",
+                severity: "low",
+                reportCount: 7,
+                description: "Start-Stop sisteminin arıza ışığı yakması veya sürekli devre dışı kalması. Genellikle akü voltajındaki düşüş veya sensör hassasiyeti kaynaklı. EFB akü değişimi ile çözülebiliyor ama akünün fiyatı standart akülerden yüksek."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 16
+    },
+
+    // ─── 8. Seat Ibiza 5. Nesil 6F (2017-2025) ───
+    {
+        id: 1017,
+        brand: "Seat",
+        model: "Ibiza 5. Nesil 6F (2017-2025)",
+        year: "2017-2025",
+        ncapStars: 5,
+        ncapYear: "2017",
+        dnaScore: 76,
+        strengths: [
+            "Sportif ve Genç Tasarım (Segment lideri estetik)",
+            "VW Grubu MQB-A0 Platformunun Sağlamlığı",
+            "1.0 EcoTSI Motor Ekonomisi (Manuel ile 5 lt/100km)",
+            "5 Yıldız Euro NCAP Güvenlik",
+            "Çevik Sürüş Dinamikleri (En sportif B-segment)"
+        ],
+        weaknesses: [
+            "3 Silindirli Motorlarda Rölanti Titreşimi",
+            "TSI Motorlarda Yağ Tüketimi Riski",
+            "Ses Yalıtımı Rakiplere Göre Zayıf",
+            "İç Mekan Malzeme Kalitesi Karma (Üst kısımlar sert plastik)",
+            "Servis Ağı Türkiye'de VW/Skoda Kadar Yaygın Değil"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.0 EcoTSI Motor Takozu Aşınması ve Rölanti Titreşimi",
+                severity: "medium",
+                reportCount: 10,
+                description: "3 silindirli 1.0 EcoTSI motorda motor takozlarının aşınmasıyla kabin içine yansıyan rölanti titreşimleri. Özellikle dur-kalk trafikte hissedilen ve zamanla artan bir titreşim. Motor takozu değişimi ile çözülüyor ama 3 silindirli doğası gereği hafif bir titreşim her zaman mevcut."
+            },
+            {
+                id: 2,
+                title: "Farlarda Buğulanma ve Buhar Oluşumu",
+                severity: "low",
+                reportCount: 8,
+                description: "Far içlerinde buğulanma ve buhar oluşumu sıkça bildirilen bir durum. Yağmurlu havalarda veya yıkama sonrasında farların içi buğulanabiliyor. Genellikle havalandırma kanallarının tıkanması veya contanın bozulması kaynaklı. Garanti kapsamında çözülmesi gerekiyor ancak servisler bazen 'normal' olarak değerlendiriyor."
+            },
+            {
+                id: 3,
+                title: "Front Assist ve Sensör Hataları",
+                severity: "medium",
+                reportCount: 7,
+                description: "Ön sensörlerin bulunduğu bölgede kar, buz veya aşırı kirlenme sonucu Front Assist sisteminin devre dışı kalması ve uyarı vermesi. Kış aylarında sıkça yaşanıyor. Sensör temizliği ile çözülüyor ama tekrarlama sıklığı yüksek."
+            },
+            {
+                id: 4,
+                title: "Supap Arkası Karbon Birikimi (Doğrudan Enjeksiyon)",
+                severity: "medium",
+                reportCount: 6,
+                description: "Doğrudan enjeksiyonlu TSI motorlarda supap arkalarında karbon birikimi. Rölanti düzensizliği, performans kaybı ve artan yakıt tüketimi ile kendini gösteriyor. Ceviz kabuğu kumlama veya kimyasal temizlik gerektiriyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 17
+    },
+
+    // ─── 9. Nissan Juke F15 (2010-2019) ───
+    {
+        id: 1018,
+        brand: "Nissan",
+        model: "Juke 1. Nesil F15 (2010-2019)",
+        year: "2010-2019",
+        ncapStars: 5,
+        ncapYear: "2011",
+        dnaScore: 62,
+        strengths: [
+            "Segment Yaratıcı Cesur Tasarım (Kompakt SUV trendi başlatan)",
+            "Yüksek Sürüş Pozisyonu ve Görüş Açısı",
+            "1.5 dCi Motor Güvenilirliği ve Ekonomisi",
+            "İyi Yol Tutuş ve Çevik Sürüş",
+            "İkinci Elde Uygun Fiyatlı Giriş B-SUV"
+        ],
+        weaknesses: [
+            "1.2 DIG-T Motor Ciddi Güvenilirlik Riski",
+            "CVT Şanzıman Karakteri ve Bakım Hassasiyeti",
+            "Dar İç Mekan ve Küçük Bagaj (354 lt)",
+            "Arka Görüş ve Kör Nokta Zayıflığı",
+            "Süspansiyon Sertliği — Bozuk Yollarda Konfor Düşük"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.2 DIG-T Motor Yağ Eksiltme ve Triger Zinciri Riski",
+                severity: "high",
+                reportCount: 17,
+                description: "Juke F15'in en ciddi kronik sorunudur. 1.2 DIG-T turbo benzinli motorda aşırı yağ eksiltme sorunu ve triger zincirinin erken uzayarak sente atlatması. Yağ seviyesi düzenli kontrol edilmezse motor hasarına kadar gidebilir. Bu motor seçeneğinden özellikle ikinci el alırken KESİNLİKLE uzak durulması veya detaylı ekspertiz yaptırılması öneriliyor."
+            },
+            {
+                id: 2,
+                title: "CVT (Xtronic) Şanzıman Titreme ve Gecikme",
+                severity: "medium",
+                reportCount: 11,
+                description: "CVT şanzımanlarda kalkışlarda belirginleşen gecikme hissi ve düşük hızlarda titreme/vuruntu. Şanzıman yağı değişimi ihmal edildiğinde sorun ağırlaşıyor. Nissan, CVT yağ değişimini 'ömür boyu' olarak belirtse de uzmanlar 60.000 km'de değişim öneriyor."
+            },
+            {
+                id: 3,
+                title: "1.5 dCi DPF Tıkanması (Şehir İçi Kullanım)",
+                severity: "medium",
+                reportCount: 9,
+                description: "Dizel motorlu versiyonlarda aracın ağırlıklı olarak şehir içi ve kısa mesafede kullanılması durumunda DPF hızla tıkanıyor. Motor arıza ışığı ve güç modu ile kendini gösteriyor. Uzun yol kullanımı ile DPF'nin kendini temizlemesi sağlanmalı."
+            },
+            {
+                id: 4,
+                title: "Nissan Connect Multimedya Donmaları",
+                severity: "low",
+                reportCount: 7,
+                description: "Eski nesil Nissan Connect multimedya sisteminde donmalar, Bluetooth bağlantı kopmaları ve navigasyon güncelleme sorunları. Lambda sensörü arızaları da forumlarda bildirilen bir durum."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 22
+    },
+
+    // ─── 10. Honda HR-V 2. Nesil RV (2015-2021) ───
+    {
+        id: 1019,
+        brand: "Honda",
+        model: "HR-V 2. Nesil (2015-2021)",
+        year: "2015-2021",
+        ncapStars: 5,
+        ncapYear: "2015",
+        dnaScore: 75,
+        strengths: [
+            "Magic Seat Sistemi ile Sınıf Üstü İç Mekan Esnekliği",
+            "Honda i-VTEC Motor Güvenilirliği",
+            "5 Yıldız Euro NCAP ve Honda Sensing",
+            "Yüksek İkinci El Değer Koruma",
+            "Pratik ve Fonksiyonel B-SUV (Bagaj 470 lt)"
+        ],
+        weaknesses: [
+            "CVT Şanzıman Karakteri (Lastik sesi etkisi)",
+            "Multimedya Sistemi Eski ve Yavaş",
+            "Dizel Motor Seçeneğinin Olmaması",
+            "Sert Süspansiyon (Bozuk yollarda rahatsız edici)",
+            "Yetkili Servis Ağı Sınırlı (Türkiye'de az nokta)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Arka Süspansiyon Burç Aşınması ve Ses",
+                severity: "medium",
+                reportCount: 10,
+                description: "Türkiye yol koşullarında arka süspansiyon grubundaki burçların aşınmasına bağlı olarak gelen 'tok' sesler. Kasislerde ve bozuk yollarda belirginleşen bu sorun, burç değişimi ile çözülüyor ama Türkiye şartlarında tekrarlama sıklığı yüksek."
+            },
+            {
+                id: 2,
+                title: "ABS Sensör Arızaları",
+                severity: "medium",
+                reportCount: 7,
+                description: "Zaman zaman ABS sensörlerinde oluşan arıza sonucu ABS ve traksiyon kontrol uyarı ışıklarının yanması. Sensör kablosundaki kopmalar veya sensörün kendisindeki bozulma kaynaklı. Genellikle ön tekerleklerde daha sık yaşanıyor."
+            },
+            {
+                id: 3,
+                title: "Trim Sesleri ve Plastik Gıcırtılar",
+                severity: "low",
+                reportCount: 8,
+                description: "Araç içindeki plastik aksamlardan gelen çatırdama ve trim sesleri. Torpido, kapı içleri ve arka panel bölgesinden kaynaklanıyor. Konfor odaklı kullanıcılar tarafından eleştirilen, sinir bozucu ama güvenlik riski taşımayan bir sorun."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 14
+    },
+
+    // ─── 11. Kia Picanto 3. Nesil JA (2017-2025) ───
+    {
+        id: 1020,
+        brand: "Kia",
+        model: "Picanto 3. Nesil JA (2017-2025)",
+        year: "2017-2025",
+        ncapStars: 3,
+        ncapYear: "2017",
+        dnaScore: 71,
+        strengths: [
+            "Kia 7 Yıl / 150.000 km Fabrika Garantisi",
+            "Modern Tasarım (A segmentinde premium his)",
+            "Düşük Yakıt Tüketimi (1.0 ve 1.2 atmosferik)",
+            "Kompakt Boyut ile Şehir İçi Konfor",
+            "Uygun Bakım ve İşletme Maliyetleri"
+        ],
+        weaknesses: [
+            "3 Yıldız Euro NCAP (A segmenti sınırları)",
+            "Autoban Performansı Yetersiz",
+            "Arka Koltuk Çok Dar",
+            "Multimedya Ekranında Dokunmatik Sorunları",
+            "Ses Yalıtımı Minimal"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Dokunmatik Ekran Arızası (Hayalet Dokunuş)",
+                severity: "medium",
+                reportCount: 12,
+                description: "Özellikle 2020-2023 arası modellerde dokunmatik ekranın tepkisizleşmesi, kendi kendine basması ('hayalet dokunuş') veya belirli bölgelerin çalışmaması. Kia servislerinde yazılım güncelleme veya ekran değişimi uygulanıyor. Bazı kullanıcılar garanti kapsamında 2-3 kez ekran değiştirmiş."
+            },
+            {
+                id: 2,
+                title: "Soğuk Havada Marş Sorunu ve Akü Zayıflığı",
+                severity: "medium",
+                reportCount: 8,
+                description: "Soğuk havalarda aracın marş basmama veya çalışmama sorunu. Fabrikasyon akülerin ömrünün kısa olması ve Türkiye'nin sert kış koşullarında yetersiz kalması. Akü değişimi ile çözülüyor ama tekrarlama sıklığı nedeniyle 'kronik' olarak nitelendiriliyor."
+            },
+            {
+                id: 3,
+                title: "Rölanti Düzensizliği ve Devir Dalgalanması",
+                severity: "low",
+                reportCount: 6,
+                description: "Bazı modellerde rölantide devir dalgalanması ve tekleme. Hava akış sensörü, gaz kelebeği kirliliği veya ateşleme sistemi kaynaklı olabiliyor. Servis bakımı ve sensör temizliği ile genellikle çözülüyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 14
+    },
+
+    // ─── 12. Hyundai i10 3. Nesil AC3 (2019-2025) ───
+    {
+        id: 1021,
+        brand: "Hyundai",
+        model: "i10 3. Nesil AC3 (2019-2025)",
+        year: "2019-2025",
+        ncapStars: 3,
+        ncapYear: "2020",
+        dnaScore: 72,
+        strengths: [
+            "Sınıfının En Geniş İç Mekanı (A segment rekoru)",
+            "Modern ve Şık Tasarım (Kona estetiği A segmentte)",
+            "1.0 ve 1.2 Atmosferik Motorların Basitliği",
+            "5 Yıl Fabrika Garantisi",
+            "Çok Düşük Yakıt Tüketimi (4-5 lt/100km)"
+        ],
+        weaknesses: [
+            "Otobanda Güç Yetersizliği (67-84 HP)",
+            "3 Yıldız Euro NCAP",
+            "Bagaj Hacmi Sınırlı (252 lt)",
+            "Otomatik Şanzıman AMT Karakteri",
+            "Yalıtım Düşük (Motor ve yol sesi)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "Katalizör Bozulması ve Dağılması",
+                severity: "high",
+                reportCount: 9,
+                description: "Ateşleme sistemi kaynaklı sorunlar (buji, bobin arızası) erken nesillerde katalizörün aşırı ısınarak iç yapısının dağılmasına yol açabiliyor. Egzoz çıkışında tıkanıklık ve güç kaybı ile kendini gösteriyor. Katalizör değişimi masraflı bir işlem."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Sesleri",
+                severity: "medium",
+                reportCount: 7,
+                description: "Direksiyon kutusu bölgesinden gelen rahatsız edici sesler. Özellikle düşük hızlarda ve park manevrasında duyulan 'gıcırtı' veya 'hışırtı'. Direksiyon yağı eksikliği veya kutu iç parçalarının aşınması kaynaklı."
+            },
+            {
+                id: 3,
+                title: "Şanzıman Keçe Yağ Sızıntısı (Manuel)",
+                severity: "medium",
+                reportCount: 6,
+                description: "Manuel şanzımanlı modellerde şanzıman keçelerinden yağ sızıntısı. Geniş bir kullanıcı kitlesinin bildirdiği ve zamanla ağırlaşan bir sorun. Keçe değişimi göreceli ucuz ama iş gücü maliyeti eklenebilir."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 12
+    },
+
+    // ─── 13. Volkswagen Jetta 6. Nesil A6 (2011-2018) ───
+    {
+        id: 1022,
+        brand: "Volkswagen",
+        model: "Jetta 6. Nesil A6 (2011-2018)",
+        year: "2011-2018",
+        ncapStars: 5,
+        ncapYear: "2011",
+        dnaScore: 72,
+        strengths: [
+            "Geniş ve Konforlu Sedan (C+ segment hissi)",
+            "VW Grubu Güvenilir Motor ve Şanzıman Platformu",
+            "5 Yıldız Euro NCAP",
+            "İyi Yol Tutuş ve Konforlu Sürüş",
+            "Türkiye'de Yaygın Servis Ağı ve Parça Bulunabilirliği"
+        ],
+        weaknesses: [
+            "DSG (DQ200) Şanzıman Güvenilirlik Endişeleri",
+            "1.2 TSI (EA111) Zincir Riski (Eski motor kodu)",
+            "Yedek Parça Fiyatları Rakiplere Göre Yüksek",
+            "Ön Takım Burç Sesleri (Soğuk havada)",
+            "Depo Kapağı Kilit Motoru Arızası"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "DSG (DQ200) Mekatronik ve Kavrama Arızası",
+                severity: "high",
+                reportCount: 14,
+                description: "7 ileri kuru kavramalı DSG şanzımanda mekatronik ünite arızası, kavrama kaynaklı titremeler ve 'P konumuna alın' uyarısı. Vites geçişlerinde sarsıntı ve mikroşalter arızaları yaygın. Mekatronik onarımı veya kavrama seti değişimi yüksek maliyet getiriyor."
+            },
+            {
+                id: 2,
+                title: "Ön Takım Salıncak Burç Sesleri",
+                severity: "medium",
+                reportCount: 10,
+                description: "Özellikle soğuk havalarda süspansiyondan gelen gıcırtı ve tıkırtı sesleri. Ön takım burçlarından kaynaklanan bu ses, sıvı gres ile yağlama yapılarak geçici olarak çözülebilse de zamanla tekrarlıyor. Burç değişimi kalıcı çözüm."
+            },
+            {
+                id: 3,
+                title: "1.2 TSI (EA111) Zamanlama Zinciri Uzaması",
+                severity: "high",
+                reportCount: 11,
+                description: "2011-2014 üretim yıllarındaki EA111 kod motorlu 1.2 TSI'da zamanlama zinciri ve plastik gergi mekanizması erken aşınıyor. Soğuk çalıştırmada metalik şıkırtı sesi duyuluyorsa acil müdahale gerekir. Zincir atlama riski motor hasarına yol açabilir. EA211 kodlu yeni motorda bu sorun çözülmüştür."
+            },
+            {
+                id: 4,
+                title: "Klima Yönlendirme Motoru Arızası",
+                severity: "low",
+                reportCount: 8,
+                description: "Klimanın bir taraftan soğuk diğer taraftan sıcak üflemesi. Klima yönlendirme motorlarının dişlilerinin yerinden çıkması veya motorun arızalanması kaynaklı. Küçük bir parça ama değişim süreci zahmetli olabiliyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 22
+    },
+
+    // ─── 14. Renault Fluence (2009-2017) ───
+    {
+        id: 1023,
+        brand: "Renault",
+        model: "Fluence (2009-2017)",
+        year: "2009-2017",
+        ncapStars: 4,
+        ncapYear: "2009",
+        dnaScore: 65,
+        strengths: [
+            "1.5 dCi K9K Motor Ekonomisi (4.5-5.5 lt/100km)",
+            "Geniş ve Konforlu Sedan (C segment)",
+            "Türkiye Üretimi — Bol Yedek Parça",
+            "Yumuşak Süspansiyon ve Konforlu Sürüş",
+            "Düşük İkinci El Giriş Fiyatı"
+        ],
+        weaknesses: [
+            "EDC Şanzıman Aynı Megane 3 Sorunlarını Taşır",
+            "1.5 dCi Enjektör ve Turbo Hassasiyeti",
+            "İç Mekan Plastik Kalitesi Ortalama",
+            "Tasarım Olarak Sade ve Sıkıcı",
+            "Elektrik Tesisatı Sorunları (Yaşla birlikte)"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "EDC Şanzıman Sarsıntısı ve Kavrama Arızası",
+                severity: "high",
+                reportCount: 14,
+                description: "Megane 3 ile aynı EDC çift kavramalı şanzımanı kullanan Fluence'da da vites geçişlerinde sarsıntı, titreme ve 'Vites kutusunu kontrol ettirin' hatası yaşanıyor. Kavrama seti veya mekatronik ünite onarımı gerekebilir. Otomatik şanzımanlı model tercih edilecekse detaylı test şart."
+            },
+            {
+                id: 2,
+                title: "1.5 dCi Enjektör Sorunları ve Soğuk Çalıştırma Zorluğu",
+                severity: "high",
+                reportCount: 12,
+                description: "Yüksek kilometreli araçlarda enjektörlerin yakıt geri iadesinde sorun, rölantide titreme ve soğuk havalarda çalışmada zorlanma. Kalitesiz yakıt enjektör ömrünü ciddi oranda kısaltıyor. Enjektör test raporu ikinci el alımda mutlaka istenmeli."
+            },
+            {
+                id: 3,
+                title: "Turbo Boşluk ve Güç Kaybı",
+                severity: "medium",
+                reportCount: 9,
+                description: "Bakımları aksatılmış araçlarda turbo boşluğu oluşması ve ıslık sesiyle birlikte güç kaybı. Düzenli yağ değişimi ve kaliteli yağ kullanımı ile önlenebilir. Turbo değişimi hem parça hem işçilik olarak ciddi maliyet."
+            },
+            {
+                id: 4,
+                title: "Cam Kriko Motoru ve Elektrik Aksam Arızaları",
+                severity: "medium",
+                reportCount: 8,
+                description: "Özellikle ön kapı cam kriko motorlarının yanması ve camın yarıda kalması. Kapı kilit mekanizması sorunları ve merkezi kilit arızaları da sıkça bildiriliyor. Renault'nun geleneksel elektrik tesisat hassasiyetinin Fluence'a da yansıması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 21
+    },
+
+    // ─── 15. Ford Fiesta Mk7.5 (2013-2017) ───
+    {
+        id: 1024,
+        brand: "Ford",
+        model: "Fiesta 7. Nesil Mk7.5 (2013-2017)",
+        year: "2013-2017",
+        ncapStars: 5,
+        ncapYear: "2012",
+        dnaScore: 73,
+        strengths: [
+            "Segment Lideri Sürüş Keyfi (En sportif B-segment)",
+            "1.0 EcoBoost Motor — Yılın Motoru Ödüllü",
+            "5 Yıldız Euro NCAP",
+            "Çevik ve Eğlenceli Yol Tutuş",
+            "Ford SYNC Multimedya Sistemi"
+        ],
+        weaknesses: [
+            "PowerShift Şanzıman Güvenilirlik Krizi",
+            "1.0 EcoBoost Soğutma Sıvısı Kaçağı Riski",
+            "İç Mekan Dar (Özellikle arka koltuk)",
+            "Yalıtım Yetersiz (Motor sesi kabin içinde)",
+            "Plastik İç Mekan Kalitesi Düşük"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "PowerShift (DPS6) Şanzıman Arızaları",
+                severity: "high",
+                reportCount: 18,
+                description: "Ford Fiesta'nın en büyük kronik sorunu. Kuru kavramalı PowerShift şanzımanda titreme, sarsıntı, vites geçişlerinde vuruntu ve ani güç kesintisi. Ford bu nedenle dünya genelinde milyonlarca aracı geri çağırmıştır. Kavrama seti ve şanzıman beyni değişimi çok masraflı. Manuel şanzımanlı modellerde bu sorun YOK."
+            },
+            {
+                id: 2,
+                title: "1.0 EcoBoost Soğutma Sıvısı Kaçağı",
+                severity: "high",
+                reportCount: 11,
+                description: "1.0 EcoBoost motorlarda soğutma sıvısı kaçağı ve buna bağlı motor aşırı ısınma riski. Ford, bazı model yıllarını bu sorun nedeniyle geri çağırmıştır. Su pompası, termostat veya soğutma hortumlarından kaynaklı olabiliyor. Erken müdahale edilmezse motor hasarı riski var."
+            },
+            {
+                id: 3,
+                title: "Kapı Kilidi ve Merkezi Kilit Arızaları",
+                severity: "medium",
+                reportCount: 8,
+                description: "Kapı kilit motorlarının arızalanması, uzaktan kumandanın çalışmaması veya kapıların kilitlenmemesi. Özellikle soğuk havalarda kapı fitillerinin donararak kapının açılmaması da bildirilen bir durum."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 19
+    },
+
+    // ─── 16. Dacia Logan 3. Nesil (2021-2025) ───
+    {
+        id: 1025,
+        brand: "Dacia",
+        model: "Logan 3. Nesil (2021-2025)",
+        year: "2021-2025",
+        ncapStars: 2,
+        ncapYear: "2021",
+        dnaScore: 70,
+        strengths: [
+            "Segment Kırıcı Fiyat/Performans Oranı",
+            "CMF-B Platformu ile Geliştirilmiş Sürüş Kalitesi",
+            "Devasa Bagaj Hacmi (528 lt — sedan rekoru)",
+            "1.0 TCe ve 1.0 SCe Motorların Basitliği",
+            "Düşük İşletme ve Bakım Maliyetleri"
+        ],
+        weaknesses: [
+            "2 Yıldız Euro NCAP (Yan darbe ve çocuk güvenliği düşük)",
+            "İç Mekan Malzeme Kalitesi Minimum",
+            "Ses Yalıtımı Çok Düşük",
+            "Sert Süspansiyon (Konfor odaklı değil)",
+            "Donanım Seviyesi Bazda Çok Fakir"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.0 TCe Motor Sesleri ve Vibrasyon",
+                severity: "medium",
+                reportCount: 7,
+                description: "3 silindirli 1.0 TCe turbo motorda rölantide hissedilen titreşim ve motor sesleri. Motor takozlarının kalitesi ve 3 silindirli doğası gereği bir miktar titreşim her zaman mevcut. Yüksek kilometrelerde motor takozu aşınmasıyla artabiliyor."
+            },
+            {
+                id: 2,
+                title: "Trim Sesleri ve Plastik Gıcırtılar",
+                severity: "low",
+                reportCount: 9,
+                description: "Maliyet odaklı üretim nedeniyle iç mekan plastiklerinden gelen gıcırtı ve tıkırtı sesleri. Özellikle bozuk yollarda ve soğuk havalarda belirginleşen bu sorun, araç sınıfı göz önüne alındığında 'beklenen' bir durum ancak kullanıcıları rahatsız ediyor."
+            },
+            {
+                id: 3,
+                title: "Multimedya Sistemi Donma ve Gecikme",
+                severity: "low",
+                reportCount: 6,
+                description: "Temel donanımlı multimedya sisteminde yavaşlık, dokunmatik gecikme ve bluetooth bağlantı kopmaları. Yazılım güncelleme ile kısmen çözülebiliyor ama donanım sınırları nedeniyle tam performans beklenmemesi gereken bir sistem."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 11
+    },
+
+    // ─── 17. Toyota Corolla 11. Nesil E170 (2013-2018) ───
+    {
+        id: 1026,
+        brand: "Toyota",
+        model: "Corolla 11. Nesil E170 (2013-2018)",
+        year: "2013-2018",
+        ncapStars: 5,
+        ncapYear: "2013",
+        dnaScore: 77,
+        strengths: [
+            "Toyota Güvenilirliğinin Somut Hali (Düşük arıza oranı)",
+            "1.6 Valvematic Motor Sağlamlığı",
+            "5 Yıldız Euro NCAP",
+            "Geniş Sedan İç Mekan ve Bagaj (450 lt)",
+            "Yüksek İkinci El Değer Koruma",
+            "Türkiye Üretimi (Sakarya) — Bol Yedek Parça"
+        ],
+        weaknesses: [
+            "Multidrive S (CVT) Şanzıman Karakteri",
+            "İç Mekan Tasarımı Sade ve Sıkıcı",
+            "Sürüş Keyfi Düşük (Konfor odaklı setup)",
+            "Multimedya Sistemi Eski Teknoloji",
+            "Donanım Paketleri Rakiplere Göre Fakir"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "CVT (Multidrive S) Şanzıman Hızlanma Gecikmesi",
+                severity: "medium",
+                reportCount: 9,
+                description: "CVT şanzımanın doğası gereği ani hızlanmalarda 'lastik sesi' etkisi ve devir yükselmesi ama hızın gecikmesi. Sportif sürüş beklentisi olanlar için hayal kırıklığı yaratan bir özellik. Toyota'nın sanal vitesleri kısmen çözüm sunuyor ama klasik otomatik hissiyatından uzak."
+            },
+            {
+                id: 2,
+                title: "Direksiyon Kutusu Sesi (Düşük Hızda)",
+                severity: "low",
+                reportCount: 6,
+                description: "Düşük hızlarda ve park manevrasında direksiyon kutusu bölgesinden gelen hafif 'vınlama' sesi. Elektrikli direksiyon pompasının çalışma sesi olarak değerlendirilse de bazı araçlarda normalin üzerinde duyuluyor."
+            },
+            {
+                id: 3,
+                title: "Arka Fren Kampana/Disk Ses Sorunu",
+                severity: "low",
+                reportCount: 7,
+                description: "Arka frenlerde (kampanalı modellerde) frenleme sırasında gelen gıcırtı ve ses. Balata kalitesi ve kampana yüzeyi ile ilgili bir durum. Disk frenli üst donanımlarda bu sorun minimize edilmiş."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 11
+    },
+
+    // ─── 18. Peugeot 301 (2012-2023) ───
+    {
+        id: 1027,
+        brand: "Peugeot",
+        model: "301 (2012-2023)",
+        year: "2012-2023",
+        ncapStars: 4,
+        ncapYear: "2012",
+        dnaScore: 64,
+        strengths: [
+            "Mükemmel 1.6 BlueHDi Dizel Motor Ekonomisi",
+            "Geniş Bagaj Hacmi (506 lt — sedan lideri)",
+            "Düşük Fiyatlı Geniş Sedan Alternatifi",
+            "Sağlam ve Basit Mekanik Yapı",
+            "Uygun Sigorta ve Vergi Maliyetleri"
+        ],
+        weaknesses: [
+            "1.2 PureTech Motor Triger Kayışı Riski",
+            "İç Mekan Malzeme Kalitesi Çok Düşük",
+            "Güvenlik Donanımı Minimal (Baz paketlerde)",
+            "Ses Yalıtımı Yetersiz",
+            "Sürüş Keyfi ve Dinamikler Zayıf"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.2 PureTech Triger Kayışı Kopma Riski",
+                severity: "high",
+                reportCount: 16,
+                description: "PSA'nın 1.2 PureTech turbo motorlarında (EB2 motor ailesi) triger kayışının beklenenden erken kopması veya aşınması. Motor hasarına kadar gidebilen ciddi bir risk. PSA bu nedenle geri çağırma kampanyası başlatmıştır. 60.000 km'de mutlaka kontrol ve gerekirse değişim yapılmalı. Islak tip kayıştan kuru tipe geçiş ile bazı model yıllarında iyileştirilmiştir."
+            },
+            {
+                id: 2,
+                title: "1.6 BlueHDi DPF ve EGR Tıkanması",
+                severity: "medium",
+                reportCount: 10,
+                description: "Şehir içi kullanımda DPF dolması ve EGR valfi tıkanması. Motor arıza ışığı, güç modu ve rejenerasyon uyarıları. Uzun yol kullanımı ile DPF'nin kendini temizlemesi sağlanmalı. EGR temizliği periyodik olarak yapılmalı."
+            },
+            {
+                id: 3,
+                title: "Süspansiyon Sertliği ve Ön Takım Aşınması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Türkiye yol koşullarında ön takım parçalarının (rot, rotil, salıncak burçları) çabuk aşınması. Sert süspansiyon yapısı bozuk yollarda konfor düşüklüğüne neden oluyor. Ön takım ses ve vuruntu kontrolü ikinci elde önemli."
+            },
+            {
+                id: 4,
+                title: "İç Mekan Plastik Kalitesi ve Trim Sesleri",
+                severity: "low",
+                reportCount: 9,
+                description: "Maliyet odaklı üretim nedeniyle torpido, kapı panelleri ve konsol bölgesinden gelen gıcırtı ve tıkırtı sesleri. Plastik malzeme kalitesi çok düşük olduğu için montaj boşlukları zamanla artıyor."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 22
+    },
+
+    // ─── 19. Citroen C-Elysée (2012-2023) ───
+    {
+        id: 1028,
+        brand: "Citroen",
+        model: "C-Elysée (2012-2023)",
+        year: "2012-2023",
+        ncapStars: 4,
+        ncapYear: "2014",
+        dnaScore: 63,
+        strengths: [
+            "Peugeot 301 ile Platform Kardeşliği (Kanıtlanmış yapı)",
+            "Citroen Konfor DNA'sı (Yumuşak süspansiyon setup)",
+            "1.6 BlueHDi Dizel Motor Ekonomisi",
+            "Geniş Bagaj Hacmi (506 lt)",
+            "Uygun Fiyatlı ve Düşük İşletme Maliyetli Sedan"
+        ],
+        weaknesses: [
+            "1.2 PureTech Motor Aynı Triger Riskini Taşır",
+            "İç Mekan Malzeme Kalitesi Düşük (301 seviyesinde)",
+            "Güvenlik Donanımı Baz Paketlerde Minimal",
+            "Tasarım Olarak Dikkat Çekici Değil",
+            "İkinci El Değer Kaybı Yüksek"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.2 PureTech Triger Kayışı Kopma Riski",
+                severity: "high",
+                reportCount: 15,
+                description: "Peugeot 301 ile aynı motor ailesini kullanan C-Elysée'de de EB2 1.2 PureTech motorlarda triger kayışı kopma riski mevcut. PSA geri çağırma kampanyası C-Elysée'yi de kapsıyor. 60.000 km'de kontrol şart. Kayış kopması motor hasarına yol açıyor."
+            },
+            {
+                id: 2,
+                title: "EGR ve DPF Sorunları (1.6 BlueHDi)",
+                severity: "medium",
+                reportCount: 9,
+                description: "301 ile aynı dizel motoru paylaştığı için aynı EGR tıkanması ve DPF doluluk sorunları yaşanıyor. Şehir içi kullanımda daha sık ortaya çıkıyor. DPF rejenerasyon süreci ve EGR temizliği gerekebiliyor."
+            },
+            {
+                id: 3,
+                title: "Ön Takım Sesleri ve Süspansiyon Parça Aşınması",
+                severity: "medium",
+                reportCount: 8,
+                description: "Citroen'in yumuşak süspansiyon setup'ı uzun ömürlü konfor sağlasa da, Türkiye yol koşullarında ön takım parçalarının aşınma hızı yüksek. Rot, rotil ve amortisör takozlarından gelen sesler düzenli kontrol gerektiriyor."
+            },
+            {
+                id: 4,
+                title: "Elektrik Aksam ve Aydınlatma Sorunları",
+                severity: "low",
+                reportCount: 7,
+                description: "Far ampullerinin sık yanması, arka stop lambalarında su sızıntısı ve gösterge panelinde geçici uyarı ışıkları. PSA grubunun elektrik tesisatı kalitesi konusundaki genel eleştirilerin C-Elysée'ye de yansıması."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 19
+    },
+
+    // ─── 20. Ford Tourneo Courier Yeni Nesil (2024-2025) ───
+    {
+        id: 1029,
+        brand: "Ford",
+        model: "Tourneo Courier Yeni Nesil (2024-2025)",
+        year: "2024-2025",
+        ncapStars: 4,
+        ncapYear: "2024",
+        dnaScore: 76,
+        strengths: [
+            "Tamamen Yeni Tasarım (Önceki nesile göre devrim)",
+            "Geniş İç Mekan ve Pratik Kullanım (Kayan kapılar)",
+            "1.0 EcoBoost ve 1.5 EcoBlue Motor Seçenekleri",
+            "Modern Multimedya (SYNC 4 ile Ford Pass Connect)",
+            "Yüksek Oturma Pozisyonu ve Geniş Görüş Açısı"
+        ],
+        weaknesses: [
+            "Yeni Model — Uzun Vadeli Güvenilirlik Henüz Bilinmiyor",
+            "Sert Süspansiyon (Hafif ticari DNA'sı hissedilir)",
+            "Fiyat Artışı (Eski nesile göre ciddi fark)",
+            "1.0 EcoBoost 3 Silindirli Titreşim",
+            "Yedek Parça Henüz Yaygın Değil"
+        ],
+        chronicIssues: [
+            {
+                id: 1,
+                title: "1.0 EcoBoost Motor Sesleri ve Soğutma Hassasiyeti",
+                severity: "medium",
+                reportCount: 5,
+                description: "Yeni nesil olmasına rağmen 1.0 EcoBoost motorun bilinen soğutma sistemi hassasiyeti devam edebilir. Ford'un geçmiş EcoBoost modellerinde yaşanan soğutma sıvısı kaçağı riski bu nesilde de takip edilmeli. Erken kullanıcı raporları henüz sınırlı."
+            },
+            {
+                id: 2,
+                title: "SYNC 4 Multimedya Yazılım Hataları",
+                severity: "low",
+                reportCount: 6,
+                description: "Yeni SYNC 4 sisteminde yazılımsal hatalar, ekran donmaları ve Apple CarPlay/Android Auto bağlantı kopmaları bildiriliyor. Ford'un OTA (kablosuz) güncellemeleri ile düzeltme yapması bekleniyor ama ilk dönem araçlarda yazılım olgunlaşmamış durumda."
+            },
+            {
+                id: 3,
+                title: "Kayan Kapı Mekanizması Sesleri",
+                severity: "low",
+                reportCount: 4,
+                description: "Sürgülü kayan kapı mekanizmasının raylarından gelen sesler ve kapının tam kapanmaması şikayetleri erken dönem kullanıcılardan gelmeye başlıyor. Kapı ayarı ve ray yağlaması ile çözülebilen ama takip edilmesi gereken bir durum."
+            }
+        ],
+        userExperiences: [],
+        totalReports: 8
     }
 ];
 

@@ -40,6 +40,7 @@ function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-6">
                     <Link href="/araclar" className="text-[13px] font-medium text-[#71717A] hover:text-[#0F0F10] transition-colors">Araçlar</Link>
+                    <Link href="/karsilastir" className="text-[13px] font-medium text-[#71717A] hover:text-[#0F0F10] transition-colors">Karşılaştır</Link>
                     <Link href="/rehber" className="text-[13px] font-medium text-[#71717A] hover:text-[#0F0F10] transition-colors">Rehber</Link>
                     <div className="w-px h-4 bg-[#EBEBED]" />
                     <Link href="/araclar" className="btn-primary text-[12px] py-2 px-4">Kusur Ara</Link>
@@ -74,6 +75,7 @@ function Footer() {
                         <h4 className="text-[11px] font-bold text-[#A1A1AA] uppercase tracking-wider mb-3">Keşfet</h4>
                         <ul className="space-y-2">
                             <li><Link href="/araclar" className="text-[13px] text-[#71717A] hover:text-white transition-colors">Araçlar</Link></li>
+                            <li><Link href="/karsilastir" className="text-[13px] text-[#71717A] hover:text-white transition-colors">Karşılaştır</Link></li>
                             <li><Link href="/rehber" className="text-[13px] text-[#71717A] hover:text-white transition-colors">Rehber</Link></li>
                         </ul>
                     </div>
