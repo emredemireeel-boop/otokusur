@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getAllVehicles, getEnginesByVehicleId, getRiskLevel, getRiskLabel, brandSlug, modelSlug } from '@/lib/dataService';
 import type { VehicleDNA } from '@/data/vehicle-dna';
 import VehicleRiskBadge from './VehicleRiskBadge';
-import { ArrowRight, AlertTriangle, CheckCircle2, XCircle, Star, Fuel, Settings, Scale, ChevronDown } from 'lucide-react';
+import { ArrowRight, AlertTriangle, CheckCircle2, XCircle, Star, Fuel, Settings, Scale } from 'lucide-react';
 
 function VehicleSelector({ label, selectedId, onChange }: {
     label: string;

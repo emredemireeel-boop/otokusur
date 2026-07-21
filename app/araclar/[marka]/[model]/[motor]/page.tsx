@@ -32,9 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const engines = getEnginesByVehicleId(v.id);
     const eng = engines.find(e => e.slug === motor);
     if (!eng) return { title: 'Motor Bulunamadı' };
+    const title = `${v.brand} ${v.model} ${eng.name} Kronik Arıza Raporu`;
+    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${eng.chronicIssues.length} kronik motor sorunu ve ${eng.score}/100 risk skoru.`;
+    const url = `/araclar/${marka}/${model}/${motor}`;
     return {
-        title: `${v.brand} ${eng.name} ${v.model} Kronik Arıza ve Kusur Raporu`,
-        description: `${v.brand} ${eng.name} (${eng.fuelType} · ${eng.transmission}) ${v.model} — ${eng.chronicIssues.length} motor kusuru, Skor ${eng.score}/100.`,
+        title,
+        description,
+        alternates: { canonical: url },
+        openGraph: { title, description, url, type: 'article' },
     };
 }
 

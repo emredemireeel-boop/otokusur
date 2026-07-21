@@ -1,0 +1,36 @@
+{
+  "models": {
+    "BYD": {
+      "ATTO 2": ["2025-2026"],
+      "ATTO 3": ["2024-2026"],
+      "DOLPHIN": ["2024-2026"],
+      "HAN": ["2024-2026"],
+      "SEAL": ["2024-2026"],
+      "SEAL U DM-i": ["2024-2026"],
+      "SEAL U EV": ["2024-2026"],
+      "SEALION 7": ["2025-2026"],
+      "TANG": ["2024-2026"]
+    },
+    "Togg": {
+      "T10F": ["2025-2026"],
+      "T10X": ["2023-2026"]
+    }
+  },
+  "engines": {
+    "BYD": {
+      "ATTO 2": { "2025-2026": [{ "n": "130 kW", "f": "Elektrik", "t": "Otomatik" }] },
+      "ATTO 3": { "2024-2026": [{ "n": "150 kW Design", "f": "Elektrik", "t": "Otomatik" }] },
+      "DOLPHIN": { "2024-2026": [{ "n": "150 kW Design", "f": "Elektrik", "t": "Otomatik" }] },
+      "HAN": { "2024-2026": [{ "n": "380 kW AWD", "f": "Elektrik", "t": "Otomatik" }] },
+      "SEAL": { "2024-2026": [{ "n": "230 kW RWD", "f": "Elektrik", "t": "Otomatik" }, { "n": "390 kW AWD", "f": "Elektrik", "t": "Otomatik" }] },
+      "SEAL U DM-i": { "2024-2026": [{ "n": "1.5 DM-i FWD", "f": "Şarj Edilebilir Hibrit", "t": "Otomatik" }, { "n": "1.5T DM-i AWD", "f": "Şarj Edilebilir Hibrit", "t": "Otomatik" }] },
+      "SEAL U EV": { "2024-2026": [{ "n": "160 kW Design", "f": "Elektrik", "t": "Otomatik" }] },
+      "SEALION 7": { "2025-2026": [{ "n": "230 kW RWD", "f": "Elektrik", "t": "Otomatik" }, { "n": "390 kW AWD", "f": "Elektrik", "t": "Otomatik" }] },
+      "TANG": { "2024-2026": [{ "n": "380 kW AWD", "f": "Elektrik", "t": "Otomatik" }] }
+    },
+    "Togg": {
+      "T10F": { "2025-2026": [{ "n": "160 kW RWD", "f": "Elektrik", "t": "Otomatik" }, { "n": "320 kW 4More AWD", "f": "Elektrik", "t": "Otomatik" }] },
+      "T10X": { "2023-2026": [{ "n": "160 kW RWD", "f": "Elektrik", "t": "Otomatik" }, { "n": "320 kW 4More AWD", "f": "Elektrik", "t": "Otomatik" }] }
+    }
+  }
+}

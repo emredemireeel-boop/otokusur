@@ -1,9 +1,10 @@
 import { vehicleDNAData, createSlug } from '@/data/vehicle-dna';
 import type { VehicleDNA, ChronicIssue } from '@/data/vehicle-dna';
 import { engineDNAData } from '@/data/engine-dna';
-import type { VehicleEngineData, EngineOption } from '@/data/engine-dna';
+import type { EngineOption } from '@/data/engine-dna';
 import { trimDNAData } from '@/data/trim-dna';
 import type { VehicleTrimData } from '@/data/trim-dna';
+import { carEnginesCatalog, carModelsCatalog } from '@/data/catalog';
 
 export type RiskLevel = 'low' | 'medium' | 'high';
 
@@ -218,6 +219,34 @@ export function getGlobalStats() {
     const totalIssues = vehicleDNAData.reduce((s, v) => s + v.chronicIssues.length, 0);
     const brands = new Set(vehicleDNAData.map(v => v.brand)).size;
     return { totalVehicles: total, totalIssues, totalBrands: brands };
+}
+
+export function getCatalogStats() {
+    const catalog = carModelsCatalog;
+    const engineCatalog = carEnginesCatalog;
+    let models = 0;
+    let generations = 0;
+    let engines = 0;
+
+    for (const brandModels of Object.values(catalog)) {
+        for (const yearRanges of Object.values(brandModels)) {
+            models += 1;
+            generations += yearRanges.length;
+        }
+    }
+
+    for (const brandModels of Object.values(engineCatalog)) {
+        for (const generationsMap of Object.values(brandModels)) {
+            for (const engineOptions of Object.values(generationsMap)) engines += engineOptions.length;
+        }
+    }
+
+    return {
+        brands: Object.keys(catalog).length,
+        models,
+        generations,
+        engines,
+    };
 }
 
 // ── Popular Vehicles ───────────────────────────────

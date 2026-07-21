@@ -3,8 +3,10 @@ import { guidesData } from '@/data/guides';
 import BlogCard from '@/components/BlogCard';
 
 export const metadata: Metadata = {
-    title: 'Araç Alım Rehberi — İkinci El Araç İpuçları',
+    title: 'İkinci El Araç Alım Rehberi ve Ekspertiz İpuçları',
     description: 'İkinci el araç almadan önce bilmeniz gerekenler, kronik arıza rehberleri, ekspertiz ipuçları ve daha fazlası.',
+    alternates: { canonical: '/rehber' },
+    openGraph: { title: 'İkinci El Araç Alım Rehberi', description: 'Ekspertiz, motor seçimi ve kronik arıza araştırması için uygulanabilir rehberler.', url: '/rehber' },
 };
 
 export default function RehberPage() {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBrandInfo, getVehiclesByBrand, getRiskLevel, getAllBrands, getGlobalAvgScore, getTopRiskVehicle, getTopSafeVehicle, brandSlug, modelSlug } from '@/lib/dataService';
+import { getBrandInfo, getVehiclesByBrand, getRiskLevel, getAllBrands, getGlobalAvgScore, getTopRiskVehicle, getTopSafeVehicle, modelSlug } from '@/lib/dataService';
 import VehicleCard from '@/components/VehicleCard';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import { ChevronRight, AlertTriangle, Shield, TrendingUp, BarChart3 } from 'lucide-react';
@@ -16,7 +16,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { marka } = await params;
     const info = getBrandInfo(marka);
     if (!info) return { title: 'Marka Bulunamadı' };
-    return { title: `${info.name} Kronik Arıza ve Kusur Raporu`, description: `${info.name} — ${info.vehicleCount} model analizi. Ortalama skor: ${info.avgScore}/100.` };
+    const title = `${info.name} Kronik Arızaları, Modelleri ve Risk Skorları`;
+    const description = `${info.name} için ${info.vehicleCount} araç analizi, kronik arıza raporları ve model bazlı risk skorları. Marka ortalaması: ${info.avgScore}/100.`;
+    const url = `/araclar/${marka}`;
+    return {
+        title,
+        description,
+        alternates: { canonical: url },
+        openGraph: { title, description, url, type: 'website' },
+    };
 }
 
 export default async function MarkaPage({ params }: Props) {

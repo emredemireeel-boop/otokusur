@@ -22,13 +22,6 @@ export interface VehicleEngineData {
   engines: EngineOption[];
 }
 
-// Helper to generate IDs
-const generateId = (name: string) =>
-  name
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "-")
-    .replace(/-+/g, "-");
-
 export const engineDNAData: VehicleEngineData[] = [
   {
     vehicleId: 1,

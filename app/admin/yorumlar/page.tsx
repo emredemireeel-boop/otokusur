@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { getAllComments, moderateComment, deleteComment, type Comment, type CommentStatus } from '@/lib/commentService';
-import { Shield, Check, X, Trash2, Star, Clock, Fuel, User, Loader2, Eye, Filter, MessageSquare, Lock } from 'lucide-react';
+import { Shield, Check, X, Trash2, Star, Clock, Fuel, User, Loader2, Filter, MessageSquare, Lock } from 'lucide-react';
 
 // ── Basit Şifre Koruması ───────────────────────────
 // .env.local dosyasına NEXT_PUBLIC_ADMIN_PASSWORD=senin_sifren yaz

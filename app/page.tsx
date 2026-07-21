@@ -1,201 +1,261 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+import {
+    ArrowRight,
+    BadgeCheck,
+    BarChart3,
+    BookOpen,
+    CheckCircle2,
+    ChevronRight,
+    CircleAlert,
+    Database,
+    FileSearch,
+    Gauge,
+    ScanSearch,
+    ShieldCheck,
+    Sparkles,
+    Wrench,
+} from 'lucide-react';
 import HeroSearch from '@/components/HeroSearch';
 import VehicleCard from '@/components/VehicleCard';
 import BlogCard from '@/components/BlogCard';
 import FAQ from '@/components/FAQ';
-import { getGlobalStats, getPopularVehicles, getAllBrands, brandSlug } from '@/lib/dataService';
+import { getAllBrands, getCatalogStats, getGlobalStats, getPopularVehicles } from '@/lib/dataService';
 import { guidesData } from '@/data/guides';
-import { ArrowRight, Search, Shield, BarChart3, AlertTriangle, ChevronRight, Scale, HelpCircle } from 'lucide-react';
+
+export const metadata: Metadata = {
+    alternates: { canonical: '/' },
+};
+
+const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+        {
+            '@type': 'Question',
+            name: 'OtoKusur nedir?',
+            acceptedAnswer: { '@type': 'Answer', text: 'OtoKusur, araçların kronik arızalarını, motor bazlı sorunlarını ve model risk skorlarını bir araya getiren bağımsız bir araştırma platformudur.' },
+        },
+        {
+            '@type': 'Question',
+            name: 'Kronik arıza ne demek?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Kronik arıza, aynı model veya motor ailesindeki çok sayıda araçta tekrar eden, sistemik araç sorunudur.' },
+        },
+        {
+            '@type': 'Question',
+            name: 'OtoKusur ekspertiz yerine geçer mi?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Hayır. OtoKusur satın alma öncesi araştırma aracıdır. Bireysel aracın durumu için bağımsız ekspertiz gerekir.' },
+        },
+    ],
+};
 
 export default function HomePage() {
-    const stats = getGlobalStats();
+    const reportStats = getGlobalStats();
+    const catalogStats = getCatalogStats();
     const popular = getPopularVehicles(6);
+    const featured = popular[0];
     const guides = guidesData.slice(0, 3);
-    const brands = getAllBrands();
+    const brands = getAllBrands().slice(0, 16);
 
     return (
         <>
-            {/* ════════════════════════════════════════════
-                HERO — Clean white, no gradient
-            ════════════════════════════════════════════ */}
-            <section className="border-b border-[#EBEBED]">
-                <div className="container-main pt-12 pb-14 sm:pt-16 sm:pb-20">
-                    {/* Label */}
-                    <div className="flex justify-center mb-6">
-                        <div className="flex items-center gap-2 bg-[#FDF0F2] text-[#A91D3A] text-[11px] font-semibold px-3 py-1.5 rounded-full">
-                            <span className="accent-dot" />
-                            Türkiye&apos;nin araç kusur veritabanı
-                        </div>
-                    </div>
+            <section className="home-hero" id="arac-bul">
+                <div className="hero-grid-overlay" aria-hidden />
+                <div className="hero-glow hero-glow-one" aria-hidden />
+                <div className="hero-glow hero-glow-two" aria-hidden />
 
-                    {/* Heading */}
-                    <div className="text-center max-w-2xl mx-auto mb-10">
-                        <h1 className="text-[32px] sm:text-[42px] lg:text-[48px] font-extrabold text-[#0F0F10] leading-[1.1] tracking-tight mb-4">
-                            Arabayı almadan,<br />
-                            <span className="text-[#A91D3A]">kusurunu öğren.</span>
+                <div className="container-main relative z-10 hero-layout">
+                    <div className="hero-copy">
+                        <div className="hero-eyebrow"><span className="status-pulse" /> Türkiye&apos;nin araç kusur istihbaratı</div>
+                        <h1>
+                            Arabayı değil,<br />
+                            <span>gerçeği</span> satın al.
                         </h1>
-                        <p className="text-[14px] sm:text-[15px] text-[#71717A] leading-relaxed max-w-md mx-auto">
-                            Marka, model ve motor seçerek kronik arızaları ve risk skorunu tek sayfada inceleyin.
+                        <p className="hero-lead">
+                            Marka, model, nesil ve motoru seç. Kronik arızaları, risk skorunu ve ekspertizde bakman gereken kritik noktaları saniyeler içinde gör.
                         </p>
+
+                        <div className="hero-proof-row">
+                            <div><BadgeCheck size={17} /><span><strong>{reportStats.totalVehicles}+</strong> detaylı kusur raporu</span></div>
+                            <div><Database size={17} /><span><strong>{catalogStats.engines.toLocaleString('tr-TR')}+</strong> motor seçeneği</span></div>
+                            <div><ShieldCheck size={17} /><span><strong>Bağımsız</strong> satın alma araştırması</span></div>
+                        </div>
+
+                        {featured && (
+                            <Link href={`/araclar`} className="hero-insight-card">
+                                <div className="insight-icon"><ScanSearch size={19} /></div>
+                                <div className="insight-content">
+                                    <span>Örnek canlı içgörü</span>
+                                    <strong>{featured.brand} {featured.model}</strong>
+                                    <small>{featured.chronicIssues.length} kronik kusur · {featured.totalReports.toLocaleString('tr-TR')} kullanıcı raporu</small>
+                                </div>
+                                <div className="insight-score"><strong>{featured.dnaScore}</strong><span>/100</span></div>
+                            </Link>
+                        )}
                     </div>
 
-                    {/* Configurator */}
                     <HeroSearch />
                 </div>
+
+                <div className="container-main relative z-10">
+                    <div className="hero-stats-rail">
+                        <div><strong>{catalogStats.brands}</strong><span>marka</span></div>
+                        <div><strong>{catalogStats.models.toLocaleString('tr-TR')}</strong><span>model</span></div>
+                        <div><strong>{catalogStats.generations.toLocaleString('tr-TR')}</strong><span>nesil</span></div>
+                        <div><strong>{reportStats.totalIssues.toLocaleString('tr-TR')}</strong><span>kronik arıza</span></div>
+                        <p>Veri kütüphanesi sürekli genişliyor <ArrowRight size={14} /></p>
+                    </div>
+                </div>
             </section>
 
-            {/* ════════════════════════════════════════════
-                STATS — Inline, minimal
-            ════════════════════════════════════════════ */}
-            <section className="bg-[#F7F7F8] border-b border-[#EBEBED]">
-                <div className="container-main py-6">
-                    <div className="flex items-center justify-center gap-6 sm:gap-10 flex-wrap">
+            <section className="brand-rail" aria-label="Popüler araç markaları">
+                <div className="container-main">
+                    <div className="brand-rail-inner">
+                        <span className="brand-rail-label">Popüler markalar</span>
+                        <div className="brand-links">
+                            {brands.map((brand) => (
+                                <Link href={`/araclar/${brand.slug}`} key={brand.slug}>
+                                    {brand.name}<small>{brand.vehicleCount}</small>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="section-shell section-popular">
+                <div className="container-main">
+                    <SectionHeading
+                        eyebrow="Radarımızdaki araçlar"
+                        title="En çok araştırılan kusur raporları"
+                        text="Türkiye ikinci el pazarında sık karşılaşılan modellerin risk profilini, motor seçeneklerini ve kronik sorunlarını inceleyin."
+                        href="/araclar"
+                        linkLabel="Tüm araçları keşfet"
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                        {popular.map((vehicle) => <VehicleCard key={vehicle.id} vehicle={vehicle} />)}
+                    </div>
+                </div>
+            </section>
+
+            <section className="intelligence-section">
+                <div className="container-main intelligence-grid">
+                    <div className="intelligence-copy">
+                        <span className="section-eyebrow light"><Sparkles size={12} /> Bir rapordan daha fazlası</span>
+                        <h2>Satın alma kararının<br /><em>kontrol merkezi.</em></h2>
+                        <p>OtoKusur, yüzlerce dağınık kullanıcı deneyimini ve teknik bilgiyi tek bir okunabilir risk profiline dönüştürür.</p>
+                        <Link href="/karsilastir" className="intelligence-link">İki aracı karşılaştır <ArrowRight size={15} /></Link>
+                    </div>
+
+                    <div className="intelligence-cards">
                         {[
-                            { val: `${stats.totalVehicles}+`, label: 'Model' },
-                            { val: `${stats.totalIssues}+`, label: 'Kronik Arıza' },
-                            { val: `${stats.totalBrands}+`, label: 'Marka' },
-                            { val: '25+', label: 'Kontrol Maddesi' },
-                        ].map(s => (
-                            <div key={s.label} className="flex items-center gap-2">
-                                <span className="text-[18px] sm:text-[20px] font-extrabold text-[#0F0F10]">{s.val}</span>
-                                <span className="text-[11px] text-[#A1A1AA] font-medium">{s.label}</span>
+                            { icon: <Gauge size={18} />, code: '01', title: 'Risk skoru', text: 'Arıza sıklığı ve şiddetini tek bakışta karşılaştır.' },
+                            { icon: <Wrench size={18} />, code: '02', title: 'Motor bazlı analiz', text: 'Aynı kasadaki farklı motorların gerçek risklerini ayır.' },
+                            { icon: <FileSearch size={18} />, code: '03', title: 'Ekspertiz odağı', text: 'Ustaya hangi parçaları özellikle kontrol ettireceğini bil.' },
+                            { icon: <BarChart3 size={18} />, code: '04', title: 'Model karşılaştırma', text: 'Alternatiflerini aynı veri diliyle yan yana değerlendir.' },
+                        ].map((item) => (
+                            <div className="intelligence-card" key={item.code}>
+                                <span className="intelligence-code">{item.code}</span>
+                                <div className="intelligence-icon">{item.icon}</div>
+                                <h3>{item.title}</h3>
+                                <p>{item.text}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ════════════════════════════════════════════
-                BRANDS BAND
-            ════════════════════════════════════════════ */}
-            <section className="border-b border-[#EBEBED] overflow-hidden">
-                <div className="container-main py-6">
-                    <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
-                        {brands.slice(0, 20).map(b => (
-                            <Link
-                                key={b.slug}
-                                href={`/araclar/${b.slug}`}
-                                className="flex-shrink-0 bg-[#F7F7F8] hover:bg-[#EBEBED] border border-[#EBEBED] hover:border-[#D4D4D8] rounded-lg px-4 py-2.5 transition-all group"
-                            >
-                                <span className="text-[12px] font-bold text-[#3F3F46] group-hover:text-[#A91D3A] transition-colors">{b.name}</span>
-                                <span className="text-[9px] text-[#A1A1AA] ml-1.5 font-medium">{b.vehicleCount}</span>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ════════════════════════════════════════════
-                POPULAR MODELS
-            ════════════════════════════════════════════ */}
-            <section className="container-main py-14 sm:py-20">
-                <div className="flex items-end justify-between mb-8 sm:mb-10">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="accent-dot" />
-                            <span className="text-[10px] font-bold text-[#A91D3A] uppercase tracking-[0.1em]">Popüler</span>
+            <section className="section-shell process-section">
+                <div className="container-main">
+                    <div className="process-header">
+                        <div>
+                            <span className="section-eyebrow"><CheckCircle2 size={12} /> Net, hızlı, karar odaklı</span>
+                            <h2>Üç adımda belirsizliği azalt.</h2>
                         </div>
-                        <h2 className="text-[22px] sm:text-[26px] font-extrabold text-[#0F0F10] tracking-tight">En Çok Araştırılan Modeller</h2>
+                        <p>Aracı tanımlamaktan ekspertiz kontrol listesine kadar bütün akış, daha güvenli bir satın alma kararı için tasarlandı.</p>
                     </div>
-                    <Link href="/araclar" className="text-[12px] font-semibold text-[#A91D3A] hidden sm:flex items-center gap-1 hover:gap-1.5 transition-all">
-                        Tümünü Gör <ArrowRight size={13} />
-                    </Link>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {popular.map(v => <VehicleCard key={v.id} vehicle={v} />)}
-                </div>
-                <div className="mt-6 text-center sm:hidden">
-                    <Link href="/araclar" className="btn-ghost text-[12px]">Tüm Araçları Gör <ChevronRight size={13} /></Link>
-                </div>
-            </section>
 
-            {/* ════════════════════════════════════════════
-                HOW IT WORKS — Numbered steps
-            ════════════════════════════════════════════ */}
-            <section className="bg-[#F7F7F8] border-y border-[#EBEBED]">
-                <div className="container-main py-14 sm:py-20">
-                    <div className="text-center mb-10 sm:mb-12">
-                        <div className="flex items-center justify-center gap-2 mb-2">
-                            <span className="accent-dot" />
-                            <span className="text-[10px] font-bold text-[#A91D3A] uppercase tracking-[0.1em]">Nasıl Çalışır</span>
-                        </div>
-                        <h2 className="text-[22px] sm:text-[26px] font-extrabold text-[#0F0F10] tracking-tight">3 Adımda Kusurları Öğren</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="process-steps">
                         {[
-                            { n: '01', title: 'Araç Seç', desc: 'Marka, model, yakıt tipi ve şanzıman tipini seçin.', icon: <Search size={18} /> },
-                            { n: '02', title: 'Raporu İncele', desc: 'Kronik arızaları, risk skorunu ve motor bazlı sorunları görün.', icon: <BarChart3 size={18} /> },
-                            { n: '03', title: 'Bilinçli Karar', desc: 'Kontrol listesiyle ekspertize hazırlıklı gidin.', icon: <Shield size={18} /> },
-                        ].map(s => (
-                            <div key={s.n} className="card-elevated p-6 relative">
-                                <div className="absolute top-5 right-5 text-[28px] font-black text-[#F0F0F2] select-none">{s.n}</div>
-                                <div className="w-10 h-10 rounded-lg bg-[#FDF0F2] flex items-center justify-center text-[#A91D3A] mb-4">{s.icon}</div>
-                                <h3 className="text-[14px] font-bold text-[#0F0F10] mb-1.5">{s.title}</h3>
-                                <p className="text-[12px] text-[#71717A] leading-relaxed">{s.desc}</p>
+                            { n: '01', title: 'Aracı seç', text: 'Marka, model, üretim nesli ve motor seçeneğini belirle.', icon: <ScanSearch size={21} /> },
+                            { n: '02', title: 'Riskleri oku', text: 'Kronik arızaları, maliyet etkisini ve rapor yoğunluğunu gör.', icon: <CircleAlert size={21} /> },
+                            { n: '03', title: 'Hazırlıklı git', text: 'Kontrol noktalarını not al; ekspertizde doğru soruları sor.', icon: <ShieldCheck size={21} /> },
+                        ].map((step, index) => (
+                            <div className="process-step" key={step.n}>
+                                <div className="process-number">{step.n}</div>
+                                <div className="process-icon">{step.icon}</div>
+                                <h3>{step.title}</h3>
+                                <p>{step.text}</p>
+                                {index < 2 && <ChevronRight className="process-arrow" size={22} aria-hidden />}
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ════════════════════════════════════════════
-                GUIDES
-            ════════════════════════════════════════════ */}
-            <section className="container-main py-14 sm:py-20">
-                <div className="flex items-end justify-between mb-8 sm:mb-10">
-                    <div>
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="accent-dot" />
-                            <span className="text-[10px] font-bold text-[#A91D3A] uppercase tracking-[0.1em]">Rehber</span>
-                        </div>
-                        <h2 className="text-[22px] sm:text-[26px] font-extrabold text-[#0F0F10] tracking-tight">Araç Alım Rehberleri</h2>
-                    </div>
-                    <Link href="/rehber" className="text-[12px] font-semibold text-[#A91D3A] hidden sm:flex items-center gap-1 hover:gap-1.5 transition-all">
-                        Tümünü Gör <ArrowRight size={13} />
-                    </Link>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {guides.map(g => <BlogCard key={g.slug} guide={g} />)}
-                </div>
-            </section>
-
-            {/* ════════════════════════════════════════════
-                FAQ — Sıkça Sorulan Sorular
-            ════════════════════════════════════════════ */}
-            <section className="bg-[#F7F7F8] border-y border-[#EBEBED]">
-                <div className="container-main py-14 sm:py-20">
-                    <div className="text-center mb-10 sm:mb-12">
-                        <div className="flex items-center justify-center gap-2 mb-2">
-                            <span className="accent-dot" />
-                            <span className="text-[10px] font-bold text-[#A91D3A] uppercase tracking-[0.1em]">SSS</span>
-                        </div>
-                        <h2 className="text-[22px] sm:text-[26px] font-extrabold text-[#0F0F10] tracking-tight">Sıkça Sorulan Sorular</h2>
-                    </div>
-                    <div className="max-w-2xl mx-auto">
-                        <FAQ />
+            <section className="section-shell guide-section">
+                <div className="container-main">
+                    <SectionHeading
+                        eyebrow="Editörün seçtikleri"
+                        title="İkinci el araç rehberi"
+                        text="Ekspertiz, motor seçimi, bütçe ve test sürüşü konularında kısa ama uygulanabilir rehberler."
+                        href="/rehber"
+                        linkLabel="Tüm rehberler"
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                        {guides.map((guide) => <BlogCard key={guide.slug} guide={guide} />)}
                     </div>
                 </div>
             </section>
 
-            {/* ════════════════════════════════════════════
-                CTA — Dark minimal
-            ════════════════════════════════════════════ */}
-            <section className="container-main py-14 sm:py-20">
-                <div className="card-dark p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h2 className="text-[20px] sm:text-[24px] font-extrabold text-white tracking-tight mb-2">Almadan önce araştır.</h2>
-                        <p className="text-[13px] text-[#71717A] max-w-md">İkinci el araç almadan önce modelin kronik kusurlarını ve risk skorunu incele.</p>
+            <section className="faq-section">
+                <div className="container-main faq-grid">
+                    <div className="faq-intro">
+                        <span className="section-eyebrow"><BookOpen size={12} /> Sık sorulanlar</span>
+                        <h2>Aklındaki soru muhtemelen burada.</h2>
+                        <p>Skor metodolojisi, veri kaynakları ve platformun sınırları hakkında kısa cevaplar.</p>
+                        <div className="faq-assurance"><ShieldCheck size={17} /> OtoKusur bağımsız bir ön araştırma platformudur.</div>
                     </div>
-                    <div className="flex items-center gap-3 flex-shrink-0 flex-wrap">
-                        <Link href="/araclar" className="bg-[#A91D3A] hover:bg-[#8B1730] text-white font-semibold rounded-lg px-6 py-3 text-[13px] transition-colors flex items-center gap-2">
-                            <Search size={14} /> Hemen Araştır
-                        </Link>
-                        <Link href="/karsilastir" className="bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg px-6 py-3 text-[13px] transition-colors flex items-center gap-2">
-                            <Scale size={14} /> Karşılaştır
-                        </Link>
-                    </div>
+                    <FAQ />
                 </div>
             </section>
+
+            <section className="final-cta">
+                <div className="container-main final-cta-inner">
+                    <div>
+                        <span>Bir sonraki aracını şansa bırakma.</span>
+                        <h2>Almadan önce kusurunu öğren.</h2>
+                    </div>
+                    <Link href="/#arac-bul" className="final-cta-button">Aracını analiz et <ArrowRight size={17} /></Link>
+                </div>
+            </section>
+
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         </>
+    );
+}
+
+function SectionHeading({
+    eyebrow,
+    title,
+    text,
+    href,
+    linkLabel,
+}: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    href: string;
+    linkLabel: string;
+}) {
+    return (
+        <div className="section-heading">
+            <div>
+                <span className="section-eyebrow"><span className="accent-dot" /> {eyebrow}</span>
+                <h2>{title}</h2>
+                <p>{text}</p>
+            </div>
+            <Link href={href}>{linkLabel} <ArrowRight size={14} /></Link>
+        </div>
     );
 }

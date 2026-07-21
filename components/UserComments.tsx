@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { MessageSquare, Star, Send, User, ThumbsUp, Clock } from 'lucide-react';
+import { MessageSquare, Star, Send, ThumbsUp, Clock } from 'lucide-react';
 
 interface Comment {
     id: string;

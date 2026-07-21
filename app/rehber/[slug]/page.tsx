@@ -16,7 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
     const guide = guidesData.find(g => g.slug === slug);
     if (!guide) return { title: 'Rehber Bulunamadı' };
-    return { title: guide.title, description: guide.excerpt };
+    const url = `/rehber/${guide.slug}`;
+    return {
+        title: guide.title,
+        description: guide.excerpt,
+        alternates: { canonical: url },
+        openGraph: { title: guide.title, description: guide.excerpt, url, type: 'article', publishedTime: guide.publishDate },
+    };
 }
 
 export default async function RehberDetailPage({ params }: Props) {

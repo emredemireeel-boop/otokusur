@@ -1,24 +1,45 @@
 'use client';
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 
 export function HeaderClient() {
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        document.body.style.overflow = open ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [open]);
+
     return (
         <>
-            <button className="md:hidden p-1.5 rounded-md hover:bg-[#F7F7F8] transition-colors" onClick={() => setOpen(!open)} aria-label="Menü">
-                {open ? <X size={18} /> : <Menu size={18} />}
+            <button
+                className="mobile-menu-button md:hidden"
+                onClick={() => setOpen(!open)}
+                aria-label={open ? 'Menüyü kapat' : 'Menüyü aç'}
+                aria-expanded={open}
+                aria-controls="mobile-navigation"
+            >
+                {open ? <X size={20} /> : <Menu size={20} />}
             </button>
+
             {open && (
-                <div className="absolute top-14 left-0 right-0 bg-white border-b border-[#EBEBED] shadow-lg md:hidden z-50">
-                    <nav className="flex flex-col p-3 gap-0.5">
-                        <Link href="/araclar" className="px-4 py-2.5 rounded-md hover:bg-[#F7F7F8] text-[13px] font-medium text-[#0F0F10] transition-colors" onClick={() => setOpen(false)}>Araçlar</Link>
-                        <Link href="/rehber" className="px-4 py-2.5 rounded-md hover:bg-[#F7F7F8] text-[13px] font-medium text-[#0F0F10] transition-colors" onClick={() => setOpen(false)}>Rehber</Link>
-                        <div className="mt-2 px-3">
-                            <Link href="/araclar" className="btn-primary w-full text-center text-[12px] py-2.5 justify-center" onClick={() => setOpen(false)}>Kusur Ara</Link>
-                        </div>
+                <div className="mobile-menu-backdrop md:hidden" onClick={() => setOpen(false)}>
+                    <nav
+                        id="mobile-navigation"
+                        className="mobile-menu-panel"
+                        aria-label="Mobil menü"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <p className="mobile-menu-eyebrow">Keşfet</p>
+                        <Link href="/araclar" onClick={() => setOpen(false)}>Araç Kütüphanesi</Link>
+                        <Link href="/karsilastir" onClick={() => setOpen(false)}>Araç Karşılaştır</Link>
+                        <Link href="/rehber" onClick={() => setOpen(false)}>Satın Alma Rehberi</Link>
+                        <Link href="/#arac-bul" className="mobile-menu-cta" onClick={() => setOpen(false)}>
+                            Aracını analiz et <ArrowUpRight size={16} />
+                        </Link>
+                        <p className="mobile-menu-note">263 araç kusur raporu · 16.000+ motor seçeneği</p>
                     </nav>
                 </div>
             )}

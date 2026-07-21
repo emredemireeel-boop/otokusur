@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLevel, getCostLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
+import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import TrimComparisonTable from '@/components/TrimComparisonTable';
 import Comments from '@/components/Comments';
@@ -18,9 +18,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const v = getVehicleBySlug(marka, model);
     if (!v) return { title: 'Araç Bulunamadı' };
     const engines = getEnginesByVehicleId(v.id);
+    const title = `${v.brand} ${v.model} Kronik Arızaları ve Motor Seçenekleri`;
+    const description = `${v.brand} ${v.model} (${v.year}) için ${engines.length} motor seçeneği, ${v.chronicIssues.length} genel kronik kusur ve ${v.dnaScore}/100 risk skoru.`;
+    const url = `/araclar/${marka}/${model}`;
     return {
-        title: `${v.brand} ${v.model} Motor Seçenekleri ve Kusur Raporu`,
-        description: `${v.brand} ${v.model} (${v.year}) — ${engines.length} motor seçeneği. Motor bazlı kronik arıza ve kusur raporları.`,
+        title,
+        description,
+        alternates: { canonical: url },
+        openGraph: { title, description, url, type: 'article' },
     };
 }
 
@@ -31,7 +36,6 @@ export default async function ModelDetayPage({ params }: Props) {
 
     const risk = getRiskLevel(v.dnaScore);
     const engines = getEnginesByVehicleId(v.id);
-    const costLevel = getCostLevel(v.dnaScore);
     const trimData = getTrimsByVehicleId(v.id);
 
     return (

@@ -4,8 +4,10 @@ import ComparisonClient from '@/components/ComparisonClient';
 import { Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Araç Karşılaştır — İki Aracı Yan Yana Kıyasla',
+    title: 'Araç Karşılaştırma — Risk ve Kronik Arıza Kıyaslama',
     description: 'İki farklı aracı DNA skoru, kronik kusur, risk seviyesi ve motor seçenekleri ile yan yana karşılaştırın.',
+    alternates: { canonical: '/karsilastir' },
+    openGraph: { title: 'Araç Risk ve Kusur Karşılaştırma', description: 'İki aracı risk skoru, kronik arıza ve motor seçenekleriyle yan yana kıyaslayın.', url: '/karsilastir' },
 };
 
 export default function KarsilastirPage() {

@@ -30,7 +30,7 @@ const faqData: FAQItem[] = [
     },
     {
         q: 'Hangi markalar ve modeller destekleniyor?',
-        a: 'Türkiye\'de en çok satılan ve ikinci el piyasasında en popüler olan 35+ marka ve 210+ model desteklenmektedir. Renault, Volkswagen, Ford, Fiat, Toyota, Hyundai, Opel, Skoda, Honda, Nissan, Peugeot, Citroën, Dacia ve daha birçok marka mevcuttur.'
+        a: 'Katalogda 40+ marka, 1.900+ model, 3.500+ üretim nesli ve 16.000+ motor seçeneği bulunmaktadır. Detaylı kronik kusur raporları ise Türkiye ikinci el pazarında en sık araştırılan araçlardan başlayarak sürekli genişletilmektedir.'
     },
 ];
 

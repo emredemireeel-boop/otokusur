@@ -11,6 +11,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
     compress: true,
+    turbopack: {
+        root: process.cwd(),
+    },
     images: {
         formats: ['image/avif', 'image/webp'],
     },
@@ -24,7 +27,6 @@ const nextConfig: NextConfig = {
         ];
     },
     poweredByHeader: false,
-    typescript: { ignoreBuildErrors: true },
 };
 
 export default nextConfig;

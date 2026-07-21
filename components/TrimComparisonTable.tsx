@@ -33,7 +33,7 @@ const statusConfig = {
     },
 };
 
-export default function TrimComparisonTable({ trimData, vehicleName }: TrimComparisonTableProps) {
+export default function TrimComparisonTable({ trimData }: TrimComparisonTableProps) {
     const [isExpanded, setIsExpanded] = useState(true);
     const [highlightedTrim, setHighlightedTrim] = useState<number | null>(null);
 

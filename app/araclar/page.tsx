@@ -3,8 +3,15 @@ import { Suspense } from 'react';
 import VehicleListClient from '@/components/VehicleListClient';
 
 export const metadata: Metadata = {
-    title: 'Araçlar — Kronik Kusur Veritabanı',
-    description: 'Marka ve model bazlı araç kusurlarını, kronik arızalarını ve risk skorlarını inceleyin. 239+ araç modeli analiz edildi.',
+    title: 'Araç Kronik Arıza ve Kusur Veritabanı',
+    description: '263+ detaylı araç raporunu marka, yakıt ve risk seviyesine göre filtreleyin. Kronik arızaları, motor sorunlarını ve risk skorlarını karşılaştırın.',
+    alternates: { canonical: '/araclar' },
+    openGraph: {
+        title: 'Araç Kronik Arıza ve Kusur Veritabanı',
+        description: 'Model ve motor bazında kronik arıza raporlarını keşfedin.',
+        url: '/araclar',
+        type: 'website',
+    },
 };
 
 export default function AraclarPage() {
