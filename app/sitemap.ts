@@ -3,6 +3,11 @@ import { getAllVehicles, getEnginesByVehicleId, getAllBrands, brandSlug, modelSl
 import { guidesData } from '@/data/guides';
 
 const BASE_URL = 'https://otokusur.com';
+const CONTENT_LAST_UPDATED = new Date('2026-07-31');
+
+// Keep sitemap output stable between deployments so search engines can trust
+// the lastmod signal instead of seeing every URL as changed on every request.
+export const revalidate = 86400;
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const vehicles = getAllVehicles();
@@ -10,17 +15,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // ── Statik Sayfalar ────────────────────────────
     const staticPages: MetadataRoute.Sitemap = [
-        { url: BASE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
-        { url: `${BASE_URL}/araclar`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-        { url: `${BASE_URL}/karsilastir`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-        { url: `${BASE_URL}/rehber`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+        { url: BASE_URL, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'daily', priority: 1 },
+        { url: `${BASE_URL}/araclar`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'daily', priority: 0.9 },
+        { url: `${BASE_URL}/karsilastir`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'weekly', priority: 0.8 },
+        { url: `${BASE_URL}/rehber`, lastModified: CONTENT_LAST_UPDATED, changeFrequency: 'weekly', priority: 0.7 },
         { url: `${BASE_URL}/veri-metodolojisi`, lastModified: new Date('2026-07-21'), changeFrequency: 'monthly', priority: 0.6 },
     ];
 
     // ── Marka Sayfaları ────────────────────────────
     const brandPages: MetadataRoute.Sitemap = brands.map(b => ({
         url: `${BASE_URL}/araclar/${b.slug}`,
-        lastModified: new Date(),
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
     }));
@@ -28,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ── Model Sayfaları ────────────────────────────
     const vehiclePages: MetadataRoute.Sitemap = vehicles.map(v => ({
         url: `${BASE_URL}/araclar/${brandSlug(v.brand)}/${modelSlug(v.model)}`,
-        lastModified: new Date(),
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly' as const,
         priority: 0.7,
     }));
@@ -40,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         for (const eng of engines) {
             motorPages.push({
                 url: `${BASE_URL}/araclar/${brandSlug(v.brand)}/${modelSlug(v.model)}/${eng.slug}`,
-                lastModified: new Date(),
+                lastModified: CONTENT_LAST_UPDATED,
                 changeFrequency: 'monthly' as const,
                 priority: 0.6,
             });
