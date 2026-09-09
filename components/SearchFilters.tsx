@@ -1,17 +1,17 @@
 'use client';
-import { useState, useMemo } from 'react';
-import { getAllBrands } from '@/lib/dataService';
+import { useState } from 'react';
+import type { BrandInfo } from '@/lib/dataService';
 import { Filter, X } from 'lucide-react';
 
 interface Props {
+    brands: BrandInfo[];
     selectedBrand: string; selectedFuel: string; selectedRisk: string;
     onBrandChange: (v: string) => void; onFuelChange: (v: string) => void;
     onRiskChange: (v: string) => void; onClear: () => void;
 }
 
-export default function SearchFilters({ selectedBrand, selectedFuel, selectedRisk, onBrandChange, onFuelChange, onRiskChange, onClear }: Props) {
+export default function SearchFilters({ brands, selectedBrand, selectedFuel, selectedRisk, onBrandChange, onFuelChange, onRiskChange, onClear }: Props) {
     const [showMobile, setShowMobile] = useState(false);
-    const brands = useMemo(() => getAllBrands(), []);
     const hasFilters = selectedBrand || selectedFuel || selectedRisk;
 
     const content = (

@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import VehicleListClient from '@/components/VehicleListClient';
-import { getAllBrands } from '@/lib/dataService';
+import { getAllBrands, getVehicleSummaries } from '@/lib/dataService';
 
 export const metadata: Metadata = {
     title: 'Araç Kronik Arıza ve Kusur Veritabanı',
-    description: '263+ detaylı araç raporunu marka, yakıt ve risk seviyesine göre filtreleyin. Kronik arızaları, motor sorunlarını ve risk skorlarını karşılaştırın.',
+    description: '200+ benzersiz araç raporunu marka, yakıt ve risk seviyesine göre filtreleyin. Kronik arızaları, motor sorunlarını ve risk skorlarını karşılaştırın.',
     alternates: { canonical: '/araclar' },
     openGraph: {
         title: 'Araç Kronik Arıza ve Kusur Veritabanı',
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 export default function AraclarPage() {
     const brands = getAllBrands();
+    const vehicles = getVehicleSummaries();
     const brandDirectorySchema = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
@@ -60,7 +61,7 @@ export default function AraclarPage() {
             </nav>
 
             <Suspense fallback={<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{Array.from({length:6}).map((_,i)=><div key={i} className="skeleton h-48 rounded-2xl"/>)}</div>}>
-                <VehicleListClient />
+                <VehicleListClient vehicles={vehicles} brands={brands} />
             </Suspense>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandDirectorySchema) }} />
         </section>

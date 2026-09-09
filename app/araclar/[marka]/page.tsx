@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBrandInfo, getVehiclesByBrand, getRiskLevel, getAllBrands, getGlobalAvgScore, getTopRiskVehicle, getTopSafeVehicle, modelSlug } from '@/lib/dataService';
+import { getBrandInfo, getVehiclesByBrand, getRiskLevel, getAllBrands, getGlobalAvgScore, getTopRiskVehicle, getTopSafeVehicle, modelSlug, toVehicleSummary } from '@/lib/dataService';
 import VehicleCard from '@/components/VehicleCard';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
+import { absoluteUrl, breadcrumbSchema, EDITORIAL_TEAM_NAME } from '@/lib/seo';
 import { ChevronRight, AlertTriangle, Shield, TrendingUp, BarChart3 } from 'lucide-react';
 
 interface Props { params: Promise<{ marka: string }> }
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title,
         description,
         alternates: { canonical: url },
+        authors: [{ name: EDITORIAL_TEAM_NAME, url: '/hakkimizda' }],
         openGraph: { title, description, url, type: 'website' },
     };
 }
@@ -40,6 +42,25 @@ export default async function MarkaPage({ params }: Props) {
     const riskiest = getTopRiskVehicle(marka);
     const safest = getTopSafeVehicle(marka);
     const totalIssues = vehicles.reduce((s, v) => s + v.chronicIssues.length, 0);
+    const structuredData = [
+        breadcrumbSchema([
+            { name: 'Ana Sayfa', path: '/' },
+            { name: 'Araçlar', path: '/araclar' },
+            { name: info.name },
+        ]),
+        {
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: `${info.name} kronik arıza raporları`,
+            numberOfItems: vehicles.length,
+            itemListElement: vehicles.map((vehicle, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name: `${vehicle.brand} ${vehicle.model}`,
+                url: absoluteUrl(`/araclar/${marka}/${modelSlug(vehicle.model)}`),
+            })),
+        },
+    ];
 
     const highPct = Math.round((high / vehicles.length) * 100);
     const medPct = Math.round((med / vehicles.length) * 100);
@@ -169,8 +190,12 @@ export default async function MarkaPage({ params }: Props) {
             {/* Model List */}
             <h2 className="label mb-4">{info.name} Modelleri ({info.vehicleCount})</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {vehicles.map(v => <VehicleCard key={v.id} vehicle={v} />)}
+                {vehicles.map(v => {
+                    const summary = toVehicleSummary(v);
+                    return <VehicleCard key={summary.href} vehicle={summary} />;
+                })}
             </div>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         </section>
     );
 }

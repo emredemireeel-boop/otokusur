@@ -20,42 +20,22 @@ import HeroSearch from '@/components/HeroSearch';
 import VehicleCard from '@/components/VehicleCard';
 import BlogCard from '@/components/BlogCard';
 import FAQ from '@/components/FAQ';
-import { getAllBrands, getCatalogStats, getGlobalStats, getPopularVehicles } from '@/lib/dataService';
+import { getAllBrands, getCatalogBrandNames, getCatalogStats, getGlobalStats, getPopularVehicles, toVehicleSummary } from '@/lib/dataService';
 import { guidesData } from '@/data/guides';
 
 export const metadata: Metadata = {
     alternates: { canonical: '/' },
 };
 
-const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-        {
-            '@type': 'Question',
-            name: 'OtoKusur nedir?',
-            acceptedAnswer: { '@type': 'Answer', text: 'OtoKusur, araçların kronik arızalarını, motor bazlı sorunlarını ve model risk skorlarını bir araya getiren bağımsız bir araştırma platformudur.' },
-        },
-        {
-            '@type': 'Question',
-            name: 'Kronik arıza ne demek?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Kronik arıza, aynı model veya motor ailesindeki çok sayıda araçta tekrar eden, sistemik araç sorunudur.' },
-        },
-        {
-            '@type': 'Question',
-            name: 'OtoKusur ekspertiz yerine geçer mi?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Hayır. OtoKusur satın alma öncesi araştırma aracıdır. Bireysel aracın durumu için bağımsız ekspertiz gerekir.' },
-        },
-    ],
-};
-
 export default function HomePage() {
     const reportStats = getGlobalStats();
     const catalogStats = getCatalogStats();
     const popular = getPopularVehicles(6);
+    const popularCards = popular.map(toVehicleSummary);
     const featured = popular[0];
     const guides = guidesData.slice(0, 3);
     const brands = getAllBrands().slice(0, 16);
+    const catalogBrands = getCatalogBrandNames();
 
     return (
         <>
@@ -94,7 +74,7 @@ export default function HomePage() {
                         )}
                     </div>
 
-                    <HeroSearch />
+                    <HeroSearch brands={catalogBrands} stats={catalogStats} />
                 </div>
 
                 <div className="container-main relative z-10">
@@ -133,7 +113,7 @@ export default function HomePage() {
                         linkLabel="Tüm araçları keşfet"
                     />
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                        {popular.map((vehicle) => <VehicleCard key={vehicle.id} vehicle={vehicle} />)}
+                        {popularCards.map((vehicle) => <VehicleCard key={vehicle.href} vehicle={vehicle} />)}
                     </div>
                 </div>
             </section>
@@ -230,7 +210,6 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         </>
     );
 }

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:audit": "node --no-warnings --experimental-strip-types scripts/seo-audit.mts"
   },
   "dependencies": {
     "firebase": "^12.15.0",

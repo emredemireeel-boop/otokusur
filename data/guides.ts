@@ -6,6 +6,7 @@ export interface Guide {
     category: string;
     readTime: string;
     publishDate: string;
+    updatedDate?: string;
 }
 
 export const guidesData: Guide[] = [
@@ -406,14 +407,15 @@ OtoKusur'da her motor seçeneğinin şanzıman bilgisi ve kronik arızaları det
     },
     {
         slug: 'dizel-mi-benzinli-mi',
-        title: 'Dizel mi Benzinli mi? 2025 Gerçekleri',
+        title: 'Dizel mi Benzinli mi? Kullanıma Göre Karar Rehberi',
         excerpt: 'Dizel ve benzinli motor karşılaştırması: yakıt maliyeti, bakım, dayanıklılık ve çevresel etki.',
         category: 'Satın Alma Rehberi',
         readTime: '6 dk',
         publishDate: '2025-06-25',
+        updatedDate: '2026-09-09',
         content: `## Dizel mi Benzinli mi?
 
-2025'te bu soru her zamankinden daha karmaşık. Emisyon normları, yakıt fiyatları ve elektrikli araç geçişi dengeleri değiştirdi.
+Bu karar yalnızca yakıt tüketimine göre verilmemeli. Yıllık kilometre, sürüş güzergâhı, bakım geçmişi ve emisyon sistemlerinin kullanım biçimine uygunluğu birlikte değerlendirilmeli.
 
 ### Dizel Motor Avantajları
 
@@ -459,9 +461,9 @@ OtoKusur'da her motor seçeneğinin şanzıman bilgisi ve kronik arızaları det
 - LPG dönüşümü düşünülüyorsa
 - Düşük bakım maliyeti öncelikse
 
-### 2025 Gerçeği
+### Karar Özeti
 
-Şehir içi kullanım ağırlıklıysa **benzinli + LPG** en ekonomik çözüm. Uzun yol ağırlıklıysa **dizel** hala mantıklı. Ancak dizel alırken DPF, EGR ve enjektör bakım geçmişini mutlaka sorgulayın.`
+Kısa mesafeli ve yoğun şehir içi kullanımda benzinli seçenekler genellikle daha az emisyon sistemi riski taşır. Düzenli uzun yol yapan ve yıllık kilometresi yüksek sürücüler için dizel hâlâ değerlendirilebilir. LPG düşünülüyorsa motor uyumluluğu ayrıca doğrulanmalıdır. Her durumda DPF, EGR, enjektör ve bakım geçmişini araç özelinde sorgulayın.`
     },
     {
         slug: 'yuksek-kilometreli-arac-alinir-mi',
@@ -521,4 +523,3 @@ Yüksek kilometreli araçlar genellikle düşük fiyatlı olduğu için cazip g�
 Yüksek kilometreli araç almadan önce OtoKusur'dan modelin kronik arıza raporunu inceleyin. Hangi km'de hangi sorunların çıkacağını önceden bilmek, ekspertizde neye bakmanız gerektiğini gösterir.`
     }
 ];
-

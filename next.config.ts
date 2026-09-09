@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
     },
+    async redirects() {
+        return [
+            {
+                source: '/:path*',
+                has: [{ type: 'host', value: 'www.otokusur.com' }],
+                destination: 'https://otokusur.com/:path*',
+                permanent: true,
+            },
+        ];
+    },
     async headers() {
         return [
             { source: '/(.*)', headers: securityHeaders },

@@ -16,6 +16,18 @@ export interface BrandInfo {
     totalIssues: number;
 }
 
+export interface VehicleSummary {
+    id: number;
+    brand: string;
+    model: string;
+    year: string;
+    dnaScore: number;
+    totalReports: number;
+    issueCount: number;
+    fuelTypes: string[];
+    href: string;
+}
+
 // ── Slugs ──────────────────────────────────────────────
 export { createSlug };
 
@@ -26,6 +38,16 @@ export function brandSlug(brand: string): string {
 export function modelSlug(model: string): string {
     return createSlug(model);
 }
+
+// Some imported batches contain the same public route more than once.
+// Preserve the historically visible first record until an editorial merge.
+const uniqueVehicleDNAData = Array.from(
+    vehicleDNAData.reduce((vehicles, vehicle) => {
+        const routeKey = `${brandSlug(vehicle.brand)}/${modelSlug(vehicle.model)}`;
+        if (!vehicles.has(routeKey)) vehicles.set(routeKey, vehicle);
+        return vehicles;
+    }, new Map<string, VehicleDNA>()).values(),
+);
 
 // ── Risk Level ─────────────────────────────────────────
 export function getRiskLevel(score: number): RiskLevel {
@@ -59,22 +81,22 @@ export function getCostLevel(score: number): string {
 
 // ── Data Access ────────────────────────────────────────
 export function getAllVehicles(): VehicleDNA[] {
-    return vehicleDNAData;
+    return uniqueVehicleDNAData;
 }
 
 export function getVehicleBySlug(bSlug: string, mSlug: string): VehicleDNA | undefined {
-    return vehicleDNAData.find(v =>
+    return uniqueVehicleDNAData.find(v =>
         brandSlug(v.brand) === bSlug && modelSlug(v.model) === mSlug
     );
 }
 
 export function getVehiclesByBrand(bSlug: string): VehicleDNA[] {
-    return vehicleDNAData.filter(v => brandSlug(v.brand) === bSlug);
+    return uniqueVehicleDNAData.filter(v => brandSlug(v.brand) === bSlug);
 }
 
 export function getAllBrands(): BrandInfo[] {
     const brandMap = new Map<string, VehicleDNA[]>();
-    vehicleDNAData.forEach(v => {
+    uniqueVehicleDNAData.forEach(v => {
         const key = v.brand;
         if (!brandMap.has(key)) brandMap.set(key, []);
         brandMap.get(key)!.push(v);
@@ -122,8 +144,8 @@ export interface VehicleFilters {
 
 export function searchVehicles(query: string): VehicleDNA[] {
     const q = query.toLowerCase().trim();
-    if (!q) return vehicleDNAData;
-    return vehicleDNAData.filter(v =>
+    if (!q) return uniqueVehicleDNAData;
+    return uniqueVehicleDNAData.filter(v =>
         v.brand.toLowerCase().includes(q) ||
         v.model.toLowerCase().includes(q) ||
         v.year.includes(q)
@@ -131,7 +153,7 @@ export function searchVehicles(query: string): VehicleDNA[] {
 }
 
 export function filterVehicles(filters: VehicleFilters): VehicleDNA[] {
-    let results = vehicleDNAData;
+    let results = uniqueVehicleDNAData;
 
     if (filters.query) {
         const q = filters.query.toLowerCase().trim();
@@ -215,9 +237,9 @@ function getCategoryIcon(cat: string): string {
 
 // ── Stats ──────────────────────────────────────────────
 export function getGlobalStats() {
-    const total = vehicleDNAData.length;
-    const totalIssues = vehicleDNAData.reduce((s, v) => s + v.chronicIssues.length, 0);
-    const brands = new Set(vehicleDNAData.map(v => v.brand)).size;
+    const total = uniqueVehicleDNAData.length;
+    const totalIssues = uniqueVehicleDNAData.reduce((s, v) => s + v.chronicIssues.length, 0);
+    const brands = new Set(uniqueVehicleDNAData.map(v => v.brand)).size;
     return { totalVehicles: total, totalIssues, totalBrands: brands };
 }
 
@@ -251,20 +273,20 @@ export function getCatalogStats() {
 
 // ── Popular Vehicles ───────────────────────────────
 export function getPopularVehicles(count = 8): VehicleDNA[] {
-    return [...vehicleDNAData]
+    return [...uniqueVehicleDNAData]
         .sort((a, b) => b.totalReports - a.totalReports || b.chronicIssues.length - a.chronicIssues.length)
         .slice(0, count);
 }
 
 // ── Vehicle by ID ──────────────────────────────────
 export function getVehicleById(id: number): VehicleDNA | undefined {
-    return vehicleDNAData.find(v => v.id === id);
+    return uniqueVehicleDNAData.find(v => v.id === id);
 }
 
 // ── Global Average Score ───────────────────────────
 export function getGlobalAvgScore(): number {
-    if (vehicleDNAData.length === 0) return 0;
-    return Math.round(vehicleDNAData.reduce((s, v) => s + v.dnaScore, 0) / vehicleDNAData.length);
+    if (uniqueVehicleDNAData.length === 0) return 0;
+    return Math.round(uniqueVehicleDNAData.reduce((s, v) => s + v.dnaScore, 0) / uniqueVehicleDNAData.length);
 }
 
 // ── Brand Top Risk / Safe Vehicles ─────────────────
@@ -282,9 +304,31 @@ export function getTopSafeVehicle(bSlug: string): VehicleDNA | undefined {
 
 // ── Unique Brands List (for comparison selectors) ──
 export function getUniqueBrands(): string[] {
-    return [...new Set(vehicleDNAData.map(v => v.brand))].sort();
+    return [...new Set(uniqueVehicleDNAData.map(v => v.brand))].sort();
 }
 
 export function getModelsByBrand(brandName: string): VehicleDNA[] {
-    return vehicleDNAData.filter(v => v.brand === brandName);
+    return uniqueVehicleDNAData.filter(v => v.brand === brandName);
+}
+
+export function toVehicleSummary(vehicle: VehicleDNA): VehicleSummary {
+    return {
+        id: vehicle.id,
+        brand: vehicle.brand,
+        model: vehicle.model,
+        year: vehicle.year,
+        dnaScore: vehicle.dnaScore,
+        totalReports: vehicle.totalReports,
+        issueCount: vehicle.chronicIssues.length,
+        fuelTypes: getVehicleFuelTypes(vehicle.id),
+        href: `/araclar/${brandSlug(vehicle.brand)}/${modelSlug(vehicle.model)}`,
+    };
+}
+
+export function getVehicleSummaries(): VehicleSummary[] {
+    return uniqueVehicleDNAData.map(toVehicleSummary);
+}
+
+export function getCatalogBrandNames(): string[] {
+    return Object.keys(carModelsCatalog).sort((a, b) => a.localeCompare(b, 'tr'));
 }

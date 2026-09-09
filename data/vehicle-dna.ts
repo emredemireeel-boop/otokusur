@@ -91,7 +91,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 7
     },
     {
-        id: 1001,
+        id: 11001,
         brand: "Renault",
         model: "Clio 1. Nesil (1990-1998)",
         year: "1990-1998",
@@ -146,7 +146,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 7
     },
     {
-        id: 1002,
+        id: 11002,
         brand: "Renault",
         model: "Clio 2. Nesil (1998-2012)",
         year: "1998-2012",
@@ -2928,7 +2928,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 9
     },
     {
-        id: 101,
+        id: 11101,
         brand: "Tofaş",
         model: "Şahin (1988-2002)",
         year: "1988-2002",
@@ -2983,7 +2983,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg/800px-Tofa%C5%9F_%C5%9Eahin_1.6_ie.jpg"
     },
     {
-        id: 102,
+        id: 11102,
         brand: "Tofaş",
         model: "Doğan (1988-2002)",
         year: "1988-2002",
@@ -3030,7 +3030,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg/800px-Tofa%C5%9F_Do%C4%9Fan_1.6_ie.jpg"
     },
     {
-        id: 103,
+        id: 11103,
         brand: "Tofaş",
         model: "Kartal (1988-2002)",
         year: "1988-2002",
@@ -3076,7 +3076,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Tofa%C5%9F_Kartal_1.6_ie.jpg/800px-Tofa%C5%9F_Kartal_1.6_ie.jpg"
     },
     {
-        id: 104,
+        id: 11104,
         brand: "Tofaş",
         model: "Serçe (1984-1994)",
         year: "1984-1994",
@@ -9386,7 +9386,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 6
     }
     ,{
-        id: 1001,
+        id: 11003,
         brand: "Tofaş",
         model: "Murat 131 / 124",
         year: "1977-1988",
@@ -9401,7 +9401,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 5
     },
     {
-        id: 1002,
+        id: 11004,
         brand: "Tofaş",
         model: "Doğan",
         year: "1988-2002",
@@ -9415,7 +9415,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 6
     },
     {
-        id: 1003,
+        id: 11005,
         brand: "Skoda",
         model: "Favorit / Forman",
         year: "1989-1995",
@@ -9429,7 +9429,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 5
     },
     {
-        id: 1004,
+        id: 11006,
         brand: "Renault",
         model: "9 (Spring / Broadway)",
         year: "1988-1995",
@@ -9443,7 +9443,7 @@ export const vehicleDNAData: VehicleDNA[] = [
         totalReports: 8
     },
     {
-        id: 1005,
+        id: 11007,
         brand: "Renault",
         model: "11 (Flash / Rainbow)",
         year: "1988-1995",

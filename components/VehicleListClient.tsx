@@ -1,14 +1,18 @@
 'use client';
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { filterVehicles } from '@/lib/dataService';
-import type { RiskLevel } from '@/lib/dataService';
+import type { BrandInfo, VehicleSummary } from '@/lib/dataService';
 import VehicleCard from '@/components/VehicleCard';
 import SearchFilters from '@/components/SearchFilters';
 import EmptyState from '@/components/EmptyState';
 import { Search } from 'lucide-react';
 
-export default function VehicleListClient() {
+interface Props {
+    vehicles: VehicleSummary[];
+    brands: BrandInfo[];
+}
+
+export default function VehicleListClient({ vehicles: allVehicles, brands }: Props) {
     const searchParams = useSearchParams();
     const initialQuery = searchParams.get('q') || '';
 
@@ -17,18 +21,24 @@ export default function VehicleListClient() {
     const [fuel, setFuel] = useState('');
     const [risk, setRisk] = useState('');
 
-    const vehicles = useMemo(() =>
-        filterVehicles({
-            query: query || undefined,
-            brand: brand || undefined,
-            fuelType: fuel || undefined,
-            riskLevel: (risk as RiskLevel) || undefined,
-        })
-    , [query, brand, fuel, risk]);
+    const vehicles = useMemo(() => {
+        const normalizedQuery = query.trim().toLocaleLowerCase('tr-TR');
+
+        return allVehicles.filter((vehicle) => {
+            const riskLevel = vehicle.dnaScore >= 80 ? 'low' : vehicle.dnaScore >= 60 ? 'medium' : 'high';
+            const searchableName = `${vehicle.brand} ${vehicle.model}`.toLocaleLowerCase('tr-TR');
+            if (normalizedQuery && !searchableName.includes(normalizedQuery)) return false;
+            if (brand && !vehicle.href.startsWith(`/araclar/${brand}/`)) return false;
+            if (fuel && !vehicle.fuelTypes.includes(fuel)) return false;
+            if (risk && riskLevel !== risk) return false;
+            return true;
+        });
+    }, [allVehicles, query, brand, fuel, risk]);
 
     return (
         <div className="flex gap-5">
             <SearchFilters
+                brands={brands}
                 selectedBrand={brand}
                 selectedFuel={fuel}
                 selectedRisk={risk}

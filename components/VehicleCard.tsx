@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import type { VehicleDNA } from '@/data/vehicle-dna';
-import { brandSlug, modelSlug, getRiskLevel } from '@/lib/dataService';
+import type { VehicleSummary } from '@/lib/dataService';
 import VehicleRiskBadge from './VehicleRiskBadge';
 import { ChevronRight, AlertTriangle, FileText } from 'lucide-react';
 
@@ -10,15 +9,14 @@ const scoreTheme = {
     high: { ring: '#DC2626', track: '#FEE2E2', text: '#B91C1C' },
 } as const;
 
-export default function VehicleCard({ vehicle }: { vehicle: VehicleDNA }) {
-    const risk = getRiskLevel(vehicle.dnaScore);
+export default function VehicleCard({ vehicle }: { vehicle: VehicleSummary }) {
+    const risk = vehicle.dnaScore >= 80 ? 'low' : vehicle.dnaScore >= 60 ? 'medium' : 'high';
     const theme = scoreTheme[risk];
-    const href = `/araclar/${brandSlug(vehicle.brand)}/${modelSlug(vehicle.model)}`;
     const angle = Math.round((vehicle.dnaScore / 100) * 360);
 
     return (
         <Link
-            href={href}
+            href={vehicle.href}
             className="card relative block p-5 group overflow-hidden hover:-translate-y-0.5 transition-transform duration-200"
             aria-label={`${vehicle.brand} ${vehicle.model}`}
         >
@@ -58,10 +56,10 @@ export default function VehicleCard({ vehicle }: { vehicle: VehicleDNA }) {
 
             {/* Stats row */}
             <div className="flex items-center gap-4 text-[11px] text-[#71717A]">
-                {vehicle.chronicIssues.length > 0 && (
+                {vehicle.issueCount > 0 && (
                     <span className="flex items-center gap-1.5">
                         <AlertTriangle size={12} className="text-[#A91D3A]" />
-                        <strong className="text-[#0F0F10]">{vehicle.chronicIssues.length}</strong> kronik kusur
+                        <strong className="text-[#0F0F10]">{vehicle.issueCount}</strong> kronik kusur
                     </span>
                 )}
                 {vehicle.totalReports > 0 && (

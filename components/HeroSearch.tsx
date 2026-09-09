@@ -1,76 +1,84 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, CalendarDays, Check, Database, Fuel, Gauge, Settings2, Sparkles } from 'lucide-react';
-import { brandSlug, getAllVehicles, getEnginesByVehicleId, modelSlug } from '@/lib/dataService';
-import type { VehicleDNA } from '@/data/vehicle-dna';
-import { carEnginesCatalog, carModelsCatalog } from '@/data/catalog';
 
-type CarModelsMap = Record<string, Record<string, string[]>>;
-interface EngineRaw { n: string; f: string; t: string }
-type EnginesMap = Record<string, Record<string, Record<string, EngineRaw[]>>>;
+interface FinderStats {
+    brands: number;
+    models: number;
+    generations: number;
+    engines: number;
+}
 
-const carModelsMap: CarModelsMap = carModelsCatalog;
-const enginesMap: EnginesMap = carEnginesCatalog;
-const catalogModelCount = Object.values(carModelsMap).reduce((total, brandModels) => total + Object.keys(brandModels).length, 0);
-const catalogEngineCount = Object.values(enginesMap).reduce(
-    (brandTotal, brandModels) => brandTotal + Object.values(brandModels).reduce(
-        (modelTotal, generations) => modelTotal + Object.values(generations).reduce((sum, options) => sum + options.length, 0),
-        0,
-    ),
-    0,
-);
+interface FinderEngine {
+    name: string;
+    slug: string;
+    fuelType: string;
+    transmission: string;
+    score: number | null;
+    href: string | null;
+}
 
-const normalize = (value: string) => value.toLocaleLowerCase('tr-TR');
+interface FinderResponse {
+    models: string[];
+    generations: string[];
+    engines: FinderEngine[];
+    matchedVehicle: { name: string; href: string } | null;
+    catalogHref: string | null;
+}
 
-export default function HeroSearch() {
+interface Props {
+    brands: string[];
+    stats: FinderStats;
+}
+
+export default function HeroSearch({ brands, stats }: Props) {
     const router = useRouter();
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [year, setYear] = useState('');
     const [selectedEngine, setSelectedEngine] = useState('');
+    const [models, setModels] = useState<string[]>([]);
+    const [yearRanges, setYearRanges] = useState<string[]>([]);
+    const [displayEngines, setDisplayEngines] = useState<FinderEngine[]>([]);
+    const [matchedVehicle, setMatchedVehicle] = useState<FinderResponse['matchedVehicle']>(null);
+    const [catalogHref, setCatalogHref] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
-    const brands = useMemo(() => Object.keys(carModelsMap).sort((a, b) => a.localeCompare(b, 'tr')), []);
-    const models = useMemo(() => brand ? Object.keys(carModelsMap[brand] ?? {}).sort((a, b) => a.localeCompare(b, 'tr')) : [], [brand]);
-    const yearRanges = useMemo(() => brand && model ? carModelsMap[brand]?.[model] ?? [] : [], [brand, model]);
+    useEffect(() => {
+        if (!brand) return;
 
-    const matchedVehicle = useMemo((): VehicleDNA | null => {
-        if (!brand || !model) return null;
-        const selectedModel = normalize(model);
+        const controller = new AbortController();
+        const params = new URLSearchParams({ brand });
+        if (model) params.set('model', model);
+        if (year) params.set('year', year);
 
-        return getAllVehicles().find((vehicle) => {
-            const vehicleModel = normalize(vehicle.model);
-            const brandMatches = normalize(vehicle.brand) === normalize(brand);
-            const modelMatches = vehicleModel.includes(selectedModel) || selectedModel.includes(vehicleModel.split(' ')[0]);
-            if (!brandMatches || !modelMatches) return false;
+        setLoading(true);
+        fetch('/api/catalog?' + params.toString(), { signal: controller.signal })
+            .then((response) => {
+                if (!response.ok) throw new Error('Katalog verisi alınamadı');
+                return response.json() as Promise<FinderResponse>;
+            })
+            .then((data) => {
+                setModels(data.models);
+                setYearRanges(data.generations);
+                setDisplayEngines(data.engines);
+                setMatchedVehicle(data.matchedVehicle);
+                setCatalogHref(data.catalogHref);
+            })
+            .catch((error: unknown) => {
+                if (error instanceof DOMException && error.name === 'AbortError') return;
+                setModels([]);
+                setYearRanges([]);
+                setDisplayEngines([]);
+                setMatchedVehicle(null);
+                setCatalogHref(null);
+            })
+            .finally(() => setLoading(false));
 
-            if (year) {
-                const selectedStart = Number.parseInt(year, 10);
-                const vehicleStart = Number.parseInt(vehicle.year.match(/\d{4}/)?.[0] ?? '', 10);
-                if (Number.isFinite(selectedStart) && Number.isFinite(vehicleStart)) return Math.abs(selectedStart - vehicleStart) <= 3;
-            }
-            return true;
-        }) ?? null;
+        return () => controller.abort();
     }, [brand, model, year]);
-
-    const internalEngines = useMemo(() => matchedVehicle ? getEnginesByVehicleId(matchedVehicle.id) : [], [matchedVehicle]);
-    const externalEngines = useMemo(() => brand && model && year ? enginesMap[brand]?.[model]?.[year] ?? [] : [], [brand, model, year]);
-    const displayEngines = internalEngines.length > 0
-        ? internalEngines.map((engine) => ({
-            name: engine.name,
-            slug: engine.slug,
-            fuelType: engine.fuelType,
-            transmission: engine.transmission,
-            score: engine.score,
-        }))
-        : externalEngines.map((engine, index) => ({
-            name: engine.n,
-            slug: `${engine.n}-${index}`.toLocaleLowerCase('tr-TR').replace(/[^a-z0-9çğıöşü]+/g, '-'),
-            fuelType: engine.f,
-            transmission: engine.t,
-            score: null,
-        }));
 
     const selectedDisplayEngine = displayEngines.find((engine) => engine.slug === selectedEngine) ?? null;
     const completedSteps = [brand, model, year, selectedEngine].filter(Boolean).length;
@@ -80,34 +88,43 @@ export default function HeroSearch() {
         setModel('');
         setYear('');
         setSelectedEngine('');
+        setModels([]);
+        setYearRanges([]);
+        setDisplayEngines([]);
+        setMatchedVehicle(null);
+        setCatalogHref(null);
     };
 
     const updateModel = (value: string) => {
         setModel(value);
         setYear('');
         setSelectedEngine('');
+        setYearRanges([]);
+        setDisplayEngines([]);
+        setMatchedVehicle(null);
+        setCatalogHref(null);
     };
 
     const updateYear = (value: string) => {
         setYear(value);
         setSelectedEngine('');
+        setDisplayEngines([]);
     };
 
     const openReport = () => {
-        const internalEngine = internalEngines.find((engine) => engine.slug === selectedEngine);
-        if (matchedVehicle && internalEngine) {
-            router.push(`/araclar/${brandSlug(matchedVehicle.brand)}/${modelSlug(matchedVehicle.model)}/${internalEngine.slug}`);
+        if (selectedDisplayEngine?.href) {
+            router.push(selectedDisplayEngine.href);
             return;
         }
         if (matchedVehicle) {
-            router.push(`/araclar/${brandSlug(matchedVehicle.brand)}/${modelSlug(matchedVehicle.model)}`);
+            router.push(matchedVehicle.href);
             return;
         }
-        if (brand && model) {
-            router.push(`/katalog/${brandSlug(brand)}/${modelSlug(model)}`);
+        if (catalogHref) {
+            router.push(catalogHref);
             return;
         }
-        router.push(brand ? `/araclar?q=${encodeURIComponent(brand)}` : '/araclar');
+        router.push(brand ? '/araclar?q=' + encodeURIComponent(brand) : '/araclar');
     };
 
     const actionLabel = matchedVehicle && selectedEngine
@@ -118,7 +135,7 @@ export default function HeroSearch() {
                 ? 'Teknik katalog kaydını aç'
                 : brand
                     ? `${brand} kusur raporlarını ara`
-                : 'Marka seçerek başla';
+                    : 'Marka seçerek başla';
 
     return (
         <div className="search-console" aria-label="Araç kusur raporu bulucu">
@@ -150,24 +167,24 @@ export default function HeroSearch() {
 
                 <label className="console-field">
                     <span>02 · Model</span>
-                    <select value={model} onChange={(event) => updateModel(event.target.value)} disabled={!brand} aria-label="Model seçin">
-                        <option value="">{brand ? 'Model seçin' : 'Önce marka seçin'}</option>
+                    <select value={model} onChange={(event) => updateModel(event.target.value)} disabled={!brand || loading} aria-label="Model seçin">
+                        <option value="">{loading && brand && !model ? 'Modeller yükleniyor…' : brand ? 'Model seçin' : 'Önce marka seçin'}</option>
                         {models.map((item) => <option key={item} value={item}>{item}</option>)}
                     </select>
                 </label>
 
                 <label className="console-field">
                     <span><CalendarDays size={11} /> 03 · Yıl / Nesil</span>
-                    <select value={year} onChange={(event) => updateYear(event.target.value)} disabled={!model} aria-label="Yıl veya nesil seçin">
-                        <option value="">{model ? 'Yıl aralığı seçin' : 'Model bekleniyor'}</option>
+                    <select value={year} onChange={(event) => updateYear(event.target.value)} disabled={!model || loading} aria-label="Yıl veya nesil seçin">
+                        <option value="">{loading && model && !year ? 'Nesiller yükleniyor…' : model ? 'Yıl aralığı seçin' : 'Model bekleniyor'}</option>
                         {yearRanges.map((item) => <option key={item} value={item}>{item}</option>)}
                     </select>
                 </label>
 
                 <label className="console-field">
                     <span><Settings2 size={11} /> 04 · Motor</span>
-                    <select value={selectedEngine} onChange={(event) => setSelectedEngine(event.target.value)} disabled={!year} aria-label="Motor seçin">
-                        <option value="">{year ? `${displayEngines.length} seçenekten birini seçin` : 'Nesil bekleniyor'}</option>
+                    <select value={selectedEngine} onChange={(event) => setSelectedEngine(event.target.value)} disabled={!year || loading} aria-label="Motor seçin">
+                        <option value="">{loading && year ? 'Motorlar yükleniyor…' : year ? `${displayEngines.length} seçenekten birini seçin` : 'Nesil bekleniyor'}</option>
                         {displayEngines.map((engine) => (
                             <option key={engine.slug} value={engine.slug}>{engine.name} · {engine.fuelType}</option>
                         ))}
@@ -180,7 +197,7 @@ export default function HeroSearch() {
                     <>
                         <div className="result-spec"><Fuel size={14} /><span><small>Yakıt</small>{selectedDisplayEngine.fuelType}</span></div>
                         <div className="result-spec"><Settings2 size={14} /><span><small>Şanzıman</small>{selectedDisplayEngine.transmission}</span></div>
-                        <div className="result-spec"><Gauge size={14} /><span><small>Analiz</small>{selectedDisplayEngine.score ? `${selectedDisplayEngine.score}/100` : 'Katalog kaydı'}</span></div>
+                        <div className="result-spec"><Gauge size={14} /><span><small>Analiz</small>{selectedDisplayEngine.score !== null ? `${selectedDisplayEngine.score}/100` : 'Katalog kaydı'}</span></div>
                     </>
                 ) : (
                     <div className="result-placeholder">
@@ -195,10 +212,10 @@ export default function HeroSearch() {
 
             <p className="console-footnote">
                 {matchedVehicle
-                    ? `${matchedVehicle.brand} ${matchedVehicle.model} için doğrulanmış kusur profili bulundu.`
+                    ? `${matchedVehicle.name} için ayrıntılı kusur profili bulundu.`
                     : brand && model && year
-                        ? 'Bu varyant katalogda mevcut; kusur profili veri kuyruğunda.'
-                    : `${brands.length} marka · ${catalogModelCount.toLocaleString('tr-TR')} model · ${catalogEngineCount.toLocaleString('tr-TR')} motor seçeneği`}
+                        ? 'Bu varyant katalogda mevcut; ayrıntılı kusur profili henüz yayımlanmadı.'
+                    : `${stats.brands} marka · ${stats.models.toLocaleString('tr-TR')} model · ${stats.engines.toLocaleString('tr-TR')} motor seçeneği`}
             </p>
         </div>
     );

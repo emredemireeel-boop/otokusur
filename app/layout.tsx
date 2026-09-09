@@ -3,12 +3,11 @@ import Link from "next/link";
 import { ArrowUpRight, Database, ShieldCheck } from "lucide-react";
 import { HeaderClient } from "@/components/Header";
 import Logo from "@/components/Logo";
+import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
-const siteUrl = "https://otokusur.com";
-
 export const metadata: Metadata = {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(SITE_URL),
     title: {
         default: "OtoKusur | Araç Kronik Arıza ve Kusur Veritabanı",
         template: "%s | OtoKusur",
@@ -25,15 +24,17 @@ export const metadata: Metadata = {
         "ekspertiz kontrol listesi",
         "hangi araba alınır",
     ],
-    authors: [{ name: "OtoKusur", url: siteUrl }],
+    authors: [{ name: "OtoKusur Araştırma Ekibi", url: "/hakkimizda" }],
     creator: "OtoKusur",
     publisher: "OtoKusur",
     alternates: { canonical: "/" },
+    icons: { icon: "/icon.svg" },
+    manifest: "/manifest.webmanifest",
     formatDetection: { address: false, email: false, telephone: false },
     openGraph: {
         type: "website",
         locale: "tr_TR",
-        url: siteUrl,
+        url: SITE_URL,
         siteName: "OtoKusur",
         title: "OtoKusur | Arabayı Almadan Kusurunu Öğren",
         description: "Türkiye'nin araç kronik arıza, motor sorunu ve model bazlı risk veritabanı.",
@@ -67,23 +68,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": SITE_URL + "/#organization",
         name: "OtoKusur",
-        url: siteUrl,
-        logo: `${siteUrl}/icon.svg`,
+        url: SITE_URL,
+        logo: SITE_URL + "/icon.svg",
         description: "Araç kronik arızaları ve model bazlı risk analizi platformu.",
     };
 
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": SITE_URL + "/#website",
         name: "OtoKusur",
-        url: siteUrl,
+        url: SITE_URL,
+        publisher: { "@id": SITE_URL + "/#organization" },
         inLanguage: "tr-TR",
-        potentialAction: {
-            "@type": "SearchAction",
-            target: `${siteUrl}/araclar?q={search_term_string}`,
-            "query-input": "required name=search_term_string",
-        },
     };
 
     return (
@@ -110,6 +109,7 @@ function Header() {
 
                 <nav className="hidden md:flex items-center gap-1" aria-label="Ana menü">
                     <Link href="/araclar" className="nav-link">Araç Kütüphanesi</Link>
+                    <Link href="/ariza-rehberi" className="nav-link">Arıza Rehberi</Link>
                     <Link href="/karsilastir" className="nav-link">Karşılaştır</Link>
                     <Link href="/rehber" className="nav-link">Satın Alma Rehberi</Link>
                 </nav>
@@ -147,9 +147,12 @@ function Footer() {
                         <h2 className="footer-title">Keşfet</h2>
                         <ul className="footer-links">
                             <li><Link href="/araclar">Araçlar</Link></li>
+                            <li><Link href="/ariza-rehberi">Arıza Rehberi</Link></li>
                             <li><Link href="/karsilastir">Karşılaştır</Link></li>
                             <li><Link href="/rehber">Rehber</Link></li>
                             <li><Link href="/veri-metodolojisi">Veri metodolojisi</Link></li>
+                            <li><Link href="/hakkimizda">Hakkımızda</Link></li>
+                            <li><Link href="/yayin-ilkeleri">Yayın ilkeleri</Link></li>
                         </ul>
                     </div>
 

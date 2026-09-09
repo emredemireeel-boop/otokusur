@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation';
 import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import TrimComparisonTable from '@/components/TrimComparisonTable';
-import Comments from '@/components/Comments';
+import DeferredComments from '@/components/DeferredComments';
+import { absoluteUrl, assessVehicleSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_URL } from '@/lib/seo';
 import { ChevronRight, Star, ArrowRight, Fuel, Settings, AlertTriangle, Wrench } from 'lucide-react';
 
 interface Props { params: Promise<{ marka: string; model: string }> }
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const v = getVehicleBySlug(marka, model);
     if (!v) return { title: 'Araç Bulunamadı' };
     const engines = getEnginesByVehicleId(v.id);
+    const quality = assessVehicleSeoQuality(v);
     const title = `${v.brand} ${v.model} Kronik Arızaları ve Motor Seçenekleri`;
     const description = `${v.brand} ${v.model} (${v.year}) için ${engines.length} motor seçeneği, ${v.chronicIssues.length} genel kronik kusur ve ${v.dnaScore}/100 risk skoru.`;
     const url = `/araclar/${marka}/${model}`;
@@ -25,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title,
         description,
         alternates: { canonical: url },
+        authors: [{ name: EDITORIAL_TEAM_NAME, url: '/hakkimizda' }],
+        robots: { index: quality.indexable, follow: true },
         openGraph: { title, description, url, type: 'article' },
     };
 }
@@ -37,6 +41,38 @@ export default async function ModelDetayPage({ params }: Props) {
     const risk = getRiskLevel(v.dnaScore);
     const engines = getEnginesByVehicleId(v.id);
     const trimData = getTrimsByVehicleId(v.id);
+    const pageUrl = `/araclar/${marka}/${model}`;
+    const description = `${v.brand} ${v.model} (${v.year}) için ${engines.length} motor seçeneği, ${v.chronicIssues.length} genel kronik kusur ve ${v.dnaScore}/100 risk skoru.`;
+    const structuredData = [
+        breadcrumbSchema([
+            { name: 'Ana Sayfa', path: '/' },
+            { name: 'Araçlar', path: '/araclar' },
+            { name: v.brand, path: `/araclar/${marka}` },
+            { name: v.model },
+        ]),
+        {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': absoluteUrl(pageUrl) + '#webpage',
+            url: absoluteUrl(pageUrl),
+            name: `${v.brand} ${v.model} kronik arızaları ve motor seçenekleri`,
+            description,
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            author: { '@type': 'Organization', name: EDITORIAL_TEAM_NAME, url: absoluteUrl('/hakkimizda') },
+            about: {
+                '@type': 'Vehicle',
+                name: `${v.brand} ${v.model}`,
+                brand: { '@type': 'Brand', name: v.brand },
+                model: v.model,
+                vehicleModelDate: v.year,
+                additionalProperty: [
+                    { '@type': 'PropertyValue', name: 'OtoKusur risk skoru', value: `${v.dnaScore}/100` },
+                    { '@type': 'PropertyValue', name: 'İncelenen genel kronik kusur', value: v.chronicIssues.length },
+                    { '@type': 'PropertyValue', name: 'İncelenen motor seçeneği', value: engines.length },
+                ],
+            },
+        },
+    ];
 
     return (
         <article className="container-main py-6 sm:py-10">
@@ -133,6 +169,15 @@ export default async function ModelDetayPage({ params }: Props) {
                         );
                     })}
                 </div>
+                {engines.length === 0 && (
+                    <div className="card-elevated p-5 text-[12px] text-[#71717A]">
+                        Bu modelin motor bazlı kusur raporları editoryal doğrulama aşamasında.
+                        Genel araç uyarılarını inceleyebilir veya{' '}
+                        <Link href={`/katalog/${marka}/${model}`} className="font-semibold text-[#A91D3A]">
+                            teknik katalog kaydına bakabilirsiniz
+                        </Link>.
+                    </div>
+                )}
             </div>
 
             {/* ═══════ TRIM COMPARISON ═══════ */}
@@ -162,14 +207,10 @@ export default async function ModelDetayPage({ params }: Props) {
             )}
 
             {/* Kullanıcı Yorumları */}
-            <Comments vehicleId={v.id} vehicleName={`${v.brand} ${v.model}`} />
+            <DeferredComments vehicleId={v.id} vehicleName={`${v.brand} ${v.model}`} />
 
             {/* JSON-LD */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-                "@context": "https://schema.org", "@type": "Product",
-                name: `${v.brand} ${v.model}`, brand: { "@type": "Brand", name: v.brand },
-                review: { "@type": "Review", reviewRating: { "@type": "Rating", ratingValue: v.dnaScore, bestRating: 100 }, author: { "@type": "Organization", name: "OtoKusur" } },
-            }) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         </article>
     );
 }

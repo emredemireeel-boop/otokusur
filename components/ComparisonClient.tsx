@@ -1,24 +1,50 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { getAllVehicles, getEnginesByVehicleId, getRiskLevel, getRiskLabel, brandSlug, modelSlug } from '@/lib/dataService';
-import type { VehicleDNA } from '@/data/vehicle-dna';
 import VehicleRiskBadge from './VehicleRiskBadge';
 import { ArrowRight, AlertTriangle, CheckCircle2, XCircle, Star, Fuel, Settings, Scale } from 'lucide-react';
 
-function VehicleSelector({ label, selectedId, onChange }: {
+export interface CompareOption {
+    id: number;
+    brand: string;
+    model: string;
+    year: string;
+}
+
+interface CompareEngine {
+    slug: string;
+    name: string;
+    fuelType: string;
+    transmission: string;
+    score: number;
+}
+
+interface CompareVehicle extends CompareOption {
+    dnaScore: number;
+    strengths: string[];
+    weaknesses: string[];
+    chronicIssues: Array<{ id: number; title: string; severity: 'low' | 'medium' | 'high' }>;
+    ncapStars?: number;
+    href: string;
+    engines: CompareEngine[];
+}
+
+const riskLevel = (score: number) => score >= 80 ? 'low' : score >= 60 ? 'medium' : 'high';
+const riskLabel = (score: number) => score >= 80 ? 'Düşük Risk' : score >= 60 ? 'Orta Risk' : 'Yüksek Risk';
+
+function VehicleSelector({ label, selectedId, onChange, options }: {
     label: string;
     selectedId: number | null;
     onChange: (id: number | null) => void;
+    options: CompareOption[];
 }) {
-    const allVehicles = getAllVehicles();
-    const brands = useMemo(() => [...new Set(allVehicles.map(v => v.brand))].sort(), [allVehicles]);
+    const brands = useMemo(() => [...new Set(options.map(v => v.brand))].sort((a, b) => a.localeCompare(b, 'tr')), [options]);
     const [selectedBrand, setSelectedBrand] = useState('');
 
     const models = useMemo(() => {
         if (!selectedBrand) return [];
-        return allVehicles.filter(v => v.brand === selectedBrand);
-    }, [selectedBrand, allVehicles]);
+        return options.filter(v => v.brand === selectedBrand);
+    }, [selectedBrand, options]);
 
     return (
         <div className="space-y-3">
@@ -64,8 +90,9 @@ function ScoreBar({ score, label, color }: { score: number; label: string; color
     );
 }
 
-function ComparisonColumn({ vehicle, engines }: { vehicle: VehicleDNA; engines: ReturnType<typeof getEnginesByVehicleId> }) {
-    const risk = getRiskLevel(vehicle.dnaScore);
+function ComparisonColumn({ vehicle }: { vehicle: CompareVehicle }) {
+    const risk = riskLevel(vehicle.dnaScore);
+    const engines = vehicle.engines;
     return (
         <div className="flex-1 min-w-0">
             {/* Header */}
@@ -159,7 +186,7 @@ function ComparisonColumn({ vehicle, engines }: { vehicle: VehicleDNA; engines: 
 
             {/* CTA */}
             <Link
-                href={`/araclar/${brandSlug(vehicle.brand)}/${modelSlug(vehicle.model)}`}
+                href={vehicle.href}
                 className="btn-primary w-full text-center justify-center text-[12px] py-2.5"
             >
                 Detaylı Rapor <ArrowRight size={12} />
@@ -168,16 +195,39 @@ function ComparisonColumn({ vehicle, engines }: { vehicle: VehicleDNA; engines: 
     );
 }
 
-export default function ComparisonClient() {
+export default function ComparisonClient({ options }: { options: CompareOption[] }) {
     const [leftId, setLeftId] = useState<number | null>(null);
     const [rightId, setRightId] = useState<number | null>(null);
-    const allVehicles = getAllVehicles();
+    const [vehicles, setVehicles] = useState<CompareVehicle[]>([]);
+    const [loading, setLoading] = useState(false);
 
-    const leftVehicle = useMemo(() => leftId ? allVehicles.find(v => v.id === leftId) : null, [leftId, allVehicles]);
-    const rightVehicle = useMemo(() => rightId ? allVehicles.find(v => v.id === rightId) : null, [rightId, allVehicles]);
+    useEffect(() => {
+        if (!leftId || !rightId) {
+            setVehicles([]);
+            return;
+        }
 
-    const leftEngines = useMemo(() => leftId ? getEnginesByVehicleId(leftId) : [], [leftId]);
-    const rightEngines = useMemo(() => rightId ? getEnginesByVehicleId(rightId) : [], [rightId]);
+        const controller = new AbortController();
+        setLoading(true);
+        fetch('/api/compare?ids=' + leftId + ',' + rightId, { signal: controller.signal })
+            .then((response) => {
+                if (!response.ok) throw new Error('Karşılaştırma verisi alınamadı');
+                return response.json() as Promise<{ vehicles: CompareVehicle[] }>;
+            })
+            .then((data) => setVehicles(data.vehicles))
+            .catch((error: unknown) => {
+                if (error instanceof DOMException && error.name === 'AbortError') return;
+                setVehicles([]);
+            })
+            .finally(() => setLoading(false));
+
+        return () => controller.abort();
+    }, [leftId, rightId]);
+
+    const leftVehicle = leftId ? vehicles.find(v => v.id === leftId) ?? null : null;
+    const rightVehicle = rightId ? vehicles.find(v => v.id === rightId) ?? null : null;
+    const leftEngines = leftVehicle?.engines ?? [];
+    const rightEngines = rightVehicle?.engines ?? [];
 
     const bothSelected = leftVehicle && rightVehicle;
 
@@ -186,10 +236,10 @@ export default function ComparisonClient() {
             {/* Selection */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="card-elevated p-5">
-                    <VehicleSelector label="1. Araç" selectedId={leftId} onChange={setLeftId} />
+                    <VehicleSelector label="1. Araç" selectedId={leftId} onChange={setLeftId} options={options} />
                 </div>
                 <div className="card-elevated p-5">
-                    <VehicleSelector label="2. Araç" selectedId={rightId} onChange={setRightId} />
+                    <VehicleSelector label="2. Araç" selectedId={rightId} onChange={setRightId} options={options} />
                 </div>
             </div>
 
@@ -243,7 +293,7 @@ export default function ComparisonClient() {
                         </div>
                         {[
                             { label: 'DNA Skoru', left: `${leftVehicle.dnaScore}/100`, right: `${rightVehicle.dnaScore}/100`, leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
-                            { label: 'Risk Seviyesi', left: getRiskLabel(getRiskLevel(leftVehicle.dnaScore)), right: getRiskLabel(getRiskLevel(rightVehicle.dnaScore)), leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
+                            { label: 'Risk Seviyesi', left: riskLabel(leftVehicle.dnaScore), right: riskLabel(rightVehicle.dnaScore), leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
                             { label: 'Kronik Kusur', left: `${leftVehicle.chronicIssues.length}`, right: `${rightVehicle.chronicIssues.length}`, leftBetter: leftVehicle.chronicIssues.length < rightVehicle.chronicIssues.length, rightBetter: rightVehicle.chronicIssues.length < leftVehicle.chronicIssues.length },
                             { label: 'Motor Seçeneği', left: `${leftEngines.length}`, right: `${rightEngines.length}`, leftBetter: false, rightBetter: false },
                             { label: 'NCAP', left: leftVehicle.ncapStars ? `${leftVehicle.ncapStars}★` : '—', right: rightVehicle.ncapStars ? `${rightVehicle.ncapStars}★` : '—', leftBetter: (leftVehicle.ncapStars || 0) > (rightVehicle.ncapStars || 0), rightBetter: (rightVehicle.ncapStars || 0) > (leftVehicle.ncapStars || 0) },
@@ -260,13 +310,15 @@ export default function ComparisonClient() {
                     {/* Detailed Side-by-Side */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="card-elevated p-5">
-                            <ComparisonColumn vehicle={leftVehicle} engines={leftEngines} />
+                            <ComparisonColumn vehicle={leftVehicle} />
                         </div>
                         <div className="card-elevated p-5">
-                            <ComparisonColumn vehicle={rightVehicle} engines={rightEngines} />
+                            <ComparisonColumn vehicle={rightVehicle} />
                         </div>
                     </div>
                 </div>
+            ) : loading ? (
+                <div className="skeleton h-96 rounded-2xl" role="status" aria-label="Karşılaştırma yükleniyor" />
             ) : (
                 <div className="card-elevated p-12 text-center">
                     <Scale size={40} className="text-[#D4D4D8] mx-auto mb-4" />

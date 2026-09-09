@@ -2855,7 +2855,7 @@ export const engineDNAData: VehicleEngineData[] = [
     ],
   },
   {
-    vehicleId: 101,
+    vehicleId: 11101,
     engines: [
       {
         slug: "1-6-karb-rat-rl-80-hp",
@@ -3960,7 +3960,7 @@ export const engineDNAData: VehicleEngineData[] = [
     ],
   },
   {
-    vehicleId: 102,
+    vehicleId: 11102,
     engines: [
       {
         slug: "1-6-karb-rat-rl-80-hp",
@@ -3997,7 +3997,7 @@ export const engineDNAData: VehicleEngineData[] = [
     ],
   },
   {
-    vehicleId: 103,
+    vehicleId: 11103,
     engines: [
       {
         slug: "1-6-karb-rat-rl-80-hp",
@@ -4034,7 +4034,7 @@ export const engineDNAData: VehicleEngineData[] = [
     ],
   },
   {
-    vehicleId: 104,
+    vehicleId: 11104,
     engines: [
       {
         slug: "1-3-karb-rat-rl-65-hp",

@@ -4,9 +4,9 @@ import { notFound } from 'next/navigation';
 import { getVehicleBySlug, getEnginesByVehicleId, getRiskLevel, getCostLevel, categorizeIssues, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import { getSeverityLabel } from '@/data/vehicle-dna';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
-import Comments from '@/components/Comments';
+import DeferredComments from '@/components/DeferredComments';
+import { absoluteUrl, assessEngineSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_URL } from '@/lib/seo';
 import { ChevronRight, AlertTriangle, CheckCircle2, XCircle, Star, Info, Fuel, Settings, TrendingUp, TrendingDown, CircleAlert, Wrench } from 'lucide-react';
-import UserComments from '@/components/UserComments';
 
 interface Props { params: Promise<{ marka: string; model: string; motor: string }> }
 
@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const engines = getEnginesByVehicleId(v.id);
     const eng = engines.find(e => e.slug === motor);
     if (!eng) return { title: 'Motor Bulunamadı' };
+    const quality = assessEngineSeoQuality(eng);
     const title = `${v.brand} ${v.model} ${eng.name} Kronik Arıza Raporu`;
     const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${eng.chronicIssues.length} kronik motor sorunu ve ${eng.score}/100 risk skoru.`;
     const url = `/araclar/${marka}/${model}/${motor}`;
@@ -39,6 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title,
         description,
         alternates: { canonical: url },
+        authors: [{ name: EDITORIAL_TEAM_NAME, url: '/hakkimizda' }],
+        robots: { index: quality.indexable, follow: true },
         openGraph: { title, description, url, type: 'article' },
     };
 }
@@ -54,6 +57,8 @@ export default async function MotorDetayPage({ params }: Props) {
 
     const risk = getRiskLevel(eng.score);
     const costLevel = getCostLevel(eng.score);
+    const pageUrl = `/araclar/${marka}/${model}/${motor}`;
+    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${eng.chronicIssues.length} kronik motor sorunu ve ${eng.score}/100 risk skoru.`;
 
     // Combine vehicle + engine chronic issues
     const allIssues = [
@@ -66,6 +71,39 @@ export default async function MotorDetayPage({ params }: Props) {
         })),
     ];
     const categories = categorizeIssues([...allIssues, ...v.chronicIssues]);
+    const structuredData = [
+        breadcrumbSchema([
+            { name: 'Ana Sayfa', path: '/' },
+            { name: 'Araçlar', path: '/araclar' },
+            { name: v.brand, path: `/araclar/${marka}` },
+            { name: v.model, path: `/araclar/${marka}/${modelSlug(v.model)}` },
+            { name: eng.name },
+        ]),
+        {
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            '@id': absoluteUrl(pageUrl) + '#webpage',
+            url: absoluteUrl(pageUrl),
+            name: `${v.brand} ${v.model} ${eng.name} kronik arıza raporu`,
+            description,
+            isPartOf: { '@id': SITE_URL + '/#website' },
+            author: { '@type': 'Organization', name: EDITORIAL_TEAM_NAME, url: absoluteUrl('/hakkimizda') },
+            about: {
+                '@type': 'Vehicle',
+                name: `${v.brand} ${v.model}`,
+                brand: { '@type': 'Brand', name: v.brand },
+                model: v.model,
+                vehicleModelDate: v.year,
+                additionalProperty: [
+                    { '@type': 'PropertyValue', name: 'Motor', value: eng.name },
+                    { '@type': 'PropertyValue', name: 'Yakıt', value: eng.fuelType },
+                    { '@type': 'PropertyValue', name: 'Şanzıman', value: eng.transmission },
+                    { '@type': 'PropertyValue', name: 'OtoKusur motor risk skoru', value: `${eng.score}/100` },
+                    { '@type': 'PropertyValue', name: 'İncelenen motor kusuru', value: eng.chronicIssues.length },
+                ],
+            },
+        },
+    ];
 
     return (
         <article className="container-main py-6 sm:py-10">
@@ -272,8 +310,6 @@ export default async function MotorDetayPage({ params }: Props) {
                         </div>
                     )}
 
-                    {/* User Comments — Engine-specific */}
-                    <UserComments vehicleId={`${v.id}_${eng.slug}`} vehicleName={`${v.brand} ${eng.name} ${v.model}`} />
                 </div>
 
                 {/* ═══════ SIDEBAR ═══════ */}
@@ -366,14 +402,10 @@ export default async function MotorDetayPage({ params }: Props) {
             </div>
 
             {/* Kullanıcı Yorumları (Motor bazlı) */}
-            <Comments vehicleId={v.id} engineSlug={eng.slug} vehicleName={`${v.brand} ${v.model} — ${eng.name}`} />
+            <DeferredComments vehicleId={v.id} engineSlug={eng.slug} vehicleName={`${v.brand} ${v.model} — ${eng.name}`} />
 
             {/* JSON-LD */}
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-                "@context": "https://schema.org", "@type": "Product",
-                name: `${v.brand} ${eng.name} ${v.model}`, brand: { "@type": "Brand", name: v.brand },
-                review: { "@type": "Review", reviewRating: { "@type": "Rating", ratingValue: eng.score, bestRating: 100 }, author: { "@type": "Organization", name: "OtoKusur" } },
-            }) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
         </article>
     );
 }

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import ComparisonClient from '@/components/ComparisonClient';
+import ComparisonClient, { type CompareOption } from '@/components/ComparisonClient';
 import { Scale } from 'lucide-react';
+import { getAllVehicles } from '@/lib/dataService';
 
 export const metadata: Metadata = {
     title: 'Araç Karşılaştırma — Risk ve Kronik Arıza Kıyaslama',
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function KarsilastirPage() {
+    const options: CompareOption[] = getAllVehicles().map(({ id, brand, model, year }) => ({ id, brand, model, year }));
+
     return (
         <section className="container-main py-8 sm:py-12">
             <div className="mb-8">
@@ -21,7 +24,7 @@ export default function KarsilastirPage() {
                 <p className="text-[13px] text-[#71717A]">İki farklı modeli yan yana karşılaştırarak bilinçli karar verin.</p>
             </div>
             <Suspense fallback={<div className="skeleton h-96 rounded-2xl" />}>
-                <ComparisonClient />
+                <ComparisonClient options={options} />
             </Suspense>
         </section>
     );

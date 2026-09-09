@@ -34,12 +34,13 @@ export function HeaderClient() {
                     >
                         <p className="mobile-menu-eyebrow">Keşfet</p>
                         <Link href="/araclar" onClick={() => setOpen(false)}>Araç Kütüphanesi</Link>
+                        <Link href="/ariza-rehberi" onClick={() => setOpen(false)}>Arıza Rehberi</Link>
                         <Link href="/karsilastir" onClick={() => setOpen(false)}>Araç Karşılaştır</Link>
                         <Link href="/rehber" onClick={() => setOpen(false)}>Satın Alma Rehberi</Link>
                         <Link href="/#arac-bul" className="mobile-menu-cta" onClick={() => setOpen(false)}>
                             Aracını analiz et <ArrowUpRight size={16} />
                         </Link>
-                        <p className="mobile-menu-note">263 araç kusur raporu · 16.000+ motor seçeneği</p>
+                        <p className="mobile-menu-note">200+ benzersiz araç raporu · 16.000+ motor seçeneği</p>
                     </nav>
                 </div>
             )}
