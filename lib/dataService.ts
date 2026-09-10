@@ -1,7 +1,7 @@
-import { vehicleDNAData, createSlug } from '@/data/vehicle-dna';
+import { createSlug } from '@/data/vehicle-dna';
 import type { VehicleDNA, ChronicIssue } from '@/data/vehicle-dna';
-import { engineDNAData } from '@/data/engine-dna';
 import type { EngineOption } from '@/data/engine-dna';
+import { publishedEngineDNAData, publishedVehicleDNAData } from '@/data/published-dna';
 import { trimDNAData } from '@/data/trim-dna';
 import type { VehicleTrimData } from '@/data/trim-dna';
 import { carEnginesCatalog, carModelsCatalog } from '@/data/catalog';
@@ -42,7 +42,7 @@ export function modelSlug(model: string): string {
 // Some imported batches contain the same public route more than once.
 // Preserve the historically visible first record until an editorial merge.
 const uniqueVehicleDNAData = Array.from(
-    vehicleDNAData.reduce((vehicles, vehicle) => {
+    publishedVehicleDNAData.reduce((vehicles, vehicle) => {
         const routeKey = `${brandSlug(vehicle.brand)}/${modelSlug(vehicle.model)}`;
         if (!vehicles.has(routeKey)) vehicles.set(routeKey, vehicle);
         return vehicles;
@@ -117,7 +117,7 @@ export function getBrandInfo(bSlug: string): BrandInfo | undefined {
 }
 
 export function getEnginesByVehicleId(vehicleId: number): EngineOption[] {
-    const entry = engineDNAData.find(e => e.vehicleId === vehicleId);
+    const entry = publishedEngineDNAData.find(e => e.vehicleId === vehicleId);
     return entry?.engines || [];
 }
 

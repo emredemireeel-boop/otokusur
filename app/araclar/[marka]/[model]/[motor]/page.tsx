@@ -5,8 +5,8 @@ import { getVehicleBySlug, getEnginesByVehicleId, getRiskLevel, getCostLevel, ca
 import { getSeverityLabel } from '@/data/vehicle-dna';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import DeferredComments from '@/components/DeferredComments';
-import { absoluteUrl, assessEngineSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_URL } from '@/lib/seo';
-import { ChevronRight, AlertTriangle, CheckCircle2, XCircle, Star, Info, Fuel, Settings, TrendingUp, TrendingDown, CircleAlert, Wrench } from 'lucide-react';
+import { absoluteUrl, assessEngineSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_UPDATED_AT, SITE_URL } from '@/lib/seo';
+import { AlertTriangle, BookOpen, CheckCircle2, ChevronRight, CircleAlert, ExternalLink, Fuel, Info, Settings, ShieldCheck, Star, TrendingDown, TrendingUp, Wrench, XCircle } from 'lucide-react';
 
 interface Props { params: Promise<{ marka: string; model: string; motor: string }> }
 
@@ -33,8 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const eng = engines.find(e => e.slug === motor);
     if (!eng) return { title: 'Motor Bulunamadı' };
     const quality = assessEngineSeoQuality(eng);
-    const title = `${v.brand} ${v.model} ${eng.name} Kronik Arıza Raporu`;
-    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${eng.chronicIssues.length} kronik motor sorunu ve ${eng.score}/100 risk skoru.`;
+    const hasReportedIssues = eng.chronicIssues.some(issue => issue.reportCount > 0);
+    const title = `${v.brand} ${v.model} ${eng.name} ${hasReportedIssues ? 'Kronik Arıza Raporu' : 'Kronik Arıza Kontrol Rehberi'}`;
+    const issueSummary = hasReportedIssues
+        ? `${eng.chronicIssues.length} raporlanan motor kusuru`
+        : `${eng.chronicIssues.length} kaynaklı teknik kontrol başlığı`;
+    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${issueSummary} ve ${eng.score}/100 risk skoru.`;
     const url = `/araclar/${marka}/${model}/${motor}`;
     return {
         title,
@@ -57,8 +61,13 @@ export default async function MotorDetayPage({ params }: Props) {
 
     const risk = getRiskLevel(eng.score);
     const costLevel = getCostLevel(eng.score);
+    const hasReportedIssues = eng.chronicIssues.some(issue => issue.reportCount > 0);
+    const hasVehicleReportedIssues = v.chronicIssues.some(issue => issue.reportCount > 0);
     const pageUrl = `/araclar/${marka}/${model}/${motor}`;
-    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${eng.chronicIssues.length} kronik motor sorunu ve ${eng.score}/100 risk skoru.`;
+    const issueSummary = hasReportedIssues
+        ? `${eng.chronicIssues.length} raporlanan motor kusuru`
+        : `${eng.chronicIssues.length} kaynaklı teknik kontrol başlığı`;
+    const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${issueSummary} ve ${eng.score}/100 risk skoru.`;
 
     // Combine vehicle + engine chronic issues
     const allIssues = [
@@ -84,8 +93,10 @@ export default async function MotorDetayPage({ params }: Props) {
             '@type': 'WebPage',
             '@id': absoluteUrl(pageUrl) + '#webpage',
             url: absoluteUrl(pageUrl),
-            name: `${v.brand} ${v.model} ${eng.name} kronik arıza raporu`,
+            name: `${v.brand} ${v.model} ${eng.name} ${hasReportedIssues ? 'kronik arıza raporu' : 'kronik arıza kontrol rehberi'}`,
             description,
+            dateModified: SITE_UPDATED_AT,
+            citation: v.sources?.map(source => source.url),
             isPartOf: { '@id': SITE_URL + '/#website' },
             author: { '@type': 'Organization', name: EDITORIAL_TEAM_NAME, url: absoluteUrl('/hakkimizda') },
             about: {
@@ -99,7 +110,7 @@ export default async function MotorDetayPage({ params }: Props) {
                     { '@type': 'PropertyValue', name: 'Yakıt', value: eng.fuelType },
                     { '@type': 'PropertyValue', name: 'Şanzıman', value: eng.transmission },
                     { '@type': 'PropertyValue', name: 'OtoKusur motor risk skoru', value: `${eng.score}/100` },
-                    { '@type': 'PropertyValue', name: 'İncelenen motor kusuru', value: eng.chronicIssues.length },
+                    { '@type': 'PropertyValue', name: hasReportedIssues ? 'İncelenen motor kusuru' : 'İncelenen teknik kontrol başlığı', value: eng.chronicIssues.length },
                 ],
             },
         },
@@ -232,9 +243,13 @@ export default async function MotorDetayPage({ params }: Props) {
                     <div className="card-elevated p-5 sm:p-6">
                         <div className="flex items-center gap-2 mb-1">
                             <AlertTriangle size={14} className="text-[#A91D3A]" />
-                            <h2 className="text-[14px] font-bold text-[#0F0F10]">Motor Kronik Kusurları</h2>
+                            <h2 className="text-[14px] font-bold text-[#0F0F10]">{hasReportedIssues ? 'Motor Kronik Kusurları' : 'Motor Kontrol Başlıkları'}</h2>
                         </div>
-                        <p className="text-[11px] text-[#A1A1AA] mb-5">{eng.name} motorunda sık raporlanan sorunlar</p>
+                        <p className="text-[11px] text-[#A1A1AA] mb-5">
+                            {hasReportedIssues
+                                ? `${eng.name} motorunda raporlanan sorunlar`
+                                : 'Uzun dönem arıza hükmü değil; teknik kaynaklardan türetilen ekspertiz kontrol noktaları'}
+                        </p>
 
                         {eng.chronicIssues.length === 0 ? (
                             <p className="text-[12px] text-[#71717A] py-6 text-center">Bu motor için kronik kusur raporu bulunmuyor.</p>
@@ -248,7 +263,7 @@ export default async function MotorDetayPage({ params }: Props) {
                                         </div>
                                         <p className="text-[12px] text-[#71717A] leading-relaxed mb-2">{issue.description}</p>
                                         <div className="flex items-center gap-1.5 text-[10px] text-[#A1A1AA]">
-                                            <CircleAlert size={10} /> {issue.reportCount} kullanıcı raporladı
+                                            <CircleAlert size={10} /> {issue.reportCount > 0 ? `${issue.reportCount} kullanıcı raporladı` : 'Kaynaklı teknik kontrol başlığı'}
                                         </div>
                                     </div>
                                 ))}
@@ -261,9 +276,13 @@ export default async function MotorDetayPage({ params }: Props) {
                         <div className="card-elevated p-5 sm:p-6">
                             <div className="flex items-center gap-2 mb-1">
                                 <AlertTriangle size={14} className="text-[#CA8A04]" />
-                                <h2 className="text-[14px] font-bold text-[#0F0F10]">Genel Araç Kusurları</h2>
+                                <h2 className="text-[14px] font-bold text-[#0F0F10]">{hasVehicleReportedIssues ? 'Genel Araç Kusurları' : 'Genel Araç Kontrolleri'}</h2>
                             </div>
-                            <p className="text-[11px] text-[#A1A1AA] mb-5">{v.model} genelinde sık raporlanan sorunlar</p>
+                            <p className="text-[11px] text-[#A1A1AA] mb-5">
+                                {hasVehicleReportedIssues
+                                    ? `${v.model} genelinde raporlanan sorunlar`
+                                    : 'Model genelindeki kaynaklı teslimat ve satın alma kontrol noktaları'}
+                            </p>
                             <div className="space-y-3">
                                 {v.chronicIssues.map(issue => (
                                     <div key={issue.id} className="border border-[#EBEBED] rounded-lg p-4 hover:border-[#D4D4D8] transition-colors">
@@ -273,7 +292,7 @@ export default async function MotorDetayPage({ params }: Props) {
                                         </div>
                                         <p className="text-[12px] text-[#71717A] leading-relaxed mb-2">{issue.description}</p>
                                         <div className="flex items-center gap-1.5 text-[10px] text-[#A1A1AA]">
-                                            <CircleAlert size={10} /> {issue.reportCount} kullanıcı raporladı
+                                            <CircleAlert size={10} /> {issue.reportCount > 0 ? `${issue.reportCount} kullanıcı raporladı` : 'Kaynaklı teknik kontrol başlığı'}
                                         </div>
                                     </div>
                                 ))}
@@ -362,13 +381,48 @@ export default async function MotorDetayPage({ params }: Props) {
                         </div>
                     )}
 
+                    {v.safetyCampaigns && v.safetyCampaigns.length > 0 && (
+                        <div className="card-elevated p-5">
+                            <h3 className="label flex items-center gap-1.5 mb-2"><ShieldCheck size={11} className="text-[#A91D3A]" />Güvenlik kampanyaları</h3>
+                            <p className="text-[10px] text-[#71717A] leading-relaxed mb-3">Geri çağırma kronik arıza oranı değildir. Kapsam, üretim tarihi yanında VIN sorgusuyla kesinleştirilir.</p>
+                            <div className="space-y-2">
+                                {v.safetyCampaigns.map(campaign => (
+                                    <a key={campaign.campaignCode} href={campaign.sourceUrl} target="_blank" rel="noopener noreferrer" className="block rounded-lg border border-[#F1D5DB] bg-[#FFF9FA] p-3 hover:border-[#A91D3A]/40">
+                                        <span className="flex items-center justify-between gap-2">
+                                            <span className="text-[10px] font-semibold text-[#0F0F10]">{campaign.title}</span>
+                                            <ExternalLink size={9} className="text-[#A91D3A] flex-shrink-0" />
+                                        </span>
+                                        <span className="block text-[9px] text-[#8F1831] mt-1">{campaign.campaignCode} · {campaign.affectedProduction}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {v.sources && v.sources.length > 0 && (
+                        <div className="card-elevated p-5">
+                            <h3 className="label flex items-center gap-1.5 mb-3"><BookOpen size={11} className="text-[#A91D3A]" />Doğrulama kaynakları</h3>
+                            <ul className="space-y-2">
+                                {v.sources.map(source => (
+                                    <li key={source.url}>
+                                        <a href={source.url} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-2 text-[10px] text-[#3F3F46] hover:text-[#A91D3A]">
+                                            <span><strong className="font-semibold">{source.publisher}:</strong> {source.title}</span>
+                                            <ExternalLink size={9} className="mt-0.5 flex-shrink-0" />
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="text-[9px] text-[#A1A1AA] mt-3">Son editoryal kontrol: {SITE_UPDATED_AT}</p>
+                        </div>
+                    )}
+
                     {/* Warning */}
                     <div className="warning-box">
                         <div className="flex items-start gap-2">
                             <Info size={13} className="text-[#CA8A04] mt-0.5 flex-shrink-0" />
                             <div>
                                 <p className="text-[11px] font-semibold text-[#854D0E] mb-0.5">Yasal Uyarı</p>
-                                <p className="text-[10px] text-[#92400E]/70 leading-relaxed">Bu bilgiler kullanıcı raporlarından derlenmiştir. Satın alma öncesi bağımsız ekspertiz önerilir.</p>
+                                <p className="text-[10px] text-[#92400E]/70 leading-relaxed">Kullanıcı bildirimleri, üretici dokümanları ve resmî güvenlik kayıtları birlikte değerlendirilir. Bu içerik teşhis değildir; satın alma öncesi VIN sorgusu ve bağımsız ekspertiz önerilir.</p>
                             </div>
                         </div>
                     </div>

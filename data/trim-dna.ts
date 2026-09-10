@@ -262,9 +262,9 @@ export const trimDNAData: VehicleTrimData[] = [
     },
 
     // ══════════════════════════════════════════════════════
-    // Hyundai i20 3. Nesil BC3 (2020-2025) — id: 8
+    // Hyundai i20 3. Nesil BC3 / BC3 PE (2020-Günümüz) — id: 8
     // Paketler: Jump → Style → Elite
-    // Kaynak: Hyundai Türkiye resmi fiyat listesi & broşür
+    // Kaynak: Hyundai Türkiye resmi fiyat listesi ve güncel broşür
     // ══════════════════════════════════════════════════════
     {
         vehicleId: 8,
@@ -1000,9 +1000,9 @@ export const trimDNAData: VehicleTrimData[] = [
     },
 
     // ══════════════════════════════════════════════════════
-    // Hyundai i20 2. Nesil GB (2014-2020) — id: 31
+    // Hyundai i20 2. Nesil GB PE (2018-2020 paket özeti) — id: 31
     // Paketler: Jump → Style → Elite
-    // Kaynak: Hyundai Türkiye arşiv broşür
+    // Kaynak: Hyundai Türkiye makyajlı kasa arşiv broşürü
     // ══════════════════════════════════════════════════════
     {
         vehicleId: 31,
@@ -1026,41 +1026,6 @@ export const trimDNAData: VehicleTrimData[] = [
             {
                 name: "Style",
                 availability: ["standard", "standard", "standard", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "standard", "unavailable"]
-            },
-            {
-                name: "Elite",
-                availability: ["standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard", "standard", "optional"]
-            }
-        ]
-    },
-
-    // ══════════════════════════════════════════════════════
-    // Hyundai i20 3. Nesil (2020-Günümüz) — id: 1004
-    // Paketler: Jump → Style → Elite
-    // Kaynak: Hyundai Türkiye resmi fiyat listesi 2024
-    // ══════════════════════════════════════════════════════
-    {
-        vehicleId: 1004,
-        features: [
-            "16\" Alaşım Jantlar",
-            "Dijital Klima",
-            "Full LED Ön Farlar & Stoplar",
-            "Geri Görüş Kamerası",
-            "10.25\" Dijital Gösterge Paneli",
-            "8\" Multimedya & Apple CarPlay",
-            "Anahtarsız Giriş & Çalıştırma",
-            "Hyundai SmartSense Güvenlik Paketi",
-            "Hız Sabitleyici & Sınırlayıcı",
-            "Sunroof"
-        ],
-        trims: [
-            {
-                name: "Jump",
-                availability: ["unavailable", "unavailable", "unavailable", "unavailable", "unavailable", "standard", "unavailable", "unavailable", "unavailable", "unavailable"]
-            },
-            {
-                name: "Style",
-                availability: ["standard", "unavailable", "standard", "standard", "unavailable", "standard", "unavailable", "standard", "standard", "unavailable"]
             },
             {
                 name: "Elite",

@@ -27,9 +27,29 @@ const sources = [
         href: 'https://www.bydauto.com.tr/teknik-brosurler',
     },
     {
-        name: 'OpenEV Data',
-        scope: 'Açık, kaynak gösteren elektrikli araç veri yapısı referansı',
-        href: 'https://github.com/open-ev-data/open-ev-data-dataset',
+        name: 'Renault, Honda ve Toyota Türkiye',
+        scope: 'Türkiye nesil, motor ve donanım doğrulaması',
+        href: 'https://www.renault.com.tr/hybrid-araclar/yeni-clio/teknik-bilgiler.html',
+    },
+    {
+        name: 'Volvo, BMW ve Mercedes-Benz teknik sayfaları',
+        scope: 'Şasi nesli, güç aktarımı ve model yılı doğrulaması',
+        href: 'https://www.media.volvocars.com/tr/tr-tr/models/xc40/2022/specifications',
+    },
+    {
+        name: 'Euro NCAP',
+        scope: 'Bağımsız çarpışma testi, güvenlik donanımı ve model kapsamı',
+        href: 'https://www.euroncap.com/',
+    },
+    {
+        name: 'ADAC Pannenstatistik 2026',
+        scope: 'Model yılına göre yol yardım ve arıza istatistikleri',
+        href: 'https://www.adac.de/rund-ums-fahrzeug/unfall-schaden-panne/adac-pannenstatistik-2026/',
+    },
+    {
+        name: 'TÜV Report 2026',
+        scope: 'Periyodik muayene kusurlarına dayalı bağımsız saha görünümü',
+        href: 'https://www.tuev-verband.de/fileadmin/user_upload/Content_local/2025_TUEV-Verband_TUEV-Report_2026_Praesentation.pdf',
     },
 ];
 
@@ -78,6 +98,23 @@ export default function MethodologyPage() {
                         <div className="is-low"><strong>80–100</strong><span>Düşük göreli risk</span></div>
                         <div className="is-mid"><strong>60–79</strong><span>Orta göreli risk</span></div>
                         <div className="is-high"><strong>0–59</strong><span>Yüksek göreli risk</span></div>
+                    </div>
+                </section>
+
+                <section>
+                    <span className="section-eyebrow"><BookOpenCheck size={12} /> Kanıt hiyerarşisi</span>
+                    <h2>Forum bildirimi sinyaldir; tek başına hüküm değildir.</h2>
+                    <div className="methodology-columns">
+                        <div>
+                            <BookOpenCheck size={20} />
+                            <h3>Sinyal katmanı</h3>
+                            <p>DonanımHaber, Otopark, marka fan kulüpleri, kullanıcı raporları ve paylaşılmış servis kayıtları; tekrar eden başlıkları bulmamıza yardım eder. Aynı gönderinin kopyaları ayrı vaka sayılmaz.</p>
+                        </div>
+                        <div>
+                            <BadgeCheck size={20} />
+                            <h3>Doğrulama katmanı</h3>
+                            <p>Üretici teknik belgeleri ve kampanyaları, resmî geri çağırmalar, Euro NCAP ile ADAC/TÜV gibi bağımsız raporlar kullanılır. Doğrulanmış vaka adedi yoksa sayı uydurulmaz; başlık satın alma kontrol noktası olarak açıkça yazılır.</p>
+                        </div>
                     </div>
                 </section>
 

@@ -31,6 +31,36 @@ export interface UserExperience {
     rating: number; // 1-5
 }
 
+export interface VehicleSource {
+    title: string;
+    publisher: string;
+    url: string;
+}
+
+export interface GenerationPhase {
+    years: string;
+    name: string;
+    summary: string;
+}
+
+export interface GenerationInfo {
+    chassisCode: string;
+    marketScope: string;
+    summary: string;
+    phases: GenerationPhase[];
+    bodyStyles: string[];
+    turkeyEngines: string[];
+}
+
+export interface SafetyCampaign {
+    title: string;
+    affectedProduction: string;
+    campaignCode: string;
+    description: string;
+    action: string;
+    sourceUrl: string;
+}
+
 export interface VehicleDNA {
     id: number;
     brand: string;
@@ -45,6 +75,9 @@ export interface VehicleDNA {
     imageUrl?: string;
     ncapStars?: number;
     ncapYear?: string;
+    generationInfo?: GenerationInfo;
+    safetyCampaigns?: SafetyCampaign[];
+    sources?: VehicleSource[];
 }
 
 export const vehicleDNAData: VehicleDNA[] = [
@@ -491,61 +524,105 @@ export const vehicleDNAData: VehicleDNA[] = [
     {
         id: 8,
         brand: "Hyundai",
-        model: "i20 3. Nesil BC3 (2020-2025)",
-        year: "2020-2025",
+        model: "i20 3. Nesil BC3 (2020-Günümüz)",
+        year: "2020-Günümüz",
         ncapStars: 4,
-        ncapYear: "2020",
+        ncapYear: "2021",
         dnaScore: 77,
         strengths: [
-            "Çok Zengin Donanım (Elite/Style Paketlerde Sunroof, Dijital Kadran)",
-            "Modern ve Agresif Dış Tasarım (Parametrik)",
-            "Sınıfına Göre Geniş İç ve Bagaj Hacmi (352 Litre)",
-            "5 Yıl Garanti Avantajı (Üretici Güveni)",
-            "Sorunsuz Atmosferik Motor Seçeneği (1.4 MPI)",
-            "Kablosuz Şarj ve Apple CarPlay Desteği"
+            "352 litrelik bagaj ve B segmenti için kullanışlı iç hacim",
+            "Türkiye'de üretilmesi sayesinde yaygın servis ve parça erişimi",
+            "1.2 MPI manuel ve 1.4 MPI 6AT gibi sade aktarma seçenekleri",
+            "Apple CarPlay, Android Auto ve üst paketlerde dijital gösterge",
+            "Makyajlı BC3 PE ile genişleyen SmartSense güvenlik donanımları"
         ],
         weaknesses: [
-            "Sert Plastik Malzeme Kalitesi (Kapı içleri ve konsol)",
-            "Yüksek Hızda Yol ve Rüzgar Sesi (Yalıtım zayıf)",
-            "DCT Şanzıman Isınma Uyarısı (Yoğun dur-kalk trafikte)",
-            "Şehir İçi Yüksek Yakıt Tüketimi (1.4 Otomatik 9-10L)",
-            "Sert Sürüş Karakteri (Çukurları hissettiriyor)"
+            "Kabin genelinde sert plastik kullanımı",
+            "Yüksek hızlarda belirginleşebilen yol ve rüzgar sesi",
+            "1.2 MPI'nin yüklü kullanımda sınırlı hızlanması",
+            "1.4 MPI 6AT'nin şehir içinde turbo seçeneğe göre daha yüksek tüketimi",
+            "7DCT seçeneğinde yoğun dur-kalk ve yokuşta doğru kullanım ihtiyacı"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Debriyaj Aktüatör Sesi (Gıcırtı)",
-                severity: "low",
+                title: "7DCT düşük hız titremesi ve ısınma uyarısı",
+                severity: "medium",
                 reportCount: 8,
-                description: "Pedaldan ayağı çekerken gelen 'guuuuğğkkk' veya gıcırtı sesi. Debriyaj müşürü veya aktüatör kaynaklı, sürüşe engel değil ama can sıkıcı."
+                description: "Kuru kavramalı 7DCT, uzun süre sürünme veya aracı yokuşta gazla tutma sırasında ısınma uyarısı verebilir. Bu her araçta arıza anlamına gelmez; Hyundai kullanım kılavuzu yokuşta aracı frenle tutmayı ve uyarı sürerse yetkili servise başvurmayı önerir."
             },
             {
                 id: 2,
-                title: "Vernik/Boya Atması",
-                severity: "medium",
-                reportCount: 8,
-                description: "Özellikle kaput ve tavan bölgesinde erken vernik atması veya boya dökülmesi Şikayetleri (beyaz renklerde daha sık)."
+                title: "Akü zayıflığında Start-Stop ve elektronik uyarılar",
+                severity: "low",
+                reportCount: 6,
+                description: "Kısa mesafe kullanılan örneklerde 12 V akünün şarjı düştüğünde Start-Stop devre dışı kalabilir ve geçici elektronik uyarılar görülebilir. Satın alma kontrolünde akünün yaşı, dinlenme voltajı ve şarj sistemi birlikte ölçülmelidir."
             },
             {
                 id: 3,
-                title: "Rölanti Dalgalanması",
+                title: "Kabin trim sesleri",
                 severity: "low",
-                reportCount: 8,
-                description: "Rölantide devir saatinin kendi kendine inip kalkması. Genellikle LPG'li araçlarda veya debriyaj müşürü kaynaklı."
-            },
-            {
-                id: 4,
-                title: "Direksiyon Derisi Soyulması",
-                severity: "medium",
                 reportCount: 6,
-                description: "Erken kilometrelerde direksiyon simidinde soyulma. Garanti kapsamında değişim yapılıyor."
+                description: "Bozuk zeminde kapı döşemesi, B sütunu veya ön konsoldan ses geldiği bildirilen örnekler bulunur. Sesin kaynağı araçtan araca değiştiği için test sürüşü sessiz kabinde ve farklı yol yüzeylerinde yapılmalıdır."
+            }
+        ],
+        generationInfo: {
+            chassisCode: "BC3 / BC3 PE",
+            marketScope: "Türkiye ve Avrupa",
+            summary: "Üçüncü nesil i20 2020'de tanıtıldı ve İzmit'te üretilmeye devam ediyor. 2023'te tanıtılan makyaj Türkiye kaynaklarında 2024 model yılıyla BC3 PE olarak ayrılıyor; i20 N ve N Line aynı neslin türevleridir, ayrı bir nesil değildir.",
+            phases: [
+                {
+                    years: "2020-2023",
+                    name: "BC3 ilk seri",
+                    summary: "Sensuous Sportiness tasarımı, 352 litrelik bagaj ve Türkiye'de 1.2 MPI, 1.4 MPI 6AT ile 1.0 T-GDI 7DCT seçenekleri."
+                },
+                {
+                    years: "2024-Günümüz",
+                    name: "BC3 PE makyaj",
+                    summary: "Yenilenen ön-arka tasarım, güncellenen bağlantı/güvenlik donanımları ve güncel Türkiye gamında 1.2 MPI ile 90 PS 1.0 T-GDI manuel/7DCT seçenekleri."
+                }
+            ],
+            bodyStyles: ["5 kapı hatchback", "N Line", "i20 N (2021-2024 Avrupa performans türevi)"],
+            turkeyEngines: ["1.2 MPI 79/84 PS 5MT", "1.4 MPI 100 PS 6AT", "1.0 T-GDI 100 PS 7DCT", "1.0 T-GDI 90 PS 6MT/7DCT (güncel)"]
+        },
+        safetyCampaigns: [
+            {
+                title: "Yakıt pompası kontrolü",
+                affectedProduction: "01.04.2021-03.12.2022 (i20/Bayon; VIN aralığı kampanya kaydında)",
+                campaignCode: "51DT07",
+                description: "Belirli araçlarda yakıt pompası çarkının yüksek sıcaklık ve yakıt etkisiyle genleşerek pompa gövdesine temas etmesi motor gücü kaybına veya stop etmeye yol açabilir.",
+                action: "Aracın VIN numarasıyla Hyundai yetkili servisinde kampanya durumunu sorgulayın.",
+                sourceUrl: "https://rappel.conso.gouv.fr/fiche-rappel/47717/Rapex"
             },
             {
-                id: 5,
-                title: "Benzin Pompası Sesi",
-                severity: "low",
-                reportCount: 7,
-                description: "Arka koltuk altından gelen 'vınlama' veya 'vızzz' sesi. Depo azken artabilir."
+                title: "7DCT/TCU yazılım kampanyası",
+                affectedProduction: "28.03.2023-15.01.2024",
+                campaignCode: "41DT05",
+                description: "Belirli 7DCT araçlarda şanzıman veya kontrol ünitesi hatası beklenmeyen yavaşlamaya neden olabilir. Kampanya, şanzıman kontrol ünitesi yazılımının iyileştirilmesini kapsar.",
+                action: "VIN ile yetkili servis sorgusu yaptırın; yalnızca üretim tarihi kampanya kapsamını kesinleştirmez.",
+                sourceUrl: "https://www.hyundai.si/lastnistvo/vpoklic-vozila/servisni-vpoklic-vozil-hyundai-i20-41dt05"
+            }
+        ],
+        sources: [
+            {
+                title: "Hyundai i20 basın kiti ve nesil bilgisi",
+                publisher: "Hyundai Motor Europe",
+                url: "https://www.hyundai.news/eu/models/i-range/i20/press-kit.html"
+            },
+            {
+                title: "i20 teknik özellikleri ve Türkiye motorları",
+                publisher: "Hyundai Motor Türkiye",
+                url: "https://www.hyundai.com/tr/tr/modeller/i20/indirilebilir-dosyalar.html"
+            },
+            {
+                title: "i20 kullanıcı el kitapları arşivi",
+                publisher: "Hyundai Motor Türkiye",
+                url: "https://www.hyundai.com/tr/tr/satis-sonrasi/kullanici-el-kitabi.html"
+            },
+            {
+                title: "Hyundai i20 2021 güvenlik değerlendirmesi",
+                publisher: "Euro NCAP",
+                url: "https://www.euroncap.com/assessments/hyundai/i20/0891pm/"
             }
         ],
         userExperiences: [],
@@ -1539,45 +1616,98 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2015",
         dnaScore: 77,
         strengths: [
-            "Performanslı ve Dayanıklı Dizel Motor (90 Beygir, 240 Nm Tork)",
-            "Uzun Ömürlü Mekanik Altyapı (Sanayi yüzü göstermeyen sorunsuzluk)",
-            "Ferah İç Mekan ve Cam Tavan (Sınıf standartlarını aşan diz mesafesi)",
-            "Sade ve Kullanışlı Yaşam Alanı (Geniş saklama alanları ve ergonomik dizayn)"
+            "1.2 ve 1.4 MPI motorlarda sade, yaygın mekanik yapı",
+            "1.4 CRDi seçeneğinde düşük tüketim ve 240 Nm tork",
+            "326 litrelik bagaj ve sınıfına göre kullanışlı arka yaşam alanı",
+            "İzmit üretimi sayesinde yaygın parça ve servis erişimi",
+            "2018 makyajıyla gelen 7 inç ekran, CarPlay/Android Auto ve ek sürüş destekleri"
         ],
         weaknesses: [
-            "Sert Süspansiyon Karakteri (Yol bozukluklarını net hissettiriyor)",
-            "Yalıtım Zayıflığı (100 km/s üzeri yol ve rüzgar sesi)",
-            "Sert Plastik Malzeme Kalitesi (Kapı içleri ve göğüste ekonomi sınıfı hissi)",
-            "Ağır Kasa / Şehir İçi Tüketimi (1.4 CRDi yoğun trafikte emsallerine göre yüksek kalabiliyor)"
+            "Bozuk zeminde sert hissedilebilen süspansiyon",
+            "100 km/s üzerinde belirginleşen yol ve rüzgar sesi",
+            "Kapı içleri ve konsolda sert plastik yoğunluğu",
+            "1.4 MPI 4AT'nin güncel otomatiklere göre yüksek tüketimi ve yalnızca dört oranı",
+            "Dizel motorlarda kısa mesafe kullanımına bağlı DPF/EGR bakım riski"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "DPF ve EGR Tıkanması",
+                title: "1.4 CRDi DPF ve EGR doluluğu",
                 severity: "high",
                 reportCount: 7,
-                description: "Sürekli şehir içi ve düşük devir kullanımında DPF'nin kurum bağlaması. Çekiş düşüklüğü, artan yakıt tüketimi ve motor arıza lambasıyla kendini belli eder. Yüksek devirli uzun yol kullanımı ile temizlenmesi gerekir."
+                description: "Sürekli kısa mesafe ve düşük sıcaklıkta kullanılan dizellerde DPF rejenerasyonu tamamlanamayabilir; EGR kurumlanması da çekiş düşüşü veya arıza lambasıyla görülebilir. Satın almadan önce diferansiyel basınç ve rejenerasyon geçmişi teşhis cihazıyla kontrol edilmelidir."
             },
             {
                 id: 2,
-                title: "Direksiyon Derisi Soyulması",
+                title: "EPS direksiyon kaplini ve ön takım sesi",
                 severity: "medium",
                 reportCount: 9,
-                description: "Düşük kilometrelerde bile direksiyon simidinde erken aşınma ve bölgesel soyulmaların başlaması. Özellikle güneşe maruz kalan araçlarda daha sık görülür."
+                description: "Bozuk yolda direksiyon çevresinden tıkırtı gelen örneklerde EPS kaplini, rot başları, z-rotlar ve amortisör üst takozları ayrı ayrı kontrol edilmelidir. Tek başına ses, direksiyon kutusunun değişmesi gerektiğini göstermez."
             },
             {
                 id: 3,
-                title: "Motor Kulağı Yıpranması / Kabin Titreşimi",
+                title: "Motor takozu yorgunluğu ve rölanti titreşimi",
                 severity: "medium",
                 reportCount: 9,
-                description: "Kilometre ilerledikçe motor takozlarının özelliğini yitirmesi sonucu rölantideyken dizel motorun titreşiminin kabin içine, direksiyona ve pedallara fazlaca yansıması."
+                description: "Yüksek kilometrede özellikle dizel örneklerde rölanti titreşimi artabilir. Motor takozları kadar enjektör düzeltmeleri ve çift kütleli volan da benzer belirti oluşturabildiğinden parça değişiminden önce teşhis gerekir."
             },
             {
                 id: 4,
-                title: "Turbo Hortumu Terlemesi",
-                severity: "low",
-                reportCount: 9,
-                description: "Yüksek kilometreli araçlarda turbo borularında yağ terlemesi veya ufak basınç kaçakları oluşması. İvmelenme esnasında ekstra ıslık sesiyle fark edilebilir."
+                title: "1.0 T-GDI vakum hortumu güvenlik kampanyası",
+                severity: "high",
+                reportCount: 0,
+                description: "18 Ağustos 2015 ile 21 Eylül 2020 arasında üretilen belirli 1.0 T-GDI araçlar için yanlış yönlendirilmiş vakum hortumunun çatlayıp fren desteğini azaltabilmesi nedeniyle 61DT02 kodlu resmî kampanya yayımlandı. Kapsam yalnızca VIN ile kesinleşir."
+            }
+        ],
+        generationInfo: {
+            chassisCode: "GB / GB PE",
+            marketScope: "Türkiye ve Avrupa",
+            summary: "İkinci nesil i20 2014'te tanıtıldı; Türkiye'de 2015 model yılıyla yaygınlaştı. 2018 makyajında ön-arka tasarım, multimedya ve güvenlik donanımları güncellendi. Coupe ve Active, GB neslinin gövde türevleridir.",
+            phases: [
+                {
+                    years: "2014-2018",
+                    name: "GB ilk seri",
+                    summary: "Beş kapılı hatchback ana gövdeye ek olarak Avrupa'da üç kapılı Coupe ve yerden yüksek i20 Active sunuldu; Türkiye kayıtlarında GB 2015 model yılından itibaren görülür."
+                },
+                {
+                    years: "2018-2020",
+                    name: "GB PE makyaj",
+                    summary: "Cascading Grille tasarımı, yenilenen arka bölüm, 7 inç bağlantı ekranı ve pazara/pakete göre AEB ile şerit takip gibi güvenlik özellikleri eklendi."
+                }
+            ],
+            bodyStyles: ["5 kapı hatchback", "3 kapı Coupe", "i20 Active"],
+            turkeyEngines: ["1.2 MPI 84 PS 5MT", "1.4 MPI 100 PS 4AT", "1.0 T-GDI 100/120 PS 5MT veya 7DCT", "1.4 CRDi 90 PS 6MT"]
+        },
+        safetyCampaigns: [
+            {
+                title: "1.0 T-GDI fren vakum hortumu kampanyası",
+                affectedProduction: "18.08.2015-21.09.2020",
+                campaignCode: "61DT02",
+                description: "Belirli 1.0 T-GDI araçlarda yanlış güzergâhlanmış vakum hortumu titreşim nedeniyle çatlayabilir ve fren desteği azalabilir.",
+                action: "Üretim tarihi tek başına yeterli değildir; VIN numarasıyla Hyundai yetkili servisinde kampanya durumunu doğrulayın.",
+                sourceUrl: "https://rappel.conso.gouv.fr/fiche-rappel/49883/Rapex"
+            }
+        ],
+        sources: [
+            {
+                title: "Yeni nesil i20 Coupe teknik basın dosyası",
+                publisher: "Hyundai Motor Europe",
+                url: "https://www.hyundai.news/newsroom/dam/eu/press-kits/2015_i20_coupe/NewGeneration_i20_Coupe_Press_Information_032015.pdf"
+            },
+            {
+                title: "Türkiye i20 5 kapı ve Active teknik broşürü",
+                publisher: "Hyundai Motor Türkiye",
+                url: "https://www.hyundai.com/content/dam/hyundai/tr/tr/data/marketing/brochure/model/CW/i20-ebrochure-2017.pdf"
+            },
+            {
+                title: "Hyundai i20 2015 güvenlik değerlendirmesi",
+                publisher: "Euro NCAP",
+                url: "https://cdn.euroncap.com/media/67664/euroncap-2015-hyundai-i20-datasheet.pdf"
+            },
+            {
+                title: "i20 kullanıcı el kitapları arşivi",
+                publisher: "Hyundai Motor Türkiye",
+                url: "https://www.hyundai.com/tr/tr/satis-sonrasi/kullanici-el-kitabi.html"
             }
         ],
         userExperiences: [],
@@ -4041,68 +4171,6 @@ export const vehicleDNAData: VehicleDNA[] = [
     }
 ,
     {
-        id: 1004,
-        brand: "Hyundai",
-        model: "i20 3. Nesil (2020-Günümüz)",
-        year: "2020-2025",
-        ncapStars: 4,
-        ncapYear: "2021",
-        dnaScore: 82,
-        strengths: [
-            "Çok dikkat çekici, sportif ve yenilikçi dış tasarım",
-            "1.4 MPI motor ve 6 ileri tork konvertörlü tam otomatik şanzımanın mükemmel uyumu ve arıza yapmama garantisi",
-            "Sınıfına göre çok geniş arka diz mesafesi ve 352 litrelik büyük bagaj hacmi",
-            "Apple CarPlay, kablosuz şarj ve dijital gösterge gibi teknolojik donanımların zenginliği",
-            "İkinci el piyasasında çok hızlı alınıp satılabilmesi"
-        ],
-        weaknesses: [
-            "1.4 MPI motorun ivmelenmede zayıf kalması ve şehir içi 9-10 litreleri bulan yüksek yakıt tüketimi",
-            "Süspansiyonların sportif sürüş odaklı, yani biraz sert olması (çukurları hissettirmesi)",
-            "Kabin içinde, özellikle kapı içlerinde ve konsolda kullanılan sert plastik malzemeler",
-            "Yüksek hızlarda (110 km/s üzeri) kabin içine alınan yol ve rüzgar sesi"
-        ],
-        chronicIssues: [
-            {
-                id: 1,
-                title: "EPS Direksiyon Kaplini Tıkırtısı",
-                severity: "medium",
-                reportCount: 9,
-                description: "Özellikle bozuk veya parke taşlı yollarda direksiyon kutusundan tıkırtı gelmesi kroniktir. EPS kaplini değişimi veya yağlanması ile çözülür, kronik bir Hyundai/Kia sorunudur."
-            },
-            {
-                id: 2,
-                title: "Trim (Plastik) Sesleri",
-                severity: "low",
-                reportCount: 8,
-                description: "Havaların soğumasıyla veya bozuk yollarda ön konsoldan ve kapı döşemelerinden tıkırtılar (trim sesi) gelebilir."
-            }
-        ],
-        userExperiences: [
-            {
-                id: 1,
-                author: "TasarimciKiz",
-                authorLevel: "Gümüş Üye",
-                text: "Tasarımına aşık olup 1.4 otomatiğini aldım. Çok havalı duruyor, içi çok geniş. Ama İstanbul trafiğinde su gibi benzin içiyor. LPG taktırmak şart oldu.",
-                likes: 88,
-                replies: 14,
-                date: "2024-01-05",
-                rating: 4
-            },
-            {
-                id: 2,
-                author: "HizliPilot",
-                authorLevel: "Bronz Üye",
-                text: "1.0 T-GDI DCT versiyonu uçak gibi kaçıyor. 1.4'teki o hantallık yok. Vites geçişleri efsane hızlı. Fakat süspansiyonlar belimi ağrıtıyor bozuk yollarda.",
-                likes: 65,
-                replies: 10,
-                date: "2023-11-12",
-                rating: 4
-            }
-        ],
-        totalReports: 9,
-        imageUrl: "https://images.unsplash.com/photo-1695420138139-448f22ed1525?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
         id: 1005,
         brand: "Hyundai",
         model: "Tucson 4. Nesil (2021-Günümüz)",
@@ -5272,40 +5340,86 @@ export const vehicleDNAData: VehicleDNA[] = [
         ncapYear: "2009",
         dnaScore: 74,
         strengths: [
-            "5 Yıl Fabrika Garantisi ile Gönül Rahatlığı",
-            "Sınıfına Göre Geniş İç Mekan ve Bagaj Hacmi (295 Litre)",
-            "Düşük Yakıt Tüketimi (1.4 CRDi ile 4.5L/100km)",
-            "Sessiz ve Konforlu Kabin Yalıtımı (Sınıfının en iyilerinden)",
-            "Sorunsuz ve Güvenilir 1.2/1.4 Atmosferik Benzinli Motorlar"
+            "1.2 ve 1.4 atmosferik benzinli motorlarda sade mekanik yapı",
+            "295 litrelik bagaj ve dönemine göre kullanışlı kabin",
+            "1.1 ve 1.4 CRDi seçeneklerinde düşük yakıt tüketimi",
+            "Türkiye üretimi Troy modellerinde güçlü parça erişimi",
+            "2009 Euro NCAP protokolünde beş yıldız"
         ],
         weaknesses: [
-            "Sönük ve Sıradan Dış Tasarım (Rakiplerine göre dikkat çekmiyor)",
-            "Direksiyon Hissiyatının Çok Hafif ve Yapay Olması",
-            "Otomatik Şanzıman Seçeneğinin Sınırlı Olması (4 ileri konvansiyonel)",
-            "Düşük Donanımlı Paketlerin Çok Boş Kalması",
-            "Sert Plastik İç Mekan Malzemeleri"
+            "Yaşa bağlı kauçuk, hortum ve süspansiyon yenileme ihtiyacı",
+            "Hafif ve sınırlı geri bildirim veren elektrik destekli direksiyon",
+            "1.4 benzinli otomatikte yalnızca dört ileri oran",
+            "Baz donanımlarda sınırlı güvenlik ve konfor ekipmanı",
+            "Kabin genelinde sert plastik kullanımı"
         ],
         chronicIssues: [
             {
                 id: 1,
-                title: "Direksiyon Kutusu Boşluğu ve Tıkırtı",
+                title: "Direksiyon ve ön takım tıkırtısı",
                 severity: "medium",
                 reportCount: 8,
-                description: "Kasislerde direksiyondan gelen tıkırtı sesi ve direksiyondaki boşluk hissi. Genellikle direksiyon rot başı veya rotil bilyası kaynaklı."
+                description: "Kasislerde duyulan tıkırtıda direksiyon kutusuna karar vermeden önce rot başı, rotil, z-rot, amortisör üst takozu ve EPS kaplini kontrol edilmelidir. Yaş ve kullanım koşulu bu nesilde kilometreden daha belirleyici olabilir."
             },
             {
                 id: 2,
-                title: "Arka Fren Kampana ve Balata Gıcırtısı",
+                title: "Arka kampana fren sesi",
                 severity: "low",
                 reportCount: 7,
-                description: "Arka kampana frenlerde özellikle nemli havalarda veya sabah ilk kullanımda metal sürtünme sesi ve gıcırtı duyulması."
+                description: "Kampanalı versiyonlarda nemli havada ilk frenlerde kısa süreli ses oluşabilir. Sürekli ses, dengesiz fren veya el freni zayıflığı varsa kampana, balata, yay takımı ve tekerlek silindirleri birlikte incelenmelidir."
             },
             {
                 id: 3,
-                title: "Klima Kompresörü Kavrama Sesi",
-                severity: "low",
-                reportCount: 6,
-                description: "Klima devreye girerken kompresör kavramasından gelen 'tık' sesi ve hafif sarsıntı. Normal çalışma sesi olup fazla belirginse kavrama kontrolü gerekebilir."
+                title: "12 V soket güvenlik kampanyası",
+                severity: "high",
+                reportCount: 0,
+                description: "1 Ocak 2008-31 Aralık 2012 üretimli belirli PB araçlarda lastik tamir kiti kompresörü kullanılırken 12 V soketin aşırı ısınabilmesi nedeniyle 01D062 kodlu resmî kampanya yayımlandı. Kapsam VIN ile doğrulanmalıdır."
+            }
+        ],
+        generationInfo: {
+            chassisCode: "PB / PBT",
+            marketScope: "Türkiye ve Avrupa",
+            summary: "i20 ailesi 2008'de PB koduyla başladı. Türkiye'de 2009 model yılıyla satılan ilk seri, İzmit üretiminin başlamasıyla i20 Troy adını aldı; 2012 makyajı Yeni i20 Troy/PBT olarak anıldı. Küresel nesil 2014'te değişse de Hyundai Türkiye bakım kayıtlarında PBT model yılları 2015'e kadar görülebilir.",
+            phases: [
+                {
+                    years: "2008-2012",
+                    name: "PB ilk seri / i20 Troy",
+                    summary: "Türkiye resmî servis kayıtlarında PB 2009-2011, i20 Troy ise 2011-2012 model yıllarıyla ayrılır."
+                },
+                {
+                    years: "2012-2014",
+                    name: "PBT makyaj / Yeni i20 Troy",
+                    summary: "Ön-arka tasarım yenilendi; Türkiye servis kayıtları bu makyajı 2012-2015 model yılları için ayrıca listeler."
+                }
+            ],
+            bodyStyles: ["5 kapı hatchback", "3 kapı hatchback (bazı Avrupa pazarları)"],
+            turkeyEngines: ["1.2 MPI 78/85 PS 5MT", "1.4 MPI 100 PS 5MT/4AT", "1.1 CRDi 75 PS 6MT (makyaj)", "1.4 CRDi 90 PS 6MT"]
+        },
+        safetyCampaigns: [
+            {
+                title: "12 V aksesuar soketi kampanyası",
+                affectedProduction: "01.01.2008-31.12.2012",
+                campaignCode: "01D062",
+                description: "Lastik tamir kiti kompresörünün kullanımı sırasında yeterince korunmayan 12 V soket aşırı ısınabilir ve yangın riski oluşturabilir.",
+                action: "Aracın VIN numarasıyla Hyundai yetkili servisinde kampanya işleminin yapılıp yapılmadığını kontrol edin.",
+                sourceUrl: "https://rappel.conso.gouv.fr/affichettePDF/21149/Rapex"
+            }
+        ],
+        sources: [
+            {
+                title: "i20 nesil başlangıcı ve model tarihi",
+                publisher: "Hyundai Motor Europe",
+                url: "https://www.hyundai.news/eu/models/i-range/i20/press-kit.html"
+            },
+            {
+                title: "PB, Troy ve PBT model yılı/motor bakım tablosu",
+                publisher: "Hyundai Motor Türkiye",
+                url: "https://www.hyundai.com/content/dam/hyundai/tr/tr/images/connect-to-service/maintenance/ekim-periyodik-bakim-fiyat-listesi.pdf"
+            },
+            {
+                title: "Hyundai i20 2009 güvenlik değerlendirmesi",
+                publisher: "Euro NCAP",
+                url: "https://cdn.euroncap.com/media/7455/euroncap_hyundai_i20_2009_5stars.pdf"
             }
         ],
         userExperiences: [],

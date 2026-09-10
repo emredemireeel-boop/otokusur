@@ -5,8 +5,8 @@ import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLe
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import TrimComparisonTable from '@/components/TrimComparisonTable';
 import DeferredComments from '@/components/DeferredComments';
-import { absoluteUrl, assessVehicleSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_URL } from '@/lib/seo';
-import { ChevronRight, Star, ArrowRight, Fuel, Settings, AlertTriangle, Wrench } from 'lucide-react';
+import { absoluteUrl, assessVehicleSeoQuality, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_UPDATED_AT, SITE_URL } from '@/lib/seo';
+import { ArrowRight, BookOpen, CalendarRange, CheckCircle2, ChevronRight, ExternalLink, Fuel, Settings, ShieldCheck, Star, TrendingDown, TrendingUp, Wrench, XCircle, AlertTriangle } from 'lucide-react';
 
 interface Props { params: Promise<{ marka: string; model: string }> }
 
@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const engines = getEnginesByVehicleId(v.id);
     const quality = assessVehicleSeoQuality(v);
     const title = `${v.brand} ${v.model} Kronik Arızaları ve Motor Seçenekleri`;
-    const description = `${v.brand} ${v.model} (${v.year}) için ${engines.length} motor seçeneği, ${v.chronicIssues.length} genel kronik kusur ve ${v.dnaScore}/100 risk skoru.`;
+    const chassis = v.generationInfo ? ` ${v.generationInfo.chassisCode} kasa kodu, nesil yılları,` : '';
+    const description = `${v.brand} ${v.model} için${chassis} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
     const url = `/araclar/${marka}/${model}`;
     return {
         title,
@@ -41,8 +42,13 @@ export default async function ModelDetayPage({ params }: Props) {
     const risk = getRiskLevel(v.dnaScore);
     const engines = getEnginesByVehicleId(v.id);
     const trimData = getTrimsByVehicleId(v.id);
+    const hasReportedIssues = v.chronicIssues.some(issue => issue.reportCount > 0);
+    const i20Generations = /^i20\b/i.test(v.model)
+        ? getAllVehicles().filter(candidate => candidate.brand === v.brand && /^i20\b/i.test(candidate.model))
+        : [];
     const pageUrl = `/araclar/${marka}/${model}`;
-    const description = `${v.brand} ${v.model} (${v.year}) için ${engines.length} motor seçeneği, ${v.chronicIssues.length} genel kronik kusur ve ${v.dnaScore}/100 risk skoru.`;
+    const chassis = v.generationInfo ? ` ${v.generationInfo.chassisCode} kasa kodu, nesil yılları,` : '';
+    const description = `${v.brand} ${v.model} için${chassis} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
     const structuredData = [
         breadcrumbSchema([
             { name: 'Ana Sayfa', path: '/' },
@@ -57,6 +63,8 @@ export default async function ModelDetayPage({ params }: Props) {
             url: absoluteUrl(pageUrl),
             name: `${v.brand} ${v.model} kronik arızaları ve motor seçenekleri`,
             description,
+            dateModified: SITE_UPDATED_AT,
+            citation: v.sources?.map(source => source.url),
             isPartOf: { '@id': SITE_URL + '/#website' },
             author: { '@type': 'Organization', name: EDITORIAL_TEAM_NAME, url: absoluteUrl('/hakkimizda') },
             about: {
@@ -67,7 +75,7 @@ export default async function ModelDetayPage({ params }: Props) {
                 vehicleModelDate: v.year,
                 additionalProperty: [
                     { '@type': 'PropertyValue', name: 'OtoKusur risk skoru', value: `${v.dnaScore}/100` },
-                    { '@type': 'PropertyValue', name: 'İncelenen genel kronik kusur', value: v.chronicIssues.length },
+                    { '@type': 'PropertyValue', name: hasReportedIssues ? 'İncelenen genel kronik kusur' : 'İncelenen genel kontrol başlığı', value: v.chronicIssues.length },
                     { '@type': 'PropertyValue', name: 'İncelenen motor seçeneği', value: engines.length },
                 ],
             },
@@ -109,6 +117,95 @@ export default async function ModelDetayPage({ params }: Props) {
                     </div>
                 </div>
             </div>
+
+            {/* Nesil rehberi */}
+            {v.generationInfo && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="nesil-rehberi">
+                    <div className="flex items-center gap-2 mb-3">
+                        <CalendarRange size={16} className="text-[#A91D3A]" />
+                        <h2 id="nesil-rehberi" className="text-[16px] font-bold text-[#0F0F10]">Nesil ve model yılı rehberi</h2>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="badge bg-[#FCE8EC] text-[#8F1831]">Kasa kodu: {v.generationInfo.chassisCode}</span>
+                        <span className="badge bg-[#F1F5F9] text-[#475569]">Pazar: {v.generationInfo.marketScope}</span>
+                    </div>
+                    <p className="text-[12px] sm:text-[13px] text-[#3F3F46] leading-relaxed mb-5">{v.generationInfo.summary}</p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                        {v.generationInfo.phases.map(phase => (
+                            <div key={`${phase.years}-${phase.name}`} className="rounded-xl border border-[#EBEBED] bg-[#FAFAFA] p-4">
+                                <p className="text-[10px] font-bold uppercase tracking-wide text-[#A91D3A] mb-1">{phase.years}</p>
+                                <h3 className="text-[13px] font-bold text-[#0F0F10] mb-1.5">{phase.name}</h3>
+                                <p className="text-[11px] text-[#71717A] leading-relaxed">{phase.summary}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <h3 className="text-[11px] font-bold text-[#0F0F10] mb-2">Gövde türevleri</h3>
+                            <div className="flex flex-wrap gap-1.5">
+                                {v.generationInfo.bodyStyles.map(body => <span key={body} className="text-[10px] rounded-full bg-[#F1F5F9] px-2.5 py-1 text-[#475569]">{body}</span>)}
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="text-[11px] font-bold text-[#0F0F10] mb-2">Türkiye motor seçenekleri</h3>
+                            <ul className="space-y-1.5">
+                                {v.generationInfo.turkeyEngines.map(engine => (
+                                    <li key={engine} className="flex items-start gap-2 text-[10px] text-[#52525B]">
+                                        <CheckCircle2 size={11} className="text-[#16A34A] mt-0.5 flex-shrink-0" /> {engine}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {i20Generations.length > 1 && (
+                <nav className="card-elevated p-4 sm:p-5 mb-6" aria-label="Hyundai i20 nesilleri">
+                    <h2 className="text-[12px] font-bold text-[#0F0F10] mb-3">Tüm Hyundai i20 nesilleri</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {i20Generations.map(generation => {
+                            const href = `/araclar/${brandSlug(generation.brand)}/${modelSlug(generation.model)}`;
+                            const current = generation.id === v.id;
+                            return current ? (
+                                <span key={generation.id} aria-current="page" className="rounded-lg bg-[#A91D3A] px-3 py-2 text-[10px] font-semibold text-white">
+                                    {generation.model}
+                                </span>
+                            ) : (
+                                <Link key={generation.id} href={href} className="rounded-lg border border-[#EBEBED] bg-white px-3 py-2 text-[10px] font-semibold text-[#3F3F46] hover:border-[#A91D3A]/30 hover:text-[#A91D3A]">
+                                    {generation.model}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </nav>
+            )}
+
+            {/* Araç güçlü ve zayıf yönleri */}
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" aria-label="Araç değerlendirmesi">
+                <div className="card-elevated p-5">
+                    <h2 className="label flex items-center gap-1.5 mb-3"><TrendingUp size={12} className="text-[#16A34A]" />Güçlü yönleri</h2>
+                    <ul className="space-y-2">
+                        {v.strengths.map((strength, index) => (
+                            <li key={index} className="flex items-start gap-2 text-[12px] text-[#3F3F46]">
+                                <CheckCircle2 size={13} className="text-[#16A34A] mt-0.5 flex-shrink-0" /><span>{strength}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="card-elevated p-5">
+                    <h2 className="label flex items-center gap-1.5 mb-3"><TrendingDown size={12} className="text-[#A91D3A]" />Zayıf yönleri</h2>
+                    <ul className="space-y-2">
+                        {v.weaknesses.map((weakness, index) => (
+                            <li key={index} className="flex items-start gap-2 text-[12px] text-[#3F3F46]">
+                                <XCircle size={13} className="text-[#A91D3A] mt-0.5 flex-shrink-0" /><span>{weakness}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
 
             {/* Motor Selection */}
             <div className="mb-8">
@@ -189,12 +286,12 @@ export default async function ModelDetayPage({ params }: Props) {
 
             {/* Vehicle-level Quick Info */}
             {v.chronicIssues.length > 0 && (
-                <div className="card-elevated p-5 sm:p-6">
+                <div className="card-elevated p-5 sm:p-6 mb-6">
                     <div className="flex items-center gap-2 mb-1">
                         <AlertTriangle size={14} className="text-[#CA8A04]" />
-                        <h2 className="text-[14px] font-bold text-[#0F0F10]">Genel Araç Uyarıları</h2>
+                        <h2 className="text-[14px] font-bold text-[#0F0F10]">{hasReportedIssues ? 'Genel Araç Uyarıları' : 'Satın Alma Kontrol Başlıkları'}</h2>
                     </div>
-                    <p className="text-[11px] text-[#A1A1AA] mb-4">Tüm {v.model} motorları için geçerli genel sorunlar</p>
+                    <p className="text-[11px] text-[#A1A1AA] mb-4">{hasReportedIssues ? `Tüm ${v.model} motorları için incelenen genel sorunlar` : 'Uzun dönem arıza hükmü değil; kaynaklardan türetilen ekspertiz ve teslimat kontrol noktaları'}</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {v.chronicIssues.map(issue => (
                             <div key={issue.id} className="bg-[#F7F7F8] rounded-lg p-3.5">
@@ -204,6 +301,56 @@ export default async function ModelDetayPage({ params }: Props) {
                         ))}
                     </div>
                 </div>
+            )}
+
+            {/* Resmî güvenlik kampanyaları */}
+            {v.safetyCampaigns && v.safetyCampaigns.length > 0 && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="guvenlik-kampanyalari">
+                    <div className="flex items-center gap-2 mb-1">
+                        <ShieldCheck size={15} className="text-[#A91D3A]" />
+                        <h2 id="guvenlik-kampanyalari" className="text-[14px] font-bold text-[#0F0F10]">Resmî güvenlik kampanyaları</h2>
+                    </div>
+                    <p className="text-[11px] text-[#71717A] leading-relaxed mb-4">Geri çağırma kaydı kronik arıza oranı değildir. Yalnızca belirtilen üretim aralığındaki bazı şasi numaraları kapsama girebilir; kesin sonuç VIN sorgusuyla alınır.</p>
+                    <div className="space-y-3">
+                        {v.safetyCampaigns.map(campaign => (
+                            <div key={campaign.campaignCode} className="rounded-xl border border-[#F1D5DB] bg-[#FFF9FA] p-4">
+                                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                    <h3 className="text-[12px] font-bold text-[#0F0F10]">{campaign.title}</h3>
+                                    <span className="badge bg-[#FCE8EC] text-[#8F1831]">{campaign.campaignCode}</span>
+                                </div>
+                                <p className="text-[10px] font-semibold text-[#52525B] mb-1">Etkilenen üretim: {campaign.affectedProduction}</p>
+                                <p className="text-[11px] text-[#71717A] leading-relaxed mb-2">{campaign.description}</p>
+                                <p className="text-[11px] text-[#3F3F46] leading-relaxed mb-3"><strong>Ne yapılmalı:</strong> {campaign.action}</p>
+                                <a href={campaign.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#A91D3A] hover:underline">
+                                    Resmî kaydı aç <ExternalLink size={10} />
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {v.sources && v.sources.length > 0 && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="kaynaklar">
+                    <div className="flex items-center gap-2 mb-3">
+                        <BookOpen size={14} className="text-[#A91D3A]" />
+                        <h2 id="kaynaklar" className="text-[14px] font-bold text-[#0F0F10]">Doğrulama kaynakları</h2>
+                    </div>
+                    <ul className="space-y-2">
+                        {v.sources.map(source => (
+                            <li key={source.url}>
+                                <a href={source.url} target="_blank" rel="noopener noreferrer" className="group flex items-start justify-between gap-3 rounded-lg border border-[#EBEBED] p-3 hover:border-[#A91D3A]/30">
+                                    <span>
+                                        <span className="block text-[11px] font-semibold text-[#0F0F10] group-hover:text-[#A91D3A]">{source.title}</span>
+                                        <span className="block text-[9px] text-[#A1A1AA] mt-0.5">{source.publisher}</span>
+                                    </span>
+                                    <ExternalLink size={11} className="text-[#A1A1AA] mt-0.5 flex-shrink-0" />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="text-[9px] text-[#A1A1AA] mt-3">Son editoryal kontrol: {SITE_UPDATED_AT}</p>
+                </section>
             )}
 
             {/* Kullanıcı Yorumları */}

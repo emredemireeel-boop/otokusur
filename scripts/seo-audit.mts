@@ -1,6 +1,19 @@
-import { engineDNAData, type EngineOption } from '../data/engine-dna.ts';
+import { engineDNAData as legacyEngineDNAData, type EngineOption } from '../data/engine-dna.ts';
 import { guidesData } from '../data/guides.ts';
-import { createSlug, vehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
+import { priorityEngineDNAData } from '../data/priority-engine-dna.ts';
+import { priorityVehicleDNAData, supersededLegacyVehicleIds } from '../data/priority-vehicle-dna.ts';
+import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
+
+const supersededIds = new Set(supersededLegacyVehicleIds);
+const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
+const vehicleDNAData = [
+    ...priorityVehicleDNAData,
+    ...legacyVehicleDNAData.filter((vehicle) => !priorityIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
+];
+const engineDNAData = [
+    ...priorityEngineDNAData,
+    ...legacyEngineDNAData.filter((entry) => !priorityIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
+];
 
 const boilerplate = new Set([
     'Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.',
@@ -12,7 +25,7 @@ function vehicleIsIndexable(vehicle: VehicleDNA): boolean {
     return vehicle.chronicIssues.length >= 2
         && vehicle.strengths.length >= 3
         && vehicle.weaknesses.length >= 3
-        && vehicle.totalReports >= 3;
+        && (vehicle.totalReports >= 3 || (vehicle.sources?.length ?? 0) >= 2);
 }
 
 function engineIsIndexable(engine: EngineOption): boolean {

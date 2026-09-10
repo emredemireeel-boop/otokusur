@@ -19,11 +19,12 @@ export interface SeoQualityAssessment {
 }
 
 export function assessVehicleSeoQuality(vehicle: VehicleDNA): SeoQualityAssessment {
+    const hasEvidence = vehicle.totalReports >= 3 || (vehicle.sources?.length ?? 0) >= 2;
     const checks = [
         { ok: vehicle.chronicIssues.length >= 2, reason: 'En az iki araç kusuru bulunmalı.' },
         { ok: vehicle.strengths.length >= 3, reason: 'Yeterli güçlü yön analizi bulunmalı.' },
         { ok: vehicle.weaknesses.length >= 3, reason: 'Yeterli zayıf yön analizi bulunmalı.' },
-        { ok: vehicle.totalReports >= 3, reason: 'Asgari rapor yoğunluğu bulunmalı.' },
+        { ok: hasEvidence, reason: 'Asgari kullanıcı raporu veya en az iki doğrulama kaynağı bulunmalı.' },
     ];
     const passed = checks.filter(check => check.ok).length;
 

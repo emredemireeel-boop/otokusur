@@ -22,7 +22,7 @@ const faqData: FAQItem[] = [
     },
     {
         q: 'Veriler nereden geliyor?',
-        a: 'Veriler; Türk otomobil forumları (DonanımHaber, Otopark, marka fan kulüpleri), kullanıcı raporları, teknik servis kayıtları ve uluslararası güvenilirlik raporlarından derlenmektedir.'
+        a: 'Veriler; üretici teknik dokümanları, resmî geri çağırma ve Euro NCAP kayıtları, ADAC/TÜV gibi bağımsız istatistikler ile DonanımHaber, Otopark ve marka topluluklarındaki kullanıcı bildirimlerinin çapraz kontrolüyle derlenir. Forum paylaşımı tek başına kronik arıza sayılmaz; doğrulanamayan adetler yayımlanmaz.'
     },
     {
         q: 'Ekspertiz yerine kullanılabilir mi?',

@@ -671,94 +671,167 @@ export const engineDNAData: VehicleEngineData[] = [
     vehicleId: 8,
     engines: [
       {
-        slug: "14-mpi-100-hp-benzin-manuel-otomatik",
-        name: "1.4 MPI 100 HP",
+        slug: "12-mpi-79-84-ps-benzin-manuel",
+        name: "1.2 MPI 79/84 PS",
         fuelType: "Benzin",
-        transmission: "Manuel / Otomatik",
-        score: 93,
+        transmission: "5 İleri Manuel",
+        score: 88,
+        description:
+          "Dört silindirli atmosferik 1.2 MPI, üçüncü nesil i20'nin en sade benzinli seçeneğidir. Türkiye broşürlerinde ilk yıllarda 79 PS, Avrupa teknik verilerinde 84 PS olarak görülebilir; bu fark pazar ve homologasyon döneminden kaynaklanır. Şehir içi kullanım ve düşük bakım karmaşıklığı önceliklidir, performans beklentisi sınırlı tutulmalıdır.",
+        pros: [
+          "Turbo ve DCT bulunmayan sade aktarma yapısı",
+          "Şehir içinde yumuşak gaz tepkisi ve öngörülebilir bakım",
+        ],
+        cons: [
+          "Yüklü araçta ve uzun rampada sınırlı ara hızlanma",
+          "Beş ileri şanzıman nedeniyle otoyolda daha yüksek motor devri",
+        ],
         chronicIssues: [
           {
-            title: "Katalitik konvertör hassasiyeti",
+            title: "Ateşleme teklemesi kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 7,
+              "Düzensiz rölanti veya yük altında tekleme varsa buji, bobin, yakıt düzeltmeleri ve boğaz kelebeği birlikte kontrol edilmelidir. Bu belirti tek başına motora özgü kronik arıza kanıtı değildir; çoğu vakada bakım geçmişi ve yanlış buji aralığı belirleyicidir.",
+            severity: "low",
+            reportCount: 5,
           },
           {
-            title: "Performans eksikliği",
+            title: "LPG uygulanmış araçlarda supap ayarı",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Sonradan LPG uygulanmış örneklerde soğuk çalışma, kompresyon ve supap boşluğu kontrol edilmelidir. Fakir karışım veya ihmal edilmiş ayar supap yuvası aşınmasını hızlandırabilir; LPG dönüşümünün markası, kalibrasyonu ve servis kayıtları önemlidir.",
             severity: "medium",
-            reportCount: 7,
+            reportCount: 5,
           },
         ],
       },
       {
-        slug: "10-t-gdi-100-hp-benzin-dct",
-        name: "1.0 T-GDI 100 HP",
+        slug: "14-mpi-100-ps-benzin-6at",
+        name: "1.4 MPI 100 PS",
         fuelType: "Benzin",
-        transmission: "DCT",
-        score: 86,
+        transmission: "6 İleri Tam Otomatik",
+        score: 87,
+        description:
+          "Türkiye'de özellikle otomatik i20 alıcılarının sık karşılaştığı 1.4 MPI, 100 PS gücünü altı ileri tork konvertörlü şanzımanla aktarır. Turbo ve kuru çift kavrama kullanmaması sakin kullanımda mekanik sadelik sağlar. Buna karşılık yoğun şehir trafiğinde yakıt tüketimi 1.0 T-GDI seçeneğinin üzerine çıkabilir.",
+        pros: [
+          "Tork konvertörlü 6AT ile düşük hızda akıcı çalışma",
+          "Turbo besleme olmadan sade ve yaygın servis bilgisi",
+        ],
+        cons: [
+          "Yoğun şehir trafiğinde görece yüksek yakıt tüketimi",
+          "Tam yüklü kullanımda sınırlı ara hızlanma",
+        ],
         chronicIssues: [
           {
-            title: "Kuru tip DCT kavrama titremesi",
+            title: "6AT geçiş kalitesi ve yağ durumu",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 7,
-          },
-          {
-            title: "Turbo selenoid valfi",
-            description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Soğuk veya sıcak kullanımda belirgin vuruntu varsa şanzıman yağı seviyesi/durumu, adaptasyon değerleri ve motor takozları beraber incelenmelidir. Tork konvertörlü yapıda hafif vites hissi ile arıza kaynaklı sert vuruntu birbirinden ayrılmalıdır.",
             severity: "medium",
             reportCount: 6,
+          },
+          {
+            title: "LPG ve katalizör kontrolü",
+            description:
+              "LPG'li araçta arıza lambası, yakıt düzeltmesi ve katalizör verimi OBD üzerinden kontrol edilmelidir. Yanlış karışım ayarı uzun vadede supap ve katalizörü zorlayabilir; bu risk fabrika çıkışlı benzin kullanımında aynı anlamı taşımaz.",
+            severity: "medium",
+            reportCount: 5,
           },
         ],
       },
       {
-        slug: "14-crdi-90-hp-dizel-manuel",
-        name: "1.4 CRDi 90 HP",
-        fuelType: "Dizel",
-        transmission: "Manuel",
-        score: 92,
+        slug: "10-t-gdi-100-ps-benzin-7dct",
+        name: "1.0 T-GDI 100 PS",
+        fuelType: "Benzin",
+        transmission: "7 İleri DCT",
+        score: 80,
+        description:
+          "Üç silindirli turbo 1.0 T-GDI, 172 Nm torku ve yedi ileri kuru çift kavramalı DCT ile atmosferik seçeneklerden daha canlı ara hızlanma sunar. Bu kombinasyon 2020 sonrası Türkiye gamında kullanıldı. Alım öncesinde soğuk-sıcak kalkış davranışı ile iki resmî kampanyanın VIN durumu mutlaka kontrol edilmelidir.",
+        pros: [
+          "Düşük devirden gelen 172 Nm tork ve güçlü ara hızlanma",
+          "Yedi oran sayesinde uzun yolda düşük devir",
+        ],
+        cons: [
+          "Kuru kavramalı DCT'nin yoğun sürünme trafiğine hassas olması",
+          "MPI motorlara göre daha karmaşık turbo ve direkt enjeksiyon sistemi",
+        ],
         chronicIssues: [
           {
-            title: "DPF rejenerasyon sıklığı",
+            title: "41DT05 DCT/TCU yazılım kampanyası",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 6,
+              "28 Mart 2023-15 Ocak 2024 üretimli belirli 7DCT araçlar için şanzıman veya TCU hatasının beklenmeyen yavaşlamaya neden olabilmesi sebebiyle 41DT05 kodlu kampanya yayımlandı. Yazılım durumunu ve kapsamı yalnızca VIN sorgusu kesinleştirir.",
+            severity: "high",
+            reportCount: 0,
           },
           {
-            title: "Enjektör kirlenmesi",
+            title: "51DT07 yakıt pompası kampanyası",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 6,
+              "1 Nisan 2021-3 Aralık 2022 üretimli belirli i20/Bayon araçlarında yakıt pompası çarkının genleşip pompayı durdurabilmesi ve motorun güç kaybetmesi riski için 51DT07 kampanyası bulunur. Aracın işlem geçmişi yetkili servisten doğrulanmalıdır.",
+            severity: "high",
+            reportCount: 0,
           },
         ],
       },
       {
-        slug: "16-t-gdi-177-hp-benzin-dct",
-        name: "1.6 T-GDI 177 HP",
+        slug: "10-t-gdi-90-ps-benzin-manuel-7dct",
+        name: "1.0 T-GDI 90 PS",
         fuelType: "Benzin",
-        transmission: "DCT",
-        score: 84,
+        transmission: "6 İleri Manuel / 7 İleri DCT",
+        score: 82,
+        description:
+          "Makyajlı BC3 PE'nin güncel Türkiye gamında 1.0 T-GDI motor 90 PS ve 172 Nm ile sunulur. Hyundai Türkiye yakıt/emisyon belgeleri hem altı ileri manuel hem yedi ileri DCT seçeneğini listeler. Uzun dönem arıza verisi daha eski 100 PS sürüm kadar olgunlaşmadığı için değerlendirme özellikle bakım kaydı ve test sürüşüne dayanmalıdır.",
+        pros: [
+          "172 Nm tork ile 1.2 MPI'den daha güçlü ara hızlanma",
+          "Manuel veya 7DCT şanzıman seçebilme",
+        ],
+        cons: [
+          "Yeni model yıllarında uzun dönem arıza verisinin sınırlı olması",
+          "7DCT seçeneğinde sürünme ve yokuş kullanımına dikkat gerektirmesi",
+        ],
         chronicIssues: [
           {
-            title: "Şanzıman aşırı ısınma uyarısı",
+            title: "7DCT ısınma uyarısı kullanım kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Hyundai kullanım kılavuzu, aracı yokuşta gazla tutmanın veya uzun süre süründürmenin kavrama ve şanzımana zarar verebileceğini belirtir. Uyarı tekrarlıyorsa kavrama adaptasyonu ve TCU hata kayıtları yetkili ekipmanla kontrol edilmelidir.",
             severity: "medium",
-            reportCount: 6,
+            reportCount: 0,
           },
           {
-            title: "Kavrama ömrü",
+            title: "Doğrudan enjeksiyon bakım kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Soğuk çalıştırmada uzun marş, tekleme veya yakıt kokusu varsa düşük-yüksek basınç yakıt değerleri ve enjektör düzeltmeleri incelenmelidir. Belirti yoksa yalnızca motorun direkt enjeksiyonlu olması arıza varlığı anlamına gelmez.",
+            severity: "low",
+            reportCount: 0,
+          },
+        ],
+      },
+      {
+        slug: "16-t-gdi-204-ps-benzin-6mt-i20-n",
+        name: "1.6 T-GDI 204 PS (i20 N)",
+        fuelType: "Benzin",
+        transmission: "6 İleri Manuel",
+        score: 83,
+        description:
+          "i20 N, üçüncü nesil BC3'ün ayrı bir nesil değil yüksek performans türevidir. Avrupa'da 2021-2024 döneminde sunulan 1.6 T-GDI motor 204 PS ve 275 Nm üretir; yalnızca altı ileri manuel şanzımanla eşleşir. Standart i20'den farklı fren, süspansiyon ve soğutma parçaları nedeniyle bakım geçmişi özellikle önemlidir.",
+        pros: [
+          "204 PS güç, mekanik sınırlı kaydırmalı diferansiyel ve güçlü şasi",
+          "Altı ileri manuel şanzımanla doğrudan sürüş deneyimi",
+        ],
+        cons: [
+          "Standart i20'ye göre pahalı lastik, fren ve performans parçaları",
+          "Pist veya sert kullanım görmüş örneklerde daha ayrıntılı ekspertiz ihtiyacı",
+        ],
+        chronicIssues: [
+          {
+            title: "51DT07 yakıt pompası kampanyası",
+            description:
+              "1 Haziran 2021-4 Ocak 2023 üretimli belirli i20 N araçlarında yakıt pompası çarkının genleşmesi güç kaybı veya motorun durması riskini doğurabilir. 51DT07 kampanya durumunun VIN ile yetkili serviste doğrulanması gerekir.",
+            severity: "high",
+            reportCount: 0,
+          },
+          {
+            title: "Performans kullanımı sonrası sarf kontrolü",
+            description:
+              "Pist ve sert kullanım fren diski/balata, ön lastik, debriyaj ve motor yağı sıcaklık yükünü artırır. Satın alma öncesinde standart ekspertize ek olarak fren kalınlığı, eşit lastik aşınması, soğutma sistemi ve yağ bakım aralıkları incelenmelidir.",
             severity: "medium",
-            reportCount: 7,
+            reportCount: 0,
           },
         ],
       },
@@ -2463,92 +2536,132 @@ export const engineDNAData: VehicleEngineData[] = [
     vehicleId: 31,
     engines: [
       {
-        slug: "14-mpi-100-hp-benzin-manuel-otomatik",
-        name: "1.4 MPI 100 HP",
+        slug: "12-mpi-84-ps-benzin-5mt",
+        name: "1.2 MPI 84 PS",
         fuelType: "Benzin",
-        transmission: "Manuel / Otomatik",
-        score: 93,
+        transmission: "5 İleri Manuel",
+        score: 89,
+        description:
+          "Dört silindirli atmosferik 1.2 MPI, ikinci nesil i20'nin giriş benzinlisidir. Türkiye ve Avrupa broşürlerinde 84 PS güçle, beş ileri manuel şanzımanla yer alır. Turbo ve çift kavrama içermeyen yapısı bakım sadeliği sağlar; otoyol ve tam yüklü kullanımda performansı sınırlıdır.",
+        pros: [
+          "Sade atmosferik motor ve manuel şanzıman",
+          "Yaygın parça, servis bilgisi ve düşük mekanik karmaşıklık",
+        ],
+        cons: [
+          "Tam yüklü araçta zayıf ara hızlanma",
+          "Beşinci viteste otoyol hızında yüksek devir",
+        ],
         chronicIssues: [
           {
-            title: "Katalitik konvertör hassasiyeti",
+            title: "Ateşleme sistemi ve rölanti kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 7,
+              "Soğukta düzensiz çalışma veya yük altında tekleme varsa buji aralığı, bobinler, yakıt düzeltmeleri ve boğaz kelebeği incelenmelidir. Düzenli bakım görmüş ve belirti vermeyen araçta koruyucu amaçla parça değiştirmek gerekmez.",
+            severity: "low",
+            reportCount: 5,
           },
           {
-            title: "Performans eksikliği",
+            title: "Debriyaj kavrama noktası",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Kavrama noktası çok yukarıdaysa, kalkışta titreme veya yük altında devir yükselip hız artmıyorsa debriyaj seti kontrol edilmelidir. Motorun doğal düşük torku ile aşınmış debriyaj belirtisi test sürüşünde ayrı değerlendirilmelidir.",
             severity: "medium",
-            reportCount: 7,
+            reportCount: 5,
           },
         ],
       },
       {
-        slug: "10-t-gdi-100-hp-benzin-dct",
-        name: "1.0 T-GDI 100 HP",
+        slug: "14-mpi-100-ps-benzin-4at",
+        name: "1.4 MPI 100 PS",
         fuelType: "Benzin",
-        transmission: "DCT",
+        transmission: "4 İleri Tam Otomatik",
         score: 86,
+        description:
+          "1.4 MPI, ikinci nesil i20'nin Türkiye'de yaygın tork konvertörlü otomatik seçeneğidir. 100 PS motor, dört ileri otomatikle sakin ve akıcı şehir içi sürüşe odaklanır. Şanzımanın oran sayısı az olduğu için otoyol devri ve yakıt tüketimi daha yeni altı-yedi ileri alternatiflerden yüksektir.",
+        pros: [
+          "Düşük hızda akıcı tork konvertörlü otomatik",
+          "Turbo ve kuru kavrama içermeyen sade aktarma",
+        ],
+        cons: [
+          "Dört ileri oran nedeniyle yüksek devir ve tüketim",
+          "Yüklü kullanımda sınırlı ara hızlanma",
+        ],
         chronicIssues: [
           {
-            title: "Kuru tip DCT kavrama titremesi",
+            title: "4AT geçiş vuruntusu kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "D-R geçişinde gecikme veya sıcak kullanımda sert vuruntu varsa yağ seviyesi/durumu, solenoid hata kayıtları ve motor-şanzıman takozları birlikte kontrol edilmelidir. Dört ileri şanzımanın hissedilen normal geçişi arızayla karıştırılmamalıdır.",
             severity: "medium",
             reportCount: 6,
           },
           {
-            title: "Turbo selenoid valfi",
+            title: "LPG'li araçlarda karışım ve supap kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "Sonradan LPG uygulanmış araçlarda benzin ve LPG yakıt düzeltmeleri, kompresyon ve supap boşlukları kontrol edilmelidir. Hatalı kalibrasyon arıza lambası, düzensiz rölanti ve katalizör yükü oluşturabilir.",
             severity: "medium",
-            reportCount: 6,
+            reportCount: 5,
           },
         ],
       },
       {
-        slug: "14-crdi-90-hp-dizel-manuel",
-        name: "1.4 CRDi 90 HP",
-        fuelType: "Dizel",
-        transmission: "Manuel",
-        score: 92,
-        chronicIssues: [
-          {
-            title: "DPF rejenerasyon sıklığı",
-            description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 9,
-          },
-          {
-            title: "Enjektör kirlenmesi",
-            description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
-            severity: "medium",
-            reportCount: 6,
-          },
-        ],
-      },
-      {
-        slug: "16-t-gdi-177-hp-benzin-dct",
-        name: "1.6 T-GDI 177 HP",
+        slug: "10-t-gdi-100-120-ps-benzin-5mt-7dct",
+        name: "1.0 T-GDI 100/120 PS",
         fuelType: "Benzin",
-        transmission: "DCT",
-        score: 84,
+        transmission: "5 İleri Manuel / 7 İleri DCT",
+        score: 80,
+        description:
+          "Üç silindirli 1.0 T-GDI, GB nesline 2016 model yılı döneminde 100 ve 120 PS seçenekleriyle eklendi; 2018 makyajında 100 PS motorla yedi ileri DCT de sunuldu. Atmosferik motorlardan daha güçlü ara hızlanma sağlar. DCT ve fren vakum hortumu kampanya geçmişi VIN üzerinden kontrol edilmelidir.",
+        pros: [
+          "Atmosferik seçeneklere göre güçlü düşük devir torku",
+          "100/120 PS ve manuel/7DCT alternatifleri",
+        ],
+        cons: [
+          "Turbo ve direkt enjeksiyon nedeniyle daha karmaşık sistem",
+          "7DCT'nin yoğun sürünme trafiğinde ısı yönetimi ihtiyacı",
+        ],
         chronicIssues: [
           {
-            title: "Şanzıman aşırı ısınma uyarısı",
+            title: "61DT02 fren vakum hortumu kampanyası",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "18 Ağustos 2015-21 Eylül 2020 üretimli belirli 1.0 T-GDI araçlarda yanlış yönlendirilmiş vakum hortumu çatlayarak fren desteğini azaltabilir. 61DT02 kodlu güvenlik kampanyasının tamamlanma durumu VIN ile yetkili servisten öğrenilmelidir.",
+            severity: "high",
+            reportCount: 0,
+          },
+          {
+            title: "7DCT kalkış titremesi kontrolü",
+            description:
+              "DCT'li araçta soğuk ve tam ısınmış halde ileri-geri manevra, yokuş kalkışı ve düşük hız sürüşü denenmelidir. Sürekli titreme varsa kavrama aşınma/adaptasyon değerleri ile TCU hata kayıtları incelenmelidir.",
             severity: "medium",
+            reportCount: 6,
+          },
+        ],
+      },
+      {
+        slug: "14-crdi-90-ps-dizel-6mt",
+        name: "1.4 CRDi 90 PS",
+        fuelType: "Dizel",
+        transmission: "6 İleri Manuel",
+        score: 85,
+        description:
+          "1.4 CRDi, 90 PS ve yaklaşık 240 Nm torkuyla ikinci nesil i20'nin Türkiye'deki ekonomik uzun yol seçeneğidir. Altı ileri manuel şanzımanla sunulmuştur. Düzenli uzun yol yapan kullanıcı için verimli olabilir; kısa mesafeli şehir kullanımında DPF rejenerasyonu ve EGR kurumlanması yakından izlenmelidir.",
+        pros: [
+          "240 Nm tork ve düşük uzun yol tüketimi",
+          "Altı ileri manuel şanzıman",
+        ],
+        cons: [
+          "Kısa mesafede DPF rejenerasyonunun tamamlanmama riski",
+          "Yaş ve kilometreyle enjektör, turbo ve volan maliyeti",
+        ],
+        chronicIssues: [
+          {
+            title: "DPF doluluğu ve EGR kurumlanması",
+            description:
+              "Kısa mesafe geçmişi olan araçta rejenerasyon sıklığı, DPF diferansiyel basıncı, EGR komutu ve kül hesabı teşhis cihazıyla okunmalıdır. Sadece arıza lambasını silmek veya zorla rejenerasyon yapmak kök nedeni çözmez.",
+            severity: "high",
             reportCount: 7,
           },
           {
-            title: "Kavrama ömrü",
+            title: "Turbo basınç hortumu kaçak kontrolü",
             description:
-              "Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.",
+              "İvmelenmede ıslık, yağlı hortum çevresi veya basınç sapması varsa turbo hortumları ve kelepçeler kaçak testine alınmalıdır. Hafif yağ buharı tek başına turbo arızası kanıtı değildir; mil boşluğu ve hedef-gerçek basınç birlikte değerlendirilir.",
             severity: "medium",
             reportCount: 7,
           },
@@ -4624,43 +4737,6 @@ export const engineDNAData: VehicleEngineData[] = [
     ],
   },
   {
-    vehicleId: 1004,
-    engines: [
-      {
-        slug: "14-mpi-100-hp-benzin-otomatik",
-        name: "1.4 MPI 100 HP",
-        fuelType: "Benzin",
-        transmission: "Tam Otomatik (6AT)",
-        score: 84,
-        chronicIssues: [
-          {
-            title: "Yüksek Yakıt Tüketimi",
-            description:
-              "Atmosferik motor ve tork konvertör sebebiyle yoğun trafikte sarfiyat fazladır.",
-            severity: "low",
-            reportCount: 7,
-          },
-        ],
-      },
-      {
-        slug: "10-tgdi-100-hp-benzin-dct",
-        name: "1.0 T-GDI 100 HP",
-        fuelType: "Benzin",
-        transmission: "Çift Kavrama (DCT)",
-        score: 80,
-        chronicIssues: [
-          {
-            title: "DCT Kavrama Titremesi",
-            description:
-              "Düşük hızlarda veya dur-kalk trafikte kavramada hafif sarsıntılar hissedilebilir.",
-            severity: "medium",
-            reportCount: 8,
-          },
-        ],
-      },
-    ],
-  },
-  {
     vehicleId: 1005,
     engines: [
       {
@@ -5833,66 +5909,134 @@ export const engineDNAData: VehicleEngineData[] = [
     vehicleId: 2029,
     engines: [
       {
-        slug: "14-litre-benzin-manuel",
-        name: "1.4 Litre Benzinli (Manuel)",
+        slug: "12-mpi-78-85-ps-benzin-5mt",
+        name: "1.2 MPI 78/85 PS",
         fuelType: "Benzin",
-        transmission: "Manuel",
-        score: 79,
+        transmission: "5 İleri Manuel",
+        score: 88,
+        description:
+          "Birinci nesil i20'nin dört silindirli giriş motoru ilk seride yaklaşık 78 PS, 2012 makyajı döneminde 85 PS olarak listelenir. Türkiye'de i20, i20 Troy ve Yeni i20 Troy adları altında yaygın satılmıştır. Sade atmosferik yapı şehir kullanımı için uygundur; yüksek hız ve tam yükte performans beklentisi sınırlı olmalıdır.",
+        pros: [
+          "Turbo içermeyen sade ve yaygın mekanik yapı",
+          "Parça ve servis erişiminin güçlü olması",
+        ],
+        cons: [
+          "Yüklü araçta zayıf ara hızlanma",
+          "Yaşı ilerleyen araçlarda kauçuk ve ateşleme parçalarının kontrol ihtiyacı",
+        ],
         chronicIssues: [
           {
-            title: "Debriyaj/Kavrama Hassasiyeti",
+            title: "Ateşleme ve rölanti kontrolü",
             description:
-              "Zamanla vites geçişlerinde ve kalkışlarda hafif silkeleme yaşanabilir.",
+              "Soğuk çalışmada tekleme veya düzensiz rölanti varsa buji, bobin, boğaz kelebeği ve emme kaçağı incelenmelidir. Bu yaş grubunda bakım geçmişi modelden daha belirleyicidir; rastgele parça değişimi yerine hata kodu ve yakıt düzeltmesi okunmalıdır.",
             severity: "low",
+            reportCount: 6,
+          },
+          {
+            title: "Debriyaj ve motor takozu ayrımı",
+            description:
+              "Kalkış titremesi hem debriyaj yüzeyinden hem yorgun motor takozundan kaynaklanabilir. El freni yük testi yerine güvenli test sürüşü, takoz gözlemi ve kavrama kaçırma kontrolüyle iki ihtimal ayrılmalıdır.",
+            severity: "medium",
             reportCount: 6,
           },
         ],
       },
       {
-        slug: "14-litre-benzin-otomatik",
-        name: "1.4 Litre Benzinli (Otomatik)",
+        slug: "14-mpi-100-ps-benzin-5mt-4at",
+        name: "1.4 MPI 100 PS",
         fuelType: "Benzin",
-        transmission: "Otomatik",
-        score: 79,
+        transmission: "5 İleri Manuel / 4 İleri Otomatik",
+        score: 86,
+        description:
+          "1.4 litrelik atmosferik benzinli motor 100 PS güçle, pazara ve yıla göre beş ileri manuel veya dört ileri tork konvertörlü otomatikle sunuldu. Türkiye'de Troy ailesinin yaygın seçeneklerinden biridir. Otomatik versiyon sağlam ve akıcı karakterlidir ancak dört oran nedeniyle tüketim ve otoyol devri yüksektir.",
+        pros: [
+          "Sade atmosferik motor ve yaygın yedek parça",
+          "4AT seçeneğinde düşük hızda akıcı çalışma",
+        ],
+        cons: [
+          "Dört ileri otomatikte yüksek yakıt tüketimi",
+          "LPG uygulanmış araçlarda montaj ve ayar kalitesine bağımlılık",
+        ],
         chronicIssues: [
           {
-            title: "Debriyaj/Kavrama Hassasiyeti",
+            title: "4AT geçiş ve yağ kontrolü",
             description:
-              "Zamanla vites geçişlerinde ve kalkışlarda hafif silkeleme yaşanabilir.",
-            severity: "low",
+              "D-R geçişinde uzun gecikme, sıcak kullanımda sert vuruntu veya kaçırma varsa otomatik şanzıman yağının seviyesi/durumu ve hata kayıtları kontrol edilmelidir. Normal oran değişimi hissi, sürekli vuruntu veya kaymayla karıştırılmamalıdır.",
+            severity: "medium",
             reportCount: 8,
           },
-        ],
-      },
-      {
-        slug: "16-litre-dizel-manuel",
-        name: "1.6 Litre Dizel (Manuel)",
-        fuelType: "Dizel",
-        transmission: "Manuel",
-        score: 81,
-        chronicIssues: [
           {
-            title: "Debriyaj/Kavrama Hassasiyeti",
+            title: "LPG'li araçlarda kompresyon ve karışım",
             description:
-              "Zamanla vites geçişlerinde ve kalkışlarda hafif silkeleme yaşanabilir.",
-            severity: "low",
-            reportCount: 7,
+              "Sonradan LPG uygulanmış araçta benzin/LPG yakıt düzeltmeleri, kompresyon ve supap boşluğu ölçülmelidir. Fakir karışım ve uzun süre ihmal edilmiş ayar, supap yuvası ile katalizör üzerinde ek ısı yükü oluşturabilir.",
+            severity: "medium",
+            reportCount: 6,
           },
         ],
       },
       {
-        slug: "16-litre-dizel-otomatik",
-        name: "1.6 Litre Dizel (Otomatik)",
+        slug: "11-crdi-75-ps-dizel-6mt",
+        name: "1.1 CRDi 75 PS",
         fuelType: "Dizel",
-        transmission: "Otomatik",
-        score: 79,
+        transmission: "6 İleri Manuel",
+        score: 82,
+        description:
+          "Üç silindirli 1.1 CRDi, 2012 makyajlı Yeni i20 Troy döneminde Türkiye servis kayıtlarında yer alan ekonomik dizel seçenektir. Altı ileri manuel şanzıman ve düşük tüketim odaklı karakter sunar. Yaşı ilerleyen dizelde DPF kullanım geçmişi, enjektör dengesi ve turbo yağ hattı ayrıntılı kontrol edilmelidir.",
+        pros: [
+          "Düşük yakıt tüketimi ve altı ileri şanzıman",
+          "Şehirler arası kullanımda yeterli ekonomi",
+        ],
+        cons: [
+          "Üç silindir nedeniyle belirgin dizel titreşimi",
+          "Kısa mesafede DPF ve EGR bakım riski",
+        ],
         chronicIssues: [
           {
-            title: "Debriyaj/Kavrama Hassasiyeti",
+            title: "DPF rejenerasyon geçmişi",
             description:
-              "Zamanla vites geçişlerinde ve kalkışlarda hafif silkeleme yaşanabilir.",
-            severity: "low",
-            reportCount: 9,
+              "Kısa mesafe kullanılan araçta DPF diferansiyel basıncı, son rejenerasyon mesafesi ve kül hesabı teşhis cihazıyla kontrol edilmelidir. Sık rejenerasyon yalnızca filtreden değil termostat, enjektör veya basınç sensöründen de kaynaklanabilir.",
+            severity: "high",
+            reportCount: 7,
+          },
+          {
+            title: "Enjektör dengesi ve soğuk çalışma",
+            description:
+              "Soğukta uzun marş, beyaz duman veya düzensiz çalışma varsa enjektör düzeltme ve geri dönüş değerleri ölçülmelidir. Motorun üç silindirli doğal titreşimi, arızalı enjektör veya takoz belirtisinden ayrı değerlendirilmelidir.",
+            severity: "medium",
+            reportCount: 6,
+          },
+        ],
+      },
+      {
+        slug: "14-crdi-90-ps-dizel-6mt",
+        name: "1.4 CRDi 90 PS",
+        fuelType: "Dizel",
+        transmission: "6 İleri Manuel",
+        score: 84,
+        description:
+          "Dört silindirli 1.4 CRDi 90 PS, birinci nesil i20 ve Troy ailesinin Türkiye'deki güçlü dizel seçeneğidir; resmî bakım kayıtlarında otomatik değil manuel şanzımanla yer alır. Torku ve düşük tüketimi avantajdır. Yaşlı örneklerde DPF/EGR, turbo hortumları, enjektör ve debriyaj-volan birlikte incelenmelidir.",
+        pros: [
+          "1.1 CRDi'ye göre daha güçlü tork ve dört silindirli çalışma",
+          "Altı ileri manuel ile düşük uzun yol tüketimi",
+        ],
+        cons: [
+          "Kısa mesafeli kullanımda DPF/EGR doluluğu",
+          "Yüksek kilometrede dizel yakıt sistemi ve turbo maliyeti",
+        ],
+        chronicIssues: [
+          {
+            title: "DPF ve EGR kontrolü",
+            description:
+              "Arıza lambası, çekiş düşüşü veya sık fan çalışması varsa DPF basıncı ve EGR komutu canlı veriden incelenmelidir. Zorla rejenerasyon öncesinde termostat, enjektör ve basınç sensörü gibi doluluğu artıran nedenler dışlanmalıdır.",
+            severity: "high",
+            reportCount: 7,
+          },
+          {
+            title: "Turbo hortumu ve yağ kaçağı ayrımı",
+            description:
+              "Turbo çevresinde yağ terlemesi görüldüğünde hortum/kelepçe kaçağı, karter havalandırması ve turbo mil durumu ayrı kontrol edilmelidir. Hafif yağ filmi tek başına turbo değişimi gerektirmez; hedef ve gerçek basınç değerleri yol testinde karşılaştırılmalıdır.",
+            severity: "medium",
+            reportCount: 7,
           },
         ],
       },
