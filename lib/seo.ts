@@ -4,7 +4,7 @@ import type { VehicleDNA } from '@/data/vehicle-dna';
 export const SITE_URL = 'https://otokusur.com';
 export const SITE_NAME = 'OtoKusur';
 export const EDITORIAL_TEAM_NAME = 'OtoKusur Araştırma Ekibi';
-export const SITE_UPDATED_AT = '2026-09-09';
+export const SITE_UPDATED_AT = '2026-09-17';
 
 const ENGINE_BOILERPLATE = new Set([
     'Bu motorda sık görülen kronik bir sorundur. Çözümü için servise veya ustaya başvurulması önerilir.',

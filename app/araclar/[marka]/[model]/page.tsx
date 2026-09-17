@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { guidesData } from '@/data/guides';
 import { getVehicleBySlug, getEnginesByVehicleId, getTrimsByVehicleId, getRiskLevel, getAllVehicles, brandSlug, modelSlug } from '@/lib/dataService';
 import VehicleRiskBadge from '@/components/VehicleRiskBadge';
 import TrimComparisonTable from '@/components/TrimComparisonTable';
@@ -42,9 +43,15 @@ export default async function ModelDetayPage({ params }: Props) {
     const risk = getRiskLevel(v.dnaScore);
     const engines = getEnginesByVehicleId(v.id);
     const trimData = getTrimsByVehicleId(v.id);
+    const relatedGuides = guidesData.filter(guide => guide.relatedVehicleIds?.includes(v.id)).slice(0, 3);
     const hasReportedIssues = v.chronicIssues.some(issue => issue.reportCount > 0);
-    const i20Generations = /^i20\b/i.test(v.model)
-        ? getAllVehicles().filter(candidate => candidate.brand === v.brand && /^i20\b/i.test(candidate.model))
+    const generationFamilies = ['i20', 'Clio', 'Civic', 'Corolla', 'Focus', 'Passat', 'Astra', 'Corsa', 'Megane', 'Polo', 'Tucson', 'Sportage', 'Qashqai', 'Arona'];
+    const generationFamily = generationFamilies.find(family => v.model.toLocaleLowerCase('tr-TR').startsWith(family.toLocaleLowerCase('tr-TR')));
+    const relatedGenerations = generationFamily
+        ? getAllVehicles().filter(candidate =>
+            candidate.brand === v.brand
+            && candidate.model.toLocaleLowerCase('tr-TR').startsWith(generationFamily.toLocaleLowerCase('tr-TR')),
+        )
         : [];
     const pageUrl = `/araclar/${marka}/${model}`;
     const chassis = v.generationInfo ? ` ${v.generationInfo.chassisCode} kasa kodu, nesil yılları,` : '';
@@ -162,11 +169,11 @@ export default async function ModelDetayPage({ params }: Props) {
                 </section>
             )}
 
-            {i20Generations.length > 1 && (
-                <nav className="card-elevated p-4 sm:p-5 mb-6" aria-label="Hyundai i20 nesilleri">
-                    <h2 className="text-[12px] font-bold text-[#0F0F10] mb-3">Tüm Hyundai i20 nesilleri</h2>
+            {relatedGenerations.length > 1 && generationFamily && (
+                <nav className="card-elevated p-4 sm:p-5 mb-6" aria-label={`${v.brand} ${generationFamily} nesilleri`}>
+                    <h2 className="text-[12px] font-bold text-[#0F0F10] mb-3">Tüm {v.brand} {generationFamily} nesilleri ve gövdeleri</h2>
                     <div className="flex flex-wrap gap-2">
-                        {i20Generations.map(generation => {
+                        {relatedGenerations.map(generation => {
                             const href = `/araclar/${brandSlug(generation.brand)}/${modelSlug(generation.model)}`;
                             const current = generation.id === v.id;
                             return current ? (
@@ -350,6 +357,24 @@ export default async function ModelDetayPage({ params }: Props) {
                         ))}
                     </ul>
                     <p className="text-[9px] text-[#A1A1AA] mt-3">Son editoryal kontrol: {SITE_UPDATED_AT}</p>
+                </section>
+            )}
+
+            {relatedGuides.length > 0 && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="ilgili-rehberler">
+                    <div className="flex items-center gap-2 mb-3">
+                        <BookOpen size={14} className="text-[#A91D3A]" />
+                        <h2 id="ilgili-rehberler" className="text-[14px] font-bold text-[#0F0F10]">Bu araçla ilgili rehberler</h2>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {relatedGuides.map(guide => (
+                            <Link key={guide.slug} href={`/rehber/${guide.slug}`} className="group rounded-xl border border-[#EBEBED] p-4 hover:border-[#A91D3A]/30">
+                                <span className="block text-[10px] font-semibold text-[#A91D3A] mb-1">{guide.category}</span>
+                                <span className="block text-[12px] font-bold text-[#0F0F10] group-hover:text-[#A91D3A]">{guide.title}</span>
+                                <span className="mt-2 inline-flex items-center gap-1 text-[10px] font-semibold text-[#71717A]">Rehberi aç <ArrowRight size={10} /></span>
+                            </Link>
+                        ))}
+                    </div>
                 </section>
             )}
 

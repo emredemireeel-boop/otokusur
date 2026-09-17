@@ -1,4 +1,6 @@
 import { engineDNAData as legacyEngineDNAData, type EngineOption } from '../data/engine-dna.ts';
+import { evergreenDemandEngineDNAData } from '../data/evergreen-demand-engine-dna.ts';
+import { evergreenDemandVehicleDNAData, evergreenSupersededVehicleIds } from '../data/evergreen-demand-vehicle-dna.ts';
 import { guidesData } from '../data/guides.ts';
 import { priorityEngineDNAData } from '../data/priority-engine-dna.ts';
 import { priorityVehicleDNAData, supersededLegacyVehicleIds } from '../data/priority-vehicle-dna.ts';
@@ -6,18 +8,21 @@ import { searchDemandEngineDNAData } from '../data/search-demand-engine-dna.ts';
 import { searchDemandSupersededVehicleIds, searchDemandVehicleDNAData } from '../data/search-demand-vehicle-dna.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
 
-const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds]);
+const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds]);
+const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...searchDemandIds, ...priorityIds]);
+const editorialIds = new Set([...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const vehicleDNAData = [
-    ...searchDemandVehicleDNAData,
-    ...priorityVehicleDNAData.filter((vehicle) => !searchDemandIds.has(vehicle.id)),
+    ...evergreenDemandVehicleDNAData,
+    ...searchDemandVehicleDNAData.filter((vehicle) => !evergreenIds.has(vehicle.id)),
+    ...priorityVehicleDNAData.filter((vehicle) => !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
     ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
 const engineDNAData = [
-    ...searchDemandEngineDNAData,
-    ...priorityEngineDNAData.filter((entry) => !searchDemandIds.has(entry.vehicleId)),
+    ...evergreenDemandEngineDNAData,
+    ...searchDemandEngineDNAData.filter((entry) => !evergreenIds.has(entry.vehicleId)),
+    ...priorityEngineDNAData.filter((entry) => !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
     ...legacyEngineDNAData.filter((entry) => !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
 ];
 

@@ -234,6 +234,52 @@ const nextConfig: NextConfig = {
                 destination: '/araclar/volkswagen/passat-variant-b9-15-etsi/15-ehybrid-204-ps-dsg',
                 permanent: true,
             },
+            // Evergreen talep kümesi: popüler eski nesillerde hatalı motor ve birleşik model URL'leri.
+            {
+                source: '/araclar/renault/clio-4-nesil-2012-2019/10-tce-90-hp-benzin-manuel-x-tronic',
+                destination: '/araclar/renault/clio-4-nesil-2012-2019/09-tce-90-ps-manuel',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-4-nesil-2012-2019/15-dci-110-hp-dizel-manuel-edc',
+                destination: '/araclar/renault/clio-4-nesil-2012-2019/15-dci-75-90-110-ps-manuel-edc',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-4-nesil-2012-2019/13-tce-140-hp-benzin-edc',
+                destination: '/araclar/renault/clio-4-nesil-2012-2019/12-tce-120-ps-edc',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-4-nesil-2012-2019/16-e-tech-140-hp-hibrit-otomatik',
+                destination: '/araclar/renault/clio-4-nesil-2012-2019',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-k-2015-2021/12-puretech-130-hp-benzin-eat8',
+                destination: '/araclar/opel/astra-k-2015-2021/14-turbo-150-ps-at6',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-k-2015-2021/15-bluehdi-130-hp-dizel-eat8',
+                destination: '/araclar/opel/astra-k-2015-2021/16-cdti-136-ps-at6',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-k-kasa-16-dizel-otomatik/:motor*',
+                destination: '/araclar/opel/astra-k-2015-2021',
+                permanent: true,
+            },
+            {
+                source: '/araclar/seat-vw/arona-t-cross-10-tsi/:motor*',
+                destination: '/araclar/seat/arona-kj-1-nesil-2017-gunumuz',
+                permanent: true,
+            },
+            {
+                source: '/araclar/skoda-seat/kamiq-arona/:motor*',
+                destination: '/araclar/seat/arona-kj-1-nesil-2017-gunumuz',
+                permanent: true,
+            },
             {
                 source: '/:path*',
                 has: [{ type: 'host', value: 'www.otokusur.com' }],

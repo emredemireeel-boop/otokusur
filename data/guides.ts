@@ -7,6 +7,7 @@ export interface Guide {
     readTime: string;
     publishDate: string;
     updatedDate?: string;
+    relatedVehicleIds?: number[];
 }
 
 export const guidesData: Guide[] = [
@@ -521,5 +522,226 @@ Yüksek kilometreli araçlar genellikle düşük fiyatlı olduğu için cazip g�
 ### OtoKusur Önerisi
 
 Yüksek kilometreli araç almadan önce OtoKusur'dan modelin kronik arıza raporunu inceleyin. Hangi km'de hangi sorunların çıkacağını önceden bilmek, ekspertizde neye bakmanız gerektiğini gösterir.`
+    },
+    {
+        slug: 'hyundai-tucson-nx4-ne-demek-hangi-yillar',
+        title: 'Hyundai Tucson NX4 Ne Demek? Hangi Yıllar ve Motorlar?',
+        excerpt: 'Tucson NX4 kasa kodu, üretim yılları, makyaj farkları, 1.6 T-GDI, Hybrid ve CRDi motor seçenekleri için ayrıntılı rehber.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '8 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [19],
+        content: `## Tucson NX4 Ne Demek?
+
+**NX4**, Hyundai Tucson'un 2020 yılında tanıtılan dördüncü neslinin kasa/proje kodudur. Türkiye'de ilk araçlar ağırlıklı olarak 2021 model yılıyla görüldüğü için ilanlarda “2020”, “2021” veya “2021-günümüz” başlangıçlarıyla karşılaşılabilir. Kasa kodu motoru değil, araç neslini tanımlar.
+
+## NX4 Hangi Yılları Kapsar?
+
+| Dönem | Açıklama |
+|---|---|
+| 2020-2024 | İlk seri NX4, parametrik ön aydınlatmalı tasarım |
+| 2024 ve sonrası | Makyajlı NX4, yenilenen kabin ve bağlantı sistemi |
+
+Makyaj tarihi ile ruhsattaki model yılı aynı şey değildir. Özellikle geç tescil edilen araçta üretim etiketi, VIN ve donanım kodları birlikte kontrol edilmelidir.
+
+## Türkiye'deki Başlıca Motorlar
+
+- **1.6 T-GDI 160 PS 7DCT:** Turbo benzinli; 4x2 veya donanıma göre 4x4 bulunabilir.
+- **1.6 T-GDI Hybrid 215 PS 6AT:** Elektrik destekli tam hibrit ve tork konvertörlü otomatik.
+- **1.6 CRDi 136 PS 7DCT:** Uzun yol odaklı dizel; DPF, EGR ve SCR kontrolü gerekir.
+
+## İkinci Elde En Kritik Kontroller
+
+1. 7DCT araçta sıcak-soğuk D-R, yokuş kalkışı ve düşük hızlı manevra.
+2. Dizelde DPF doluluğu, rejenerasyon geçmişi, AdBlue/SCR ve enjektör değerleri.
+3. Hibritte hücre farkları, batarya sıcaklığı, enerji geçişi ve 12 V akü.
+4. 4x4 araçta dört lastiğin ölçü, desen ve aşınma uyumu.
+5. Ön cam veya tampon değişiminden sonra kamera-radar kalibrasyonu.
+
+NX4'e özel motor ve kontrol başlıklarının tamamı için [Hyundai Tucson NX4 kusur raporunu](/araclar/hyundai/tucson-nx4-4-nesil-2020-2025) inceleyebilirsiniz.
+
+### Kaynaklar
+
+- [Hyundai Tucson basın kiti](https://www.hyundai.news/eu/models/suv/tucson/press-kit.html)
+- [Hyundai Tucson motor seçenekleri](https://www.hyundai.news/eu/models/suv/tucson/press-kit/the-new-tucson-europes-best-selling-compact-suv-just-got-better.html)
+- [Hyundai Tucson teknik verileri](https://www.hyundai.news/newsroom/dam/eu/press-kits/20200915_all-new_tucson/15092020_Technical_Data_all-new_Tucson.pdf)`,
+    },
+    {
+        slug: 'kia-sportage-nq5-ne-demek-hangi-yillar',
+        title: 'Kia Sportage NQ5 Ne Demek? Hangi Yıllar ve Motorlar?',
+        excerpt: 'Sportage NQ5 kasa kodu, beşinci nesil üretim dönemi, 1.6 T-GDI motorlar, 7DCT ve 4x4 kontrolleri.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '7 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [20],
+        content: `## Sportage NQ5 Ne Demek?
+
+**NQ5**, beşinci nesil Kia Sportage'ın kasa kodudur. Avrupa pazarı için daha kompakt ölçülerle özel bir türev geliştirilmiş, model 2021'de tanıtılıp 2022 döneminde yaygınlaşmıştır. İlan başlığındaki NQ5 ifadesi tek başına motor, çekiş veya donanım paketini göstermez.
+
+## NQ5 Hangi Yılları Kapsar?
+
+| Dönem | Açıklama |
+|---|---|
+| 2021-2024 | Beşinci neslin ilk seri tasarımı |
+| 2025 ve sonrası | Makyajlı seri; dış tasarım, ekran ve destek sistemleri güncellendi |
+
+Türkiye'deki araçlarda üretim yılı, ilk tescil ve makyaj dönemi farklı görünebilir. Doğru ayrım VIN, üretim etiketi, ön-arka tasarım ve donanım kodlarıyla yapılmalıdır.
+
+## Yaygın Türkiye Motorları
+
+- **1.6 T-GDI 150 PS 7DCT 4x2:** Günlük kullanım ve tüketim dengesi.
+- **1.6 T-GDI 180 PS 7DCT 4x4:** Daha yüksek güç ve elektronik kontrollü dört çeker.
+
+Pazara ve model yılına göre hibrit seçenekler de bulunabilir; ilan metni yerine ruhsat ve şasi numarası esas alınmalıdır.
+
+## NQ5 Alırken Neye Bakılır?
+
+- 7DCT'de kavrama sıcaklığı, adaptasyon, geri manevra ve yokuş kalkışı.
+- 4x4 araçta aynı ölçü ve yakın aşınmada dört lastik.
+- Turbo basıncı, ateşleme sayaçları, yağ ve soğutma kaçakları.
+- Ön cam/tampon işlemi sonrası ADAS kalibrasyonu.
+- Multimedya, kamera, radar ve açık servis kampanyaları.
+
+Ayrıntılı motor ayrımları için [Kia Sportage NQ5 kusur ve motor raporuna](/araclar/kia/sportage-nq5-5-nesil-2021-2025) geçebilirsiniz.
+
+### Kaynaklar
+
+- [Kia Avrupa NQ5 tanıtımı](https://press.kia.com/ie/en/home/media-resouces/press-releases/2021/Kia-reveals-first-sketches.html)
+- [Kia Sportage NQ5 Avrupa lansmanı](https://press.kia.com/at/at/home/press-releases/2021/der-neue-kia-sportage.html)`,
+    },
+    {
+        slug: 'volkswagen-passat-b9-ne-demek-hangi-yillar',
+        title: 'Volkswagen Passat B9 Ne Demek? B8 ile Farkları ve Motorlar',
+        excerpt: 'Passat B9 kasa kodu, Variant gövde, B8 farkları, 1.5 eTSI, eHybrid ve 2.0 TDI motor seçenekleri.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '8 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [2088],
+        content: `## Passat B9 Ne Demek?
+
+**B9**, Volkswagen Passat'ın dokuzuncu neslini ifade eder. Avrupa'da 2024 model döneminde satışa çıkan bu nesil yalnız **Variant**, yani station wagon gövdeyle sunuldu. Sedan ilanı B9 olarak yazılmışsa araç kimliği özellikle doğrulanmalıdır.
+
+## B8 ve B9 Arasındaki Temel Farklar
+
+| Başlık | Passat B8 | Passat B9 |
+|---|---|---|
+| Üretim dönemi | 2014/2015-2023 | 2024 ve sonrası |
+| Gövde | Sedan ve Variant | Avrupa'da yalnız Variant |
+| Platform | MQB | Güncellenmiş MQB evo |
+| Kokpit | Önceki MIB nesilleri | MIB4, 12,9 inç standart ekran |
+| Elektrifikasyon | GTE PHEV seçeneği | eTSI ve yeni nesil eHybrid |
+
+B9'un dingil mesafesi B8'e göre 50 mm, toplam uzunluğu 144 mm artmıştır. Bu fark özellikle arka yaşam alanı ve bagaj kullanımına yansır.
+
+## Başlıca B9 Motorları
+
+- **1.5 eTSI 150 PS DSG:** 48 V hafif hibrit.
+- **1.5 eHybrid 204 PS:** Haricen şarj edilebilir hibrit.
+- **2.0 TDI 193 PS 4MOTION DSG:** Dizel ve dört çeker.
+
+## Satın Alma Kontrolü
+
+eTSI'da 12/48 V aküler ile DC-DC sistemi; eHybrid'de yüksek voltaj batarya ve şarj; TDI'da DPF/EGR/SCR incelenmelidir. Her versiyonda DSG uyarlamaları, MIB4 ekranı, kamera-radar kalibrasyonu ve dört lastik ölçümü önemlidir.
+
+Motor sayfaları ve ayrıntılı kontrol listesi için [Volkswagen Passat B9 kusur raporunu](/araclar/volkswagen/passat-variant-b9-15-etsi) açabilirsiniz.
+
+### Kaynaklar
+
+- [Volkswagen B9 ön satış duyurusu](https://www.volkswagen-newsroom.com/en/press-releases/configurator-open-pre-sales-of-the-all-new-passat-have-now-started-17924)
+- [Passat B9 tasarım ve ölçüler](https://www.volkswagen-newsroom.com/en/the-new-passat-international-media-drive-18257/stylish-driving-new-design-from-scratch-yet-still-a-passat-18264)
+- [Passat B9 güç aktarımları](https://www.volkswagen-newsroom.com/en/the-new-passat-international-media-drive-18257/classic-driving-tsi-and-tdi-front-and-all-wheel-drive-18261)`,
+    },
+    {
+        slug: 'honda-civic-fe1-ne-demek-hangi-yillar',
+        title: 'Honda Civic FE1 Ne Demek? FC5 Farkları ve Motor Seçenekleri',
+        excerpt: 'Civic FE1 kasa kodu, on birinci nesil yılları, FC5 ile ayrımı, Turbo ECO LPG ve CVT satın alma kontrolleri.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '8 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [5, 118],
+        content: `## Civic FE1 Ne Demek?
+
+**FE1**, Türkiye'de on birinci nesil Honda Civic Sedan için kullanılan kasa kodudur. 2021 sonunda pazara giren FE1; kendisinden önceki onuncu nesil **FC5** ile karıştırılmamalıdır. Kasa kodu motor ve paket adı değildir.
+
+## FC5 ile FE1 Nasıl Ayrılır?
+
+| Başlık | Civic FC5 | Civic FE1 |
+|---|---|---|
+| Nesil | 10. nesil | 11. nesil |
+| Türkiye dönemi | 2016-2021 | 2021-2025 |
+| Tasarım | Keskin, C sütununa uzanan stop | Daha yatay ve sade sedan çizgisi |
+| Kokpit | Önceki Honda Connect düzeni | Yatay petek havalandırma ve yeni ekran |
+| Sürüş desteği | Pakete göre Honda Sensing | Daha güncel Honda Sensing mimarisi |
+
+## FE1 Motorları
+
+Türkiye'de 1.5 VTEC Turbo motorun 182 PS benzinli ve 129 PS ECO LPG odaklı sürümleri CVT ile görülür. Motor gücü, LPG donanımı ve paket bilgisi VIN ile doğrulanmalıdır.
+
+## FE1 Alırken Kritik Kontroller
+
+- Honda onaylı CVT sıvısı, değişim faturası ve sıcak-soğuk yol testi.
+- ECO'da LPG tank tarihi, kaçak, iki yakıtta düzeltme ve ateşleme.
+- Turbo basıncı, doğru yağ, soğutma ve bakım aralığı.
+- Ön cam/tampon işlemi varsa Honda Sensing kalibrasyonu.
+- Alt gövde, jant-lastik ve düz yol geometrisi.
+
+On birinci nesil için [Civic FE1 ayrıntılı kusur raporunu](/araclar/honda/civic-11-nesil-fe1-2021-2025), önceki nesil için [Civic FC5 raporunu](/araclar/honda/civic-10-nesil-fc5-2016-2021) inceleyebilirsiniz.
+
+### Kaynaklar
+
+- [Honda Civic Türkiye model bilgileri](https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan)
+- [Honda Civic teknik broşürü](https://www.honda.com.tr/assets/files/yeni-civic-sedan-SVcS3.pdf)
+- [Honda Civic güvenlik değerlendirmesi](https://www.euroncap.com/assessments/honda/civic/0945/)`,
+    },
+    {
+        slug: 'seat-arona-10-tsi-dsg-alinir-mi-kronik-sorunlar',
+        title: 'SEAT Arona 1.0 TSI DSG Alınır mı? Kontrol Listesi',
+        excerpt: 'SEAT Arona 1.0 EcoTSI motor, DQ200 DSG, kasa kodu, kronik sorun iddiaları ve ikinci el satın alma kontrol listesi.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '9 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [12019],
+        content: `## SEAT Arona 1.0 TSI DSG Alınır mı?
+
+Bakımı belgeli, kavrama ve mekatronik verileri normal, soğutma sistemi sağlam bir Arona 1.0 EcoTSI DSG; kompakt boyut, 400 litrelik bagaj ve tüketim-performans dengesiyle değerlendirilebilir. Karar yalnız kısa test sürüşüne veya “DSG sorunlu/sorunsuz” genellemesine dayanmamalıdır.
+
+## Arona Kasa Kodu ve Yılları
+
+Arona'nın ilk nesil kasa kodu **KJ/KJ7**'dir. 2017'de başlayan nesil 2021'de makyajlandı. 1.0 EcoTSI motor üretim yılına göre 95, 110 veya 115 PS olarak; manuel ya da DSG ile bulunabilir.
+
+## 1.0 EcoTSI Kontrolü
+
+- Araç tamamen soğukken rölanti ve ateşleme sayacı.
+- İstenen-gerçek turbo basıncı ve yakıt düzeltmeleri.
+- Su pompası, termostat ve soğutma devresinde kaçak.
+- Motor koduna uygun triger planı ve VW onaylı yağ faturası.
+- Üç silindirin normal titreşimi ile tekleme/takoz ayrımı.
+
+## DSG Nasıl Test Edilir?
+
+1. Soğukken D-R seçimi ve ilk kalkış.
+2. Isındıktan sonra dur-kalk ve geri manevra.
+3. Yokuşta kavrama ve geri kaçırma davranışı.
+4. Kavrama uyarlamaları, sıcaklık ve hata hafızası.
+5. Motor takozu ve ateşleme düzgünlüğünün ayrıca kontrolü.
+
+DQ200 kuru kavrama yapısı nedeniyle aracı gazla yokuşta tutmak veya uzun süre yarım kavramada süründürmek ısıyı artırabilir. Normal çalışma hissi ile arıza, ölçüm ve uzman yol testiyle ayrılmalıdır.
+
+## Diğer Kontroller
+
+Ön cam/tampon işleminde radar-kamera kalibrasyonu; multimedya ve Full Link; 12 V akü; ön takım, jant ve lastik omuzları kontrol edilmelidir. Donanım paketlerinin farklı olabileceği unutulmamalı, ilan metni VIN ile doğrulanmalıdır.
+
+Tüm kusur başlıkları ve motor ayrımları için [SEAT Arona KJ model raporuna](/araclar/seat/arona-kj-1-nesil-2017-gunumuz) geçebilirsiniz.
+
+### Kaynaklar
+
+- [SEAT Arona teknik broşürü](https://www.seat.com/content/dam/public/seat-website/car-shopping-tools/brochure-download/brochures/arona/cars-specs-brochure-KJ7-NA-december-2018.pdf)
+- [SEAT Arona güç aktarma seçenekleri](https://www.seat.com/company/news/cars/new-seat-arona)
+- [SEAT Arona Euro NCAP değerlendirmesi](https://www.euroncap.com/assessments/seat/arona/0698/)`,
     }
 ];

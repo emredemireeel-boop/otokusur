@@ -1,9 +1,25 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 function renderInline(text: string): ReactNode[] {
-    return text.split(/(\*\*.*?\*\*)/g).filter(Boolean).map((part, index) => {
+    return text.split(/(\*\*.*?\*\*|\[[^\]]+\]\([^)]+\))/g).filter(Boolean).map((part, index) => {
         if (part.startsWith('**') && part.endsWith('**')) {
             return <strong className="font-semibold text-[#111827]" key={index}>{part.slice(2, -2)}</strong>;
+        }
+        const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (link && (link[2].startsWith('/') || link[2].startsWith('https://'))) {
+            const external = link[2].startsWith('https://');
+            return (
+                <Link
+                    className="font-semibold text-[#A91D3A] underline decoration-[#A91D3A]/30 underline-offset-2 hover:decoration-[#A91D3A]"
+                    href={link[2]}
+                    key={index}
+                    rel={external ? 'noopener noreferrer' : undefined}
+                    target={external ? '_blank' : undefined}
+                >
+                    {link[1]}
+                </Link>
+            );
         }
         return <span key={index}>{part}</span>;
     });
