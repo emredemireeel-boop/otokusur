@@ -173,6 +173,67 @@ const nextConfig: NextConfig = {
                 destination: '/araclar/citroen/c4-x-1-nesil-2022-gunumuz',
                 permanent: true,
             },
+            // Arama talebi yüksek modeller: eski/kopya URL'leri yeni araştırılmış kanonik sayfalara taşı.
+            {
+                source: '/araclar/fiat/egea-cross-16-multijet-otomatik/:motor*',
+                destination: '/araclar/fiat/egea-cross-1-nesil-2020-gunumuz',
+                permanent: true,
+            },
+            {
+                source: '/araclar/dacia/sandero-stepway-2021-2025/:motor*',
+                destination: '/araclar/dacia/sandero-stepway-3-nesil-2021-gunumuz',
+                permanent: true,
+            },
+            {
+                source: '/araclar/tesla/model-y-long-range/:motor*',
+                destination: '/araclar/tesla/yeni-model-y-juniper-2025-gunumuz',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/corsa-f-2019-2025/:motor*',
+                destination: '/araclar/opel/corsa-f-2020-2025',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/corsa-12-turbo-otomatik/:motor*',
+                destination: '/araclar/opel/corsa-f-2020-2025',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/focus-4-15-dizel-trend-x/:motor*',
+                destination: '/araclar/ford/focus-4-nesil-mk4-2018-2025',
+                permanent: true,
+            },
+            {
+                source: '/araclar/honda/civic-11-nesil-fe1-2021-2025/:invalid(16-i-dtec-120-hp-dizel-otomatik|15-ehev-hibrit-hibrit-e-cvt)',
+                destination: '/araclar/honda/civic-11-nesil-fe1-2021-2025',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/polo-aw-6-nesil-2017-2025/16-tdi-120-hp-dizel-dsg',
+                destination: '/araclar/volkswagen/polo-aw-6-nesil-2017-2025/16-tdi-95-ps-dizel-dsg',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/corsa-f-2020-2025/15-bluehdi-130-hp-dizel-eat8',
+                destination: '/araclar/opel/corsa-f-2020-2025/15-dizel-102-ps-manuel',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/focus-4-nesil-mk4-2018-2025/14-benzinli-benzin-otomatik',
+                destination: '/araclar/ford/focus-4-nesil-mk4-2018-2025/15-ti-vct-123-ps-6at',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/focus-4-nesil-mk4-2018-2025/16-dizel-dizel-manuel',
+                destination: '/araclar/ford/focus-4-nesil-mk4-2018-2025/15-ecoblue-120-ps-8at',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/passat-variant-b9-15-etsi/18-litre-hibrit-otomatik',
+                destination: '/araclar/volkswagen/passat-variant-b9-15-etsi/15-ehybrid-204-ps-dsg',
+                permanent: true,
+            },
             {
                 source: '/:path*',
                 has: [{ type: 'host', value: 'www.otokusur.com' }],

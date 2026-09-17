@@ -2,17 +2,23 @@ import { engineDNAData as legacyEngineDNAData, type EngineOption } from '../data
 import { guidesData } from '../data/guides.ts';
 import { priorityEngineDNAData } from '../data/priority-engine-dna.ts';
 import { priorityVehicleDNAData, supersededLegacyVehicleIds } from '../data/priority-vehicle-dna.ts';
+import { searchDemandEngineDNAData } from '../data/search-demand-engine-dna.ts';
+import { searchDemandSupersededVehicleIds, searchDemandVehicleDNAData } from '../data/search-demand-vehicle-dna.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
 
-const supersededIds = new Set(supersededLegacyVehicleIds);
+const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds]);
+const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
+const editorialIds = new Set([...searchDemandIds, ...priorityIds]);
 const vehicleDNAData = [
-    ...priorityVehicleDNAData,
-    ...legacyVehicleDNAData.filter((vehicle) => !priorityIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
+    ...searchDemandVehicleDNAData,
+    ...priorityVehicleDNAData.filter((vehicle) => !searchDemandIds.has(vehicle.id)),
+    ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
 const engineDNAData = [
-    ...priorityEngineDNAData,
-    ...legacyEngineDNAData.filter((entry) => !priorityIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
+    ...searchDemandEngineDNAData,
+    ...priorityEngineDNAData.filter((entry) => !searchDemandIds.has(entry.vehicleId)),
+    ...legacyEngineDNAData.filter((entry) => !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
 ];
 
 const boilerplate = new Set([
