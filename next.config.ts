@@ -392,6 +392,27 @@ const nextConfig: NextConfig = {
                 destination: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017/14-16-tdci-manuel',
                 permanent: true,
             },
+            // Clio 5'in eski kalıp motor sayfalarını araştırılmış motor profillerine taşı.
+            {
+                source: '/araclar/renault/clio-5-nesil-2020-2025/10-tce-90-hp-benzin-manuel-x-tronic',
+                destination: '/araclar/renault/clio-5-nesil-2020-2025/10-tce-90-100-ps-manuel-xtronic',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-5-nesil-2020-2025/15-dci-110-hp-dizel-manuel-edc',
+                destination: '/araclar/renault/clio-5-nesil-2020-2025/15-blue-dci-85-115-ps-manuel',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-5-nesil-2020-2025/13-tce-140-hp-benzin-edc',
+                destination: '/araclar/renault/clio-5-nesil-2020-2025/13-tce-130-140-ps-edc',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-5-nesil-2020-2025/16-e-tech-140-hp-hibrit-otomatik',
+                destination: '/araclar/renault/clio-5-nesil-2020-2025/16-e-tech-140-145-ps-hibrit',
+                permanent: true,
+            },
             {
                 source: '/:path*',
                 has: [{ type: 'host', value: 'www.otokusur.com' }],

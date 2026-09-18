@@ -61,6 +61,23 @@ export interface SafetyCampaign {
     sourceUrl: string;
 }
 
+export interface BuyingGuideStep {
+    title: string;
+    description: string;
+}
+
+export interface VehicleBuyingGuide {
+    summary: string;
+    idealFor: string[];
+    inspectionSteps: BuyingGuideStep[];
+    finalVerdict: string;
+}
+
+export interface VehicleFaq {
+    question: string;
+    answer: string;
+}
+
 export interface VehicleDNA {
     id: number;
     brand: string;
@@ -78,6 +95,8 @@ export interface VehicleDNA {
     generationInfo?: GenerationInfo;
     safetyCampaigns?: SafetyCampaign[];
     sources?: VehicleSource[];
+    buyingGuide?: VehicleBuyingGuide;
+    faqs?: VehicleFaq[];
 }
 
 export const vehicleDNAData: VehicleDNA[] = [

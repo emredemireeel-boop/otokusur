@@ -23,7 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const quality = assessVehicleSeoQuality(v);
     const title = `${v.brand} ${v.model} Kronik Arızaları ve Motor Seçenekleri`;
     const chassis = v.generationInfo ? ` ${v.generationInfo.chassisCode} kasa kodu, nesil yılları,` : '';
-    const description = `${v.brand} ${v.model} için${chassis} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
+    const guideDetail = v.buyingGuide ? ' ikinci el satın alma rehberi,' : '';
+    const description = `${v.brand} ${v.model} için${chassis}${guideDetail} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
     const url = `/araclar/${marka}/${model}`;
     return {
         title,
@@ -55,7 +56,8 @@ export default async function ModelDetayPage({ params }: Props) {
         : [];
     const pageUrl = `/araclar/${marka}/${model}`;
     const chassis = v.generationInfo ? ` ${v.generationInfo.chassisCode} kasa kodu, nesil yılları,` : '';
-    const description = `${v.brand} ${v.model} için${chassis} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
+    const guideDetail = v.buyingGuide ? ' ikinci el satın alma rehberi,' : '';
+    const description = `${v.brand} ${v.model} için${chassis}${guideDetail} ${engines.length} motor seçeneği, kronik arıza kontrolleri ve ${v.dnaScore}/100 risk skoru.`;
     const structuredData = [
         breadcrumbSchema([
             { name: 'Ana Sayfa', path: '/' },
@@ -87,6 +89,18 @@ export default async function ModelDetayPage({ params }: Props) {
                 ],
             },
         },
+        ...(v.faqs?.length ? [{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: v.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.answer,
+                },
+            })),
+        }] : []),
     ];
 
     return (
@@ -308,6 +322,69 @@ export default async function ModelDetayPage({ params }: Props) {
                         ))}
                     </div>
                 </div>
+            )}
+
+            {/* Modele özel ikinci el satın alma rehberi */}
+            {v.buyingGuide && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="satin-alma-rehberi">
+                    <div className="flex items-center gap-2 mb-2">
+                        <ShieldCheck size={16} className="text-[#A91D3A]" />
+                        <h2 id="satin-alma-rehberi" className="text-[16px] font-bold text-[#0F0F10]">{v.brand} {v.model} ikinci el satın alma rehberi</h2>
+                    </div>
+                    <p className="text-[12px] sm:text-[13px] text-[#3F3F46] leading-relaxed mb-5">{v.buyingGuide.summary}</p>
+
+                    <div className="rounded-xl border border-[#DDEADF] bg-[#F7FCF8] p-4 mb-5">
+                        <h3 className="text-[11px] font-bold uppercase tracking-wide text-[#15803D] mb-2">Kimler için uygun?</h3>
+                        <ul className="space-y-2">
+                            {v.buyingGuide.idealFor.map((item, index) => (
+                                <li key={index} className="flex items-start gap-2 text-[11px] text-[#3F3F46] leading-relaxed">
+                                    <CheckCircle2 size={12} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <h3 className="text-[13px] font-bold text-[#0F0F10] mb-3">Satın almadan önce uygulanacak kontrol sırası</h3>
+                    <ol className="space-y-3 mb-5">
+                        {v.buyingGuide.inspectionSteps.map((step, index) => (
+                            <li key={step.title} className="flex gap-3 rounded-xl border border-[#EBEBED] bg-[#FAFAFA] p-4">
+                                <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-[#A91D3A] text-[10px] font-extrabold text-white">{index + 1}</span>
+                                <div>
+                                    <h4 className="text-[12px] font-bold text-[#0F0F10] mb-1">{step.title}</h4>
+                                    <p className="text-[11px] text-[#71717A] leading-relaxed">{step.description}</p>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
+
+                    <div className="rounded-xl border border-[#F1D5DB] bg-[#FFF9FA] p-4">
+                        <h3 className="text-[11px] font-bold uppercase tracking-wide text-[#8F1831] mb-1.5">OtoKusur değerlendirmesi</h3>
+                        <p className="text-[11px] sm:text-[12px] text-[#3F3F46] leading-relaxed">{v.buyingGuide.finalVerdict}</p>
+                    </div>
+                </section>
+            )}
+
+            {/* Modele özel sık sorulan sorular */}
+            {v.faqs && v.faqs.length > 0 && (
+                <section className="card-elevated p-5 sm:p-6 mb-6" aria-labelledby="model-sss">
+                    <div className="flex items-center gap-2 mb-1">
+                        <BookOpen size={15} className="text-[#A91D3A]" />
+                        <h2 id="model-sss" className="text-[15px] font-bold text-[#0F0F10]">{v.brand} {v.model} hakkında sık sorulan sorular</h2>
+                    </div>
+                    <p className="text-[10px] text-[#A1A1AA] mb-4">Kasa, motor, şanzıman ve ekspertiz hakkında kısa yanıtlar</p>
+                    <div className="divide-y divide-[#EBEBED] border-y border-[#EBEBED]">
+                        {v.faqs.map((faq, index) => (
+                            <details key={faq.question} className="group py-3.5" open={index === 0}>
+                                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[12px] font-semibold text-[#0F0F10] marker:content-none">
+                                    <span>{faq.question}</span>
+                                    <span aria-hidden="true" className="text-[17px] font-light text-[#A91D3A] transition-transform group-open:rotate-45">+</span>
+                                </summary>
+                                <p className="pt-2.5 pr-7 text-[11px] text-[#71717A] leading-relaxed">{faq.answer}</p>
+                            </details>
+                        ))}
+                    </div>
+                </section>
             )}
 
             {/* Resmî güvenlik kampanyaları */}

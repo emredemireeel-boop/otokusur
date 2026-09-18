@@ -8,6 +8,8 @@ import { searchDemandEngineDNAData } from '../data/search-demand-engine-dna.ts';
 import { searchDemandSupersededVehicleIds, searchDemandVehicleDNAData } from '../data/search-demand-vehicle-dna.ts';
 import { secondHandDemandEngineDNAData } from '../data/second-hand-demand-engine-dna.ts';
 import { secondHandDemandVehicleDNAData, secondHandSupersededVehicleIds } from '../data/second-hand-demand-vehicle-dna.ts';
+import { vehicleContentEngineDNAData } from '../data/vehicle-content-engine-dna.ts';
+import { vehicleContentEnrichment } from '../data/vehicle-content-enrichment.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
 
 const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
@@ -16,19 +18,25 @@ const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehi
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
 const editorialIds = new Set([...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
-const vehicleDNAData = [
+const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
+const baseVehicleDNAData = [
     ...secondHandDemandVehicleDNAData,
     ...evergreenDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id)),
     ...searchDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
     ...priorityVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
     ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
+const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
+    ...vehicle,
+    ...vehicleContentEnrichment[vehicle.id],
+}));
 const engineDNAData = [
-    ...secondHandDemandEngineDNAData,
-    ...evergreenDemandEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId)),
-    ...searchDemandEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
-    ...priorityEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
-    ...legacyEngineDNAData.filter((entry) => !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
+    ...vehicleContentEngineDNAData,
+    ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
+    ...evergreenDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId)),
+    ...searchDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
+    ...priorityEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
+    ...legacyEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
 ];
 
 const boilerplate = new Set([
@@ -76,6 +84,8 @@ const missingEngineDescriptions = engines.filter((engine) => !engine.description
 const missingDecisionSupport = engines.filter((engine) => !(engine.pros?.length || engine.cons?.length)).length;
 const boilerplateIssueDescriptions = engines.flatMap((engine) => engine.chronicIssues)
     .filter((issue) => boilerplate.has(issue.description.trim())).length;
+const buyingGuideVehicles = uniqueVehicles.filter((vehicle) => vehicle.buyingGuide).length;
+const faqVehicles = uniqueVehicles.filter((vehicle) => (vehicle.faqs?.length ?? 0) >= 3).length;
 const brands = new Set(uniqueVehicles.map((vehicle) => createSlug(vehicle.brand))).size;
 const expectedSitemapUrls = 8 + brands + indexableVehicles.length + indexableEngines.length + guidesData.length;
 
@@ -90,12 +100,18 @@ console.table({
     'Açıklaması eksik motor': missingEngineDescriptions,
     'Artı/eksi analizi eksik motor': missingDecisionSupport,
     'Kalıp kusur açıklaması': boilerplateIssueDescriptions,
+    'Satın alma planı bulunan araç': buyingGuideVehicles,
+    'Model SSS içeriği bulunan araç': faqVehicles,
     'Beklenen sitemap URL': expectedSitemapUrls,
 });
 
 const failures: string[] = [];
 if (vehicleIdDuplicates.length) failures.push('Tekrarlanan araç kimliği: ' + vehicleIdDuplicates.map(([id]) => id).join(', '));
 if (engineRecordIdDuplicates.length) failures.push('Tekrarlanan motor-kayıt araç kimliği: ' + engineRecordIdDuplicates.map(([id]) => id).join(', '));
+const missingEnrichmentVehicles = Object.keys(vehicleContentEnrichment)
+    .map(Number)
+    .filter((id) => !vehicleDNAData.some((vehicle) => vehicle.id === id));
+if (missingEnrichmentVehicles.length) failures.push('Yayında karşılığı olmayan içerik zenginleştirme kimliği: ' + missingEnrichmentVehicles.join(', '));
 
 if (failures.length) {
     console.error('\nEngelleyici veri sorunları:');
