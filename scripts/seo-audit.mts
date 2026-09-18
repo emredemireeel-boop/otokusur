@@ -6,23 +6,28 @@ import { priorityEngineDNAData } from '../data/priority-engine-dna.ts';
 import { priorityVehicleDNAData, supersededLegacyVehicleIds } from '../data/priority-vehicle-dna.ts';
 import { searchDemandEngineDNAData } from '../data/search-demand-engine-dna.ts';
 import { searchDemandSupersededVehicleIds, searchDemandVehicleDNAData } from '../data/search-demand-vehicle-dna.ts';
+import { secondHandDemandEngineDNAData } from '../data/second-hand-demand-engine-dna.ts';
+import { secondHandDemandVehicleDNAData, secondHandSupersededVehicleIds } from '../data/second-hand-demand-vehicle-dna.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
 
-const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds]);
+const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
+const secondHandIds = new Set(secondHandDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const editorialIds = new Set([...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const vehicleDNAData = [
-    ...evergreenDemandVehicleDNAData,
-    ...searchDemandVehicleDNAData.filter((vehicle) => !evergreenIds.has(vehicle.id)),
-    ...priorityVehicleDNAData.filter((vehicle) => !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
+    ...secondHandDemandVehicleDNAData,
+    ...evergreenDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id)),
+    ...searchDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
+    ...priorityVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
     ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
 const engineDNAData = [
-    ...evergreenDemandEngineDNAData,
-    ...searchDemandEngineDNAData.filter((entry) => !evergreenIds.has(entry.vehicleId)),
-    ...priorityEngineDNAData.filter((entry) => !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
+    ...secondHandDemandEngineDNAData,
+    ...evergreenDemandEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId)),
+    ...searchDemandEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
+    ...priorityEngineDNAData.filter((entry) => !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
     ...legacyEngineDNAData.filter((entry) => !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
 ];
 

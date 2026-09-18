@@ -280,6 +280,118 @@ const nextConfig: NextConfig = {
                 destination: '/araclar/seat/arona-kj-1-nesil-2017-gunumuz',
                 permanent: true,
             },
+            // İkinci el arama talebi: hatalı nesil/motor kayıtlarını araştırılmış kanoniğe taşı.
+            {
+                source: '/araclar/renault/megane-2/:motor*',
+                destination: '/araclar/renault/megane-2-2002-2008',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-j-kasa-13-dizel/:motor*',
+                destination: '/araclar/opel/astra-j-kasa-2009-2015',
+                permanent: true,
+            },
+            {
+                source: '/araclar/honda/civic-fb7/:motor*',
+                destination: '/araclar/honda/civic-9-nesil-fb7-2012-2016',
+                permanent: true,
+            },
+            {
+                source: '/araclar/toyota/corolla-e150-kasa/:motor*',
+                destination: '/araclar/toyota/corolla-e140e150-2007-2012',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-j-kasa/:motor*',
+                destination: '/araclar/opel/astra-j-kasa-2009-2015',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/megane-2-2002-2008/1-0-tce-90-hp',
+                destination: '/araclar/renault/megane-2-2002-2008',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/megane-2-2002-2008/1-5-dci-110-hp',
+                destination: '/araclar/renault/megane-2-2002-2008/15-dci-80-100-105-ps-manuel',
+                permanent: true,
+            },
+            {
+                source: '/araclar/toyota/corolla-e140e150-2007-2012/:invalid(1-5-dynamic-force-125-hp|1-8-hybrid-122-hp)',
+                destination: '/araclar/toyota/corolla-e140e150-2007-2012',
+                permanent: true,
+            },
+            {
+                source: '/araclar/honda/civic-9-nesil-fb7-2012-2016/1-5-vtec-turbo-182-hp',
+                destination: '/araclar/honda/civic-9-nesil-fb7-2012-2016',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-j-kasa-2009-2015/1-4-t-150-hp',
+                destination: '/araclar/opel/astra-j-kasa-2009-2015/14-turbo-140-ps-manuel-at6',
+                permanent: true,
+            },
+            {
+                source: '/araclar/opel/astra-j-kasa-2009-2015/1-6-cdti-136-hp',
+                destination: '/araclar/opel/astra-j-kasa-2009-2015/16-cdti-136-ps-manuel-at6',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/focus-3-35-2011-2018/1-4-benzinli',
+                destination: '/araclar/ford/focus-3-35-2011-2018/16-ti-vct-125-ps-manuel-powershift',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/focus-3-35-2011-2018/1-6-dizel',
+                destination: '/araclar/ford/focus-3-35-2011-2018/16-tdci-95-115-ps-manuel',
+                permanent: true,
+            },
+            // Polo 6R/6C, Golf 7, Clio 3, Corsa D ve Fiesta Mk7 kanonikleştirmeleri.
+            {
+                source: '/araclar/ford/fiesta-7-nesil-mk75-2013-2017/:motor*',
+                destination: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/polo-5-nesil-6r6c-2009-2017/1-0-tsi-110-hp',
+                destination: '/araclar/volkswagen/polo-5-nesil-6r6c-2009-2017/10-tsi-95-110-ps-manuel-dsg',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/polo-5-nesil-6r6c-2009-2017/1-5-tsi-150-hp',
+                destination: '/araclar/volkswagen/polo-5-nesil-6r6c-2009-2017',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/golf-7-2012-2020/1-0-tsi-110-hp',
+                destination: '/araclar/volkswagen/golf-7-2012-2020/10-tsi-110-115-ps-manuel-dsg',
+                permanent: true,
+            },
+            {
+                source: '/araclar/volkswagen/golf-7-2012-2020/1-5-tsi-150-hp',
+                destination: '/araclar/volkswagen/golf-7-2012-2020/15-tsi-130-150-ps-manuel-dsg',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-3-nesil-2005-2014/16-litre-dizel-manuel',
+                destination: '/araclar/renault/clio-3-nesil-2005-2014/15-dci-65-70-85-105-ps-manuel',
+                permanent: true,
+            },
+            {
+                source: '/araclar/renault/clio-3-nesil-2005-2014/14-litre-benzin-manuel',
+                destination: '/araclar/renault/clio-3-nesil-2005-2014',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017/1-4-benzinli',
+                destination: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017/125-14-duratec-manuel-otomatik',
+                permanent: true,
+            },
+            {
+                source: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017/1-6-dizel',
+                destination: '/araclar/ford/fiesta-6-nesil-mk7-2008-2017/14-16-tdci-manuel',
+                permanent: true,
+            },
             {
                 source: '/:path*',
                 has: [{ type: 'host', value: 'www.otokusur.com' }],

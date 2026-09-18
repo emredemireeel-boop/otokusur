@@ -743,5 +743,477 @@ Tüm kusur başlıkları ve motor ayrımları için [SEAT Arona KJ model raporun
 - [SEAT Arona teknik broşürü](https://www.seat.com/content/dam/public/seat-website/car-shopping-tools/brochure-download/brochures/arona/cars-specs-brochure-KJ7-NA-december-2018.pdf)
 - [SEAT Arona güç aktarma seçenekleri](https://www.seat.com/company/news/cars/new-seat-arona)
 - [SEAT Arona Euro NCAP değerlendirmesi](https://www.euroncap.com/assessments/seat/arona/0698/)`,
+    },
+    {
+        slug: 'opel-astra-h-mi-astra-j-mi-farklari',
+        title: 'Opel Astra H mi Astra J mi? Kasa Kodları, Motorlar ve Farkları',
+        excerpt: 'Astra H ve Astra J yılları, kasa farkları, 1.6 benzin, 1.4 Turbo, 1.3 CDTI ve şanzıman kontrol listesi.',
+        category: 'Kasa Karşılaştırma Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [1014, 121, 22],
+        content: `## Astra H ve Astra J Hangi Yıllar?
+
+**Astra H**, 2004'te başlayan üçüncü Astra neslidir. **Astra J** ise 2009'da tanıtılan dördüncü nesildir. Türkiye'de model yılları bir süre örtüşebildiği için ilandaki kasa adı tek başına yeterli değildir; VIN, ruhsat ve gövde ayrıntıları birlikte doğrulanmalıdır.
+
+| Başlık | Astra H | Astra J |
+|---|---|---|
+| Ana dönem | 2004-2010 | 2009-2015 |
+| Türkiye'de yaygın benzinli | 1.6 Twinport | 1.4 Turbo, 1.6 atmosferik |
+| Türkiye'de yaygın dizel | 1.3 CDTI | 1.3 CDTI, 1.6 CDTI |
+| Karakter | Daha hafif ve mekanik | Daha tok, ağır ve donanımlı |
+| Kritik aktarma | Easytronic / klasik otomatik | Manuel / AT6 |
+
+## Astra H Alırken Ne Kontrol Edilir?
+
+- CIM modülü, korna, sinyal, direksiyon tuşları ve iki anahtar.
+- 1.6 Twinport'ta ateşleme, triger-devirdaim ve soğutma kaçakları.
+- 1.3 CDTI'da soğuk zincir sesi, doğru yağ, EGR, enjektör ve turbo.
+- Easytronic'te kavrama aşınma noktası, aktüatör ve kalibrasyon.
+- Ön takım, cam krikoları, klima fanı ve su-nem izi.
+
+Ayrıntılı kontrol başlıkları için [Astra H kusur raporunu](/araclar/opel/astra-h-kasa-2004-2010) açın.
+
+## Astra J Alırken Ne Kontrol Edilir?
+
+- 1.4 Turbo'da PCV-vakum, ateşleme, turbo ve soğutma sistemi.
+- Dizelde zincir sesi, DPF/EGR, enjektör ve turbo verileri.
+- AT6'da soğuk-sıcak D-R ve yük altında geçişler.
+- Elektrikli park freni, AFL far, klima ve multimedya.
+- Lastik omuzları, arka aks ve dört teker geometrisi.
+
+Ayrıntılı motor ayrımları için [Astra J kusur raporuna](/araclar/opel/astra-j-kasa-2009-2015) geçin.
+
+## Hangisi Daha Mantıklı?
+
+Daha düşük satın alma maliyeti ve mekanik sadelik isteyen, temiz geçmişli bir örnek bulabilen kullanıcı için Astra H değerlendirilebilir. Daha güncel güvenlik, kabin ve yol hissi isteyen kullanıcı için Astra J öne çıkar; fakat motor-şanzıman ve donanım sayısının artması kontrol bütçesini de büyütür. Kararı kasa adına değil, motor kodu, bakım faturası, soğuk çalışma ve ölçümlü ekspertiz sonucuna göre verin.
+
+### Kaynaklar
+
+- [Opel Astra nesil tarihçesi](https://www.media.stellantis.com/es-es/opel/press/nuevo-opel-astra-la-historia-de-un-icono-sobre-ruedas)
+- [Astra H teknik tarihçesi](https://www.media.stellantis.com/it-it/opel/press/opel-astra-alta-tecnologia-e-dinamismo-nel-segmento-delle-automobili-compatte)
+- [Astra J Euro NCAP 2009 sonucu](https://news.euroncap.com/safercars/opelvauxhall-astra--euro-ncap-results-2009/s/6da839fe-af83-4e04-a58a-1b961796b015)`,
+    },
+    {
+        slug: 'ford-focus-3-powershift-alinir-mi-kronik-sorunlar',
+        title: 'Ford Focus 3 PowerShift Alınır mı? 1.6 Ti-VCT ve TDCi Kontrolü',
+        excerpt: 'Focus 3 ve 3.5 farkları, PowerShift şanzıman tipi, 1.6 Ti-VCT, 1.6 TDCi ve 1.5 TDCi satın alma kontrolü.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [125],
+        content: `## Focus 3 ve Focus 3.5 Ne Demek?
+
+Türkiye'de **Focus 3**, 2011'de başlayan üçüncü nesil; **Focus 3.5** ise 2014 sonundaki kapsamlı makyaj için kullanılan addır. Ford'un resmi teknik belgelerinde motor ve şanzıman seçenekleri pazara ve üretim yılına göre değişir. Bu yüzden ilandaki “PowerShift” ifadesiyle yetinmeyin; VIN ve şanzıman kodunu doğrulayın.
+
+## PowerShift Alınır mı?
+
+Bakımı belgeli, kavrama-adaptasyon değerleri normal ve sıcak-soğuk testte sorun göstermeyen bir araç değerlendirilebilir. Ancak bütün PowerShift şanzımanlar aynı değildir: motorla eşleşen kuru veya ıslak kavrama yapısı, yağ bakım planını ve risk profilini değiştirir.
+
+### Yol Testi Sırası
+
+1. Araç soğukken D-R seçimi ve ilk kalkış.
+2. Isındıktan sonra dur-kalk, geri manevra ve yokuş.
+3. Sabit hız ve yük altında vites geçişleri.
+4. Kavrama uyarlamaları, sıcaklık ve TCM hata hafızası.
+5. Motor takozu, ateşleme veya dizel düzensizliğinin ayrıca elenmesi.
+
+## 1.6 Ti-VCT Kontrolü
+
+Soğuk rölanti, buji-bobin, yakıt düzeltmeleri ve soğutma sistemi kontrol edilmelidir. PowerShift eşleşmesinde kavrama ile TCM taraması atlanmamalıdır. Manuel araçta debriyaj, takoz ve beş ileri şanzıman yol testi yapılır.
+
+## 1.6 ve 1.5 TDCi Kontrolü
+
+DPF kurum-kül ve rejenerasyon geçmişi, EGR komutu, enjektör düzeltmeleri ve turbo basıncı okunmalıdır. Manuelde debriyaj-volan; otomatikte doğru PowerShift tipi ve yağ faturası doğrulanmalıdır. Yalnız kısa test sürüşü, ısındıktan sonra ortaya çıkan aktarma sorunlarını göstermeyebilir.
+
+Tüm motor sayfaları için [Focus 3 ve 3.5 kusur raporunu](/araclar/ford/focus-3-35-2011-2018) inceleyin.
+
+### Kaynaklar
+
+- [Ford Focus resmi teknik özellikleri](https://media.ford.com/content/dam/fordmedia/Europe/documents/productReleases/Focus/FordFocus_TechSpecs_EU.pdf)
+- [2014 Focus motor ve teknoloji güncellemesi](https://media.ford.com/content/fordmedia/feu/gb/en/news/2014/02/24/new-ford-focus--advanced-technology--fine-craftsmanship-improved.html)
+- [Ford Focus Euro NCAP 2011 değerlendirmesi](https://news.euroncap.com/images-and-videos/ford-focus---crash-test-2011-and-advanced-rewards/s/cd46e5db-e9d9-44ba-b703-adfaaa645d14)`,
+    },
+    {
+        slug: 'honda-civic-fb7-ne-demek-alinir-mi',
+        title: 'Honda Civic FB7 Ne Demek? Hangi Yıllar, Alınır mı?',
+        excerpt: 'Civic FB7 kasa kodu, 2012-2016 yılları, 1.6 i-VTEC, ECO LPG ve beş ileri otomatik satın alma kontrolü.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '9 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [119, 118],
+        content: `## Civic FB7 Ne Demek?
+
+**FB7**, Türkiye'de 2012-2016 arasında üretilen dokuzuncu nesil Civic Sedan için kullanılan kasa kodudur. FC5 ise onu izleyen 2016-2021 dönemindeki onuncu nesildir. İlanda yalnız “Civic 2016” yazıyorsa gövde ve VIN kontrol edilmeden nesil varsayılmamalıdır.
+
+| Başlık | Civic FB7 | Civic FC5 |
+|---|---|---|
+| Türkiye dönemi | 2012-2016 | 2016-2021 |
+| Yaygın motor | 1.6 i-VTEC 125 PS | 1.6 i-VTEC / 1.5 Turbo |
+| Otomatik | 5 ileri tork konvertörlü | CVT |
+| LPG | ECO ve sonradan uygulamalar | ECO LPG seçenekleri |
+
+## FB7 Alınır mı?
+
+Bakım ve hasar geçmişi doğrulanmış, LPG sistemi sızdırmaz ve doğru ayarlı, otomatik sıvısı belgeli bir FB7 değerlendirilebilir. “Atmosferik Honda motoru sorun çıkarmaz” veya “LPG mutlaka motora zarar verir” gibi iki uç genelleme yerine ölçüm yapılmalıdır.
+
+## 1.6 i-VTEC ve LPG Kontrolü
+
+- Motor tamamen soğukken rölanti, ateşleme sayacı ve yakıt düzeltmeleri.
+- LPG tank tarihi, multivalf, hatlar ve kaçak testi.
+- Benzin ve LPG'de ayrı çalışma, geçiş sıcaklığı ve kalibrasyon.
+- Supap açıklığı ile kompresyon ölçümü; yalnız motor sesine göre karar vermeme.
+- Radyatör, fan, termostat, pompa ve hararet geçmişi.
+
+## Beş İleri Otomatik Nasıl Test Edilir?
+
+Honda şartnamesine uygun sıvı ve değişim faturası aranır. Şanzıman soğuk ve tam ısınmış halde D-R, düşük hız, yokuş ve yük altında denenir. Vuruntu veya titreşim varsa motor takozu ve motor çalışma düzgünlüğü şanzımandan ayrı kontrol edilir.
+
+Direksiyon kutusu-mafsal, ön takım, klima kompresörü, alt gövde, airbag ve kemer sistemi de ekspertize eklenmelidir. Ayrıntılı motor sayfaları için [Civic FB7 kusur raporunu](/araclar/honda/civic-9-nesil-fb7-2012-2016) açın.
+
+### Kaynaklar
+
+- [Honda Türkiye 2012 çevre ve üretim raporu](https://www.honda.com.tr/assets/files/cevreraporu2012.pdf)
+- [2012 Civic küresel tanıtımı](https://global.honda/en/newsroom/worldnews/2011/4110420New-York-International-Auto-Show.html)
+- [Honda Civic 2012 Euro NCAP sonucu](https://news.euroncap.com/safercars/euro-ncap-announces-new-crash-tests-results--jeep-compass-disappoints--honda-civic-impresses/s/7c769ae3-910a-4fe4-8e5d-023f7dd62c1d)`,
+    },
+    {
+        slug: 'toyota-corolla-e150-ne-demek-multimode-alinir-mi',
+        title: 'Toyota Corolla E150 Ne Demek? MultiMode Alınır mı?',
+        excerpt: 'Corolla E150 kasa yılları, 1.6 Dual VVT-i, 1.4 D-4D ve MultiMode robotize şanzıman kontrol listesi.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '9 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [115, 1026],
+        content: `## Corolla E150 Ne Demek?
+
+**E150**, Türkiye'de 2007-2012 dönemindeki onuncu nesil Corolla sedan için kullanılan yaygın kasa adıdır. Küresel kaynaklarda E140/E150 ayrımı pazara ve gövdeye göre görülebildiğinden ilan başlığından çok VIN ve üretim bilgisine güvenilmelidir.
+
+## Yaygın Motorlar
+
+- **1.6 Dual VVT-i 124 PS:** Atmosferik benzinli; manuel veya MultiMode.
+- **1.4 D-4D 90 PS:** Turbo dizel; manuel veya MultiMode.
+
+Toyota'nın dönem teknik verileri 1.6 Dual VVT-i için 124 PS, 1.4 D-4D için 90 PS değerini ve iki motorda MultiMode seçeneğini doğrular.
+
+## MultiMode Otomatik mi?
+
+MultiMode, tork konvertörlü klasik otomatik veya CVT değildir; debriyaj ve vites seçimini aktüatörlerin yaptığı robotize manuel yapıdır. Vites geçişinde hissedilen kısa güç kesintisi sistem karakterinin parçası olabilir. Aşınma veya arıza, kavrama noktası ve aktüatör verileriyle ayrılmalıdır.
+
+### MultiMode Kontrolü
+
+1. Soğuk ve sıcak kalkış.
+2. Geri manevra ve yokuş davranışı.
+3. Kavrama aşınma noktası ve aktüatör değerleri.
+4. Kalibrasyon ve hata hafızası.
+5. Akü-şarj sistemi; düşük voltajın robot sisteme etkisi.
+
+## Motor Kontrolü
+
+1.6 benzinde ateşleme, yağ, soğutma ve LPG ayarı; 1.4 D-4D'de soğuk çalışma, enjektör düzeltmeleri, EGR ve turbo basıncı incelenmelidir. Su pompası çevresinde kurumuş antifriz izi, ön takım, lastik geometrisi ve kilometre zinciri ayrıca kontrol edilir.
+
+Motor bazlı ayrıntılar için [Corolla E150 kusur raporunu](/araclar/toyota/corolla-e140e150-2007-2012) inceleyin.
+
+### Kaynaklar
+
+- [Toyota'nın onuncu nesil Corolla Avrupa tanıtımı](https://newsroom.toyota.eu/all-new-corolla-setting-new-standards-in-its-class/)
+- [Toyota 1.6 Dual VVT-i ve 1.4 D-4D teknik tablosu](https://newsroom.toyota.eu/download/684420/ap-807155.pdf)
+- [Toyota Corolla nesil tarihçesi](https://global.toyota/en/detail/13824046)`,
+    },
+    {
+        slug: 'renault-megane-2-mi-megane-3-mu-farklari',
+        title: 'Renault Megane 2 mi Megane 3 mü? 1.5 dCi ve EDC Farkları',
+        excerpt: 'Megane 2 ve Megane 3 yılları, kasa farkları, 1.5 dCi, 1.6 16V, EDC ve ikinci el kontrol listesi.',
+        category: 'Kasa Karşılaştırma Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [107, 1012],
+        content: `## Megane 2 ve Megane 3 Hangi Yıllar?
+
+Mégane II Avrupa'da 2002'de başladı; Bursa'da Sport Sedan üretimi 2003'te devreye girdi. Mégane III üretimi Avrupa'da 2008'de başladı ve Türkiye ikinci elinde çoğunlukla 2009-2015 model yıllarıyla görülür.
+
+| Başlık | Megane 2 | Megane 3 |
+|---|---|---|
+| Yaygın dönem | 2002-2008 | 2009-2015 |
+| Benzinli | 1.6 16V 115 PS | 1.6 16V 110 PS, 1.4 TCe |
+| Dizel | 1.5 dCi 80/100/105 PS | 1.5 dCi 90/110 PS |
+| Otomatik odağı | Versiyona göre klasik/robotize | 1.5 dCi EDC yaygın |
+| Elektronik | Kart-Okuyucu ve UCH | Kart, park freni, daha güncel multimedya |
+
+## Megane 2 Kontrolü
+
+Kart okuyucu, UCH, cam krikoları, kapı tesisatı ve su girişi özellikle denenmelidir. 1.5 dCi'da enjektör düzeltmeleri, yakıt ve turbo basıncı; 1.6 16V'de bobin-buji, boğaz kelebeği ve triger-devirdaim kaydı önemlidir.
+
+[Megane 2 ayrıntılı kusur ve motor raporu](/araclar/renault/megane-2-2002-2008)
+
+## Megane 3 Kontrolü
+
+1.5 dCi'da DPF kurum-kül, rejenerasyon geçmişi, EGR, enjektör ve turbo verileri okunmalıdır. EDC'li araç soğuk ve tam ısınmış durumda geri manevra, yokuş ve dur-kalkta denenmeli; kavrama uyarlamaları ile hata hafızası incelenmelidir. 1.6 16V manuelde LPG, triger ve debriyaj kontrolü öne çıkar.
+
+[Megane 3 ayrıntılı kusur ve motor raporu](/araclar/renault/megane-3-nesil-2009-2015)
+
+## Hangisi Seçilir?
+
+Daha düşük bütçe ve geniş parça arzında Megane 2; daha güncel kabin, yol hissi ve güvenlikte Megane 3 öne çıkar. Fakat temiz Megane 2, bakımsız Megane 3'ten daha doğru seçim olabilir. Soğuk çalışma, elektronik tarama, kilometre zinciri ve gövde ölçümü yapılmadan yalnız kasa yılına göre karar verilmemelidir.
+
+### Kaynaklar
+
+- [Renault Group Mégane II tarihçesi](https://www.renaultgroup.com/en/2020-Universal-Registration-Document/62/)
+- [Oyak Renault Bursa üretim tarihçesi](https://www.renaultgroup.com/en/group/locations/bursa-plant-oyak)
+- [Renault Palencia Mégane III üretim tarihçesi](https://www.renaultgroup.com/en/group/locations/palencia-plant/)
+- [Mégane II Euro NCAP sonucu](https://cdn.euroncap.com/media/9939/euroncap_renault_m%C3%A9gane_2002_5stars.pdf)`,
+    },
+    {
+        slug: 'volkswagen-passat-b7-ne-demek-b8-farklari',
+        title: 'Volkswagen Passat B7 Ne Demek? B8 ile Farkları ve Motorları',
+        excerpt: 'Passat B7 yılları, B8 farkları, 1.4 TSI, 1.6 TDI, 2.0 TDI, DSG ve ikinci el satın alma kontrolü.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-17',
+        updatedDate: '2026-09-17',
+        relatedVehicleIds: [12020, 6, 2088],
+        content: `## Passat B7 Ne Demek?
+
+**B7**, Volkswagen'in 2010 Paris Otomobil Fuarı'nda tanıttığı ve resmi arşivinde 2010-2014 dönemiyle sınıflandırdığı Passat neslidir. Fabrika tipi 3C'dir. 2014/2015'te yerini MQB tabanlı B8'e bırakmıştır.
+
+| Başlık | Passat B7 | Passat B8 |
+|---|---|---|
+| Ana dönem | 2010-2014 | 2014/2015-2023 |
+| Teknik temel | B6'nın kapsamlı gelişimi, Type 3C | MQB platformu |
+| Yaygın motorlar | 1.4 TSI, 1.6 TDI, 2.0 TDI | 1.4/1.5 TSI, 1.6/2.0 TDI |
+| Gövde | Sedan, Variant, Alltrack | Sedan ve Variant |
+
+## Resmi B7 Motorları
+
+Volkswagen arşivi 1.4 TSI 122 PS, 1.6 TDI 105 PS, 2.0 TDI 140 PS ve 170/177 PS gibi seçenekleri doğrular. İlanlardaki güç ve donanım bilgisi VIN ile kontrol edilmelidir; yazılım uygulanmış araç fabrika gücünde varsayılmamalıdır.
+
+## B7 Alırken Kritik Kontroller
+
+- 1.4 TSI'da motor tamamen soğukken zincir sesi, yağ seviyesi, kompresyon ve turbo basıncı.
+- 1.6/2.0 TDI'da DPF kurum-kül, rejenerasyon, EGR, enjektör ve turbo verileri.
+- DSG kodu: kuru ve ıslak kavramalı sistemlerin bakım gereksinimi aynı değildir.
+- Soğuk-sıcak D-R, geri manevra, yokuş, dur-kalk ve yük altında yol testi.
+- Elektronik park freni, Auto Hold, RNS ekranı, klima ve akü-şarj sistemi.
+- Ön takım, DCC varsa modlar, lastik omuzları ve dört teker geometrisi.
+
+“DSG sorunlu” veya “2.0 TDI daima daha sağlam” gibi genellemeler yerine motor-şanzıman kodu ve bakım faturası üzerinden ilerleyin. Tüm kontrol başlıkları için [Passat B7 kusur ve motor raporunu](/araclar/volkswagen/passat-b7-2010-2014) açın.
+
+### Kaynaklar
+
+- [Volkswagen resmi Passat B7 tarihçesi](https://www.volkswagen-newsroom.com/en/passat-b7-20102014-20036)
+- [Volkswagen resmi Passat B7 motor tablosu](https://www.volkswagen-newsroom.com/en/engine-versions-passat-b7-profile-20038)
+- [Volkswagen Passat Euro NCAP 2010 sonucu](https://news.euroncap.com/safercars/choose-a-car/all/VW-Passat----Euro-NCAP-Results-2010/s/e5ab9547-3ab3-4293-a064-b2313363fcff)`,
+    },
+    {
+        slug: 'volkswagen-polo-6r-6c-ne-demek-farklari',
+        title: 'Volkswagen Polo 6R ve 6C Ne Demek? Motor ve DSG Farkları',
+        excerpt: 'Polo 6R ve 6C yılları, 1.2 TSI motor ailesi, 1.0 TSI, 1.6 TDI ve DQ200 DSG satın alma kontrolü.',
+        category: 'Kasa Kodu Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-18',
+        updatedDate: '2026-09-18',
+        relatedVehicleIds: [111],
+        content: `## Polo 6R ve 6C Hangi Yıllar?
+
+Volkswagen'in resmi arşivinde beşinci nesil Polo 2009-2017 dönemidir. **6R**, 2009'da başlayan ilk seri; **6C** ise 2014 büyük güncellemesinden sonraki makyajlı seridir.
+
+| Başlık | Polo 6R | Polo 6C |
+|---|---|---|
+| Dönem | 2009-2014 | 2014-2017 |
+| Benzinli odağı | 1.2/1.4 MPI, 1.2 TSI | 1.0 MPI, 1.0 TSI, 1.2 TSI |
+| Dizel odağı | 1.6 TDI | 1.4 TDI |
+| Güvenlik | 2009 Euro NCAP beş yıldız | Güncellenen yardımcı sistemler |
+
+## 1.2 TSI'da En Kritik Ayrım
+
+“1.2 TSI” tek motor demek değildir. Üretim yılına ve motor koduna göre zincirli **EA111** ile kayışlı **EA211** aileleri görülebilir. Triger tipi, bakım planı ve güç değeri VIN ile doğrulanmadan yalnız ilan yılına güvenilmemelidir.
+
+## DSG Nasıl Kontrol Edilir?
+
+Polo'da sık görülen yedi ileri DQ200 kuru kavramalı DSG; soğuk ve sıcak durumda D-R, geri manevra, yokuş ve dur-kalkta denenmelidir. Kavrama uyarlamaları, sıcaklık ve mekatronik hata hafızası okunur. Motor takozu ve ateşleme düzgünlüğü elenmeden her titreşim kavrama arızası sayılmaz.
+
+## Dizel ve Diğer Kontroller
+
+1.6/1.4 TDI'da DPF kurum-kül, rejenerasyon geçmişi, EGR, enjektör ve turbo verileri; MPI motorlarda ateşleme, triger ve LPG; tüm araçlarda direksiyon, ön takım, cam-kilit ve akü sistemi incelenmelidir.
+
+Ayrıntılı motor sayfaları için [Polo 6R/6C kusur raporunu](/araclar/volkswagen/polo-5-nesil-6r6c-2009-2017) açın.
+
+### Kaynaklar
+
+- [Volkswagen Polo V resmi tarihçesi](https://www.volkswagen-newsroom.com/en/polo-5-20092017-20044)
+- [Polo V resmi motor tablosu](https://www.volkswagen-newsroom.com/en/engine-versions-polo-5-profile-20047)
+- [Polo 2009 Euro NCAP sonucu](https://news.euroncap.com/safercars/vw%20polo%20-%20%20euro%20ncap%20results%202009/s/7fd70be8-a365-409a-a05d-753900f20f4b)`,
+    },
+    {
+        slug: 'volkswagen-golf-7-75-dsg-alinir-mi',
+        title: 'Volkswagen Golf 7 ve 7.5 DSG Alınır mı? Motor Kontrolü',
+        excerpt: 'Golf 7 ve 7.5 yılları, 1.2-1.4-1.5 TSI, 1.6 TDI, DQ200 DSG ve satın alma kontrol listesi.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '11 dk',
+        publishDate: '2026-09-18',
+        updatedDate: '2026-09-18',
+        relatedVehicleIds: [122],
+        content: `## Golf 7 ve Golf 7.5 Farkı
+
+Golf 7, 2012'de MQB platformuyla tanıtıldı. 2017 model güncellemesi Türkiye'de **Golf 7.5** olarak bilinir. İçten yanmalı ana üretim 2019'da sona yaklaşırken e-Golf 2020 sonuna kadar üretildi; bu yüzden bazı ilanlarda 2020 model yılı görülür.
+
+## Motor Seçenekleri Nasıl Ayrılır?
+
+- **1.2 TSI 105/110 PS:** Düşük tüketim, DQ200 eşleşmesi yaygın.
+- **1.4 TSI 122/125/140/150 PS:** ACT ve güç farkı VIN ile doğrulanmalı.
+- **1.0 TSI 110/115 PS:** Makyajlı kasada üç silindirli seçenek.
+- **1.5 TSI 130/150 PS:** Golf 7.5'te Evo ACT motor.
+- **1.6 TDI 105/110/115 PS:** Kullanım yılına göre güç ve emisyon donanımı değişir.
+
+## DSG Kontrol Listesi
+
+1. Şanzıman kodunu VIN ile doğrulayın.
+2. Soğuk D-R ve ilk kalkışı deneyin.
+3. Isındıktan sonra geri manevra, yokuş ve dur-kalk yapın.
+4. Kavrama uyarlamaları, sıcaklık ve mekatronik kayıtlarını okuyun.
+5. Motor takozu, tekleme ve lastik kaynaklı titreşimi ayrıca eleyin.
+
+## TSI ve TDI Kontrolü
+
+TSI'da motor koduna uygun triger planı, ateşleme, turbo basıncı, su pompası-termostat modülü ve yazılım geçmişi önemlidir. TDI'da DPF kurum-kül, rejenerasyon, EGR, enjektör ve turbo verileri okunur. MIB ekranı, ACC/Front Assist, kamera-radar kalibrasyonu, elektronik park freni ve lastik geometrisi de atlanmamalıdır.
+
+Motor bazlı ayrıntılar için [Golf 7 kusur raporunu](/araclar/volkswagen/golf-7-2012-2020) inceleyin.
+
+### Kaynaklar
+
+- [Volkswagen Golf VII resmi tarihçesi](https://www.volkswagen-newsroom.com/en/golf-7-20122019-20035)
+- [Golf VII resmi motor dönemleri](https://www.volkswagen-newsroom.com/en/vehicle-data-golf-7-profile-20039)
+- [Golf 2012 Euro NCAP sonucu](https://news.euroncap.com/images-and-videos/vw-golf---crash-test-2012/s/900e6a35-47d9-4cf3-a7c4-1f92672eccea)`,
+    },
+    {
+        slug: 'renault-clio-3-alinir-mi-clio-4-farklari',
+        title: 'Renault Clio 3 Alınır mı? Clio 4 ile Farkları ve Motorları',
+        excerpt: 'Clio 3 yılları, 1.2 16V, 1.5 dCi, 1.6 otomatik, Quickshift ve Clio 4 ile ikinci el farkları.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-18',
+        updatedDate: '2026-09-18',
+        relatedVehicleIds: [2017, 100],
+        content: `## Clio 3 Hangi Yıllar?
+
+Renault'nun üçüncü nesil Clio'su 2005'te tanıtıldı. Avrupa üretimi 2012'de Clio IV ile yer değiştirmeye başlasa da bazı pazarlarda Clio Collection adıyla daha uzun süre satıldığı için Türkiye ilanlarında **2005-2014** aralığı görülebilir. Model yılı kadar VIN, üretim tarihi ve donanım doğrulaması önemlidir.
+
+| Başlık | Clio 3 | Clio 4 |
+|---|---|---|
+| Ana dönem | 2005-2014 | 2012-2019 |
+| Benzinli odağı | 1.2 16V, 1.6 16V | 0.9 TCe, 1.2 TCe |
+| Dizel odağı | 1.5 dCi 65-105 PS | 1.5 dCi 75-110 PS |
+| Otomatik seçenek | Quickshift veya 1.6 klasik otomatik | EDC ağırlıklı |
+| Karakter | Daha sade ve ekonomik | Daha güncel güvenlik ve multimedya |
+
+## Hangi Motor Daha Mantıklı?
+
+**1.2 16V**, şehir kullanımında sade yapısıyla öne çıkar; performans beklentisi sınırlı tutulmalıdır. **1.5 dCi**, uzun yol ve düşük tüketim için tercih edilir ancak enjektör, turbo, EGR ve bakım geçmişi ölçülmeden alınmamalıdır. **1.6 16V** daha canlıdır; otomatik versiyonda yağ kaçağı, soğutma ve geçiş davranışı ayrıca incelenir.
+
+## Quickshift Alınır mı?
+
+Quickshift, klasik tork konvertörlü otomatik değildir; debriyajı ve vites seçimini aktüatörlerin yönettiği robotize manuel sistemdir. Vites değişimindeki kısa güç kesintisi karakteristik olabilir. Soğuk-sıcak kalkış, geri manevra, yokuş, kavrama noktası, aktüatör ve hata hafızası görülmeden karar verilmemelidir.
+
+## Clio 3 Ekspertiz Listesi
+
+- Motor tamamen soğukken ilk çalışma, rölanti ve egzoz dumanı.
+- Triger-devirdaim faturası; yalnız kilometre beyanına güvenmeme.
+- 1.5 dCi'da enjektör düzeltmeleri, turbo basıncı, EGR ve yağ hattı.
+- Direksiyon destek sistemi, ön takım, amortisör üst takozları ve lastik aşınması.
+- Camlar, merkezi kilit, kart/anahtar, klima fanı ve akü-şarj testi.
+- Airbag ve kemer sistemiyle birlikte şasi, podye ve taban ölçümü.
+
+Motor bazlı ayrıntılar için [Clio 3 kusur raporunu](/araclar/renault/clio-3-nesil-2005-2014), sonraki nesil için [Clio 4 raporunu](/araclar/renault/clio-4-nesil-2012-2019) inceleyin.
+
+### Kaynaklar
+
+- [Renault Group Clio nesil tarihçesi](https://www.renaultgroup.com/en/magazine/stories-en/the-renault-clio-our-history-your-stories/)
+- [Renault Group Clio'nun gelişim öyküsü](https://www.renaultgroup.com/en/magazine/our-group-news/the-clio-story-at-22-its-come-of-age/)
+- [Renault Clio resmi tarihçe arşivi](https://imprensa.renaultgroup.com/historia-do-renault-clio/?lang=por)`,
+    },
+    {
+        slug: 'opel-corsa-d-easytronic-alinir-mi',
+        title: 'Opel Corsa D Alınır mı? Easytronic ve 1.3 CDTI Kontrolü',
+        excerpt: 'Corsa D yılları, 1.2-1.4 Twinport, 1.3 CDTI, Easytronic şanzıman ve ikinci el kontrol listesi.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '10 dk',
+        publishDate: '2026-09-18',
+        updatedDate: '2026-09-18',
+        relatedVehicleIds: [12021],
+        content: `## Corsa D Hangi Yıllar?
+
+Opel'in resmi model tarihçesinde dördüncü nesil Corsa, **2006-2014** dönemindedir. Türkiye ikinci elinde 1.2 ve 1.4 Twinport benzinli ile 1.3 CDTI dizel motorlar; manuel, Easytronic ve bazı versiyonlarda klasik otomatik seçenekler görülür. Şanzıman tipi ilan başlığından değil VIN ve fiziksel donanımdan doğrulanmalıdır.
+
+## Motorlara Göre Kontrol
+
+### 1.2 ve 1.4 Twinport
+
+Motor tamamen soğukken zincir sesi, yağ seviyesi ve kaçaklar kontrol edilir. Ateşleme bobini, bujiler, boğaz kelebeği, yakıt düzeltmeleri ve soğutma sıcaklığı canlı veriden izlenir. LPG'li araçta test hem benzinde hem LPG'de yapılır; tank tarihi ve sızdırmazlık belgesi görülür.
+
+### 1.3 CDTI
+
+Soğuk çalışma, enjektör düzeltmeleri, turbo hedef-gerçek basıncı, EGR ve DPF doluluk verileri okunmalıdır. Sürekli kısa mesafe kullanılmış araçta rejenerasyon geçmişi özellikle önemlidir. Zincir sesi duyulursa yalnız sesle teşhis koymak yerine yağ basıncı ve mekanik zamanlama birlikte incelenir.
+
+## Easytronic Alınır mı?
+
+Easytronic, debriyaj ve vites kumandasını aktüatörlerin yaptığı robotize manuel sistemdir. Kavrama sarf malzemesidir; aktüatör ve elektronik arızayla karıştırılmamalıdır.
+
+1. Soğuk ve tam ısınmış kalkışı deneyin.
+2. Geri manevra, yokuş ve dur-kalk testi yapın.
+3. Kavrama aşınma/temas noktası ve adaptasyon değerlerini okuyun.
+4. Aktüatör hata kayıtlarını ve akü voltajını kontrol edin.
+5. Onarım sonrası kalibrasyon belgesini isteyin.
+
+Direksiyon desteği, ön takım, klima, cam-kilit sistemi, bagajda su izi, alt gövde ve airbag sistemi de ekspertize eklenmelidir. Tüm motor sayfaları için [Corsa D kusur raporunu](/araclar/opel/corsa-d-2006-2014) açın.
+
+### Kaynaklar
+
+- [Opel resmi Corsa nesil tarihçesi](https://www.media.stellantis.com/pl-pl/opel/press/40-lecie-opla-corsy-historia-sukcesu-w-szesciu-aktach)
+- [Opel Corsa D'nin 20. yıl arşivi](https://www.media.stellantis.com/em-en/opel/press/everybody-s-darling-20-years-of-opel-corsa-d)`,
+    },
+    {
+        slug: 'ford-fiesta-mk7-ecoboost-powershift-alinir-mi',
+        title: 'Ford Fiesta Mk7 Alınır mı? EcoBoost ve PowerShift Kontrolü',
+        excerpt: 'Fiesta Mk7 ve Mk7.5 yılları, 1.0 EcoBoost, 1.25-1.4 benzinli, TDCi ve PowerShift satın alma kontrolü.',
+        category: 'Model Satın Alma Rehberi',
+        readTime: '11 dk',
+        publishDate: '2026-09-18',
+        updatedDate: '2026-09-18',
+        relatedVehicleIds: [112],
+        content: `## Fiesta Mk7 ve Mk7.5 Ne Demek?
+
+Türkiye'de **Fiesta Mk7** adı, 2008'de başlayan ve 2017'ye kadar süren nesil için yaygın kullanılır. 2013 civarındaki büyük makyaj “Mk7.5” diye anılır; ayrı bir nesil değildir. Model yılı geçişlerinde donanım ve motor farklılaşabildiği için VIN doğrulaması gerekir.
+
+## Motor Seçenekleri
+
+- **1.25 ve 1.4 Duratec:** Atmosferik benzinli, manuel ağırlıklı; bazı pazarlarda klasik otomatik.
+- **1.0 EcoBoost 100/125/140 PS:** Turbo ve direkt enjeksiyonlu üç silindirli motor.
+- **1.6 Ti-VCT:** Bazı otomatik/PowerShift eşleşmelerinde görülür.
+- **1.4 ve 1.6 TDCi:** Dizel seçenekler; kullanım yılına göre emisyon donanımı değişir.
+
+## 1.0 EcoBoost Kontrolü
+
+Motor kodu ve üretim tarihine uygun triger sistemi/bakım planı VIN ile doğrulanmalıdır. Kullanılan yağın Ford şartnamesi, değişim aralığı ve faturaları önemlidir. Motor tamamen soğukken çalışma, yağ basıncı, soğutma sistemi, genleşme kabı, hortumlar, turbo hedef-gerçek basıncı ve ateşleme verileri incelenir. Hararet veya eksik yağ geçmişi küçük motorlarda özellikle ciddiye alınmalıdır.
+
+## PowerShift Nasıl Test Edilir?
+
+“PowerShift” tek bir donanım veya bakım yöntemi anlamına gelmez; şanzıman kodu VIN ile belirlenmelidir. Kuru kavramalı Fiesta uygulamasında soğuk ve sıcak D-R, geri manevra, yokuş, düşük hız ve yoğun dur-kalk testi yapılır. Kavrama uyarlamaları, aktüatör/TCM kayıtları ve akü voltajı okunur. Titremeyi motor takozu veya teklemeden ayırmadan parça teşhisi konulmamalıdır.
+
+## Diğer Kritik Noktalar
+
+Direksiyon, ön takım, amortisör üst takozu, kapı kilitleri, multimedya/SYNC, klima, bagaj su izi ve akü-şarj sistemi denenir. Dizelde enjektör, EGR, turbo ve varsa DPF verileri; otomatikte bakım-onarım faturaları görülür. Şasi, podye, airbag ve emniyet kemeri kontrolü her motor seçeneğinde zorunludur.
+
+Motor bazlı ayrıntılar için [Fiesta Mk7 kusur raporunu](/araclar/ford/fiesta-6-nesil-mk7-2008-2017) inceleyin.
+
+### Kaynaklar
+
+- [Ford Fiesta EcoBoost ve PowerShift teknik özellikleri](https://media.ford.com/content/dam/fordmedia/Europe/gb/2013/11/FIESTA_SALES_POWERSHIFTtechspec.pdf)
+- [Ford New Fiesta 2014 resmi teknik tanıtımı](https://media.ford.com/content/fordmedia/fsa/br/pt/news/2013/04/21/ford-new-fiesta-2014--esportividade--tecnologia--seguranca-e-eco.html)
+- [Ford Fiesta Euro NCAP 2012 sonuç duyurusu](https://news.euroncap.com/safercars/euro-ncap-releases-results-for-15-cars-dacia-budgets-on-safety/s/f911f1a0-c5e0-4b6a-af69-9b143954d4e4)`,
     }
 ];
