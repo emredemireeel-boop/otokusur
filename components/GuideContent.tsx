@@ -44,7 +44,26 @@ function tableCells(line: string): string[] {
 export default function GuideContent({ content }: { content: string }) {
     const lines = content.split(/\r?\n/);
     const blocks: ReactNode[] = [];
+    const toc = lines
+        .map((line) => line.trim().match(/^(#{2,3})\s+(.+)$/))
+        .filter((match): match is RegExpMatchArray => Boolean(match))
+        .map((match) => ({ level: match[1].length, text: match[2].replace(/\*\*/g, ''), id: headingId(match[2]) }));
     let index = 0;
+
+    if (toc.length >= 3) {
+        blocks.push(
+            <nav aria-label="Makale içindekiler" className="mb-7 rounded-xl border border-[#E4E4E7] bg-[#FAFAFA] p-4" key="table-of-contents">
+                <p className="mb-2 text-xs font-bold uppercase tracking-wide text-[#71717A]">İçindekiler</p>
+                <ol className="space-y-1.5 text-sm">
+                    {toc.map((item, tocIndex) => (
+                        <li className={item.level === 3 ? 'pl-4' : ''} key={`${item.id}-${tocIndex}`}>
+                            <a className="text-[#3F3F46] hover:text-[#A91D3A]" href={`#${item.id}`}>{item.text}</a>
+                        </li>
+                    ))}
+                </ol>
+            </nav>,
+        );
+    }
 
     while (index < lines.length) {
         const line = lines[index].trim();

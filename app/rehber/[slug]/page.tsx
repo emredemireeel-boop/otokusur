@@ -66,6 +66,15 @@ export default async function RehberDetailPage({ params }: Props) {
             dateModified: modifiedDate,
             publisher: { '@id': SITE_URL + '/#organization' },
         },
+        ...(guide.faqs?.length ? [{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: guide.faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+            })),
+        }] : []),
     ];
 
     return (
@@ -100,7 +109,28 @@ export default async function RehberDetailPage({ params }: Props) {
             </header>
 
             <div className="card-static p-5 sm:p-7">
+                {guide.keyTakeaways?.length ? (
+                    <aside className="mb-7 rounded-xl border border-[#FECACA] bg-[#FEF2F2] p-4" aria-labelledby="hizli-karar-ozeti">
+                        <h2 className="text-sm font-bold text-[#991B1B]" id="hizli-karar-ozeti">Hızlı karar özeti</h2>
+                        <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-[#52525B]">
+                            {guide.keyTakeaways.map((takeaway) => <li key={takeaway}>{takeaway}</li>)}
+                        </ul>
+                    </aside>
+                ) : null}
                 <GuideContent content={guide.content} />
+                {guide.faqs?.length ? (
+                    <section className="mt-8 border-t border-[#E4E4E7] pt-6" aria-labelledby="sik-sorulan-sorular">
+                        <h2 className="text-lg font-bold text-[#111827]" id="sik-sorulan-sorular">Sık sorulan sorular</h2>
+                        <div className="mt-3 space-y-3">
+                            {guide.faqs.map((faq) => (
+                                <details className="rounded-xl border border-[#E4E4E7] bg-white p-4" key={faq.question}>
+                                    <summary className="cursor-pointer text-sm font-semibold text-[#111827]">{faq.question}</summary>
+                                    <p className="mt-2 text-sm leading-relaxed text-[#52525B]">{faq.answer}</p>
+                                </details>
+                            ))}
+                        </div>
+                    </section>
+                ) : null}
             </div>
 
             <div className="mt-6 flex items-center justify-between">

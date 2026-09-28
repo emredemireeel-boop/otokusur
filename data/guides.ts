@@ -1,3 +1,10 @@
+import { guideEnrichments } from './guide-enrichments.ts';
+
+export interface GuideFaq {
+    question: string;
+    answer: string;
+}
+
 export interface Guide {
     slug: string;
     title: string;
@@ -8,9 +15,11 @@ export interface Guide {
     publishDate: string;
     updatedDate?: string;
     relatedVehicleIds?: number[];
+    keyTakeaways?: string[];
+    faqs?: GuideFaq[];
 }
 
-export const guidesData: Guide[] = [
+const baseGuidesData: Guide[] = [
     {
         slug: 'ikinci-el-arac-almadan-once-dikkat-edilmesi-gerekenler',
         title: 'İkinci El Araç Almadan Önce Dikkat Edilmesi Gerekenler',
@@ -1217,3 +1226,24 @@ Motor bazlı ayrıntılar için [Fiesta Mk7 kusur raporunu](/araclar/ford/fiesta
 - [Ford Fiesta Euro NCAP 2012 sonuç duyurusu](https://news.euroncap.com/safercars/euro-ncap-releases-results-for-15-cars-dacia-budgets-on-safety/s/f911f1a0-c5e0-4b6a-af69-9b143954d4e4)`,
     }
 ];
+
+export const guidesData: Guide[] = baseGuidesData.map((guide) => {
+    const enrichment = guideEnrichments[guide.slug];
+    if (!enrichment) return guide;
+
+    const content = enrichment.replaceContent
+        ?? `${guide.content.trim()}\n\n${enrichment.appendContent?.trim() ?? ''}`.trim();
+    const wordCount = content.trim().split(/\s+/).length
+        + enrichment.keyTakeaways.join(' ').split(/\s+/).length
+        + enrichment.faqs.flatMap((faq) => [faq.question, faq.answer]).join(' ').split(/\s+/).length;
+
+    return {
+        ...guide,
+        content,
+        excerpt: enrichment.excerpt ?? guide.excerpt,
+        updatedDate: enrichment.updatedDate,
+        readTime: `${Math.max(5, Math.ceil(wordCount / 180))} dk`,
+        keyTakeaways: enrichment.keyTakeaways,
+        faqs: enrichment.faqs,
+    };
+});

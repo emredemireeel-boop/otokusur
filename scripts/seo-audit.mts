@@ -91,6 +91,10 @@ const boilerplateIssueDescriptions = engines.flatMap((engine) => engine.chronicI
     .filter((issue) => boilerplate.has(issue.description.trim())).length;
 const buyingGuideVehicles = uniqueVehicles.filter((vehicle) => vehicle.buyingGuide).length;
 const faqVehicles = uniqueVehicles.filter((vehicle) => (vehicle.faqs?.length ?? 0) >= 3).length;
+const guideWordCounts = guidesData.map((guide) => guide.content.trim().split(/\s+/).length);
+const deepGuides = guidesData.filter((guide) => guide.content.trim().split(/\s+/).length >= 400).length;
+const faqGuides = guidesData.filter((guide) => (guide.faqs?.length ?? 0) >= 4).length;
+const updatedGuides = guidesData.filter((guide) => guide.updatedDate).length;
 const brands = new Set(uniqueVehicles.map((vehicle) => createSlug(vehicle.brand))).size;
 const expectedSitemapUrls = 8 + brands + indexableVehicles.length + indexableEngines.length + guidesData.length;
 
@@ -107,6 +111,10 @@ console.table({
     'Kalıp kusur açıklaması': boilerplateIssueDescriptions,
     'Satın alma planı bulunan araç': buyingGuideVehicles,
     'Model SSS içeriği bulunan araç': faqVehicles,
+    'Derin içerikli rehber (400+ kelime)': deepGuides,
+    '4+ SSS bulunan rehber': faqGuides,
+    'Güncelleme tarihi olan rehber': updatedGuides,
+    'En kısa rehber kelime sayısı': Math.min(...guideWordCounts),
     'Beklenen sitemap URL': expectedSitemapUrls,
 });
 
@@ -117,6 +125,9 @@ const missingEnrichmentVehicles = Object.keys(vehicleContentEnrichment)
     .map(Number)
     .filter((id) => !vehicleDNAData.some((vehicle) => vehicle.id === id));
 if (missingEnrichmentVehicles.length) failures.push('Yayında karşılığı olmayan içerik zenginleştirme kimliği: ' + missingEnrichmentVehicles.join(', '));
+if (deepGuides !== guidesData.length) failures.push('400 kelimenin altında kalan rehber sayısı: ' + (guidesData.length - deepGuides));
+if (faqGuides !== guidesData.length) failures.push('Dört özgün SSS bulunmayan rehber sayısı: ' + (guidesData.length - faqGuides));
+if (updatedGuides !== guidesData.length) failures.push('Güncelleme tarihi bulunmayan rehber sayısı: ' + (guidesData.length - updatedGuides));
 
 if (failures.length) {
     console.error('\nEngelleyici veri sorunları:');
