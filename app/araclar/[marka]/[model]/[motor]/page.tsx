@@ -62,24 +62,23 @@ export default async function MotorDetayPage({ params }: Props) {
     const risk = getRiskLevel(eng.score);
     const costLevel = getCostLevel(eng.score);
     const hasReportedIssues = eng.chronicIssues.some(issue => issue.reportCount > 0);
-    const hasVehicleReportedIssues = v.chronicIssues.some(issue => issue.reportCount > 0);
     const pageUrl = `/araclar/${marka}/${model}/${motor}`;
     const issueSummary = hasReportedIssues
         ? `${eng.chronicIssues.length} raporlanan motor kusuru`
         : `${eng.chronicIssues.length} kaynaklı teknik kontrol başlığı`;
     const description = `${v.brand} ${v.model} ${eng.name} (${eng.fuelType} · ${eng.transmission}) için ${issueSummary} ve ${eng.score}/100 risk skoru.`;
 
-    // Combine vehicle + engine chronic issues
-    const allIssues = [
-        ...eng.chronicIssues.map((ci, idx) => ({
-            id: 1000 + idx,
-            title: ci.title,
-            severity: ci.severity,
-            reportCount: ci.reportCount,
-            description: ci.description,
-        })),
-    ];
-    const categories = categorizeIssues([...allIssues, ...v.chronicIssues]);
+    // Motor detay sayfasında yalnızca seçili motora ait kusurlar gösterilir.
+    // Model seviyesindeki kayıtlar başka motorlara özgü olabileceği için burada
+    // birleştirilmez; bunlar ana araç detay sayfasında yer alır.
+    const engineIssues = eng.chronicIssues.map((ci, idx) => ({
+        id: 1000 + idx,
+        title: ci.title,
+        severity: ci.severity,
+        reportCount: ci.reportCount,
+        description: ci.description,
+    }));
+    const categories = categorizeIssues(engineIssues);
     const structuredData = [
         breadcrumbSchema([
             { name: 'Ana Sayfa', path: '/' },
@@ -213,32 +212,6 @@ export default async function MotorDetayPage({ params }: Props) {
                         </div>
                     )}
 
-                    {/* Vehicle Strengths & Weaknesses */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="card-elevated p-5">
-                            <h2 className="label flex items-center gap-1.5 mb-3"><TrendingUp size={12} className="text-[#16A34A]" />Araç Güçlü Yönleri</h2>
-                            <ul className="space-y-2">
-                                {v.strengths.map((s, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-[12px] text-[#3F3F46]">
-                                        <CheckCircle2 size={13} className="text-[#16A34A] mt-0.5 flex-shrink-0" />
-                                        <span>{s}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="card-elevated p-5">
-                            <h2 className="label flex items-center gap-1.5 mb-3"><TrendingDown size={12} className="text-[#A91D3A]" />Araç Zayıf Yönleri</h2>
-                            <ul className="space-y-2">
-                                {v.weaknesses.map((w, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-[12px] text-[#3F3F46]">
-                                        <XCircle size={13} className="text-[#A91D3A] mt-0.5 flex-shrink-0" />
-                                        <span>{w}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
                     {/* Motor Chronic Issues */}
                     <div className="card-elevated p-5 sm:p-6">
                         <div className="flex items-center gap-2 mb-1">
@@ -270,35 +243,6 @@ export default async function MotorDetayPage({ params }: Props) {
                             </div>
                         )}
                     </div>
-
-                    {/* Vehicle-level Chronic Issues */}
-                    {v.chronicIssues.length > 0 && (
-                        <div className="card-elevated p-5 sm:p-6">
-                            <div className="flex items-center gap-2 mb-1">
-                                <AlertTriangle size={14} className="text-[#CA8A04]" />
-                                <h2 className="text-[14px] font-bold text-[#0F0F10]">{hasVehicleReportedIssues ? 'Genel Araç Kusurları' : 'Genel Araç Kontrolleri'}</h2>
-                            </div>
-                            <p className="text-[11px] text-[#A1A1AA] mb-5">
-                                {hasVehicleReportedIssues
-                                    ? `${v.model} genelinde raporlanan sorunlar`
-                                    : 'Model genelindeki kaynaklı teslimat ve satın alma kontrol noktaları'}
-                            </p>
-                            <div className="space-y-3">
-                                {v.chronicIssues.map(issue => (
-                                    <div key={issue.id} className="border border-[#EBEBED] rounded-lg p-4 hover:border-[#D4D4D8] transition-colors">
-                                        <div className="flex items-start justify-between mb-1.5 gap-2">
-                                            <h3 className="text-[13px] font-semibold text-[#0F0F10]">{issue.title}</h3>
-                                            <span className={`severity-${issue.severity} badge flex-shrink-0`}>{getSeverityLabel(issue.severity)}</span>
-                                        </div>
-                                        <p className="text-[12px] text-[#71717A] leading-relaxed mb-2">{issue.description}</p>
-                                        <div className="flex items-center gap-1.5 text-[10px] text-[#A1A1AA]">
-                                            <CircleAlert size={10} /> {issue.reportCount > 0 ? `${issue.reportCount} kullanıcı raporladı` : 'Kaynaklı teknik kontrol başlığı'}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
 
                     {/* Categories */}
                     {categories.length > 0 && (
