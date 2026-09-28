@@ -23,12 +23,20 @@ export function GET(request: NextRequest) {
             chronicIssues: vehicle.chronicIssues.map(({ id: issueId, title, severity }) => ({ id: issueId, title, severity })),
             ncapStars: vehicle.ncapStars,
             href: '/araclar/' + brandSlug(vehicle.brand) + '/' + modelSlug(vehicle.model),
-            engines: getEnginesByVehicleId(vehicle.id).map(({ slug, name, fuelType, transmission, score }) => ({
+            engines: getEnginesByVehicleId(vehicle.id).map(({ slug, name, fuelType, transmission, score, description, pros, cons, chronicIssues }) => ({
                 slug,
                 name,
                 fuelType,
                 transmission,
                 score,
+                description,
+                pros: pros ?? [],
+                cons: cons ?? [],
+                chronicIssues: chronicIssues.map(({ title, severity, description: issueDescription }) => ({
+                    title,
+                    severity,
+                    description: issueDescription,
+                })),
             })),
         }];
     });

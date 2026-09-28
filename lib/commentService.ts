@@ -14,6 +14,7 @@ import {
     increment,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import { validateAndCleanComment } from "./commentModeration";
 
 // ── Types ──────────────────────────────────────────
 export type CommentStatus = "pending" | "approved" | "rejected";
@@ -27,6 +28,9 @@ export interface Comment {
     text: string;
     ownershipMonths?: number;
     fuelConsumption?: string;
+    mileageKm?: number;
+    vehicleYear?: number;
+    engineDetail?: string;
     likes: number;
     status: CommentStatus;
     createdAt: Date;
@@ -40,28 +44,35 @@ export interface CommentInput {
     text: string;
     ownershipMonths?: number;
     fuelConsumption?: string;
+    mileageKm?: number;
+    vehicleYear?: number;
+    engineDetail?: string;
 }
 
 // ── Collection Reference ───────────────────────────
 const COLLECTION = "comments";
 
-// ── Add Comment (pending by default) ───────────────
+// ── Add Comment (argo filtresinden sonra doğrudan yayında) ───────────────
 export async function addComment(input: CommentInput): Promise<string> {
+    const cleaned = validateAndCleanComment(input);
     // Firestore undefined kabul etmez — temizle
     const cleanData: Record<string, unknown> = {
-        vehicleId: input.vehicleId,
-        author: input.author,
-        rating: input.rating,
-        text: input.text,
+        vehicleId: cleaned.vehicleId,
+        author: cleaned.author,
+        rating: cleaned.rating,
+        text: cleaned.text,
         likes: 0,
-        status: "pending" as CommentStatus,
+        status: "approved" as CommentStatus,
         createdAt: serverTimestamp(),
     };
 
     // Opsiyonel alanları sadece değer varsa ekle
-    if (input.engineSlug) cleanData.engineSlug = input.engineSlug;
-    if (input.ownershipMonths) cleanData.ownershipMonths = input.ownershipMonths;
-    if (input.fuelConsumption) cleanData.fuelConsumption = input.fuelConsumption;
+    if (cleaned.engineSlug) cleanData.engineSlug = cleaned.engineSlug;
+    if (cleaned.ownershipMonths) cleanData.ownershipMonths = cleaned.ownershipMonths;
+    if (cleaned.fuelConsumption) cleanData.fuelConsumption = cleaned.fuelConsumption;
+    if (cleaned.mileageKm) cleanData.mileageKm = cleaned.mileageKm;
+    if (cleaned.vehicleYear) cleanData.vehicleYear = cleaned.vehicleYear;
+    if (cleaned.engineDetail) cleanData.engineDetail = cleaned.engineDetail;
 
     const docRef = await addDoc(collection(db, COLLECTION), cleanData);
     return docRef.id;
@@ -169,6 +180,9 @@ function docToComment(d: import("firebase/firestore").QueryDocumentSnapshot): Co
         text: data.text,
         ownershipMonths: data.ownershipMonths,
         fuelConsumption: data.fuelConsumption,
+        mileageKm: data.mileageKm,
+        vehicleYear: data.vehicleYear,
+        engineDetail: data.engineDetail,
         likes: data.likes || 0,
         status: data.status || "pending",
         createdAt: data.createdAt instanceof Timestamp

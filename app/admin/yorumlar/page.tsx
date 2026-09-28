@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { getAllComments, moderateComment, deleteComment, type Comment, type CommentStatus } from '@/lib/commentService';
-import { Shield, Check, X, Trash2, Star, Clock, Fuel, User, Loader2, Filter, MessageSquare, Lock } from 'lucide-react';
+import { getAllComments, deleteComment, type Comment, type CommentStatus } from '@/lib/commentService';
+import { Shield, Trash2, Star, Clock, Fuel, User, Loader2, Filter, MessageSquare, Lock, Gauge, CalendarDays, Wrench } from 'lucide-react';
 
 // ── Basit Şifre Koruması ───────────────────────────
 // .env.local dosyasına NEXT_PUBLIC_ADMIN_PASSWORD=senin_sifren yaz
@@ -36,7 +36,6 @@ export default function AdminYorumlar() {
 
     const [comments, setComments] = useState<Comment[]>([]);
     const [loading, setLoading] = useState(false);
-    const [filter, setFilter] = useState<CommentStatus | 'all'>('pending');
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     // Auth check
@@ -61,44 +60,20 @@ export default function AdminYorumlar() {
     const fetchComments = useCallback(async () => {
         setLoading(true);
         try {
-            const data = await getAllComments(filter === 'all' ? undefined : filter);
+            const data = await getAllComments();
             setComments(data);
         } catch (err) {
             console.error('Admin yorum yükleme hatası:', err);
         } finally {
             setLoading(false);
         }
-    }, [filter]);
+    }, []);
 
     useEffect(() => {
         if (authenticated) fetchComments();
     }, [authenticated, fetchComments]);
 
     // Actions
-    const handleApprove = async (id: string) => {
-        setActionLoading(id);
-        try {
-            await moderateComment(id, 'approved');
-            await fetchComments();
-        } catch (err) {
-            console.error('Onaylama hatası:', err);
-        } finally {
-            setActionLoading(null);
-        }
-    };
-
-    const handleReject = async (id: string) => {
-        setActionLoading(id);
-        try {
-            await moderateComment(id, 'rejected');
-            await fetchComments();
-        } catch (err) {
-            console.error('Reddetme hatası:', err);
-        } finally {
-            setActionLoading(null);
-        }
-    };
-
     const handleDelete = async (id: string) => {
         if (!confirm('Bu yorumu kalıcı olarak silmek istediğinize emin misiniz?')) return;
         setActionLoading(id);
@@ -146,8 +121,6 @@ export default function AdminYorumlar() {
     }
 
     // ── Admin Panel ────────────────────────────────
-    const pendingCount = comments.filter(c => c.status === 'pending').length;
-
     return (
         <div className="min-h-screen bg-[#F7F7F8]">
             {/* Header */}
@@ -157,43 +130,17 @@ export default function AdminYorumlar() {
                         <Shield size={24} />
                         <div>
                             <h1 className="text-[18px] font-bold">Yorum Moderasyonu</h1>
-                            <p className="text-[12px] text-white/70">OtoKusur Admin Paneli</p>
+                            <p className="text-[12px] text-white/70">Yayındaki yorumları görüntüleyin ve gerektiğinde kaldırın</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="max-w-5xl mx-auto px-4 py-6">
-                {/* Filter tabs */}
-                <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-2">
-                    {([
-                        { key: 'pending', label: 'Bekleyenler', icon: '⏳' },
-                        { key: 'approved', label: 'Onaylananlar', icon: '✅' },
-                        { key: 'rejected', label: 'Reddedilenler', icon: '❌' },
-                        { key: 'all', label: 'Tümü', icon: '📋' },
-                    ] as const).map(({ key, label, icon }) => (
-                        <button
-                            key={key}
-                            onClick={() => setFilter(key)}
-                            className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
-                                filter === key
-                                    ? 'bg-[#A91D3A] text-white shadow-sm'
-                                    : 'bg-white text-[#71717A] hover:bg-[#F0F0F2] border border-[#EBEBED]'
-                            }`}
-                        >
-                            <span>{icon}</span>
-                            {label}
-                            {key === 'pending' && pendingCount > 0 && filter !== 'pending' && (
-                                <span className="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full ml-1">
-                                    {pendingCount}
-                                </span>
-                            )}
-                        </button>
-                    ))}
-
+                <div className="flex items-center justify-end mb-6">
                     <button
                         onClick={fetchComments}
-                        className="ml-auto flex items-center gap-1.5 px-3 py-2 rounded-lg text-[12px] font-semibold bg-white text-[#71717A] hover:bg-[#F0F0F2] border border-[#EBEBED] transition-all"
+                        className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[12px] font-semibold bg-white text-[#71717A] hover:bg-[#F0F0F2] border border-[#EBEBED] transition-all"
                     >
                         <Filter size={12} />
                         Yenile
@@ -201,18 +148,18 @@ export default function AdminYorumlar() {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                     <div className="card-elevated p-4 text-center">
-                        <p className="text-[24px] font-bold text-amber-600">{comments.filter(c => c.status === 'pending').length}</p>
-                        <p className="text-[11px] text-[#71717A] font-medium">Onay Bekliyor</p>
+                        <p className="text-[24px] font-bold text-[#0F0F10]">{comments.length}</p>
+                        <p className="text-[11px] text-[#71717A] font-medium">Toplam Kayıt</p>
                     </div>
                     <div className="card-elevated p-4 text-center">
                         <p className="text-[24px] font-bold text-emerald-600">{comments.filter(c => c.status === 'approved').length}</p>
-                        <p className="text-[11px] text-[#71717A] font-medium">Onaylı</p>
+                        <p className="text-[11px] text-[#71717A] font-medium">Yayında</p>
                     </div>
                     <div className="card-elevated p-4 text-center">
-                        <p className="text-[24px] font-bold text-red-500">{comments.filter(c => c.status === 'rejected').length}</p>
-                        <p className="text-[11px] text-[#71717A] font-medium">Reddedildi</p>
+                        <p className="text-[24px] font-bold text-amber-600">{comments.filter(c => c.status !== 'approved').length}</p>
+                        <p className="text-[11px] text-[#71717A] font-medium">Eski Gizli Kayıt</p>
                     </div>
                 </div>
 
@@ -260,6 +207,9 @@ export default function AdminYorumlar() {
                                             {comment.fuelConsumption && (
                                                 <span className="flex items-center gap-1"><Fuel size={9} />{comment.fuelConsumption}</span>
                                             )}
+                                            {comment.mileageKm && <span className="flex items-center gap-1"><Gauge size={9} />{comment.mileageKm.toLocaleString('tr-TR')} km</span>}
+                                            {comment.vehicleYear && <span className="flex items-center gap-1"><CalendarDays size={9} />{comment.vehicleYear} model</span>}
+                                            {comment.engineDetail && <span className="flex items-center gap-1"><Wrench size={9} />{comment.engineDetail}</span>}
                                         </div>
 
                                         {/* Text */}
@@ -270,26 +220,6 @@ export default function AdminYorumlar() {
 
                                     {/* Actions */}
                                     <div className="flex flex-col gap-2 flex-shrink-0">
-                                        {comment.status !== 'approved' && (
-                                            <button
-                                                onClick={() => handleApprove(comment.id)}
-                                                disabled={actionLoading === comment.id}
-                                                className="flex items-center gap-1.5 px-3 py-2 text-[11px] font-semibold bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors disabled:opacity-50"
-                                            >
-                                                {actionLoading === comment.id ? <Loader2 size={12} className="animate-spin" /> : <Check size={12} />}
-                                                Onayla
-                                            </button>
-                                        )}
-                                        {comment.status !== 'rejected' && (
-                                            <button
-                                                onClick={() => handleReject(comment.id)}
-                                                disabled={actionLoading === comment.id}
-                                                className="flex items-center gap-1.5 px-3 py-2 text-[11px] font-semibold bg-amber-50 text-amber-700 rounded-lg hover:bg-amber-100 transition-colors disabled:opacity-50"
-                                            >
-                                                {actionLoading === comment.id ? <Loader2 size={12} className="animate-spin" /> : <X size={12} />}
-                                                Reddet
-                                            </button>
-                                        )}
                                         <button
                                             onClick={() => handleDelete(comment.id)}
                                             disabled={actionLoading === comment.id}

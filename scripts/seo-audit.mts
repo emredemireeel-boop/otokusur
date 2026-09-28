@@ -8,22 +8,26 @@ import { searchDemandEngineDNAData } from '../data/search-demand-engine-dna.ts';
 import { searchDemandSupersededVehicleIds, searchDemandVehicleDNAData } from '../data/search-demand-vehicle-dna.ts';
 import { secondHandDemandEngineDNAData } from '../data/second-hand-demand-engine-dna.ts';
 import { secondHandDemandVehicleDNAData, secondHandSupersededVehicleIds } from '../data/second-hand-demand-vehicle-dna.ts';
+import { turkeySearchEngineDNAData } from '../data/turkey-search-engine-dna.ts';
+import { turkeySearchVehicleDNAData } from '../data/turkey-search-vehicle-dna.ts';
 import { vehicleContentEngineDNAData } from '../data/vehicle-content-engine-dna.ts';
 import { vehicleContentEnrichment } from '../data/vehicle-content-enrichment.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
 
 const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
 const secondHandIds = new Set(secondHandDemandVehicleDNAData.map((vehicle) => vehicle.id));
+const turkeySearchIds = new Set(turkeySearchVehicleDNAData.map((vehicle) => vehicle.id));
 const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const editorialIds = new Set([...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 const baseVehicleDNAData = [
-    ...secondHandDemandVehicleDNAData,
-    ...evergreenDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id)),
-    ...searchDemandVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
-    ...priorityVehicleDNAData.filter((vehicle) => !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
+    ...turkeySearchVehicleDNAData,
+    ...secondHandDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id)),
+    ...evergreenDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id)),
+    ...searchDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
+    ...priorityVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
     ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
 const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
@@ -32,10 +36,11 @@ const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
 }));
 const engineDNAData = [
     ...vehicleContentEngineDNAData,
-    ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
-    ...evergreenDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId)),
-    ...searchDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
-    ...priorityEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
+    ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
+    ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId)),
+    ...evergreenDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId)),
+    ...searchDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
+    ...priorityEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId) && !searchDemandIds.has(entry.vehicleId)),
     ...legacyEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !editorialIds.has(entry.vehicleId) && !supersededIds.has(entry.vehicleId)),
 ];
 

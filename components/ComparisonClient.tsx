@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import VehicleRiskBadge from './VehicleRiskBadge';
-import { ArrowRight, AlertTriangle, CheckCircle2, XCircle, Star, Fuel, Settings, Scale } from 'lucide-react';
+import { ArrowRight, AlertTriangle, CheckCircle2, XCircle, Star, Fuel, Scale } from 'lucide-react';
 
 export interface CompareOption {
     id: number;
@@ -17,6 +17,10 @@ interface CompareEngine {
     fuelType: string;
     transmission: string;
     score: number;
+    description?: string;
+    pros: string[];
+    cons: string[];
+    chronicIssues: Array<{ title: string; severity: 'low' | 'medium' | 'high'; description: string }>;
 }
 
 interface CompareVehicle extends CompareOption {
@@ -32,11 +36,15 @@ interface CompareVehicle extends CompareOption {
 const riskLevel = (score: number) => score >= 80 ? 'low' : score >= 60 ? 'medium' : 'high';
 const riskLabel = (score: number) => score >= 80 ? 'Düşük Risk' : score >= 60 ? 'Orta Risk' : 'Yüksek Risk';
 
-function VehicleSelector({ label, selectedId, onChange, options }: {
+function VehicleSelector({ label, selectedId, onChange, options, engines, selectedEngineSlug, onEngineChange, engineLoading }: {
     label: string;
     selectedId: number | null;
     onChange: (id: number | null) => void;
     options: CompareOption[];
+    engines: CompareEngine[];
+    selectedEngineSlug: string;
+    onEngineChange: (slug: string) => void;
+    engineLoading: boolean;
 }) {
     const brands = useMemo(() => [...new Set(options.map(v => v.brand))].sort((a, b) => a.localeCompare(b, 'tr')), [options]);
     const [selectedBrand, setSelectedBrand] = useState('');
@@ -69,6 +77,26 @@ function VehicleSelector({ label, selectedId, onChange, options }: {
                 <option value="">Model Seçin</option>
                 {models.map(m => <option key={m.id} value={m.id}>{m.model} ({m.year})</option>)}
             </select>
+            <select
+                className="select-field"
+                value={selectedEngineSlug}
+                onChange={(e) => onEngineChange(e.target.value)}
+                disabled={!selectedId || engineLoading || engines.length === 0}
+            >
+                <option value="">
+                    {engineLoading ? 'Motorlar yükleniyor...' : engines.length === 0 && selectedId ? 'Motor verisi yok — model bazlı' : 'Motor Seçin'}
+                </option>
+                {engines.map((engine) => (
+                    <option key={engine.slug} value={engine.slug}>
+                        {engine.name} · {engine.transmission}
+                    </option>
+                ))}
+            </select>
+            {selectedId && engines.length > 0 && !selectedEngineSlug && !engineLoading && (
+                <p className="text-[10px] text-[#A91D3A] font-medium flex items-center gap-1">
+                    <AlertTriangle size={10} /> Motor seçimi karşılaştırma için gereklidir.
+                </p>
+            )}
         </div>
     );
 }
@@ -90,9 +118,9 @@ function ScoreBar({ score, label, color }: { score: number; label: string; color
     );
 }
 
-function ComparisonColumn({ vehicle }: { vehicle: CompareVehicle }) {
+function ComparisonColumn({ vehicle, selectedEngine }: { vehicle: CompareVehicle; selectedEngine: CompareEngine | null }) {
     const risk = riskLevel(vehicle.dnaScore);
-    const engines = vehicle.engines;
+    const detailHref = selectedEngine ? `${vehicle.href}/${selectedEngine.slug}` : vehicle.href;
     return (
         <div className="flex-1 min-w-0">
             {/* Header */}
@@ -113,6 +141,50 @@ function ComparisonColumn({ vehicle }: { vehicle: CompareVehicle }) {
                     <span className="text-[8px] font-bold text-[#A1A1AA] uppercase tracking-wider mt-0.5">DNA Skoru</span>
                 </div>
             </div>
+
+            {selectedEngine && (
+                <div className="mb-5 rounded-xl border border-[#E4E4E7] bg-[#FAFAFA] p-4">
+                    <div className="flex items-start justify-between gap-3">
+                        <div>
+                            <p className="text-[9px] font-bold text-[#A91D3A] uppercase tracking-[0.08em]">Seçilen Motor</p>
+                            <h4 className="text-[14px] font-bold text-[#0F0F10] mt-0.5">{selectedEngine.name}</h4>
+                            <p className="text-[10px] text-[#71717A] mt-1">{selectedEngine.fuelType} · {selectedEngine.transmission}</p>
+                        </div>
+                        <div className="text-right">
+                            <span className="text-[24px] font-extrabold text-[#0F0F10]">{selectedEngine.score}</span>
+                            <p className="text-[8px] font-bold text-[#A1A1AA] uppercase">Motor Skoru</p>
+                        </div>
+                    </div>
+                    {selectedEngine.description && (
+                        <p className="text-[10px] text-[#52525B] leading-relaxed mt-3">{selectedEngine.description}</p>
+                    )}
+                    <div className="grid grid-cols-1 gap-2 mt-3">
+                        {selectedEngine.pros.slice(0, 3).map((item) => (
+                            <div key={item} className="flex items-start gap-1.5 text-[10px] text-[#166534]">
+                                <CheckCircle2 size={10} className="mt-0.5 flex-shrink-0" /> {item}
+                            </div>
+                        ))}
+                        {selectedEngine.cons.slice(0, 3).map((item) => (
+                            <div key={item} className="flex items-start gap-1.5 text-[10px] text-[#991B1B]">
+                                <XCircle size={10} className="mt-0.5 flex-shrink-0" /> {item}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-[#E4E4E7]">
+                        <p className="text-[9px] font-bold text-[#CA8A04] uppercase tracking-[0.08em] mb-2">
+                            Motora Bağlı Kontroller ({selectedEngine.chronicIssues.length})
+                        </p>
+                        <div className="space-y-1.5">
+                            {selectedEngine.chronicIssues.map((issue) => (
+                                <div key={issue.title} className="flex items-start gap-1.5 text-[10px] text-[#3F3F46]">
+                                    <span className={`w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0 ${issue.severity === 'high' ? 'bg-[#A91D3A]' : issue.severity === 'medium' ? 'bg-[#CA8A04]' : 'bg-[#3B82F6]'}`} />
+                                    <span>{issue.title}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Strengths */}
             <div className="mb-4">
@@ -162,34 +234,12 @@ function ComparisonColumn({ vehicle }: { vehicle: CompareVehicle }) {
                 </div>
             </div>
 
-            {/* Engines */}
-            <div className="mb-4">
-                <p className="text-[10px] font-bold text-[#A1A1AA] uppercase tracking-[0.08em] mb-2 flex items-center gap-1">
-                    <Fuel size={10} /> Motor Seçenekleri ({engines.length})
-                </p>
-                <div className="space-y-1.5">
-                    {engines.slice(0, 3).map(eng => (
-                        <div key={eng.slug} className="bg-[#F7F7F8] rounded-lg p-2.5">
-                            <p className="text-[11px] font-semibold text-[#0F0F10]">{eng.name}</p>
-                            <div className="flex items-center gap-2 mt-1">
-                                <span className="text-[9px] text-[#71717A] flex items-center gap-0.5"><Fuel size={8} /> {eng.fuelType}</span>
-                                <span className="text-[9px] text-[#71717A] flex items-center gap-0.5"><Settings size={8} /> {eng.transmission}</span>
-                                <span className="text-[9px] font-bold text-[#0F0F10] ml-auto">{eng.score}</span>
-                            </div>
-                        </div>
-                    ))}
-                    {engines.length > 3 && (
-                        <p className="text-[9px] text-[#A1A1AA] text-center">+{engines.length - 3} motor daha</p>
-                    )}
-                </div>
-            </div>
-
             {/* CTA */}
             <Link
-                href={vehicle.href}
+                href={detailHref}
                 className="btn-primary w-full text-center justify-center text-[12px] py-2.5"
             >
-                Detaylı Rapor <ArrowRight size={12} />
+                {selectedEngine ? 'Motor Raporunu Aç' : 'Detaylı Rapor'} <ArrowRight size={12} />
             </Link>
         </div>
     );
@@ -198,18 +248,21 @@ function ComparisonColumn({ vehicle }: { vehicle: CompareVehicle }) {
 export default function ComparisonClient({ options }: { options: CompareOption[] }) {
     const [leftId, setLeftId] = useState<number | null>(null);
     const [rightId, setRightId] = useState<number | null>(null);
+    const [leftEngineSlug, setLeftEngineSlug] = useState('');
+    const [rightEngineSlug, setRightEngineSlug] = useState('');
     const [vehicles, setVehicles] = useState<CompareVehicle[]>([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (!leftId || !rightId) {
+        const ids = [leftId, rightId].filter((id): id is number => id !== null);
+        if (ids.length === 0) {
             setVehicles([]);
             return;
         }
 
         const controller = new AbortController();
         setLoading(true);
-        fetch('/api/compare?ids=' + leftId + ',' + rightId, { signal: controller.signal })
+        fetch('/api/compare?ids=' + ids.join(','), { signal: controller.signal })
             .then((response) => {
                 if (!response.ok) throw new Error('Karşılaştırma verisi alınamadı');
                 return response.json() as Promise<{ vehicles: CompareVehicle[] }>;
@@ -228,55 +281,90 @@ export default function ComparisonClient({ options }: { options: CompareOption[]
     const rightVehicle = rightId ? vehicles.find(v => v.id === rightId) ?? null : null;
     const leftEngines = leftVehicle?.engines ?? [];
     const rightEngines = rightVehicle?.engines ?? [];
+    const leftEngine = leftEngines.find((engine) => engine.slug === leftEngineSlug) ?? null;
+    const rightEngine = rightEngines.find((engine) => engine.slug === rightEngineSlug) ?? null;
 
-    const bothSelected = leftVehicle && rightVehicle;
+    const bothVehiclesSelected = Boolean(leftVehicle && rightVehicle);
+    const motorsReady = (leftEngines.length === 0 || Boolean(leftEngine))
+        && (rightEngines.length === 0 || Boolean(rightEngine));
+    const bothSelected = Boolean(leftVehicle && rightVehicle && motorsReady);
+    const leftComparisonScore = leftEngine?.score ?? leftVehicle?.dnaScore ?? 0;
+    const rightComparisonScore = rightEngine?.score ?? rightVehicle?.dnaScore ?? 0;
+
+    const handleLeftVehicleChange = (id: number | null) => {
+        setLeftId(id);
+        setLeftEngineSlug('');
+    };
+
+    const handleRightVehicleChange = (id: number | null) => {
+        setRightId(id);
+        setRightEngineSlug('');
+    };
 
     return (
         <div>
             {/* Selection */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="card-elevated p-5">
-                    <VehicleSelector label="1. Araç" selectedId={leftId} onChange={setLeftId} options={options} />
+                    <VehicleSelector
+                        label="1. Araç"
+                        selectedId={leftId}
+                        onChange={handleLeftVehicleChange}
+                        options={options}
+                        engines={leftEngines}
+                        selectedEngineSlug={leftEngineSlug}
+                        onEngineChange={setLeftEngineSlug}
+                        engineLoading={loading && Boolean(leftId) && !leftVehicle}
+                    />
                 </div>
                 <div className="card-elevated p-5">
-                    <VehicleSelector label="2. Araç" selectedId={rightId} onChange={setRightId} options={options} />
+                    <VehicleSelector
+                        label="2. Araç"
+                        selectedId={rightId}
+                        onChange={handleRightVehicleChange}
+                        options={options}
+                        engines={rightEngines}
+                        selectedEngineSlug={rightEngineSlug}
+                        onEngineChange={setRightEngineSlug}
+                        engineLoading={loading && Boolean(rightId) && !rightVehicle}
+                    />
                 </div>
             </div>
 
             {/* Comparison */}
-            {bothSelected ? (
+            {bothSelected && leftVehicle && rightVehicle ? (
                 <div className="space-y-6">
                     {/* Score Comparison Bar */}
                     <div className="card-dark p-6 sm:p-8">
                         <div className="flex items-center justify-center gap-2 mb-6">
                             <Scale size={16} className="text-[#A91D3A]" />
-                            <h2 className="text-[16px] font-bold text-white">Skor Karşılaştırması</h2>
+                            <h2 className="text-[16px] font-bold text-white">Seçilen Motor Skoru Karşılaştırması</h2>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <ScoreBar
-                                score={leftVehicle.dnaScore}
-                                label={`${leftVehicle.brand} ${leftVehicle.model}`}
-                                color={leftVehicle.dnaScore >= 80 ? '#16A34A' : leftVehicle.dnaScore >= 60 ? '#CA8A04' : '#A91D3A'}
+                                score={leftComparisonScore}
+                                label={`${leftVehicle.brand} ${leftVehicle.model}${leftEngine ? ` · ${leftEngine.name}` : ''}`}
+                                color={leftComparisonScore >= 80 ? '#16A34A' : leftComparisonScore >= 60 ? '#CA8A04' : '#A91D3A'}
                             />
                             <ScoreBar
-                                score={rightVehicle.dnaScore}
-                                label={`${rightVehicle.brand} ${rightVehicle.model}`}
-                                color={rightVehicle.dnaScore >= 80 ? '#16A34A' : rightVehicle.dnaScore >= 60 ? '#CA8A04' : '#A91D3A'}
+                                score={rightComparisonScore}
+                                label={`${rightVehicle.brand} ${rightVehicle.model}${rightEngine ? ` · ${rightEngine.name}` : ''}`}
+                                color={rightComparisonScore >= 80 ? '#16A34A' : rightComparisonScore >= 60 ? '#CA8A04' : '#A91D3A'}
                             />
                         </div>
 
                         {/* Winner indication */}
-                        {leftVehicle.dnaScore !== rightVehicle.dnaScore && (
+                        {leftComparisonScore !== rightComparisonScore && (
                             <div className="mt-5 pt-4 border-t border-white/10 text-center">
                                 <p className="text-[11px] text-white/50">
                                     <span className="text-white font-bold">
-                                        {leftVehicle.dnaScore > rightVehicle.dnaScore
-                                            ? `${leftVehicle.brand} ${leftVehicle.model}`
-                                            : `${rightVehicle.brand} ${rightVehicle.model}`}
+                                        {leftComparisonScore > rightComparisonScore
+                                            ? `${leftVehicle.brand} ${leftEngine?.name ?? leftVehicle.model}`
+                                            : `${rightVehicle.brand} ${rightEngine?.name ?? rightVehicle.model}`}
                                     </span>
-                                    {' '}DNA skorunda{' '}
+                                    {' '}seçilen motor skorunda{' '}
                                     <span className="text-[#16A34A] font-bold">
-                                        {Math.abs(leftVehicle.dnaScore - rightVehicle.dnaScore)} puan
+                                        {Math.abs(leftComparisonScore - rightComparisonScore)} puan
                                     </span>
                                     {' '}daha yüksek
                                 </p>
@@ -292,10 +380,14 @@ export default function ComparisonClient({ options }: { options: CompareOption[]
                             <div className="p-3 bg-[#F7F7F8] text-[10px] font-bold text-[#0F0F10] uppercase tracking-wider line-clamp-1">{rightVehicle.brand} {rightVehicle.model}</div>
                         </div>
                         {[
-                            { label: 'DNA Skoru', left: `${leftVehicle.dnaScore}/100`, right: `${rightVehicle.dnaScore}/100`, leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
-                            { label: 'Risk Seviyesi', left: riskLabel(leftVehicle.dnaScore), right: riskLabel(rightVehicle.dnaScore), leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
-                            { label: 'Kronik Kusur', left: `${leftVehicle.chronicIssues.length}`, right: `${rightVehicle.chronicIssues.length}`, leftBetter: leftVehicle.chronicIssues.length < rightVehicle.chronicIssues.length, rightBetter: rightVehicle.chronicIssues.length < leftVehicle.chronicIssues.length },
-                            { label: 'Motor Seçeneği', left: `${leftEngines.length}`, right: `${rightEngines.length}`, leftBetter: false, rightBetter: false },
+                            { label: 'Model DNA Skoru', left: `${leftVehicle.dnaScore}/100`, right: `${rightVehicle.dnaScore}/100`, leftBetter: leftVehicle.dnaScore > rightVehicle.dnaScore, rightBetter: rightVehicle.dnaScore > leftVehicle.dnaScore },
+                            { label: 'Seçilen Motor', left: leftEngine?.name ?? 'Model bazlı', right: rightEngine?.name ?? 'Model bazlı', leftBetter: false, rightBetter: false },
+                            { label: 'Motor Skoru', left: leftEngine ? `${leftEngine.score}/100` : '—', right: rightEngine ? `${rightEngine.score}/100` : '—', leftBetter: leftComparisonScore > rightComparisonScore, rightBetter: rightComparisonScore > leftComparisonScore },
+                            { label: 'Motor Risk Seviyesi', left: leftEngine ? riskLabel(leftEngine.score) : '—', right: rightEngine ? riskLabel(rightEngine.score) : '—', leftBetter: leftComparisonScore > rightComparisonScore, rightBetter: rightComparisonScore > leftComparisonScore },
+                            { label: 'Model Kusuru', left: `${leftVehicle.chronicIssues.length}`, right: `${rightVehicle.chronicIssues.length}`, leftBetter: leftVehicle.chronicIssues.length < rightVehicle.chronicIssues.length, rightBetter: rightVehicle.chronicIssues.length < leftVehicle.chronicIssues.length },
+                            { label: 'Motor Kontrolü', left: `${leftEngine?.chronicIssues.length ?? 0}`, right: `${rightEngine?.chronicIssues.length ?? 0}`, leftBetter: (leftEngine?.chronicIssues.length ?? 0) < (rightEngine?.chronicIssues.length ?? 0), rightBetter: (rightEngine?.chronicIssues.length ?? 0) < (leftEngine?.chronicIssues.length ?? 0) },
+                            { label: 'Yakıt', left: leftEngine?.fuelType ?? '—', right: rightEngine?.fuelType ?? '—', leftBetter: false, rightBetter: false },
+                            { label: 'Şanzıman', left: leftEngine?.transmission ?? '—', right: rightEngine?.transmission ?? '—', leftBetter: false, rightBetter: false },
                             { label: 'NCAP', left: leftVehicle.ncapStars ? `${leftVehicle.ncapStars}★` : '—', right: rightVehicle.ncapStars ? `${rightVehicle.ncapStars}★` : '—', leftBetter: (leftVehicle.ncapStars || 0) > (rightVehicle.ncapStars || 0), rightBetter: (rightVehicle.ncapStars || 0) > (leftVehicle.ncapStars || 0) },
                             { label: 'Yıl', left: leftVehicle.year, right: rightVehicle.year, leftBetter: false, rightBetter: false },
                         ].map((row, i) => (
@@ -310,12 +402,20 @@ export default function ComparisonClient({ options }: { options: CompareOption[]
                     {/* Detailed Side-by-Side */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="card-elevated p-5">
-                            <ComparisonColumn vehicle={leftVehicle} />
+                            <ComparisonColumn vehicle={leftVehicle} selectedEngine={leftEngine} />
                         </div>
                         <div className="card-elevated p-5">
-                            <ComparisonColumn vehicle={rightVehicle} />
+                            <ComparisonColumn vehicle={rightVehicle} selectedEngine={rightEngine} />
                         </div>
                     </div>
+                </div>
+            ) : bothVehiclesSelected ? (
+                <div className="card-elevated p-10 text-center border border-[#F3D5DB]">
+                    <Fuel size={36} className="text-[#A91D3A] mx-auto mb-3" />
+                    <h3 className="text-[16px] font-bold text-[#0F0F10] mb-2">Motorları Seçin</h3>
+                    <p className="text-[12px] text-[#71717A] max-w-md mx-auto">
+                        Kronik kusurlar motor ve şanzıman kombinasyonuna göre değişir. İki aracın motorunu da seçtiğinizde model ve motor riskleri ayrı ayrı karşılaştırılacak.
+                    </p>
                 </div>
             ) : loading ? (
                 <div className="skeleton h-96 rounded-2xl" role="status" aria-label="Karşılaştırma yükleniyor" />
@@ -324,7 +424,7 @@ export default function ComparisonClient({ options }: { options: CompareOption[]
                     <Scale size={40} className="text-[#D4D4D8] mx-auto mb-4" />
                     <h3 className="text-[16px] font-bold text-[#0F0F10] mb-2">İki Araç Seçin</h3>
                     <p className="text-[12px] text-[#71717A] max-w-sm mx-auto">
-                        Karşılaştırmak istediğiniz iki aracı yukarıdan seçin. DNA skoru, kronik kusurlar, güçlü ve zayıf yönler yan yana gösterilecek.
+                        Önce iki aracı, ardından motor ve şanzıman seçeneklerini seçin. Model ve motora bağlı kronik kusurlar ayrı ayrı gösterilecek.
                     </p>
                 </div>
             )}

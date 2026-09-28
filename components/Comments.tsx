@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { addComment, getComments, likeComment, type Comment, type CommentInput } from '@/lib/commentService';
-import { MessageSquare, Star, ThumbsUp, Send, User, Clock, Fuel, ChevronDown, Loader2, ShieldCheck } from 'lucide-react';
+import { MessageSquare, Star, ThumbsUp, Send, User, Clock, Fuel, ChevronDown, Loader2, ShieldCheck, Gauge, CalendarDays, Wrench } from 'lucide-react';
 
 interface CommentsProps {
     vehicleId: number;
@@ -97,8 +97,8 @@ function CommentCard({ comment, onLike }: { comment: Comment; onLike: (id: strin
                     </div>
 
                     {/* Meta badges */}
-                    {(comment.ownershipMonths || comment.fuelConsumption) && (
-                        <div className="flex items-center gap-2 mt-1.5">
+                    {(comment.ownershipMonths || comment.fuelConsumption || comment.mileageKm || comment.vehicleYear || comment.engineDetail) && (
+                        <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                             {comment.ownershipMonths && (
                                 <span className="text-[10px] font-medium text-[#71717A] bg-[#F0F0F2] px-2 py-0.5 rounded-full">
                                     {comment.ownershipMonths < 12
@@ -110,6 +110,21 @@ function CommentCard({ comment, onLike }: { comment: Comment; onLike: (id: strin
                                 <span className="text-[10px] font-medium text-[#71717A] bg-[#F0F0F2] px-2 py-0.5 rounded-full flex items-center gap-1">
                                     <Fuel size={9} />
                                     {comment.fuelConsumption}
+                                </span>
+                            )}
+                            {comment.mileageKm && (
+                                <span className="text-[10px] font-medium text-[#71717A] bg-[#F0F0F2] px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <Gauge size={9} /> {comment.mileageKm.toLocaleString('tr-TR')} km
+                                </span>
+                            )}
+                            {comment.vehicleYear && (
+                                <span className="text-[10px] font-medium text-[#71717A] bg-[#F0F0F2] px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <CalendarDays size={9} /> {comment.vehicleYear} model
+                                </span>
+                            )}
+                            {comment.engineDetail && (
+                                <span className="text-[10px] font-medium text-[#71717A] bg-[#F0F0F2] px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <Wrench size={9} /> {comment.engineDetail}
                                 </span>
                             )}
                         </div>
@@ -148,6 +163,7 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
     const [submitting, setSubmitting] = useState(false);
     const [showAll, setShowAll] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
     // Form state
     const [author, setAuthor] = useState('');
@@ -155,6 +171,9 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
     const [text, setText] = useState('');
     const [ownershipMonths, setOwnershipMonths] = useState('');
     const [fuelConsumption, setFuelConsumption] = useState('');
+    const [mileageKm, setMileageKm] = useState('');
+    const [vehicleYear, setVehicleYear] = useState('');
+    const [engineDetail, setEngineDetail] = useState('');
 
     // Fetch approved comments
     const fetchComments = useCallback(async () => {
@@ -179,6 +198,7 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
         if (!author.trim() || !text.trim() || rating === 0) return;
 
         setSubmitting(true);
+        setSubmitError('');
         try {
             const input: CommentInput = {
                 vehicleId,
@@ -188,9 +208,13 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
                 text: text.trim(),
                 ...(ownershipMonths && { ownershipMonths: parseInt(ownershipMonths) }),
                 ...(fuelConsumption && { fuelConsumption: fuelConsumption.trim() }),
+                ...(mileageKm && { mileageKm: parseInt(mileageKm, 10) }),
+                ...(vehicleYear && { vehicleYear: parseInt(vehicleYear, 10) }),
+                ...(engineDetail && { engineDetail: engineDetail.trim() }),
             };
 
             await addComment(input);
+            await fetchComments();
 
             // Reset form
             setAuthor('');
@@ -198,6 +222,9 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
             setText('');
             setOwnershipMonths('');
             setFuelConsumption('');
+            setMileageKm('');
+            setVehicleYear('');
+            setEngineDetail('');
             setShowForm(false);
             setSubmitSuccess(true);
 
@@ -205,7 +232,7 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
         } catch (err: unknown) {
             const errorMsg = err instanceof Error ? err.message : String(err);
             console.error('Yorum eklenirken hata:', err);
-            alert('HATA: ' + errorMsg);
+            setSubmitError(errorMsg);
         } finally {
             setSubmitting(false);
         }
@@ -260,14 +287,14 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
                     </button>
                 </div>
 
-                {/* Success message — moderation notice */}
+                {/* Success message */}
                 {submitSuccess && (
                     <div className="mt-3 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[12px] font-medium px-4 py-3 rounded-lg animate-fadeIn flex items-start gap-2.5">
                         <ShieldCheck size={16} className="flex-shrink-0 mt-0.5 text-emerald-600" />
                         <div>
-                            <p className="font-semibold">Yorumunuz başarıyla alındı!</p>
+                            <p className="font-semibold">Yorumunuz yayınlandı!</p>
                             <p className="text-[11px] mt-0.5 text-emerald-600">
-                                Yorumunuz incelendikten sonra yayınlanacaktır. Teşekkür ederiz.
+                                Deneyiminizi paylaştığınız için teşekkür ederiz.
                             </p>
                         </div>
                     </div>
@@ -320,7 +347,7 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
                         </div>
 
                         {/* Optional fields */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                                 <label className="label">Sahiplik Süresi (ay)</label>
                                 <input
@@ -344,13 +371,53 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
                                     maxLength={30}
                                 />
                             </div>
+                            <div>
+                                <label className="label">Araç Kilometresi</label>
+                                <input
+                                    type="number"
+                                    value={mileageKm}
+                                    onChange={(e) => setMileageKm(e.target.value)}
+                                    placeholder="Örn: 128000"
+                                    className="search-input !pl-4 !text-[13px]"
+                                    min={1}
+                                    max={2000000}
+                                />
+                            </div>
+                            <div>
+                                <label className="label">Model Yılı</label>
+                                <input
+                                    type="number"
+                                    value={vehicleYear}
+                                    onChange={(e) => setVehicleYear(e.target.value)}
+                                    placeholder="Örn: 2018"
+                                    className="search-input !pl-4 !text-[13px]"
+                                    min={1950}
+                                    max={new Date().getFullYear() + 1}
+                                />
+                            </div>
+                            <div className="sm:col-span-2">
+                                <label className="label">Motor / Şanzıman Bilgisi</label>
+                                <input
+                                    type="text"
+                                    value={engineDetail}
+                                    onChange={(e) => setEngineDetail(e.target.value)}
+                                    placeholder="Örn: 1.5 dCi EDC veya 1.6 benzin manuel"
+                                    className="search-input !pl-4 !text-[13px]"
+                                    maxLength={80}
+                                />
+                            </div>
                         </div>
 
-                        {/* Moderation notice */}
                         <div className="flex items-center gap-2 text-[11px] text-[#71717A] bg-[#F0F0F2] px-3 py-2 rounded-lg">
-                            <ShieldCheck size={13} className="flex-shrink-0 text-[#A1A1AA]" />
-                            <span>Yorumunuz yayınlanmadan önce editör onayından geçecektir.</span>
+                            <ShieldCheck size={13} className="flex-shrink-0 text-[#16A34A]" />
+                            <span>Yorumunuz anında yayınlanır. Küfür, hakaret, argo ve bağlantı içeren metinler otomatik engellenir.</span>
                         </div>
+
+                        {submitError && (
+                            <div role="alert" className="text-[11px] font-medium text-red-700 bg-red-50 border border-red-200 px-3 py-2 rounded-lg">
+                                {submitError}
+                            </div>
+                        )}
 
                         {/* Submit */}
                         <div className="flex items-center gap-3 pt-1">
