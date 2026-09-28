@@ -1,4 +1,6 @@
 import { engineDNAData as legacyEngineDNAData, type EngineOption } from '../data/engine-dna.ts';
+import { libraryExpansionEngineDNAData } from '../data/library-expansion-engine-dna.ts';
+import { libraryExpansionVehicleDNAData } from '../data/library-expansion-vehicle-dna.ts';
 import { marketDemandEngineDNAData } from '../data/market-demand-engine-dna.ts';
 import { marketDemandVehicleDNAData } from '../data/market-demand-vehicle-dna.ts';
 import { evergreenDemandEngineDNAData } from '../data/evergreen-demand-engine-dna.ts';
@@ -23,9 +25,11 @@ const turkeySearchIds = new Set(turkeySearchVehicleDNAData.map((vehicle) => vehi
 const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const libraryExpansionIds = new Set(libraryExpansionVehicleDNAData.map((vehicle) => vehicle.id));
+const editorialIds = new Set([...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 const baseVehicleDNAData = [
+    ...libraryExpansionVehicleDNAData,
     ...marketDemandVehicleDNAData,
     ...turkeySearchVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id)),
     ...secondHandDemandVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id)),
@@ -40,6 +44,7 @@ const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
 }));
 const engineDNAData = [
     ...vehicleContentEngineDNAData,
+    ...libraryExpansionEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...marketDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !marketDemandIds.has(entry.vehicleId)),
     ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId)),
@@ -102,6 +107,13 @@ const faqGuides = guidesData.filter((guide) => (guide.faqs?.length ?? 0) >= 4).l
 const updatedGuides = guidesData.filter((guide) => guide.updatedDate).length;
 const brands = new Set(uniqueVehicles.map((vehicle) => createSlug(vehicle.brand))).size;
 const expectedSitemapUrls = 8 + brands + indexableVehicles.length + indexableEngines.length + guidesData.length;
+const priorityBrandCounts = ['Audi', 'Toyota', 'Honda'].map((brand) => ({
+    brand,
+    vehicles: uniqueVehicles.filter((vehicle) => vehicle.brand === brand).length,
+    engines: uniqueVehicles
+        .filter((vehicle) => vehicle.brand === brand)
+        .reduce((count, vehicle) => count + (engineDNAData.find((entry) => entry.vehicleId === vehicle.id)?.engines.length ?? 0), 0),
+}));
 
 console.log('OtoKusur SEO kalite denetimi');
 console.table({
@@ -122,6 +134,8 @@ console.table({
     'En kısa rehber kelime sayısı': Math.min(...guideWordCounts),
     'Beklenen sitemap URL': expectedSitemapUrls,
 });
+console.log('\nÖncelikli marka kapsamı');
+console.table(priorityBrandCounts);
 
 const failures: string[] = [];
 if (vehicleIdDuplicates.length) failures.push('Tekrarlanan araç kimliği: ' + vehicleIdDuplicates.map(([id]) => id).join(', '));

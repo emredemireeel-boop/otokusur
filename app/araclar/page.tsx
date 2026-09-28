@@ -6,7 +6,7 @@ import { getAllBrands, getVehicleSummaries } from '@/lib/dataService';
 
 export const metadata: Metadata = {
     title: 'Araç Kronik Arıza ve Kusur Veritabanı',
-    description: '200+ benzersiz araç raporunu marka, yakıt ve risk seviyesine göre filtreleyin. Kronik arızaları, motor sorunlarını ve risk skorlarını karşılaştırın.',
+    description: '240+ benzersiz araç raporunu marka, yakıt ve risk seviyesine göre filtreleyin. Kronik arızaları, motor sorunlarını ve risk skorlarını karşılaştırın.',
     alternates: { canonical: '/araclar' },
     openGraph: {
         title: 'Araç Kronik Arıza ve Kusur Veritabanı',

@@ -1,4 +1,6 @@
 import { engineDNAData } from './engine-dna';
+import { libraryExpansionEngineDNAData } from './library-expansion-engine-dna';
+import { libraryExpansionVehicleDNAData } from './library-expansion-vehicle-dna';
 import { marketDemandEngineDNAData } from './market-demand-engine-dna';
 import { marketDemandVehicleDNAData } from './market-demand-vehicle-dna';
 import { evergreenDemandEngineDNAData } from './evergreen-demand-engine-dna';
@@ -22,12 +24,14 @@ const turkeySearchIds = new Set(turkeySearchVehicleDNAData.map((vehicle) => vehi
 const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const libraryExpansionIds = new Set(libraryExpansionVehicleDNAData.map((vehicle) => vehicle.id));
+const editorialIds = new Set([...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 
 // Araştırma katmanı önce gelir. Aynı kimliğe sahip eski/otomatik kayıtlar
 // ve açıkça gölgelenen hatalı kayıtlar yayındaki veri kümesine alınmaz.
 const basePublishedVehicleDNAData = [
+    ...libraryExpansionVehicleDNAData,
     ...marketDemandVehicleDNAData,
     ...turkeySearchVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id)),
     ...secondHandDemandVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id)),
@@ -44,6 +48,7 @@ export const publishedVehicleDNAData = basePublishedVehicleDNAData.map((vehicle)
 
 export const publishedEngineDNAData = [
     ...vehicleContentEngineDNAData,
+    ...libraryExpansionEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...marketDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !marketDemandIds.has(entry.vehicleId)),
     ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId)),
