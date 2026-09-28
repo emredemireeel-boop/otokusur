@@ -17,6 +17,8 @@ import { turkeySearchVehicleDNAData } from '../data/turkey-search-vehicle-dna.ts
 import { vehicleContentEngineDNAData } from '../data/vehicle-content-engine-dna.ts';
 import { vehicleContentEnrichment } from '../data/vehicle-content-enrichment.ts';
 import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } from '../data/vehicle-dna.ts';
+import { growthVehicleDNAData } from '../data/growth-vehicle-dna.ts';
+import { growthEngineDNAData } from '../data/growth-engine-dna.ts';
 
 const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
 const secondHandIds = new Set(secondHandDemandVehicleDNAData.map((vehicle) => vehicle.id));
@@ -26,9 +28,11 @@ const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehi
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
 const libraryExpansionIds = new Set(libraryExpansionVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const growthIds = new Set(growthVehicleDNAData.map((vehicle) => vehicle.id));
+const editorialIds = new Set([...growthIds, ...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 const baseVehicleDNAData = [
+    ...growthVehicleDNAData,
     ...libraryExpansionVehicleDNAData,
     ...marketDemandVehicleDNAData,
     ...turkeySearchVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id)),
@@ -44,6 +48,7 @@ const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
 }));
 const engineDNAData = [
     ...vehicleContentEngineDNAData,
+    ...growthEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...libraryExpansionEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...marketDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !marketDemandIds.has(entry.vehicleId)),

@@ -16,6 +16,8 @@ import { turkeySearchVehicleDNAData } from './turkey-search-vehicle-dna';
 import { vehicleContentEngineDNAData } from './vehicle-content-engine-dna';
 import { vehicleContentEnrichment } from './vehicle-content-enrichment';
 import { vehicleDNAData } from './vehicle-dna';
+import { growthVehicleDNAData } from './growth-vehicle-dna';
+import { growthEngineDNAData } from './growth-engine-dna';
 
 const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
 const secondHandIds = new Set(secondHandDemandVehicleDNAData.map((vehicle) => vehicle.id));
@@ -25,12 +27,14 @@ const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehi
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
 const libraryExpansionIds = new Set(libraryExpansionVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const growthIds = new Set(growthVehicleDNAData.map((vehicle) => vehicle.id));
+const editorialIds = new Set([...growthIds, ...libraryExpansionIds, ...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 
 // Araştırma katmanı önce gelir. Aynı kimliğe sahip eski/otomatik kayıtlar
 // ve açıkça gölgelenen hatalı kayıtlar yayındaki veri kümesine alınmaz.
 const basePublishedVehicleDNAData = [
+    ...growthVehicleDNAData,
     ...libraryExpansionVehicleDNAData,
     ...marketDemandVehicleDNAData,
     ...turkeySearchVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id)),
@@ -48,6 +52,7 @@ export const publishedVehicleDNAData = basePublishedVehicleDNAData.map((vehicle)
 
 export const publishedEngineDNAData = [
     ...vehicleContentEngineDNAData,
+    ...growthEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...libraryExpansionEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...marketDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
     ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !marketDemandIds.has(entry.vehicleId)),

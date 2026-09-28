@@ -3,6 +3,7 @@ import { guideAdvancedModules } from './guide-advanced-modules.ts';
 import { flagshipPurchaseGuide } from './flagship-purchase-guide.ts';
 import { topSellingGuides } from './top-selling-guides.ts';
 import { queryOpportunityGuides } from './query-opportunity-guides.ts';
+import { growthGuides } from './growth-guides.ts';
 
 export interface GuideFaq {
     question: string;
@@ -1366,7 +1367,7 @@ Bu içerik eğitim amacı taşır. Aracı kuruluş menüleri, ücretler, limitle
     },
 ];
 
-export const guidesData: Guide[] = [...queryOpportunityGuides, ...topSellingGuides, ...baseGuidesData, ...additionalGuides].map((guide) => {
+export const guidesData: Guide[] = [...growthGuides, ...queryOpportunityGuides, ...topSellingGuides, ...baseGuidesData, ...additionalGuides].map((guide) => {
     const enrichment = guide.slug === flagshipPurchaseGuide.slug
         ? flagshipPurchaseGuide
         : guideEnrichments[guide.slug];
