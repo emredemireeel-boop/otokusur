@@ -1,6 +1,7 @@
 import { guideEnrichments } from './guide-enrichments.ts';
 import { guideAdvancedModules } from './guide-advanced-modules.ts';
 import { flagshipPurchaseGuide } from './flagship-purchase-guide.ts';
+import { topSellingGuides } from './top-selling-guides.ts';
 
 export interface GuideFaq {
     question: string;
@@ -1364,7 +1365,7 @@ Bu içerik eğitim amacı taşır. Aracı kuruluş menüleri, ücretler, limitle
     },
 ];
 
-export const guidesData: Guide[] = [...baseGuidesData, ...additionalGuides].map((guide) => {
+export const guidesData: Guide[] = [...topSellingGuides, ...baseGuidesData, ...additionalGuides].map((guide) => {
     const enrichment = guide.slug === flagshipPurchaseGuide.slug
         ? flagshipPurchaseGuide
         : guideEnrichments[guide.slug];
@@ -1390,4 +1391,4 @@ export const guidesData: Guide[] = [...baseGuidesData, ...additionalGuides].map(
         faqs: enrichment.faqs,
         howToSteps: enrichment.howToSteps,
     };
-});
+}).sort((a, b) => (b.updatedDate ?? b.publishDate).localeCompare(a.updatedDate ?? a.publishDate));

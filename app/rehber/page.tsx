@@ -4,7 +4,7 @@ import BlogCard from '@/components/BlogCard';
 
 export const metadata: Metadata = {
     title: 'İkinci El Araç Alım Rehberi ve Ekspertiz İpuçları',
-    description: 'İkinci el araç almadan önce bilmeniz gerekenler, kronik arıza rehberleri, ekspertiz ipuçları ve daha fazlası.',
+    description: 'Türkiye’de en çok satan otomobiller dahil 37 derin ikinci el araç rehberi: motor seçimi, kronik kontrol, ekspertiz, güvenli ödeme ve satın alma ipuçları.',
     alternates: { canonical: '/rehber' },
     openGraph: { title: 'İkinci El Araç Alım Rehberi', description: 'Ekspertiz, motor seçimi ve kronik arıza araştırması için uygulanabilir rehberler.', url: '/rehber' },
 };
@@ -14,8 +14,8 @@ export default function RehberPage() {
         <section className="container-main py-8 sm:py-12">
             <div className="mb-8">
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mb-2">Araç Alım Rehberleri</h1>
-                <p className="text-sm text-[#64748B]">
-                    İkinci el araç almadan önce bilmeniz gerekenler, kronik arıza bilgileri, ekspertiz ipuçları ve daha fazlası.
+                <p className="text-sm text-[#64748B] max-w-3xl">
+                    Türkiye’de en çok satan modellerden motor ve şanzıman seçimine, ekspertizden güvenli ödemeye kadar sıfırdan öğrenebileceğiniz {guidesData.length} derin rehber.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
