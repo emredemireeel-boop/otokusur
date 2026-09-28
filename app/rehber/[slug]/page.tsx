@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { guidesData } from '@/data/guides';
 import GuideContent from '@/components/GuideContent';
+import GuideActions from '@/components/GuideActions';
 import { absoluteUrl, breadcrumbSchema, EDITORIAL_TEAM_NAME, SITE_URL } from '@/lib/seo';
 import { ChevronRight, Clock, BookOpen, ArrowLeft, ShieldCheck } from 'lucide-react';
 
@@ -75,6 +76,19 @@ export default async function RehberDetailPage({ params }: Props) {
                 acceptedAnswer: { '@type': 'Answer', text: faq.answer },
             })),
         }] : []),
+        ...(guide.howToSteps?.length ? [{
+            '@context': 'https://schema.org',
+            '@type': 'HowTo',
+            name: guide.title,
+            description: guide.excerpt,
+            totalTime: `PT${Math.max(5, Number.parseInt(guide.readTime, 10) || 5)}M`,
+            step: guide.howToSteps.map((step, index) => ({
+                '@type': 'HowToStep',
+                position: index + 1,
+                name: step.name,
+                text: step.text,
+            })),
+        }] : []),
     ];
 
     return (
@@ -106,6 +120,7 @@ export default async function RehberDetailPage({ params }: Props) {
                     <span aria-hidden>·</span>
                     <Link href="/yayin-ilkeleri" className="font-semibold text-[#A91D3A]">Yayın ilkeleri</Link>
                 </div>
+                <GuideActions />
             </header>
 
             <div className="card-static p-5 sm:p-7">

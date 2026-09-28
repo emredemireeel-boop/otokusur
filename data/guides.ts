@@ -1,8 +1,15 @@
 import { guideEnrichments } from './guide-enrichments.ts';
+import { guideAdvancedModules } from './guide-advanced-modules.ts';
+import { flagshipPurchaseGuide } from './flagship-purchase-guide.ts';
 
 export interface GuideFaq {
     question: string;
     answer: string;
+}
+
+export interface GuideStep {
+    name: string;
+    text: string;
 }
 
 export interface Guide {
@@ -17,6 +24,7 @@ export interface Guide {
     relatedVehicleIds?: number[];
     keyTakeaways?: string[];
     faqs?: GuideFaq[];
+    howToSteps?: GuideStep[];
 }
 
 const baseGuidesData: Guide[] = [
@@ -1227,23 +1235,159 @@ Motor bazlı ayrıntılar için [Fiesta Mk7 kusur raporunu](/araclar/ford/fiesta
     }
 ];
 
-export const guidesData: Guide[] = baseGuidesData.map((guide) => {
-    const enrichment = guideEnrichments[guide.slug];
+const additionalGuides: Guide[] = [
+    {
+        slug: 'arac-satisinda-guvenli-odeme-ve-tasit-takas-nasil-yapilir',
+        title: 'Araç Satışında Güvenli Ödeme Nasıl Yapılır? TaşıtTakas Dahil Adım Adım',
+        excerpt: 'İkinci el araç satışında zorunlu Güvenli Ödeme Sistemini; banka veya ödeme kuruluşu ve Takasbank TaşıtTakas seçenekleriyle, noter öncesinden para aktarımına kadar öğrenin.',
+        category: 'Satın Alma Rehberi',
+        readTime: '12 dk',
+        publishDate: '2026-09-28',
+        updatedDate: '2026-09-28',
+        keyTakeaways: [
+            '27 Eylül 2024’ten beri nakit, havale, EFT veya FAST ile yapılan ikinci el taşıt satışlarında noterle entegre Güvenli Ödeme Sisteminin kullanılması zorunludur.',
+            'TaşıtTakas farklı bir serbest ödeme yolu değil, Takasbank’ın aynı zorunlu güvenli ödeme altyapısına entegre hizmetidir.',
+            'Satıcı işlemi başlatır; alıcı referans, araç, taraf ve tutarı doğrulayıp bedeli güvenli hesaba aktarır; noter devri tamamlanınca para satıcıya geçer.',
+            'Referans dışındaki hesaba satış bedeli göndermeyin; isim, VIN/plaka veya tutar uyuşmazlığında işlemi onaylamayın.',
+        ],
+        howToSteps: [
+            { name: 'Aracı kuruluşu seçin', text: 'Taraflar, TNB Güvenli Ödeme Sistemine entegre banka, ödeme kuruluşu veya Takasbank TaşıtTakas hizmetlerinden işlem gününde kullanılabilen birini seçer.' },
+            { name: 'Satıcı işlemi başlatsın', text: 'Satıcı kimlik, alıcı, araç ve satış bedeli bilgilerini güvenli ödeme menüsüne girer.' },
+            { name: 'Referansı doğrulayın', text: 'Alıcı kendisine gelen referansla sisteme girer; satıcı, plaka/VIN ve bedeli kontrol eder.' },
+            { name: 'Parayı güvenli hesaba aktarın', text: 'Alıcı, sistemin gösterdiği güvenli hesaba açıklama ve referans kurallarına uygun transfer yapar.' },
+            { name: 'Noterde devri tamamlayın', text: 'Noter sistemde ödemenin bloke edildiğini gördükten sonra satış sözleşmesini ve tescil işlemini tamamlar.' },
+            { name: 'Aktarımı ve teslimi doğrulayın', text: 'Devir teyidiyle bedel satıcıya geçer; taraflar dekont, noter belgesi, anahtar ve teslim tutanağını kontrol eder.' },
+        ],
+        faqs: [
+            { question: 'Güvenli Ödeme Sistemi zorunlu mu?', answer: 'Evet. Ticaret Bakanlığının duyurusuna göre 27 Eylül 2024’ten itibaren nakit, havale veya EFT gibi yöntemlerle gerçekleştirilen tüm ikinci el motorlu kara taşıtı satışlarında sistem zorunlu hale gelmiştir. Noter, bedel sistemdeki hesaba aktarılmadan devri tamamlamaz.' },
+            { question: 'TaşıtTakas ile Güvenli Ödeme Sistemi farklı mı?', answer: 'TaşıtTakas, Takasbank tarafından sunulan ve Türkiye Noterler Birliği altyapısıyla çalışan güvenli ödeme hizmetidir. Zorunlu sistemin dışında elden veya doğrudan havale alternatifi değildir; bedeli devir gerçekleşene kadar bloke eden entegre aracı kuruluş seçeneklerinden biridir.' },
+            { question: 'Güvenli ödemeyi alıcı mı satıcı mı başlatır?', answer: 'Genel akışta satıcı kendi, alıcı ve araç bilgileriyle işlemi başlatır. Alıcı kendisine gönderilen referansla bilgileri onaylar ve satış bedelini sistemin gösterdiği güvenli hesaba aktarır.' },
+            { question: 'Noter satışı olmazsa para ne olur?', answer: 'İşlem tamamlanmaz veya belirlenen sürede iptal olursa iade süreci seçilen aracı kuruluşun sözleşme ve prosedürüne göre işler. Göndermeden önce işlem süresi, ücret ve iade hesabını ekranda okuyun; dekontu saklayın.' },
+            { question: 'Kapora da Güvenli Ödeme Sisteminden mi gönderilir?', answer: 'Zorunlu sistem satış bedelinin noter devriyle eş zamanlı aktarımını güvenceye alır. Satış öncesi kapora ayrı bir hukuki ilişkidir ve dolandırıcılık riski taşır; VIN, taraf, tutar, iade şartı ve süre yazılı olmadan kapora göndermeyin.' },
+            { question: 'Krediyle alınan araçta güvenli ödeme nasıl olur?', answer: 'Kredi veren banka, rehin ve ödeme akışı seçilen ürün ve aracı kuruluşa göre değişebilir. İşlem açılmadan bankadan noter entegrasyonu, öz kaynak kısmı, kredi kısmı ve referans kullanımını yazılı öğrenin; sisteme yansımayan hesaba yönlendirmeyi kabul etmeyin.' },
+        ],
+        content: `## Güvenli Ödeme Neden Zorunlu?
+
+Araç satışında klasik risk şuydu: alıcı parayı önce gönderirse satıcının devri yapmama, satıcı devri önce yaparsa alıcının parayı göndermeme ihtimali vardı. Güvenli Ödeme Sistemi, satış bedelini noter devri tamamlanana kadar güvenli bir hesapta tutar ve **mülkiyet ile paranın eş zamanlı el değiştirmesini** sağlar.
+
+Ticaret Bakanlığına göre sistem; işletmeler için 27 Ağustos 2024, diğer gerçek ve tüzel kişiler için 27 Eylül 2024 itibarıyla zorunlu hale geldi. Nakit, havale, EFT veya FAST gibi yöntemlerle ödenecek satış bedeli sistemdeki hesaba aktarılmadan noter devir işlemi tamamlanmaz.
+
+## İki İfade, Tek Zorunlu Güvenlik Mantığı
+
+Kullanıcılar iki adı sıkça birbirine karıştırır:
+
+| İfade | Ne anlama gelir? | Ayrı bir elden ödeme yolu mu? |
+|---|---|---|
+| TNB Güvenli Ödeme Sistemi | Türkiye Noterler Birliğinin kurup işlettiği, yetkili aracı kuruluşların bağlandığı ana sistem | Hayır; zorunlu altyapıdır |
+| Takasbank TaşıtTakas | Takasbank’ın TNB/ARTES ile entegre çalışan güvenli ödeme hizmeti | Hayır; ana sisteme entegre aracı kuruluş hizmetidir |
+| Banka/ödeme kuruluşu menüsü | Entegre kuruluşun mobil veya internet kanalındaki güvenli ödeme ekranı | Hayır; aynı noter entegre akışın farklı kanalıdır |
+| Doğrudan IBAN/havale | Paranın satıcının hesabına noter teyidinden bağımsız gönderilmesi | Güvenli sistem yerine geçmez |
+
+Yani “Güvenli Ödeme mi, TaşıtTakas mı?” sorusunun doğru cevabı, işlem gününde hangi **entegre aracı kuruluş kanalını** kullanacağınızdır. Her iki yolda da noter devri gerçekleşmeden para satıcıya serbest bırakılmaz.
+
+## Yöntem 1: Banka veya Ödeme Kuruluşundan Güvenli Ödeme
+
+### Satıcının Yapacağı İşlem
+
+1. Tarafların seçtiği entegre banka/ödeme kuruluşunun mobil ya da internet kanalına girer.
+2. “Araç Güvenli Ödeme”, “Noter Güvenli Ödeme” veya kuruluşun kullandığı benzer menüyü açar.
+3. Kendi kimlik/hesap, alıcının kimlik, plaka/araç ve anlaşılan satış bedeli bilgilerini girer.
+4. Bilgileri kontrol ederek işlemi oluşturur.
+5. Üretilen referans numarasının alıcıya sistem tarafından ulaşmasını sağlar.
+
+### Alıcının Yapacağı İşlem
+
+1. SMS/e-posta ya da uygulamadaki referansla aynı aracı kuruluş kanalına girer.
+2. Satıcının adı, araç plakası veya gösterilen araç bilgisi ve satış bedelini kontrol eder.
+3. Yanlışlık varsa onaylamaz; satıcının işlemi düzeltmesini ister.
+4. Doğruysa bedeli sistemin gösterdiği güvenli hesaba, belirtilen referansla aktarır.
+5. Para bloke edildi/ödeme hazır teyidini gördükten sonra taraflar notere gider.
+
+Menü adı, müşterisi olma şartı, işlem ücreti, limit ve geçerlilik süresi kuruluşa göre değişebilir. İşlem günü uygulamadaki sözleşme ve ücret ekranı esas alınmalıdır.
+
+## Yöntem 2: Takasbank TaşıtTakas
+
+TaşıtTakas, Takasbank’ın alıcı ile satıcı adına bedeli bloke ettiği ve noter ARTES satış teyidi gelince satıcıya aktardığı hizmettir. Genel işlem mantığı şöyledir:
+
+1. Satıcı TaşıtTakas kanalında araç, alıcı ve tutar bilgileriyle satış kaydı oluşturur.
+2. Alıcı gelen referansla işlemi görüntüler; taraf, araç ve tutarı onaylar.
+3. Alıcı satış bedelini Takasbank’ın işlem için gösterdiği hesaba ve doğru referansla gönderir.
+4. Takasbank bedeli noter satışı tamamlanana kadar bloke eder.
+5. Noter ARTES üzerinden satış tamamlandığını bildirir.
+6. Takasbank bedeli satıcının kayıtlı hesabına aktarır.
+
+Takasbank prosedürü, hizmetin TNB ile kurulan ortak altyapıda çalıştığını açıkça belirtir. Güncel üyelik, kanal, ücret, saat ve limit bilgisi işlem ekranından doğrulanmalıdır. Eski bir ekran görüntüsü veya blog yazısındaki tutarı güncel sanmayın.
+
+## Notere Gitmeden Önce Kontrol Listesi
+
+- Alıcı ve satıcının kimlik numarası/unvanı doğru.
+- Ruhsattaki satıcı ile işlemi açan kişi aynı; vekâlet varsa noter kapsamı uygun.
+- Plaka ve mümkünse VIN görülen araçla eşleşiyor.
+- Sistemdeki satış bedeli tarafların gerçek anlaşmasıyla aynı.
+- Paranın gönderileceği hesap uygulamanın kendi güvenli ödeme ekranında gösteriliyor.
+- Referans numarası doğru ve işlem süresi dolmamış.
+- Alıcı adına zorunlu trafik sigortası hazırlanmış.
+- Araçta satışa engel rehin/haciz/yakalama kontrolü noter sürecinde yapılacak.
+- Noter, aracı kuruluş ve sigorta için olası gecikmeye karşı işlem mesai içinde planlanmış.
+
+## Dolandırıcılığa Karşı Kırmızı Bayraklar
+
+- “Sistemde limit doldu, kişisel IBAN’a gönder” talebi.
+- Satıcı adıyla IBAN sahibinin farklı olması ve açıklanamaması.
+- Referans mesajındaki plaka veya bedelin farklı olması.
+- Sahte banka ekran görüntüsüyle “para blokede” denmesi.
+- Noter tamamlanmadan anahtar, araç veya sistem dışı bedel baskısı.
+- Satış bedelinin düşük gösterilip kalanının elden istenmesi.
+- Uzaktan kapora için acele ve VIN/ruhsat paylaşmama.
+
+Linki SMS içindeki rastgele adresten açmak yerine bankanın veya Takasbank’ın resmî uygulama/site adresini kendiniz yazarak girin. Tek kullanımlık şifreyi satıcı, noter çalışanı veya çağrı merkezi olduğunu söyleyen kişiyle paylaşmayın.
+
+## Satış Gerçekleşmezse Ne Olur?
+
+Noterde devir tamamlanmazsa para satıcıya aktarılmamalıdır. İptal ve iade zamanı, referans süresi ve ücretin iade durumu aracı kuruluş prosedürüne göre değişebilir. İşlem oluştururken sözleşmedeki iade hesabını kontrol edin; alıcı hesabı kendi adına olmalı ve dekont saklanmalıdır. Hata varsa yeni işlem açmadan önce eski kaydın iptal/iade durumunu kuruluşla teyit edin.
+
+## Kredi, Takas veya Birden Fazla Ödeyen Varsa
+
+Taşıt kredisi, bayi takası, şirket hesabı veya bedelin farklı kaynaklardan gelmesi standart işlemi değiştirebilir. Kredi veren banka ve seçilen güvenli ödeme kuruluşundan şu akışı yazılı isteyin: kredinin hangi hesaba ne zaman geçeceği, alıcının öz kaynak kısmını hangi referansla yatıracağı, rehin kaydının sırası ve iptal halinde iade. Kişisel tahminle iki ayrı IBAN’a para bölmeyin.
+
+## Noter Sonrası
+
+Noter satış belgesindeki VIN/plaka, taraf ve bedeli okuyun. Aracı kuruluş ekranında işlemin tamamlandığını, satıcı ise paranın kendi hesabına geçtiğini doğrulasın. Ardından anahtarlar, ruhsat/satış belgesi, servis faturaları ve aksesuarlar teslim tutanağıyla verilir. Dekont, referans, noter belgesi ve yazışmaları aynı dosyada saklayın.
+
+## Resmî Kaynaklar
+
+- [Ticaret Bakanlığı zorunlu Güvenli Ödeme duyurusu](https://ticaret.gov.tr/haberler/ticaret-bakanligi-ve-noterler-birligi-tarafindan-kurulan-guvenli-odeme-sistemi-27-eylul-2024-tarihinde-zorunlu-hale-geliyor)
+- [Takasbank TaşıtTakas Uygulama Esasları Prosedürü](https://www.takasbank.com.tr/documents/prosedurler/takasbank-tasit-takas-uygulama-esaslari-proseduru-12122023.pdf)
+- [SEDDK 2024/30: satış öncesi alıcı adına trafik sigortası](https://www.seddk.gov.tr/upload/2024-30.pdf)
+
+Bu içerik eğitim amacı taşır. Aracı kuruluş menüleri, ücretler, limitler ve mevzuat değişebileceği için işlem günündeki resmî ekran ve noter yönlendirmesi esas alınmalıdır.`,
+    },
+];
+
+export const guidesData: Guide[] = [...baseGuidesData, ...additionalGuides].map((guide) => {
+    const enrichment = guide.slug === flagshipPurchaseGuide.slug
+        ? flagshipPurchaseGuide
+        : guideEnrichments[guide.slug];
     if (!enrichment) return guide;
 
-    const content = enrichment.replaceContent
-        ?? `${guide.content.trim()}\n\n${enrichment.appendContent?.trim() ?? ''}`.trim();
+    const appendContent = 'appendContent' in enrichment ? enrichment.appendContent : undefined;
+    const primaryContent = enrichment.replaceContent
+        ?? `${guide.content.trim()}\n\n${appendContent?.trim() ?? ''}`.trim();
+    const advancedModule = guideAdvancedModules[guide.slug];
+    const content = advancedModule ? `${primaryContent}\n\n${advancedModule.trim()}` : primaryContent;
     const wordCount = content.trim().split(/\s+/).length
         + enrichment.keyTakeaways.join(' ').split(/\s+/).length
         + enrichment.faqs.flatMap((faq) => [faq.question, faq.answer]).join(' ').split(/\s+/).length;
 
     return {
         ...guide,
+        title: enrichment.title ?? guide.title,
         content,
         excerpt: enrichment.excerpt ?? guide.excerpt,
         updatedDate: enrichment.updatedDate,
         readTime: `${Math.max(5, Math.ceil(wordCount / 180))} dk`,
         keyTakeaways: enrichment.keyTakeaways,
         faqs: enrichment.faqs,
+        howToSteps: enrichment.howToSteps,
     };
 });

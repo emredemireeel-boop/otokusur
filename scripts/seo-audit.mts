@@ -1,4 +1,6 @@
 import { engineDNAData as legacyEngineDNAData, type EngineOption } from '../data/engine-dna.ts';
+import { marketDemandEngineDNAData } from '../data/market-demand-engine-dna.ts';
+import { marketDemandVehicleDNAData } from '../data/market-demand-vehicle-dna.ts';
 import { evergreenDemandEngineDNAData } from '../data/evergreen-demand-engine-dna.ts';
 import { evergreenDemandVehicleDNAData, evergreenSupersededVehicleIds } from '../data/evergreen-demand-vehicle-dna.ts';
 import { guidesData } from '../data/guides.ts';
@@ -16,18 +18,20 @@ import { createSlug, vehicleDNAData as legacyVehicleDNAData, type VehicleDNA } f
 
 const supersededIds = new Set([...supersededLegacyVehicleIds, ...searchDemandSupersededVehicleIds, ...evergreenSupersededVehicleIds, ...secondHandSupersededVehicleIds]);
 const secondHandIds = new Set(secondHandDemandVehicleDNAData.map((vehicle) => vehicle.id));
+const marketDemandIds = new Set(marketDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const turkeySearchIds = new Set(turkeySearchVehicleDNAData.map((vehicle) => vehicle.id));
 const evergreenIds = new Set(evergreenDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const searchDemandIds = new Set(searchDemandVehicleDNAData.map((vehicle) => vehicle.id));
 const priorityIds = new Set(priorityVehicleDNAData.map((vehicle) => vehicle.id));
-const editorialIds = new Set([...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
+const editorialIds = new Set([...marketDemandIds, ...turkeySearchIds, ...secondHandIds, ...evergreenIds, ...searchDemandIds, ...priorityIds]);
 const contentEngineIds = new Set(vehicleContentEngineDNAData.map((entry) => entry.vehicleId));
 const baseVehicleDNAData = [
-    ...turkeySearchVehicleDNAData,
-    ...secondHandDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id)),
-    ...evergreenDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id)),
-    ...searchDemandVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
-    ...priorityVehicleDNAData.filter((vehicle) => !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
+    ...marketDemandVehicleDNAData,
+    ...turkeySearchVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id)),
+    ...secondHandDemandVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id)),
+    ...evergreenDemandVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id)),
+    ...searchDemandVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id)),
+    ...priorityVehicleDNAData.filter((vehicle) => !marketDemandIds.has(vehicle.id) && !turkeySearchIds.has(vehicle.id) && !secondHandIds.has(vehicle.id) && !evergreenIds.has(vehicle.id) && !searchDemandIds.has(vehicle.id)),
     ...legacyVehicleDNAData.filter((vehicle) => !editorialIds.has(vehicle.id) && !supersededIds.has(vehicle.id)),
 ];
 const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
@@ -36,7 +40,8 @@ const vehicleDNAData = baseVehicleDNAData.map((vehicle) => ({
 }));
 const engineDNAData = [
     ...vehicleContentEngineDNAData,
-    ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
+    ...marketDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId)),
+    ...turkeySearchEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !marketDemandIds.has(entry.vehicleId)),
     ...secondHandDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId)),
     ...evergreenDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId)),
     ...searchDemandEngineDNAData.filter((entry) => !contentEngineIds.has(entry.vehicleId) && !turkeySearchIds.has(entry.vehicleId) && !secondHandIds.has(entry.vehicleId) && !evergreenIds.has(entry.vehicleId)),
@@ -92,7 +97,7 @@ const boilerplateIssueDescriptions = engines.flatMap((engine) => engine.chronicI
 const buyingGuideVehicles = uniqueVehicles.filter((vehicle) => vehicle.buyingGuide).length;
 const faqVehicles = uniqueVehicles.filter((vehicle) => (vehicle.faqs?.length ?? 0) >= 3).length;
 const guideWordCounts = guidesData.map((guide) => guide.content.trim().split(/\s+/).length);
-const deepGuides = guidesData.filter((guide) => guide.content.trim().split(/\s+/).length >= 400).length;
+const deepGuides = guidesData.filter((guide) => guide.content.trim().split(/\s+/).length >= 700).length;
 const faqGuides = guidesData.filter((guide) => (guide.faqs?.length ?? 0) >= 4).length;
 const updatedGuides = guidesData.filter((guide) => guide.updatedDate).length;
 const brands = new Set(uniqueVehicles.map((vehicle) => createSlug(vehicle.brand))).size;
@@ -111,7 +116,7 @@ console.table({
     'Kalıp kusur açıklaması': boilerplateIssueDescriptions,
     'Satın alma planı bulunan araç': buyingGuideVehicles,
     'Model SSS içeriği bulunan araç': faqVehicles,
-    'Derin içerikli rehber (400+ kelime)': deepGuides,
+    'Derin içerikli rehber (700+ kelime)': deepGuides,
     '4+ SSS bulunan rehber': faqGuides,
     'Güncelleme tarihi olan rehber': updatedGuides,
     'En kısa rehber kelime sayısı': Math.min(...guideWordCounts),
@@ -125,7 +130,7 @@ const missingEnrichmentVehicles = Object.keys(vehicleContentEnrichment)
     .map(Number)
     .filter((id) => !vehicleDNAData.some((vehicle) => vehicle.id === id));
 if (missingEnrichmentVehicles.length) failures.push('Yayında karşılığı olmayan içerik zenginleştirme kimliği: ' + missingEnrichmentVehicles.join(', '));
-if (deepGuides !== guidesData.length) failures.push('400 kelimenin altında kalan rehber sayısı: ' + (guidesData.length - deepGuides));
+if (deepGuides !== guidesData.length) failures.push('700 kelimenin altında kalan rehber sayısı: ' + (guidesData.length - deepGuides));
 if (faqGuides !== guidesData.length) failures.push('Dört özgün SSS bulunmayan rehber sayısı: ' + (guidesData.length - faqGuides));
 if (updatedGuides !== guidesData.length) failures.push('Güncelleme tarihi bulunmayan rehber sayısı: ' + (guidesData.length - updatedGuides));
 

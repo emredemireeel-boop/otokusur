@@ -2,11 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { getAllComments, deleteComment, type Comment, type CommentStatus } from '@/lib/commentService';
-import { Shield, Trash2, Star, Clock, Fuel, User, Loader2, Filter, MessageSquare, Lock, Gauge, CalendarDays, Wrench } from 'lucide-react';
-
-// ── Basit Şifre Koruması ───────────────────────────
-// .env.local dosyasına NEXT_PUBLIC_ADMIN_PASSWORD=senin_sifren yaz
-const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'otokusur2025';
+import { Shield, Trash2, Star, Clock, Fuel, User, Loader2, Filter, MessageSquare, Gauge, CalendarDays, Wrench } from 'lucide-react';
 
 function timeAgo(date: Date): string {
     const now = new Date();
@@ -30,31 +26,9 @@ function statusBadge(status: CommentStatus) {
 }
 
 export default function AdminYorumlar() {
-    const [authenticated, setAuthenticated] = useState(false);
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState(false);
-
     const [comments, setComments] = useState<Comment[]>([]);
     const [loading, setLoading] = useState(false);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
-
-    // Auth check
-    const handleLogin = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (password === ADMIN_PASSWORD) {
-            setAuthenticated(true);
-            setPasswordError(false);
-            sessionStorage.setItem('admin_auth', 'true');
-        } else {
-            setPasswordError(true);
-        }
-    };
-
-    useEffect(() => {
-        if (sessionStorage.getItem('admin_auth') === 'true') {
-            setAuthenticated(true);
-        }
-    }, []);
 
     // Fetch comments
     const fetchComments = useCallback(async () => {
@@ -70,8 +44,8 @@ export default function AdminYorumlar() {
     }, []);
 
     useEffect(() => {
-        if (authenticated) fetchComments();
-    }, [authenticated, fetchComments]);
+        fetchComments();
+    }, [fetchComments]);
 
     // Actions
     const handleDelete = async (id: string) => {
@@ -87,40 +61,6 @@ export default function AdminYorumlar() {
         }
     };
 
-    // ── Login Screen ───────────────────────────────
-    if (!authenticated) {
-        return (
-            <div className="min-h-screen bg-[#F7F7F8] flex items-center justify-center p-4">
-                <div className="card-elevated max-w-sm w-full p-8 text-center">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#A91D3A] to-[#8B1730] flex items-center justify-center mx-auto mb-4">
-                        <Lock size={24} className="text-white" />
-                    </div>
-                    <h1 className="text-[18px] font-bold text-[#0F0F10] mb-1">Admin Paneli</h1>
-                    <p className="text-[12px] text-[#71717A] mb-6">Yorum moderasyon paneline erişmek için şifrenizi girin</p>
-
-                    <form onSubmit={handleLogin} className="space-y-4">
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => { setPassword(e.target.value); setPasswordError(false); }}
-                            placeholder="Admin şifresi"
-                            className={`search-input !pl-4 !text-[13px] w-full ${passwordError ? '!border-red-400' : ''}`}
-                            autoFocus
-                        />
-                        {passwordError && (
-                            <p className="text-[11px] text-red-500 font-medium">Yanlış şifre!</p>
-                        )}
-                        <button type="submit" className="btn-primary w-full text-[13px] py-2.5">
-                            <Shield size={14} />
-                            Giriş Yap
-                        </button>
-                    </form>
-                </div>
-            </div>
-        );
-    }
-
-    // ── Admin Panel ────────────────────────────────
     return (
         <div className="min-h-screen bg-[#F7F7F8]">
             {/* Header */}

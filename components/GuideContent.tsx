@@ -44,10 +44,11 @@ function tableCells(line: string): string[] {
 export default function GuideContent({ content }: { content: string }) {
     const lines = content.split(/\r?\n/);
     const blocks: ReactNode[] = [];
-    const toc = lines
+    const allToc = lines
         .map((line) => line.trim().match(/^(#{2,3})\s+(.+)$/))
         .filter((match): match is RegExpMatchArray => Boolean(match))
         .map((match) => ({ level: match[1].length, text: match[2].replace(/\*\*/g, ''), id: headingId(match[2]) }));
+    const toc = allToc.length > 18 ? allToc.filter((item) => item.level === 2) : allToc;
     let index = 0;
 
     if (toc.length >= 3) {

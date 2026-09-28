@@ -1,10 +1,12 @@
 interface GuideEnrichment {
+    title?: string;
     updatedDate: string;
     excerpt?: string;
     replaceContent?: string;
     appendContent?: string;
     keyTakeaways: string[];
     faqs: Array<{ question: string; answer: string }>;
+    howToSteps?: Array<{ name: string; text: string }>;
 }
 
 const updatedDate = '2026-09-28';
