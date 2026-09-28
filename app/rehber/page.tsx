@@ -4,7 +4,7 @@ import BlogCard from '@/components/BlogCard';
 
 export const metadata: Metadata = {
     title: 'İkinci El Araç Alım Rehberi ve Ekspertiz İpuçları',
-    description: 'Türkiye’de en çok satan otomobiller dahil 37 derin ikinci el araç rehberi: motor seçimi, kronik kontrol, ekspertiz, güvenli ödeme ve satın alma ipuçları.',
+    description: 'Türkiye’de en çok satan otomobiller dahil 43 derin ikinci el araç rehberi: kasa kodları, motor seçimi, kronik kontrol, ekspertiz ve satın alma ipuçları.',
     alternates: { canonical: '/rehber' },
     openGraph: { title: 'İkinci El Araç Alım Rehberi', description: 'Ekspertiz, motor seçimi ve kronik arıza araştırması için uygulanabilir rehberler.', url: '/rehber' },
 };
