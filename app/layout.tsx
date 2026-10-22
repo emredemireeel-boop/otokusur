@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight, Database, ShieldCheck } from "lucide-react";
 import { HeaderClient } from "@/components/Header";
 import Logo from "@/components/Logo";
+import AdSense from "@/components/AdSense";
+import AdPrivacySettings from "@/components/AdPrivacySettings";
 import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -27,6 +29,7 @@ export const metadata: Metadata = {
     authors: [{ name: "OtoKusur Araştırma Ekibi", url: "/hakkimizda" }],
     creator: "OtoKusur",
     publisher: "OtoKusur",
+    other: { "google-adsense-account": "ca-pub-6387001035314883" },
     alternates: { canonical: "/" },
     icons: { icon: "/icon.svg" },
     manifest: "/manifest.webmanifest",
@@ -92,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Header />
                 <main id="main-content" className="flex-1">{children}</main>
                 <Footer />
+                <AdSense />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
             </body>
@@ -153,6 +157,8 @@ function Footer() {
                             <li><Link href="/veri-metodolojisi">Veri metodolojisi</Link></li>
                             <li><Link href="/hakkimizda">Hakkımızda</Link></li>
                             <li><Link href="/yayin-ilkeleri">Yayın ilkeleri</Link></li>
+                            <li><Link href="/gizlilik">Gizlilik ve çerezler</Link></li>
+                            <li><AdPrivacySettings /></li>
                         </ul>
                     </div>
 
