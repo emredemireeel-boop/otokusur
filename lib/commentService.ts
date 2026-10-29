@@ -78,7 +78,7 @@ export async function addComment(input: CommentInput): Promise<string> {
     return docRef.id;
 }
 
-// ── Get APPROVED Comments (public) ─────────────────
+// ── Get Published Comments (public) ────────────────
 export async function getComments(
     vehicleId: number,
     engineSlug?: string,
@@ -86,7 +86,7 @@ export async function getComments(
 ): Promise<Comment[]> {
     const constraints = [
         where("vehicleId", "==", vehicleId),
-        where("status", "==", "approved"),   // Sadece onaylananlar
+        where("status", "==", "approved"),   // Yeni yorumlar doğrudan bu durumla yayımlanır.
         orderBy("createdAt", "desc"),
         limit(maxResults),
     ];
@@ -103,31 +103,17 @@ export async function getComments(
 
 // ── Get ALL Comments (admin) ───────────────────────
 export async function getAllComments(
-    statusFilter?: CommentStatus,
     maxResults: number = 200
 ): Promise<Comment[]> {
-    const constraints: ReturnType<typeof where | typeof orderBy | typeof limit>[] = [
+    const constraints = [
         orderBy("createdAt", "desc"),
         limit(maxResults),
     ];
-
-    if (statusFilter) {
-        constraints.unshift(where("status", "==", statusFilter));
-    }
 
     const q = query(collection(db, COLLECTION), ...constraints);
     const snapshot = await getDocs(q);
 
     return snapshot.docs.map((d) => docToComment(d));
-}
-
-// ── Approve / Reject Comment (admin) ───────────────
-export async function moderateComment(
-    commentId: string,
-    newStatus: "approved" | "rejected"
-): Promise<void> {
-    const docRef = doc(db, COLLECTION, commentId);
-    await updateDoc(docRef, { status: newStatus });
 }
 
 // ── Delete Comment (admin) ─────────────────────────
@@ -184,7 +170,7 @@ function docToComment(d: import("firebase/firestore").QueryDocumentSnapshot): Co
         vehicleYear: data.vehicleYear,
         engineDetail: data.engineDetail,
         likes: data.likes || 0,
-        status: data.status || "pending",
+        status: data.status || "approved",
         createdAt: data.createdAt instanceof Timestamp
             ? data.createdAt.toDate()
             : new Date(),

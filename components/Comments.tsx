@@ -175,7 +175,7 @@ export default function Comments({ vehicleId, engineSlug, vehicleName }: Comment
     const [vehicleYear, setVehicleYear] = useState('');
     const [engineDetail, setEngineDetail] = useState('');
 
-    // Fetch approved comments
+    // Fetch published comments
     const fetchComments = useCallback(async () => {
         try {
             setLoading(true);
